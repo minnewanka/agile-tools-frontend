@@ -1,0 +1,11 @@
+.row {
+  margin-bottom: 0;  
+  .loader.col.s12 {
+    display: none;        
+    text-align: center;
+    &.loading {
+      display: block;
+      opacity: 0.5;
+    }
+  }
+}

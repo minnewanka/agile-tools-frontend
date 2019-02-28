@@ -1,0 +1,27 @@
+@import '../../sass/variable';
+.button-linkstyle{
+  background:none;
+  border:none; 
+  padding:0;
+  text-decoration:underline;
+  cursor:pointer;
+  text-transform: uppercase;
+}
+.link-connect{
+  color:$color-blue;
+  margin-right: 50px
+}
+  .link-connect:focus, .link-connect:hover, .link-connect:focus {
+    color:$color-blue-light;
+  }
+
+.link-delete{
+  color:$color-red;
+}
+  .link-delete:focus, .link-delete:hover, .link-delete:focus {
+  color:$color-red-light;
+}
+
+.room-card-title{
+  width: 250px;
+}

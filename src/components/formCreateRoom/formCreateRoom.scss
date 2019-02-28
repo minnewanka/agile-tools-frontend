@@ -1,0 +1,65 @@
+@import '../../sass/variable';
+
+@media screen and (min-width: 1024px) {
+  .card-session {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+
+.main-container{
+  min-height: calc(100vh - 250px);
+}
+/* Container of the form */
+.card .card-content {
+  height: 220px
+}
+
+/* Button create */
+.center-align {
+  margin-bottom: 15px;
+  &.loading {
+    display: none;
+  }
+  .btn-create {
+    background-color:$color-blue-light;
+  }
+  /* button focus hover floting color */
+  .btn-create:focus, .btn-create:hover, .btn-floating:focus {
+    background-color: $color-blue;
+  }
+}
+
+.input-field {
+  /* input text focus color */
+  input[type=text]:focus {
+    /* label underline focus color */
+    border-bottom: 1px solid $color-blue;
+    box-shadow: 0 1px 0 0 $color-blue;
+    /* label focus color */
+    +label {
+      color: $color-blue;
+    }
+  }
+  /* input text error */
+  input.error[type=text] {
+    /* label underline focus color error */
+    border-bottom: 1px solid $color-red;
+    box-shadow: 0 1px 0 0 $color-red;
+    /* label color error */
+    +label {
+      color: $color-red;
+    }
+    /* focus and label color error */
+    :focus+label {
+      color: $color-red;
+    }
+  }
+}
+
+/* By default, the value of top is too high for displaying the error message */
+input.error {
+  +label:after {
+    top:40px
+  }
+}

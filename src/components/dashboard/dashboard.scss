@@ -1,0 +1,49 @@
+@import '../../sass/variable';
+
+@media screen and (min-width: 1024px) {
+  .dashboard-session {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+
+.dashboard-container{
+  height: 75vh;
+}
+
+.room-container{
+  display: flex;
+  justify-content:space-between;
+  background-image: linear-gradient(to right bottom,$color-blue-low-opacity ,$color-blue-light-low-opacity), url(../../img/planning-poker.jpg);
+}
+.room-title-box{
+  padding: 20px;
+  flex-grow: 3;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.room-code-box{
+  color: #ffffff;
+  border-style: solid;
+  padding: 20px;
+  align-self: flex-end;
+  margin-right: 20px;
+}
+.participants-list{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#toast-container {
+  top: auto !important;
+  right: 7%;
+  bottom: 10%;
+  left:auto !important;
+}
+
+.chips-participants{
+  color: #ffffff;
+  background: #8e8e92;
+
+}
