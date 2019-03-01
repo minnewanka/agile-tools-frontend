@@ -8,9 +8,9 @@ const Tshirt = ({ isFlipped, vote, username }) => (
   <div className="card-container">
     <ReactCardFlip isFlipped={isFlipped} className="flipper" >
       <div key="front" >
-        <div className="tshirt-wrapper">
-          <TshirtFront className="svg-tshirt" />
-          <span className="span-tshirt-size">S</span>
+          <TshirtFront />
+        <div className="floatTL">
+         <span className="span-tshirt-size">{vote}</span> 
         </div>
       </div>
       <div key="back" >
