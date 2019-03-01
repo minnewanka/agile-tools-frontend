@@ -7,7 +7,7 @@ var getVotes = async (roomCode) => {
   query.equalTo("roomCode", roomCode)
   const results = await query.find()
   const participants = results.map((result) => (
-    { username: result.get("username"), vote: result.get("vote") }
+    { username: result.get("username"), pokerVote: result.get("pokerplanning"), tshirtVote: result.get("tshirt") }
   ))
   return participants
 }

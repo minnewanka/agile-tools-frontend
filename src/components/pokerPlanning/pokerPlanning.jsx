@@ -72,12 +72,12 @@ class PokerPlanning extends Component {
     return (
       <div className="poker-planning-container" onClick={this.handleClick}>
         <Row className="card-row">
-          {this.props.participants.filter((participant) => (participant.vote !== undefined)).map((participant, index) => {
-            return <Col l={2} key={index}><Card key={index} isFlipped={this.state.isFlipped} vote={participant.vote} username={participant.username} /> </Col>
+          {this.props.participants.filter((participant) => (participant.pokerVote !== undefined)).map((participant, index) => {
+            return <Col l={2} key={index}><Card key={index} isFlipped={this.state.isFlipped} vote={participant.pokerVote} username={participant.username} /> </Col>
           })}
         </Row>
         <Row className="center-align" >
-          {stats}
+          {/* {stats} */}
         </Row>
       </div>
     )
