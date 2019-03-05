@@ -81,7 +81,7 @@ class PokerPlanning extends Component {
           {this.props.participants.filter((participant) => (participant.pokerVote !== undefined)).map((participant, index) => {
             return <CSSTransition
                 timeout={500}
-                classNames="example">
+                classNames="animation-card">
                 <Col l={2} key={index}>
                 <Card key={index} isFlipped={this.state.isFlipped} vote={participant.pokerVote} username={participant.username} />
                 </Col>
