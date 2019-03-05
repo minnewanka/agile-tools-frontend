@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './pokerPlanning.scss'
 import Card from './card'
 import { Row, Col } from 'react-materialize'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 class PokerPlanning extends Component {
 
@@ -12,7 +13,8 @@ class PokerPlanning extends Component {
       maxVote: 0,
       minVote: 1000,
       sumVote: 0,
-      median: 0
+      median: 0,
+      mounted: false
     }
     this.handleClick = this.handleClick.bind(this)
     this.calculateStats = this.calculateStats.bind(this)
@@ -50,6 +52,9 @@ class PokerPlanning extends Component {
     return participants.filter((participant) => (participant.vote !== undefined && !isNaN(participant.vote)))
       .map((participant) => (participant.vote)).map(Number).reduce((sum, current) => sum + current, 0)
   }
+  componentDidMount(){
+    this.setState({mounted:true})
+  }
 
   componentDidUpdate(oldProps) {
     const OldSumVotes = this.calculateSumVote(oldProps.participants)
@@ -72,9 +77,17 @@ class PokerPlanning extends Component {
     return (
       <div className="poker-planning-container" onClick={this.handleClick}>
         <Row className="card-row">
+        <TransitionGroup>
           {this.props.participants.filter((participant) => (participant.pokerVote !== undefined)).map((participant, index) => {
-            return <Col l={2} key={index}><Card key={index} isFlipped={this.state.isFlipped} vote={participant.pokerVote} username={participant.username} /> </Col>
+            return <CSSTransition
+                timeout={500}
+                classNames="example">
+                <Col l={2} key={index}>
+                <Card key={index} isFlipped={this.state.isFlipped} vote={participant.pokerVote} username={participant.username} />
+                </Col>
+              </CSSTransition>
           })}
+          </TransitionGroup>
         </Row>
         <Row className="center-align" >
           {/* {stats} */}
