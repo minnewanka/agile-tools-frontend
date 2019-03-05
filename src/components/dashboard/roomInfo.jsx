@@ -1,12 +1,31 @@
-import React from 'react'
+import React, {Component} from 'react'
 import './dashboard.scss'
+import { ReactComponent as Logo } from '../../img/logosii.svg'
+import { withRouter } from "react-router"
 
-const RoomInfo = ({ roomName, roomCode }) => (
+class RoomInfo extends Component {
 
-  <div className="room-container">
-    <h1 className="room-title-box">{roomName}</h1>
-    <h1 className="room-code-box">Room# {roomCode}</h1>
-  </div>
+  constructor(props){
+    super(props)
+    this.redirect = this.redirect.bind(this)
+  }
 
-)
-export default RoomInfo
+  redirect() {
+    console.log("click")
+    this.props.history.push({ pathname: "/" })
+  }
+  
+  render(){
+    return(
+      <div className = "room-container" >
+        <Logo className="room-title-logo" onClick={this.redirect} />
+        <h1 className="room-title-box">{this.props.roomName}</h1>
+        <h1 className="room-code-box">Room# {this.props.roomCode}</h1>
+     </div>
+    )
+  }
+
+}
+
+
+export default withRouter(RoomInfo)

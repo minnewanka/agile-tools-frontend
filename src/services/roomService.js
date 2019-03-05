@@ -25,6 +25,7 @@ import Parse from 'parse'
 var getRooms = async () => {
   const Room = Parse.Object.extend("Room")
   const query = new Parse.Query(Room)
+  query.descending("createdAt")
   const results = await query.find()
   const rooms = results.map((result) => (
     { code: result.get("code"), name: result.get("name") }

@@ -5,7 +5,8 @@ import PokerPlanning from '../pokerPlanning/pokerPlanning'
 import TshirtCeremony from '../tshirtCeremony/tshirtCeremony'
 import Parse from 'parse'
 import { getRoom } from '../../services/roomService'
-import { Row, Col, Chip, Input } from 'react-materialize'
+import { deleteVote } from '../../services/voteService'
+import { Row, Col, Input } from 'react-materialize'
 import { getVotes } from '../../services/voteService'
 
 
@@ -21,6 +22,7 @@ class Dashboard extends Component {
     }
     this.initLiveQuery = this.initLiveQuery.bind(this)
     this.handleTypeRoom = this.handleTypeRoom.bind(this)
+    this.handledeleteParticipants = this.handledeleteParticipants.bind(this)
   }
 
   componentDidMount() {
@@ -60,6 +62,17 @@ class Dashboard extends Component {
       this.setState({ participants: participants })
     })
 
+    subscription.on('delete', (object) => {
+      const username = object.get("username")
+      const participants = this.state.participants.filter((participant) => (participant.username !== object.get("username")))
+      this.setState({ participants: participants })
+      window.Materialize.toast(username + ' is now deconnected', 3000)
+    })
+    
+
+  }
+  handledeleteParticipants(username) {
+    deleteVote(username)
   }
 
   handleTypeRoom(evt) {
@@ -82,13 +95,11 @@ class Dashboard extends Component {
       <div className="dashboard-container">
         <RoomInfo roomName={this.state.roomName} roomCode={this.state.roomCode} />
         <Row className="participants-list">
-          {labelParticipants}
-          <Col s={10} l={9}>
+          {/* {labelParticipants} */}
+          <Col s={10} l={10}>
             {
               this.state.participants.map((participant, index) => (
-                <Chip key={index} className="chips-participants">
-                  {participant.username}
-                </Chip>
+                <div key={index} className="chips-participants">{participant.username}<span className="deleteIcon" onClick={()=>(this.handledeleteParticipants(participant.username))}>&times;</span></div>
               ))
             }
           </Col>

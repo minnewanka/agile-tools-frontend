@@ -11,5 +11,11 @@ var getVotes = async (roomCode) => {
   ))
   return participants
 }
-
-export { getVotes }
+var deleteVote = async (username) => {
+  const Vote = Parse.Object.extend("Vote")
+  const query = new Parse.Query(Vote)
+  query.equalTo("username", username)
+  const object = await query.first()
+  return object.destroy()
+}
+export { getVotes , deleteVote }
