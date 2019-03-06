@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import './dashboard.scss'
-import { ReactComponent as Logo } from '../../img/logosii.svg'
+import { ReactComponent as Logo } from '../../img/logo-text.svg'
 import { withRouter } from "react-router"
 
 class RoomInfo extends Component {

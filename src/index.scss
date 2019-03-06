@@ -1,15 +1,12 @@
 $margin-body: 0;
 $padding-body: 0;
 
-* {
-  box-sizing: border-box;
- }
- *:before,
- *:after {
-  box-sizing: border-box;
- }
+* { margin:0; padding:0; box-sizing:border-box; }
  
-body {
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
   margin: $margin-body;
   padding: $padding-body;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

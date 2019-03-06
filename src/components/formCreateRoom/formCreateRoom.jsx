@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import './formCreateRoom.scss'
 import { Button, Card, Input, Row } from 'react-materialize'
-import {createRoom} from '../../services/roomService'
+import { createRoom } from '../../services/roomService'
 import ErrorMessage from '../errorMessage/errorMessage'
 import Loader from '../loader/loader'
 import { withRouter } from "react-router"
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+import GooglePlay from '../../img/google-play-badge-en.png'
+import { ReactComponent as AppStore } from '../../img/appstore-badge-fr.svg'
 
 
 
@@ -25,7 +27,7 @@ export class FormCreateRoom extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleRoomNameChange = this.handleRoomNameChange.bind(this)
     this.handleRoomNameFocus = this.handleRoomNameFocus.bind(this)
-  
+
   }
 
   handleRoomNameChange = (evt) => {
@@ -74,7 +76,7 @@ export class FormCreateRoom extends Component {
           key={0}
           error={this.state.errorServer}
         />
-      <Card
+        <Card
           key={1}
           className='white left-align card-session'
           textClassName='black-text'
@@ -100,11 +102,17 @@ export class FormCreateRoom extends Component {
                 key={2}
                 loading={this.state.loading}
               />
+
             </Row>
           </form>
           {this.redirect()}
-          <div className="right-align"><Link to="/rooms">Load existing Room</Link> </div>      
+          <div className="right-align"><Link to="/rooms">Load existing Room</Link> </div>
         </Card>
+        <div className="store-badge-container">
+         <span className="store-badge-text">Obtenez l’application mobile</span>
+          <img className="app-badge" src={GooglePlay} alt="" />
+          <AppStore className="app-badge" />
+        </div>
       </div>
     )
   }

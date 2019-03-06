@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import './header.scss'
-import { ReactComponent as Logo } from '../../img/logosii.svg'
+import { ReactComponent as Logo } from '../../img/logo-text.svg'
 import { withRouter } from "react-router"
 
 class HeaderApp extends Component {
@@ -18,9 +18,7 @@ class HeaderApp extends Component {
   render() {
     return (
       <header className="app-header">
-      <h3 className="logo-header">
-      <Logo onClick={this.redirect} />
-      </h3>
+      <Logo className ="logo-header" onClick={this.redirect} />
     </header>
     )
   }

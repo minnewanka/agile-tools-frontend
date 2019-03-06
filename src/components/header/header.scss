@@ -8,13 +8,11 @@ $value-left: 0;
 .app-header {
   text-align: center;  
   background-color: $color-blue;
-  height: 105px;
-  padding: 15px;
+  height: $header-height;
+  padding-top: 15px;
   color: $color-white;
 }
 
-h3.logo-header {
-  margin: $value-top $value-right $value-bottom $value-left;  
-  font-size: 2.92rem;
-  line-height: 110%;
+.logo-header {
+ height: 60px;
 }

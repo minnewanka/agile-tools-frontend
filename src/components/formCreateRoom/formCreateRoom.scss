@@ -8,7 +8,7 @@
 }
 
 .main-container{
-  min-height: calc(100vh - 250px);
+  height: calc(100vh - (#{$header-height} + #{$footer-height}));
 }
 /* Container of the form */
 .card .card-content {
@@ -62,4 +62,21 @@ input.error {
   +label:after {
     top:40px
   }
+}
+
+.app-badge{
+  height: 55px;
+}
+
+.store-badge-container{
+  margin-top: 100px;
+  text-align: center;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+.store-badge-text{
+  display: inline-block;
+  vertical-align: middle;
 }

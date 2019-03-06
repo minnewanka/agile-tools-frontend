@@ -6,9 +6,10 @@ import TshirtCeremony from '../tshirtCeremony/tshirtCeremony'
 import Parse from 'parse'
 import { getRoom } from '../../services/roomService'
 import { deleteVote } from '../../services/voteService'
-import { Row, Col, Input } from 'react-materialize'
+import { Row, Col, Input, Collection, CollectionItem, Icon} from 'react-materialize'
 import { getVotes } from '../../services/voteService'
-
+import DeleteRoomModal from './deleteRoomModal'
+import Footer from '../footer/footer'
 
 class Dashboard extends Component {
 
@@ -68,7 +69,7 @@ class Dashboard extends Component {
       this.setState({ participants: participants })
       window.Materialize.toast(username + ' is now deconnected', 3000)
     })
-    
+
 
   }
   handledeleteParticipants(username) {
@@ -80,40 +81,47 @@ class Dashboard extends Component {
   }
 
   render() {
-    let labelParticipants
+   
     let ceremonie
-    if (this.state.participants.length > 0) {
-      labelParticipants = <Col>Participants</Col>
-    }
     if (this.state.ceremony === "pokerplanning") {
       ceremonie = <PokerPlanning participants={this.state.participants} />
     } else {
-      ceremonie = <TshirtCeremony participants={this.state.participants}/>
+      ceremonie = <TshirtCeremony participants={this.state.participants} />
     }
 
     return (
-      <div className="dashboard-container">
+      [<div className="dashboard-container">
         <RoomInfo roomName={this.state.roomName} roomCode={this.state.roomCode} />
-        <Row className="participants-list">
-          {/* {labelParticipants} */}
+        <div>
+        <Row>
           <Col s={10} l={10}>
-            {
-              this.state.participants.map((participant, index) => (
-                <div key={index} className="chips-participants">{participant.username}<span className="deleteIcon" onClick={()=>(this.handledeleteParticipants(participant.username))}>&times;</span></div>
-              ))
-            }
+          {ceremonie}
           </Col>
-          <Col s={10} l={2}>
-            <Input type='select' label="Ceremonie" defaultValue={this.state.ceremony} onChange={this.handleTypeRoom}>
+          <Col className="sideBar" s={10} l={2}>
+            <Input className="ceremonie-input" type='select' label="Ceremonie" icon='event_seat' defaultValue={this.state.ceremony} onChange={this.handleTypeRoom}>
               <option value='pokerplanning'>Poker Planning</option>
               <option value='tshirt'>T Shirt</option>
             </Input>
+           
+            <Collection className="participants-list">
+            <li className="collection-header"><h5 className="participants-list-header">Participants</h5></li>
+            {
+              this.state.participants.map((participant, index) => (
+               
+                <CollectionItem className="participant-item"><Icon className="account-icon" center={true}>account_circle</Icon><span className="participant-item-text">{participant.username}</span><span className="deleteIcon " onClick={() => (this.handledeleteParticipants(participant.username))}>&times;</span></CollectionItem>
+                ))
+            }
+              
+            </Collection>
+            <div  className="btn-delete-room">
+                <DeleteRoomModal roomCode={this.state.roomCode} />
+            </div>
           </Col>
+            
         </Row>
-        {}
-        {ceremonie}
-
-      </div>
+        </div>
+      </div>,
+      <Footer />]
     )
   }
 }
