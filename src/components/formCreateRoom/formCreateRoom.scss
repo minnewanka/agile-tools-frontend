@@ -33,8 +33,8 @@
   /* input text focus color */
   input[type=text]:focus {
     /* label underline focus color */
-    border-bottom: 0,1rem solid $color-blue;
-    box-shadow: 0 0,1rem 0 0 $color-blue;
+    border-bottom: 0.1rem solid $color-blue;
+    box-shadow: 0 0.1rem 0 0 $color-blue;
     /* label focus color */
     +label {
       color: $color-blue;
@@ -43,8 +43,8 @@
   /* input text error */
   input.error[type=text] {
     /* label underline focus color error */
-    border-bottom: 1.5rem solid $color-red;
-    box-shadow: 0 1.5rem 0 0 $color-red;
+    border-bottom: 0.1rem solid $color-red;
+    box-shadow: 0 0.1rem 0 0 $color-red;
     /* label color error */
     +label {
       color: $color-red;
