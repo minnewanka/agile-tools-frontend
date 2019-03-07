@@ -9,7 +9,7 @@
 }
 .link-connect{
   color:$color-blue;
-  margin-right: 50px
+  margin-right: 5rem
 }
   .link-connect:focus, .link-connect:hover, .link-connect:focus {
     color:$color-blue-light;
@@ -22,6 +22,12 @@
   color:$color-red-light;
 }
 
+.room-list-container{
+  height: calc(100vh - (#{$header-height} + #{$footer-height}) );
+  display: flex;
+}
+
 .room-card-title{
-  width: 250px;
+  height: 20rem;
+  margin: 2rem;
 }

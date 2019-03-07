@@ -1,18 +1,15 @@
 @import '../../sass/variable';
 
-$value-top: 0;
-$value-right: 0;
-$value-bottom: 0;
-$value-left: 0;
+
 
 .app-header {
   text-align: center;  
   background-color: $color-blue;
   height: $header-height;
-  padding-top: 15px;
+  padding-top: 3rem;
   color: $color-white;
 }
 
 .logo-header {
- height: 60px;
+ height: 6rem;
 }

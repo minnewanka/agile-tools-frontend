@@ -72,13 +72,15 @@ export class FormCreateRoom extends Component {
     return (
 
       <div className='main-container'>
-        <ErrorMessage
+
+      <div className="card-session">
+      <ErrorMessage
           key={0}
           error={this.state.errorServer}
         />
         <Card
           key={1}
-          className='white left-align card-session'
+          className='white'
           textClassName='black-text'
           title='Create a Room'
         >
@@ -108,6 +110,8 @@ export class FormCreateRoom extends Component {
           {this.redirect()}
           <div className="right-align"><Link to="/rooms">Load existing Room</Link> </div>
         </Card>
+      </div>
+     
         <div className="store-badge-container">
          <span className="store-badge-text">Obtenez l’application mobile</span>
           <img className="app-badge" src={GooglePlay} alt="" />

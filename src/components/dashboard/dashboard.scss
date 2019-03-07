@@ -1,11 +1,5 @@
 @import '../../sass/variable';
 
-@media screen and (min-width: 1024px) {
-  .dashboard-session {
-    margin-left: 20%;
-    margin-right: 20%;
-  }
-}
 
 .dashboard-container{
   min-height: calc(100vh - #{$footer-height});
@@ -19,46 +13,47 @@
   background-image: linear-gradient(to right bottom,$color-blue-low-opacity ,$color-blue-light-low-opacity), url(../../img/planning-poker.jpg);
 }
 .room-title-logo{
-  margin-left: 20px;
+  margin-left: 2rem;
   align-self: center;
   flex-grow: 1;
 }
 .room-title-box{
-  padding: 20px;
+  font-size: 5rem;
+  padding: 2rem;
   flex-grow: 5;
   text-align: center;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .room-code-box{
-  color: #ffffff;
+  color: #FFFFFF;
   border-style: solid;
-  padding: 20px;
+  padding: 2rem;
   align-self: flex-end;
-  margin-right: 20px;
+  margin-right: 2rem;
 }
 .participants-list{
   flex-grow: 5;
-  margin: 10px 15px;
+  margin: 1rem 1.5rem;
   overflow: auto;
 }
 .participants-list-header{
-  margin-left: 20px;
+  background-color: rgb(116, 121, 121);
+  color: #FFFFFF;
+  padding: 0.5rem;
 }
 
 #toast-container {
   top: auto !important;
-  right: 7%;
-  bottom: 20%;
+  right: 2%;
+  bottom: 8%;
   left:auto !important;
 }
 
 .participant-item{
-  margin: 15px 0px;
-  padding: 0px 20px;
-  height: 40px;
-  font-size: 16px;
-  line-height: 40px;
+  height: 4rem;
+  font-size: 1.5rem;
+  line-height: 4rem;
   display: flex; 
   background-color: rgb(243, 245, 247);
 }
@@ -75,15 +70,15 @@
 }
 
 .account-icon{
-  padding-right: 10px;
+  padding-right: 1rem;
 }
 
 .deleteIcon {
   visibility: hidden;
-  padding-left: 5px;
+  padding-left: 0.5rem;
   color: #f00c0c;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 2rem;
   cursor: pointer;
   align-self: flex-end;
 }
@@ -93,15 +88,16 @@
   top: 35% !important;
 }
 
-.sideBar{
-  width: 200px;
-  height:calc(100vh - 265px);
+.sideBarContainer{
+  margin: 3rem 2rem;
+  height: 50rem;
   background-color: rgb(243, 245, 247);
-  min-height: 100vh; 
   display: flex;
   flex-direction: column;
- 
+  border-radius: 1.5rem;
 }
+
+
 
 .white-text{
   color: #ffffff;
@@ -109,7 +105,7 @@
 
 .btn-delete-room{
   align-self:center ;
-  margin: 20px;
+  margin: 2rem;
 }
 
 .fade-enter {
@@ -126,6 +122,7 @@
   opacity: 0.01;
   transition: opacity 500ms ease-in;
 }
+
 
 
 

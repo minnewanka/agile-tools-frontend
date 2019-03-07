@@ -1,23 +1,22 @@
 @import '../../sass/variable';
 
-@media screen and (min-width: 1024px) {
   .card-session {
     margin-left: 20%;
     margin-right: 20%;
   }
-}
+
 
 .main-container{
-  height: calc(100vh - (#{$header-height} + #{$footer-height}));
-}
-/* Container of the form */
-.card .card-content {
-  height: 220px
-}
+  height: calc(100vh - (#{$header-height} + #{$footer-height}) );
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
+}
 /* Button create */
 .center-align {
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
   &.loading {
     display: none;
   }
@@ -34,8 +33,8 @@
   /* input text focus color */
   input[type=text]:focus {
     /* label underline focus color */
-    border-bottom: 1px solid $color-blue;
-    box-shadow: 0 1px 0 0 $color-blue;
+    border-bottom: 0,1rem solid $color-blue;
+    box-shadow: 0 0,1rem 0 0 $color-blue;
     /* label focus color */
     +label {
       color: $color-blue;
@@ -44,8 +43,8 @@
   /* input text error */
   input.error[type=text] {
     /* label underline focus color error */
-    border-bottom: 1px solid $color-red;
-    box-shadow: 0 1px 0 0 $color-red;
+    border-bottom: 1.5rem solid $color-red;
+    box-shadow: 0 1.5rem 0 0 $color-red;
     /* label color error */
     +label {
       color: $color-red;
@@ -60,16 +59,15 @@
 /* By default, the value of top is too high for displaying the error message */
 input.error {
   +label:after {
-    top:40px
+    top:4rem
   }
 }
 
 .app-badge{
-  height: 55px;
+  height: 5.5rem;
 }
 
 .store-badge-container{
-  margin-top: 100px;
   text-align: center;
   display: flex; 
   justify-content: center;

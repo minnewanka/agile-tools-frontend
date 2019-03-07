@@ -82,7 +82,7 @@ class PokerPlanning extends Component {
             return <CSSTransition
                 timeout={500}
                 classNames="animation-card">
-                <Col l={2} key={index}>
+                <Col l={2} key={index} className="card-column">
                 <Card key={index} isFlipped={this.state.isFlipped} vote={participant.pokerVote} username={participant.username} />
                 </Col>
               </CSSTransition>

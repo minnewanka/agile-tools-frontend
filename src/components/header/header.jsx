@@ -17,9 +17,9 @@ class HeaderApp extends Component {
 
   render() {
     return (
-      <header className="app-header">
+      <div className="app-header">
       <Logo className ="logo-header" onClick={this.redirect} />
-    </header>
+    </div>
     )
   }
 }

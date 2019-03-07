@@ -29,20 +29,20 @@ export class RoomList extends Component {
   render() {
     return (
       //TODO externaliser css en commun
-      <div className="main-container">
-        <Row>
-          {this.state.rooms.map((room, index) => (
-            <Col key={index} m={2} s={12}>
-              <Card className=" room-card-title" key={index} textClassName='black-text' title={room.name}
-                actions={[
-                  <button key="connect" className="button-linkstyle link-connect" onClick={() => this.redirect(room.code)}>Connect</button>,
-                  <button key="delete" className="button-linkstyle link-delete" onClick={() => this.removeRoom(room.code)}>Delete</button>
-                ]}>
-                Room# {room.code}
-              </Card>
-            </Col>
-          ))}
-        </Row>
+      <div className="room-list-container">
+
+        {this.state.rooms.map((room, index) => (
+
+          <Card className=" room-card-title" key={index} textClassName='black-text' title={room.name}
+            actions={[
+              <button key="connect" className="button-linkstyle link-connect" onClick={() => this.redirect(room.code)}>Connect</button>,
+              <button key="delete" className="button-linkstyle link-delete" onClick={() => this.removeRoom(room.code)}>Delete</button>
+            ]}>
+            Room# {room.code}
+          </Card>
+
+        ))}
+
       </div>
     )
   }

@@ -5,10 +5,15 @@ import { Footer } from 'react-materialize'
 const FooterApp = () => {
 
     return (
-      <Footer
-        copyrights="Copyright 2019 SII Canada | All Rights Reserved"
-        className='footer-copyright'
-      />
+    
+        <footer class="page-footer">
+          <div class="footer-copyright">
+            <div class="container">
+           Copyright 2019 SII Canada | All Rights Reserved
+            <a class="grey-text text-lighten-4 right" href="https://www.siicanada.com/fr/">Powered by Sii Canada</a>
+            </div>
+          </div>
+        </footer>
     )
   
 }

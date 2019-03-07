@@ -1,13 +1,10 @@
 @import '../../sass/variable';
 
 footer.page-footer {
-  background-color: $footer-background-color
+  background-color: $footer-background-color;
+  height: $footer-height;
 }
 
 .footer-copyright{
-  color: $color-white;
-  font-size: 12px;
   text-align: center;
-  height:  $footer-height;
- 
 }
