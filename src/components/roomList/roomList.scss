@@ -24,10 +24,8 @@
 
 .room-list-container{
   height: calc(100vh - (#{$header-height} + #{$footer-height}) );
-  display: flex;
 }
 
-.room-card-title{
-  height: 20rem;
-  margin: 2rem;
+.room-card{
+  margin: 1rem;
 }

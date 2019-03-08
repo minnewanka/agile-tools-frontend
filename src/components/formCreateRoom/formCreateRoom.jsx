@@ -8,8 +8,36 @@ import { withRouter } from "react-router"
 import { Link } from "react-router-dom"
 import GooglePlay from '../../img/google-play-badge-en.png'
 import { ReactComponent as AppStore } from '../../img/appstore-badge-fr.svg'
+import { injectIntl, defineMessages } from "react-intl"
+import { compose } from 'recompose'
 
 
+const messages = defineMessages({
+  formTitle: {
+    id: 'createRoom.title',
+    defaultMessage: 'Create a Room'
+  },
+  buttonCreate: {
+    id: 'createRoom.button',
+    defaultMessage: 'Create'
+  },
+  redirectLink: {
+    id: 'createRoom.redirect',
+    defaultMessage: 'Load existing Room'
+  },
+  inputLabel: {
+    id: 'createRoom.label',
+    defaultMessage: 'Room name'
+  },
+  textMobile: {
+    id: 'createRoom.mobile',
+    defaultMessage: 'Get mobile app'
+  },
+  fieldEmptyRoom: {
+    id: 'createRoom.fieldEmptyRoom',
+    defaultMessage: 'Empty room name field'
+  }
+})
 
 export class FormCreateRoom extends Component {
 
@@ -20,7 +48,6 @@ export class FormCreateRoom extends Component {
       roomCode: "",
       error: false,
       errorServer: false,
-      errorMessage: "",
       loading: false,
       redirect: false
     }
@@ -35,7 +62,7 @@ export class FormCreateRoom extends Component {
   }
 
   handleRoomNameFocus = () => {
-    this.setState({ error: false, errorMessage: "" })
+    this.setState({ error: false })
   }
   validate(roomName) {
     return roomName.length === 0 ? false : true
@@ -43,7 +70,7 @@ export class FormCreateRoom extends Component {
 
   handleSubmit(evt) {
     if (this.state.roomName.length === 0) {
-      this.setState({ error: true, errorMessage: "Empty room name field" })
+      this.setState({ error: true })
       evt.preventDefault()
       return
     }
@@ -68,52 +95,53 @@ export class FormCreateRoom extends Component {
   }
 
   render() {
+    const { intl: { formatMessage } } = this.props
     const classNameBtnCreate = 'center-align'
     return (
 
       <div className='main-container'>
 
-      <div className="card-session">
-      <ErrorMessage
-          key={0}
-          error={this.state.errorServer}
-        />
-        <Card
-          key={1}
-          className='white'
-          textClassName='black-text'
-          title='Create a Room'
-        >
-          <form onSubmit={this.handleSubmit}>
-            <Row>
-              <Input
-                className={this.state.error ? "error" : ""}
-                type="text"
-                m={12}
-                s={12}
-                label="Room name"
-                error={this.state.errorMessage}
-                validate
-                onChange={this.handleRoomNameChange}
-                onFocus={this.handleRoomNameFocus}
-              />
-              <div className={this.state.loading ? classNameBtnCreate + ' loading' : classNameBtnCreate}>
-                <Button waves='light' className="btn-create">Create</Button>
-              </div>
-              <Loader
-                key={2}
-                loading={this.state.loading}
-              />
+        <div className="card-session">
+          <ErrorMessage
+            key={0}
+            error={this.state.errorServer}
+          />
+          <Card
+            key={1}
+            className='white'
+            textClassName='black-text'
+            title={formatMessage(messages.formTitle)}
+          >
+            <form onSubmit={this.handleSubmit}>
+              <Row>
+                <Input
+                  className={this.state.error ? "error" : ""}
+                  type="text"
+                  m={12}
+                  s={12}
+                  label={formatMessage(messages.inputLabel)}
+                  error={this.state.error ? formatMessage(messages.fieldEmptyRoom) : ""}
+                  validate
+                  onChange={this.handleRoomNameChange}
+                  onFocus={this.handleRoomNameFocus}
+                />
+                <div className={this.state.loading ? classNameBtnCreate + ' loading' : classNameBtnCreate}>
+                  <Button waves='light' className="btn-create">{formatMessage(messages.buttonCreate)}</Button>
+                </div>
+                <Loader
+                  key={2}
+                  loading={this.state.loading}
+                />
 
-            </Row>
-          </form>
-          {this.redirect()}
-          <div className="right-align"><Link to="/rooms">Load existing Room</Link> </div>
-        </Card>
-      </div>
-     
+              </Row>
+            </form>
+            {this.redirect()}
+            <div className="right-align"><Link to="/rooms">{formatMessage(messages.redirectLink)}</Link> </div>
+          </Card>
+        </div>
+
         <div className="store-badge-container">
-         <span className="store-badge-text">Obtenez l’application mobile</span>
+          <span className="store-badge-text">{formatMessage(messages.textMobile)}</span>
           <img className="app-badge" src={GooglePlay} alt="" />
           <AppStore className="app-badge" />
         </div>
@@ -121,4 +149,7 @@ export class FormCreateRoom extends Component {
     )
   }
 }
-export default withRouter(FormCreateRoom)
+export default compose(
+  withRouter,
+  injectIntl
+)(FormCreateRoom)

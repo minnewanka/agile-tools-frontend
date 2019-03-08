@@ -3,6 +3,20 @@ import { getRooms, deleteRoom } from '../../services/roomService'
 import { Row, Col, Card } from 'react-materialize'
 import { withRouter } from "react-router"
 import './roomList.scss'
+import { injectIntl, defineMessages } from "react-intl"
+import { compose } from 'recompose'
+
+
+const messages = defineMessages({
+  connect: {
+    id: 'roomList.connect',
+    defaultMessage: 'Connect'
+  },
+  delete: {
+    id: 'roomList.delete',
+    defaultMessage: 'Delete'
+  }
+})
 
 export class RoomList extends Component {
 
@@ -27,25 +41,29 @@ export class RoomList extends Component {
   }
 
   render() {
+    const { intl: { formatMessage } } = this.props
     return (
       //TODO externaliser css en commun
       <div className="room-list-container">
+        <Row>
+          {this.state.rooms.map((room, index) => (
 
-        {this.state.rooms.map((room, index) => (
-
-          <Card className=" room-card-title" key={index} textClassName='black-text' title={room.name}
-            actions={[
-              <button key="connect" className="button-linkstyle link-connect" onClick={() => this.redirect(room.code)}>Connect</button>,
-              <button key="delete" className="button-linkstyle link-delete" onClick={() => this.removeRoom(room.code)}>Delete</button>
-            ]}>
-            Room# {room.code}
-          </Card>
-
-        ))}
-
+            <Col m={2} s={2}>
+              <Card className="room-card" key={index} textClassName='black-text' title={room.name}
+                actions={[
+                  <button key="connect" className="button-linkstyle link-connect" onClick={() => this.redirect(room.code)}>{formatMessage(messages.connect)}</button>,
+                  <button key="delete" className="button-linkstyle link-delete" onClick={() => this.removeRoom(room.code)}>{formatMessage(messages.delete)}</button>
+                ]}>
+                Room# {room.code}
+              </Card>
+            </Col>
+          ))}
+        </Row>
       </div>
     )
   }
 }
-
-export default withRouter(RoomList)
+export default compose(
+  withRouter,
+  injectIntl
+)(RoomList)

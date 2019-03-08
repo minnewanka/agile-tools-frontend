@@ -11,6 +11,23 @@ import { getVotes } from '../../services/voteService'
 import DeleteRoomModal from './deleteRoomModal'
 import Footer from '../footer/footer'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { injectIntl, defineMessages } from "react-intl"
+
+const messages = defineMessages({
+  participants: {
+    id: 'dashboard.participants',
+    defaultMessage: 'Participants'
+  },
+  toastConnected: {
+    id: 'dashboard.toastConnected',
+    defaultMessage: ' is connected'
+  },
+  toastDeconnected: {
+    id: 'dashboard.toastDeconnected',
+    defaultMessage: ' is now deconnected'
+  },
+
+})
 
 class Dashboard extends Component {
 
@@ -21,6 +38,7 @@ class Dashboard extends Component {
       roomCode: "",
       participants: [],
       ceremony: "pokerplanning"
+      
     }
     this.initLiveQuery = this.initLiveQuery.bind(this)
     this.handleTypeRoom = this.handleTypeRoom.bind(this)
@@ -40,6 +58,7 @@ class Dashboard extends Component {
   }
 
   initLiveQuery(roomCode) {
+    const { intl: { formatMessage } } = this.props
     let query = new Parse.Query('Vote')
     query.equalTo("roomCode", roomCode)
     let subscription = query.subscribe()
@@ -50,7 +69,7 @@ class Dashboard extends Component {
       const newParticipant = { username: username }
       participants.push(newParticipant)
       this.setState({ participants: participants })
-      window.Materialize.toast(username + ' is connected', 3000)
+      window.Materialize.toast(username + formatMessage(messages.toastConnected), 3000)
     })
     subscription.on('update', (object) => {
       const { participants } = this.state
@@ -68,7 +87,7 @@ class Dashboard extends Component {
       const username = object.get("username")
       const participants = this.state.participants.filter((participant) => (participant.username !== object.get("username")))
       this.setState({ participants: participants })
-      window.Materialize.toast(username + ' is now deconnected', 3000)
+      window.Materialize.toast(username + formatMessage(messages.toastDeconnected), 3000)
     })
 
 
@@ -82,7 +101,7 @@ class Dashboard extends Component {
   }
 
   render() {
-
+    const { intl: { formatMessage } } = this.props
     let ceremonie
     if (this.state.ceremony === "pokerplanning") {
       ceremonie = <PokerPlanning participants={this.state.participants} />
@@ -106,7 +125,7 @@ class Dashboard extends Component {
               </Input>
 
               <Collection className="participants-list">
-                <li className="collection-header"><h5 className="participants-list-header center-align">Participants</h5></li>
+                <li className="collection-header"><h5 className="participants-list-header center-align">{formatMessage(messages.participants)}</h5></li>
                 <TransitionGroup>
                   {
                     this.state.participants.map((participant, index) => (
@@ -138,6 +157,4 @@ class Dashboard extends Component {
   }
 }
 
-
-
-export default Dashboard
+export default injectIntl(Dashboard)

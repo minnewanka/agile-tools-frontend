@@ -1,0 +1,10 @@
+{
+  "fr": {
+    "roomList.connect": "ouvrir",
+    "roomList.delete" :  "supprimer"
+  },
+  "en": {
+    "roomList.connect": "open",
+    "roomList.delete" :  "delete"
+  }
+}

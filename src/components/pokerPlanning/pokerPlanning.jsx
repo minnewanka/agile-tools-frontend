@@ -65,14 +65,14 @@ class PokerPlanning extends Component {
   }
 
   render() {
-    let stats;
+    // let stats;
     if (!this.state.isFlipped && this.state.minVote !== this.state.maxVote) {
-      stats = <div>
-        <ul>MIN : {this.state.minVote}</ul>
-        <ul>MAX : {this.state.maxVote}</ul>
-        <ul>MAX_OCC :</ul>
-        <ul>MEDIANE : {this.state.median}</ul>
-      </div>
+      // stats = <div>
+      //   <ul>MIN : {this.state.minVote}</ul>
+      //   <ul>MAX : {this.state.maxVote}</ul>
+      //   <ul>MAX_OCC :</ul>
+      //   <ul>MEDIANE : {this.state.median}</ul>
+      // </div>
     }
     return (
       <div className="poker-planning-container" onClick={this.handleClick}>

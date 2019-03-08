@@ -3,6 +3,31 @@ import './dashboard.scss'
 import { Modal, Button, Icon } from 'react-materialize'
 import { withRouter } from "react-router"
 import { deleteRoom } from '../../services/roomService'
+import { injectIntl, defineMessages } from "react-intl"
+import { compose } from 'recompose'
+
+const messages = defineMessages({
+  buttonDelete: {
+    id: 'dashboard.buttonDelete',
+    defaultMessage: 'Delete Room'
+  },
+  buttonDeleteComfirm: {
+    id: 'dashboard.buttonDeleteComfirm',
+    defaultMessage: 'Delete'
+  },
+  headerDeleteComfirm: {
+    id: 'dashboard.headerDeleteComfirm',
+    defaultMessage: 'Delete Room#'
+  },
+  textDeleteComfirm: {
+    id: 'dashboard.textDeleteComfirm',
+    defaultMessage: 'Do you really want to delete this room ?'
+  },
+  buttonCancel: {
+    id: 'dashboard.buttonCancel',
+    defaultMessage: 'Cancel'
+  }
+})
 
 class DeleteRoomModal extends Component {
 
@@ -13,26 +38,31 @@ class DeleteRoomModal extends Component {
 
   deleteRoomAndRedirect(coodeRoom) {
     deleteRoom(coodeRoom).then(() => {
-      this.props.history.push({ pathname: "/"})
+      this.props.history.push({ pathname: "/" })
     })
   }
 
   render() {
+    const { intl: { formatMessage } } = this.props
     return (
       <Modal
         className="delete-modal"
-        header={`Delete Room# ${this.props.roomCode}`}
-        trigger={<Button className="red darken-2">Delete Room</Button>}
+        header={formatMessage(messages.headerDeleteComfirm) + this.props.roomCode}
+        trigger={<Button className="red darken-2">{formatMessage(messages.buttonDelete)}</Button>}
         actions={[
-          <Button modal="close" waves="light" className="red darken-2" onClick={() => { this.deleteRoomAndRedirect(this.props.roomCode) }}><Icon left>delete</Icon>delete</Button>,
-          <Button flat modal="close" waves="light">cancel</Button>
+          <Button modal="close" waves="light" className="red darken-2 " onClick={() => { this.deleteRoomAndRedirect(this.props.roomCode) }}>
+            <Icon left>delete</Icon>{formatMessage(messages.buttonDeleteComfirm)}</Button>,
+          <Button flat modal="close" className="cancel-button-comfirm" waves="light">{formatMessage(messages.buttonCancel)}</Button>
         ]}>
-        <p>Do you really want to delete this room ?</p>
+        <p>{formatMessage(messages.textDeleteComfirm)}</p>
       </Modal>
     )
   }
 
-
 }
 
-export default withRouter(DeleteRoomModal)
+
+export default compose(
+  withRouter,
+  injectIntl
+)(DeleteRoomModal)
