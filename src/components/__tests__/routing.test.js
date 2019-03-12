@@ -1,17 +1,17 @@
 import React from 'react'
 import { mount } from 'enzyme'
+import { MemoryRouter } from 'react-router'
+import { Route } from 'react-router-dom'
 import Routes from '../routing'
 import Dashboard from '../dashboard/dashboard'
 import Layout from '../routing/layout'
 import FormCreateRoom from '../formCreateRoom/formCreateRoom'
 import Page404 from '../404/404'
-import { MemoryRouter } from 'react-router'
-import { Route } from 'react-router-dom'
 
 test('/ should redirect to FormCreateRoom', () => {
   const wrapper = mount(
     <MemoryRouter initialEntries={['/']}>
-      <Routes/>
+      <Routes />
     </MemoryRouter>
   )
  
@@ -22,7 +22,7 @@ test('/ should redirect to FormCreateRoom', () => {
 test('/dashboard redirect to Dashboard', () => {
   const wrapper = mount(
     <MemoryRouter initialEntries={['/dashboard']}>
-      <Routes/>
+      <Routes />
     </MemoryRouter>
   )
  
@@ -33,7 +33,7 @@ test('/dashboard redirect to Dashboard', () => {
 test('/404 redirect to Page404', () => {
   const wrapper = mount(
     <MemoryRouter initialEntries={['/404']}>
-      <Routes/>
+      <Routes />
     </MemoryRouter>
   )
  
@@ -44,7 +44,7 @@ test('/404 redirect to Page404', () => {
 test('invalid path should redirect to Page404', () => {
   const wrapper = mount(
     <MemoryRouter initialEntries={['/random']}>
-      <Routes/>
+      <Routes />
     </MemoryRouter>
   )
  

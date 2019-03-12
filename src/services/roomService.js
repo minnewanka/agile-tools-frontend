@@ -1,6 +1,6 @@
 import Parse from 'parse'
 
-  var createRoom = (name) => {
+  const createRoom = (name) => {
     const Room = Parse.Object.extend("Room")
     const roomQuery = new Room()
 
@@ -8,13 +8,13 @@ import Parse from 'parse'
     return roomQuery.save()
   }
 
-  var getRoom = (code) => {
+  const getRoom = (code) => {
     const Room = Parse.Object.extend("Room")
     const query = new Parse.Query(Room)
     query.equalTo("code", code)
     return query.first()
   }
-  var deleteRoom = async (code) => {
+  const deleteRoom = async (code) => {
     const Room = Parse.Object.extend("Room")
     const query = new Parse.Query(Room)
     query.equalTo("code", code)
@@ -22,7 +22,7 @@ import Parse from 'parse'
     return object.destroy()
   }
 
-var getRooms = async () => {
+const getRooms = async () => {
   const Room = Parse.Object.extend("Room")
   const query = new Parse.Query(Room)
   query.descending("createdAt")

@@ -1,33 +1,26 @@
-import React, { Component } from 'react'
-import { IntlProvider, addLocaleData } from "react-intl"
-import frLocaleData from "react-intl/locale-data/fr"
+import React, { Component } from "react"
 import App from "./app"
-import getAllMessages from './services/il8nManager'
-import { Provider } from './context/index'
-
-addLocaleData(frLocaleData)
+import getAllMessages from "./services/IntlManager"
+import { Provider } from "./context/index"
 
 class AppWrapper extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
       locale: "en",
-      changeLang: this.changeLang.bind(this)
+      changeLang: this.changeLang.bind(this),
+      messages: getAllMessages("en")
     }
   }
 
   changeLang(locale) {
-    this.setState({ locale: locale })
+    this.setState({ locale, messages: getAllMessages(locale) })
   }
 
   render() {
     return (
-
       <Provider value={this.state}>
-        <IntlProvider locale={this.state.locale} messages={getAllMessages(this.state.locale)}>
-          <App />
-        </IntlProvider>
+        <App />
       </Provider>
     )
   }

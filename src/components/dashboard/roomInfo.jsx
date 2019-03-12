@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './dashboard.scss'
+import { withRouter } from "react-router-dom"
 import { ReactComponent as Logo } from '../../img/logo-text.svg'
-import { withRouter } from "react-router"
 
 class RoomInfo extends Component {
 
@@ -11,21 +11,21 @@ class RoomInfo extends Component {
   }
 
   redirect() {
-    console.log("click")
-    this.props.history.push({ pathname: "/" })
+    const { history } = this.props
+    history.push({ pathname: "/" })
   }
   
   render(){
+    const { roomName, roomCode } = this.props
     return(
-      <div className = "room-container" >
+      <div className="room-container">
         <Logo className="room-title-logo" onClick={this.redirect} />
-        <h1 className="room-title-box">{this.props.roomName}</h1>
-        <h1 className="room-code-box">Room# {this.props.roomCode}</h1>
-     </div>
+        <h1 className="room-title-box">{roomName}</h1>
+        <h1 className="room-code-box">Room# {roomCode}</h1>
+      </div>
     )
   }
 
 }
-
 
 export default withRouter(RoomInfo)

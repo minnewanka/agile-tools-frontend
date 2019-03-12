@@ -6,14 +6,14 @@ import { ReactComponent as TshirtFront } from '../../img/tshirt-front.svg'
 
 const Tshirt = ({ isFlipped, vote, username }) => (
   <div className="card-container">
-    <ReactCardFlip isFlipped={isFlipped} className="flipper" >
-      <div key="front" >
-          <TshirtFront />
+    <ReactCardFlip isFlipped={isFlipped} className="flipper">
+      <div key="front">
+        <TshirtFront />
         <div className="floatTL">
-         <span className="span-tshirt-size">{vote}</span> 
+          <span className="span-tshirt-size">{vote}</span> 
         </div>
       </div>
-      <div key="back" >
+      <div key="back">
         <TshirtBack />
       </div>
     </ReactCardFlip>

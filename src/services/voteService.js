@@ -1,6 +1,6 @@
 import Parse from 'parse'
 
-var getVotes = async (roomCode) => {
+const getVotes = async (roomCode) => {
 
   const Vote = Parse.Object.extend("Vote")
   const query = new Parse.Query(Vote)
@@ -11,7 +11,7 @@ var getVotes = async (roomCode) => {
   ))
   return participants
 }
-var deleteVote = async (username) => {
+const deleteVote = async (username) => {
   const Vote = Parse.Object.extend("Vote")
   const query = new Parse.Query(Vote)
   query.equalTo("username", username)

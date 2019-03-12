@@ -1,0 +1,18 @@
+{
+  "en": {
+    "createRoom.title": "Create a Room",
+    "createRoom.buttonCreate": "Create",
+    "createRoom.redirectLink": "Load existing Room",
+    "createRoom.inputLabel": "Room name",
+    "createRoom.textMobile": "Get mobile app",
+    "createRoom.fieldEmptyRoom": "Empty room name field"
+  },
+  "fr": {
+    "createRoom.title": "Créer une Room",
+    "createRoom.buttonCreate": "Créer",
+    "createRoom.redirectLink": "Charger une room existante",
+    "createRoom.inputLabel": "Nom de la Room",
+    "createRoom.textMobile": "Obtenir l'application mobile",
+    "createRoom.fieldEmptyRoom": "Nom de room vide"
+  }
+}

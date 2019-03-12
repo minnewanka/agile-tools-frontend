@@ -1,0 +1,22 @@
+{
+  "fr": {
+    "dashboard.participants": "Participants",
+    "dashboard.toastConnected" :  " est connecté",
+    "dashboard.toastDeconnected" : " est déconnecté",
+    "deleteRoomModal.buttonDelete" : "Supprimer Room",
+    "deleteRoomModal.buttonDeleteComfirm" : "Supprimer",
+    "deleteRoomModal.textDeleteComfirm" : "Êtes vous certain de vouloir supprimer cette room ?",
+    "deleteRoomModal.buttonCancel": "Annuler",
+    "deleteRoomModal.headerDeleteComfirm": "Supprimer Room#" 
+  },
+  "en": {
+    "dashboard.participants": "Participants",
+    "dashboard.toastConnected" :  " is connected",
+    "dashboard.toastDeconnected" : " is now deconnected",
+    "deleteRoomModal.buttonDelete" : "Delete Room",
+    "deleteRoomModal.buttonDeleteComfirm" : "Delete",
+    "deleteRoomModal.textDeleteComfirm" : "Do you really want to delete this room ?",
+    "deleteRoomModal.buttonCancel": "Cancel",
+    "deleteRoomModal.headerDeleteComfirm": "Delete Room#" 
+  }
+}

@@ -1,4 +1,5 @@
 import Parse from 'parse'
+
 export const mockGetRoom = jest.fn((id) => (new Promise((resolve, reject) => {
   const Room = Parse.Object.extend("Room")
   const room = new Room()

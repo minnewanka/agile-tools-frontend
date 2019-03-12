@@ -11,23 +11,18 @@
     "react": "^16.8.2",
     "react-card-flip": "^0.4.0",
     "react-dom": "^16.8.2",
-    "react-intl": "^2.8.0",
     "react-materialize": "^2.6.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
     "react-test-renderer": "^16.8.2",
-    "react-transition-group": "^2.6.0",
-    "recompose": "^0.30.0"
+    "react-transition-group": "^2.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build  && mv build dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "translate": "react-intl-cra './src/**/*.jsx' -o messages.json"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "lint": "eslint src/**/*.js src/**/*.jsx --fix"
   },
   "browserslist": [
     ">0.2%",
@@ -40,5 +35,9 @@
       "src/**/*.{js,jsx}",
       "!src/index.jsx"
     ]
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0"
   }
 }

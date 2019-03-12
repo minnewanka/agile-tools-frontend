@@ -1,13 +1,13 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import {FormCreateRoom} from '../formCreateRoom/formCreateRoom'
 import { Input } from 'react-materialize'
+import {FormCreateRoom} from '../formCreateRoom/formCreateRoom'
 import RoomService, { mockCreateRoom } from '../../services/roomService'
 
 jest.mock('../../services/roomService')
 const historyMock = { push: jest.fn() }
 describe('FormCreateRoom component testing', () => {
-  let spy = spyConsole()
+  const spy = spyConsole()
   beforeEach(() => {
     // Clear all instances and calls to constructor and all methods:
     RoomService.mockClear()
@@ -16,9 +16,9 @@ describe('FormCreateRoom component testing', () => {
 
   it('should simulate the button click event with a room name and render error is false', () => {
    
-    const wrapper = mount(<FormCreateRoom history={historyMock}/>)
+    const wrapper = mount(<FormCreateRoom history={historyMock} />)
 
-    //Simulate user sets room code
+    // Simulate user sets room code
     wrapper.find(Input).props().onChange({ target: { value: "ROOM NAME" } })
     wrapper.find(Input).props().onFocus({ target: {} })
     
@@ -33,7 +33,7 @@ describe('FormCreateRoom component testing', () => {
 
   it('should simulate the button click event with no room name and render error is true', () => {
    
-    const wrapper = mount(<FormCreateRoom history={historyMock}/>)
+    const wrapper = mount(<FormCreateRoom history={historyMock} />)
     
     const form = wrapper.find('form')
     form.simulate('submit')
@@ -44,9 +44,9 @@ describe('FormCreateRoom component testing', () => {
 
   it('should simulate a error server and verify errorServer is true', async () => {
 
-    const wrapper = mount(<FormCreateRoom history={historyMock}/>)
-   //Simulate user sets room code
-   wrapper.find(Input).props().onChange({ target: { value: "ROOM KO" } }) //@see __mock__/roomService.js
+    const wrapper = mount(<FormCreateRoom history={historyMock} />)
+   // Simulate user sets room code
+   wrapper.find(Input).props().onChange({ target: { value: "ROOM KO" } }) // @see __mock__/roomService.js
    wrapper.find(Input).props().onFocus({ target: {} })
    
    const form = wrapper.find('form')
@@ -64,12 +64,12 @@ describe('FormCreateRoom component testing', () => {
 })
 
 function spyConsole() {
-  let spy = {}
+  const spy = {}
   beforeAll(() => {
       spy.console = jest.spyOn(console, 'error').mockImplementation(() => {})
   })
   afterAll(() => {
-      spy.console.mockRestore();
+      spy.console.mockRestore()
   })
   return spy
 }

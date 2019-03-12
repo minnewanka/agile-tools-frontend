@@ -6,8 +6,8 @@ import App from '../../app'
 
 it('renders the heading', () => {
   const result = shallow(<App />).contains(
-  <div className="App">
-    <Routes />
-  </div>)
+    <div className="App">
+      <Routes />
+    </div>)
   expect(result).toBeTruthy()
 })

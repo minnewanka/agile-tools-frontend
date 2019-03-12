@@ -10,7 +10,7 @@ it('renders room info', () => {
       roomId:"12345"
      }
    }
-  const result = shallow(<Dashboard location={location}/>).contains(
+  const result = shallow(<Dashboard location={location} />).contains(
     <RoomInfo roomId="12345" />)
   expect(result).toBeTruthy()
 })

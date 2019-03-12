@@ -2,6 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import RoomInfo from '../dashboard/roomInfo'
 import RoomService, { mockGetRoom } from '../../services/roomService'
+
 jest.mock('../../services/roomService')
 
 beforeEach(() => {

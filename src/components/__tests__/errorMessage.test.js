@@ -6,13 +6,13 @@ import ErrorMessage from "../errorMessage/errorMessage"
 describe('ErrorMessage component testing', () => {
   it('should render error message component when error is false',() => {
     expect(shallow(
-    <ErrorMessage
-      key={0}
-      error={false}
-    />).contains(
-      <div className={'card-panel red lighten-1 fade-in'}>
+      <ErrorMessage
+        key={0}
+        error={false}
+      />).contains(
+        <div className="card-panel red lighten-1 fade-in">
         An error occured during the creation of the room. Please try again :-)
-      </div>
+        </div>
     )).toBe(true)
   })
 
@@ -20,10 +20,10 @@ describe('ErrorMessage component testing', () => {
     expect(shallow(
       <ErrorMessage
         key={0}
-        error={true}
+        error
       />
     ).contains(
-      <div className={'card-panel red lighten-1'}>
+      <div className="card-panel red lighten-1">
         An error occured during the creation of the room. Please try again :-)
       </div>
     )).toBe(true)
@@ -41,8 +41,8 @@ describe('ErrorMessage component testing', () => {
   it('should render to static HTML',() => {
     expect(render(
       <ErrorMessage
-       key={0}
-       error={false}
+        key={0}
+        error={false}
       />
     ).text()).toEqual('An error occured during the creation of the room. Please try again :-)')
   })

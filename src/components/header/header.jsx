@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './header.scss'
+import { withRouter } from "react-router-dom"
 import { ReactComponent as Logo } from '../../img/logo-text.svg'
-import { withRouter } from "react-router"
 import { Consumer } from '../../context/index'
 
 
@@ -13,8 +13,8 @@ class HeaderApp extends Component {
   }
 
   redirect() {
-    console.log("click")
-    this.props.history.push({ pathname: "/" })
+    const {history} = this.props
+    history.push({ pathname: "/" })
   }
 
   render() {
@@ -24,12 +24,18 @@ class HeaderApp extends Component {
           <div className="app-header">
             <div className="languages">
               <button 
-              className={locale === "en" ? "button-linkstyle-lang" : "button-linkstyle-lang underline"}
-               onClick={() => { changeLang("en") }}>EN</button>
+                type="button"
+                className={locale === "en" ? "button-linkstyle-lang" : "button-linkstyle-lang underline"}
+                onClick={() => { changeLang("en") }}
+              >EN
+              </button>
               <span>/</span>
               <button
-               className={locale === "fr" ? "button-linkstyle-lang" : "button-linkstyle-lang underline"}
-              onClick={() => { changeLang("fr") }}>FR</button>
+                type="button"
+                className={locale === "fr" ? "button-linkstyle-lang" : "button-linkstyle-lang underline"}
+                onClick={() => { changeLang("fr") }}
+              >FR
+              </button>
             </div>
             <Logo className="logo-header" onClick={this.redirect} />
 
