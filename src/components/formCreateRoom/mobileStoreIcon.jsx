@@ -1,17 +1,20 @@
 import React from "react"
+import { Consumer } from "../../context"
 
-const MobileStoreIcon = ({ storeName, locale }) => (
+const MobileStoreIcon = ({ storeName = "google", locale }) => (
   <a href="https://www.siicanada.com/fr/">
     <img
       className="app-badge"
-      src={
-        storeName === "google"
-          ? `images/google-play-badge-${locale}.png`
-          : `images/app-store-badge-${locale}.png`
-      }
+      src={`images/${storeName}-badge-${locale}.png`}
       alt=""
     />
   </a>
 )
 
-export default MobileStoreIcon
+const MobileStoreIconConsumer = props => (
+  <Consumer>
+    {({ locale }) => <MobileStoreIcon locale={locale} {...props} />}
+  </Consumer>
+)
+
+export default MobileStoreIconConsumer

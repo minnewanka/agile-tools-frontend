@@ -1,11 +1,10 @@
 import React, { Component } from "react"
 import "./formCreateRoom.scss"
 import { Button, Card, Input, Row } from "react-materialize"
-import { withRouter, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { createRoom } from "../../services/roomService"
 import ErrorMessage from "../errorMessage/errorMessage"
 import Loader from "../loader/loader"
-import { Consumer } from "../../context"
 import MobileStoreIcon from "./mobileStoreIcon"
 
 class FormCreateRoom extends Component {
@@ -72,66 +71,57 @@ class FormCreateRoom extends Component {
 
   render() {
     const { errorServer, error, loading } = this.state
+    const { translate } = this.props
     return (
-      <Consumer>
-        {({ messages, locale }) => {
-          const translate = (key, prefix = "createRoom") =>
-            messages[`${prefix}.${key}`]
-          return (
-            <div className="main-container">
-              <div className="card-session">
-                <ErrorMessage key={0} error={errorServer} />
-                <Card
-                  key={1}
-                  className="white"
-                  textClassName="black-text"
-                  title={translate("title")}
+      <div className="main-container">
+        <div className="card-session">
+          <ErrorMessage key={0} error={errorServer} />
+          <Card
+            key={1}
+            className="white"
+            textClassName="black-text"
+            title={translate("title")}
+          >
+            <form onSubmit={this.handleSubmit}>
+              <Row>
+                <Input
+                  className={error ? "error" : ""}
+                  type="text"
+                  m={12}
+                  s={12}
+                  label={translate("inputLabel")}
+                  error={error ? translate("fieldEmptyRoom") : ""}
+                  validate
+                  onChange={this.handleRoomNameChange}
+                  onFocus={this.handleRoomNameFocus}
+                />
+                <div
+                  className={loading ? "center-align loading" : "center-align"}
                 >
-                  <form onSubmit={this.handleSubmit}>
-                    <Row>
-                      <Input
-                        className={error ? "error" : ""}
-                        type="text"
-                        m={12}
-                        s={12}
-                        label={translate("inputLabel")}
-                        error={error ? translate("fieldEmptyRoom") : ""}
-                        validate
-                        onChange={this.handleRoomNameChange}
-                        onFocus={this.handleRoomNameFocus}
-                      />
-                      <div
-                        className={
-                          loading ? "center-align loading" : "center-align"
-                        }
-                      >
-                        <Button waves="light" className="btn-create">
-                          {translate("buttonCreate")}
-                        </Button>
-                      </div>
-                      <Loader key={2} loading={loading} />
-                    </Row>
-                  </form>
-                  {this.redirect()}
-                  <div className="right-align">
-                    <Link to="/rooms">{translate("redirectLink")}</Link>{" "}
-                  </div>
-                </Card>
-              </div>
-              <div>
-                <div className="store-badge-text center-align">
-                  <h4>{translate("textMobile")}</h4>
+                  <Button waves="light" className="btn-create">
+                    {translate("buttonCreate")}
+                  </Button>
                 </div>
-                <div className="store-badge-container">
-                  <MobileStoreIcon storeName="google" locale={locale} />
-                  <MobileStoreIcon storeName="apple" locale={locale} />
-                </div>
-              </div>
+                <Loader key={2} loading={loading} />
+              </Row>
+            </form>
+            {this.redirect()}
+            <div className="right-align">
+              <Link to="/rooms">{translate("redirectLink")}</Link>{" "}
             </div>
-          )
-        }}
-      </Consumer>
+          </Card>
+        </div>
+        <div>
+          <div className="store-badge-text center-align">
+            <h4>{translate("textMobile")}</h4>
+          </div>
+          <div className="store-badge-container">
+            <MobileStoreIcon storeName="google" />
+            <MobileStoreIcon storeName="apple" />
+          </div>
+        </div>
+      </div>
     )
   }
 }
-export default withRouter(FormCreateRoom)
+export default FormCreateRoom

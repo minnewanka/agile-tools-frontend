@@ -19,48 +19,46 @@ class DeleteRoomModal extends Component {
   }
 
   render() {
-    const { roomCode } =  this.props
+    const { roomCode } = this.props
     return (
       <Consumer>
-        {({ messages, locale }) => {
-        const translate = (key, prefix = "deleteRoomModal") =>
-          messages[`${prefix}.${key}`]
-        return (
-          <Modal
-            className="delete-modal"
-            header={
-              translate("headerDeleteComfirm") + roomCode
-        }
-            trigger={(
-              <Button className="red darken-2">
-                {translate("buttonDelete")}
-              </Button>
-)}
-            actions={[
-              <Button
-                modal="close"
-                waves="light"
-                className="red darken-2 "
-                onClick={() => {
-              this.deleteRoomAndRedirect(roomCode)
-            }}
-              >
-                <Icon left>delete</Icon>
-                {translate("buttonDeleteComfirm")}
-              </Button>,
-              <Button
-                flat
-                modal="close"
-                className="cancel-button-comfirm"
-                waves="light"
-              >
-                {translate("buttonCancel")}
-              </Button>
-        ]}
-          >
-            <p>{translate("textDeleteComfirm")}</p>
-          </Modal>
-)   }}
+        {({ formatMessage }) => {
+          const translate = formatMessage("dashboard")
+          return (
+            <Modal
+              className="delete-modal"
+              header={translate("headerDeleteComfirm") + roomCode}
+              trigger={
+                <Button className="red darken-2">
+                  {translate("buttonDelete")}
+                </Button>
+              }
+              actions={[
+                <Button
+                  modal="close"
+                  waves="light"
+                  className="red darken-2 "
+                  onClick={() => {
+                    this.deleteRoomAndRedirect(roomCode)
+                  }}
+                >
+                  <Icon left>delete</Icon>
+                  {translate("buttonDeleteComfirm")}
+                </Button>,
+                <Button
+                  flat
+                  modal="close"
+                  className="cancel-button-comfirm"
+                  waves="light"
+                >
+                  {translate("buttonCancel")}
+                </Button>
+              ]}
+            >
+              <p>{translate("textDeleteComfirm")}</p>
+            </Modal>
+          )
+        }}
       </Consumer>
     )
   }

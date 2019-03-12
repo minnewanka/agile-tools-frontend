@@ -20,27 +20,23 @@ class HeaderApp extends Component {
   render() {
     return (
       <Consumer>
-        {({ locale, changeLang }) => (
-          <div className="app-header">
-            <div className="languages">
-              <button 
-                type="button"
-                className={locale === "en" ? "button-linkstyle-lang" : "button-linkstyle-lang underline"}
-                onClick={() => { changeLang("en") }}
-              >EN
-              </button>
-              <span>/</span>
-              <button
-                type="button"
-                className={locale === "fr" ? "button-linkstyle-lang" : "button-linkstyle-lang underline"}
-                onClick={() => { changeLang("fr") }}
-              >FR
-              </button>
-            </div>
-            <Logo className="logo-header" onClick={this.redirect} />
+        {({ locale, changeLang }) => {
+          const nextLang = locale === "fr" ? "en" : "fr"
+          return (
+            <div className="app-header">
+              <div className="languages">
+                <button
+                  type="button"
+                  className="button-linkstyle-lang"
+                  onClick={() => { changeLang() }}
+                >{nextLang.toUpperCase()}
+                </button>
+              </div>
+              <Logo className="logo-header" onClick={this.redirect} />
 
-          </div>
-        )}
+            </div>
+          )}
+        }
       </Consumer>
     )
   }

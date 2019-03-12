@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import App from "./app"
-import getAllMessages from "./services/IntlManager"
+import allMessages from "./services/IntlManager"
 import { Provider } from "./context/index"
 
 class AppWrapper extends Component {
@@ -9,12 +9,21 @@ class AppWrapper extends Component {
     this.state = {
       locale: "en",
       changeLang: this.changeLang.bind(this),
-      messages: getAllMessages("en")
+      messages: allMessages,
+      formatMessage: this.formatMessage.bind(this)
     }
   }
 
-  changeLang(locale) {
-    this.setState({ locale, messages: getAllMessages(locale) })
+  formatMessage = (prefix = "createRoom") => key => {
+    const { messages, locale } = this.state
+    return messages[locale][`${prefix}.${key}`]
+  }
+
+  changeLang() {
+    this.setState(({ locale }) => {
+      const newLocale = locale === "fr" ? "en" : "fr"
+      return { locale: newLocale }
+    })
   }
 
   render() {

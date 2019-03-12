@@ -34,51 +34,44 @@ class RoomList extends Component {
 
   render() {
     const { rooms } = this.state
+    const { translate } = this.props
     return (
       // TODO externaliser css en commun
-      <Consumer>
-        {({ messages }) => {
-          const translate = (key, prefix = "roomList") =>
-            messages[`${prefix}.${key}`]
-          return (
-            <div className="room-list-container">
-              <Row>
-                {rooms.map((room, index) => (
-                  <Col m={2} s={2}>
-                    <Card
-                      className="room-card"
-                      key={index}
-                      textClassName="black-text"
-                      title={room.name}
-                      actions={[
-                        <button
-                          type="button"
-                          key="connect"
-                          className="button-linkstyle link-connect"
-                          onClick={() => this.redirect(room.code)}
-                        >
-                          {translate("connect")}
-                        </button>,
-                        <button
-                          type="button"
-                          key="delete"
-                          className="button-linkstyle link-delete"
-                          onClick={() => this.removeRoom(room.code)}
-                        >
-                          {translate("delete")}
-                        </button>
-                      ]}
-                    >
-                      Room# {room.code}
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
-            </div>
-          )
-        }}
-      </Consumer>
+      <div className="room-list-container">
+        <Row>
+          {rooms.map((room, index) => (
+            <Col m={2} s={2}>
+              <Card
+                className="room-card"
+                key={index}
+                textClassName="black-text"
+                title={room.name}
+                actions={[
+                  <button
+                    type="button"
+                    key="connect"
+                    className="button-linkstyle link-connect"
+                    onClick={() => this.redirect(room.code)}
+                  >
+                    {translate("connect")}
+                  </button>,
+                  <button
+                    type="button"
+                    key="delete"
+                    className="button-linkstyle link-delete"
+                    onClick={() => this.removeRoom(room.code)}
+                  >
+                    {translate("delete")}
+                  </button>
+                ]}
+              >
+                Room# {room.code}
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </div>
     )
   }
 }
-export default withRouter(RoomList)
+export default RoomList

@@ -17,7 +17,6 @@ import { getRoom } from "../../services/roomService"
 import { deleteVote, getVotes } from "../../services/voteService"
 import DeleteRoomModal from "./deleteRoomModal"
 import Footer from "../footer/footer"
-import { Consumer } from "../../context"
 
 class Dashboard extends Component {
   constructor(props) {
@@ -30,19 +29,21 @@ class Dashboard extends Component {
     }
     this.initLiveQuery = this.initLiveQuery.bind(this)
     this.handleTypeRoom = this.handleTypeRoom.bind(this)
-    this.handledeleteParticipants = this.handledeleteParticipants.bind(this)
   }
 
   componentDidMount() {
-    if (this.props.location.state) {
-      const { roomCode } = this.props.location.state
+    const {
+      location: { state: locationState }
+    } = this.props
+    if (locationState) {
+      const { roomCode } = locationState
       getRoom(roomCode).then(room => {
         this.setState({
           roomCode: room.get("code"),
           roomName: room.get("name")
         })
         this.initLiveQuery(room.get("code"))
-        getVotes(this.state.roomCode).then(results => {
+        getVotes(roomCode).then(results => {
           this.setState({ participants: results })
         })
       })
@@ -50,8 +51,6 @@ class Dashboard extends Component {
   }
 
   initLiveQuery(roomCode) {
-
-    
     const query = new Parse.Query("Vote")
     query.equalTo("roomCode", roomCode)
     const subscription = query.subscribe()
@@ -82,12 +81,8 @@ class Dashboard extends Component {
       const newParticipants = participants.filter(
         participant => participant.username !== object.get("username")
       )
-      this.setState({ newParticipants })
+      this.setState({ participants: newParticipants })
     })
-  }
-
-  handledeleteParticipants(username) {
-    deleteVote(username)
   }
 
   handleTypeRoom(evt) {
@@ -96,87 +91,77 @@ class Dashboard extends Component {
 
   render() {
     const { ceremony, participants, roomName, roomCode } = this.state
+    const { translate } = this.props
     let ceremonyComponent
     if (ceremony === "pokerplanning") {
       ceremonyComponent = <PokerPlanning participants={participants} />
     } else {
       ceremonyComponent = <TshirtCeremony participants={participants} />
     }
-    return (
-      <Consumer>
-        {({ messages }) => {
-          const translate = (key, prefix = "dashboard") =>
-            messages[`${prefix}.${key}`]
-          return [
-            <div className="dashboard-container">
-              <RoomInfo roomName={roomName} roomCode={roomCode} />
-              <div>
-                <Row>
-                  <Col s={10} l={10}>
-                    {ceremonyComponent}
-                  </Col>
-                  <Col s={10} l={2}>
-                    <div className="sideBarContainer">
-                      <Input
-                        type="select"
-                        label="Ceremonie"
-                        icon="event_seat"
-                        defaultValue={ceremony}
-                        onChange={this.handleTypeRoom}
-                      >
-                        <option value="pokerplanning">Poker Planning</option>
-                        <option value="tshirt">T Shirt</option>
-                      </Input>
+    return [
+      <div className="dashboard-container">
+        <RoomInfo roomName={roomName} roomCode={roomCode} />
+        <div>
+          <Row>
+            <Col s={10} l={10}>
+              {ceremonyComponent}
+            </Col>
+            <Col s={10} l={2}>
+              <div className="sideBarContainer">
+                <div className="ceremony-dropdown">
+                  <Input
+                    type="select"
+                    label="Ceremonie"
+                    icon="event_seat"
+                    defaultValue={ceremony}
+                    onChange={this.handleTypeRoom}
+                  >
+                    <option value="pokerplanning">Poker Planning</option>
+                    <option value="tshirt">T Shirt</option>
+                  </Input>
+                </div>
+                <Collection className="participants-list">
+                  <li className="collection-header">
+                    <h5 className="participants-list-header center-align">
+                      {translate("participants")}
+                    </h5>
+                  </li>
+                  <TransitionGroup>
+                    {participants.map((participant, index) => (
+                      <CSSTransition timeout={500} classNames="fade">
+                        <CollectionItem
+                          className="participant-item"
+                          key={index}
+                        >
+                          <Icon className="account-icon" center>
+                            account_circle
+                          </Icon>
+                          <span className="participant-item-text">
+                            {participant.username}
+                          </span>
+                          <span
+                            role="button"
+                            className="deleteIcon"
+                            onClick={() => deleteVote(participant.username)}
+                          >
+                            &times;
+                          </span>
+                        </CollectionItem>
+                      </CSSTransition>
+                    ))}
+                  </TransitionGroup>
+                </Collection>
 
-                      <Collection className="participants-list">
-                        <li className="collection-header">
-                          <h5 className="participants-list-header center-align">
-                            {translate("participants")}
-                          </h5>
-                        </li>
-                        <TransitionGroup>
-                          {participants.map((participant, index) => (
-                            <CSSTransition timeout={500} classNames="fade">
-                              <CollectionItem
-                                className="participant-item"
-                                key={index}
-                              >
-                                <Icon className="account-icon" center>
-                                  account_circle
-                                </Icon>
-                                <span className="participant-item-text">
-                                  {participant.username}
-                                </span>
-                                <span
-                                  role="button"
-                                  className="deleteIcon"
-                                  onClick={() =>
-                                    this.handledeleteParticipants(
-                                      participant.username
-                                    )
-                                  }
-                                >
-                                  &times;
-                                </span>
-                              </CollectionItem>
-                            </CSSTransition>
-                          ))}
-                        </TransitionGroup>
-                      </Collection>
-
-                      <div className="btn-delete-room">
-                        <DeleteRoomModal roomCode={roomCode} />
-                      </div>
-                    </div>
-                  </Col>
-                </Row>
+                <div className="btn-delete-room">
+                  <DeleteRoomModal roomCode={roomCode} />
+                </div>
               </div>
-            </div>,
-            <Footer />
-          ]
-        }}
-      </Consumer>
-    )
+            </Col>
+          </Row>
+        </div>
+      </div>,
+      <Footer />
+    ]
   }
 }
 

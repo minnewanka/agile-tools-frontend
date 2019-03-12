@@ -1,45 +1,53 @@
-@import '../../sass/variable';
+@import "../../sass/variable";
 
-
-.dashboard-container{
+.dashboard-container {
   min-height: calc(100vh - #{$footer-height});
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
-.room-container{
+.room-container {
   display: flex;
-  justify-content:space-between;
-  background-image: linear-gradient(to right bottom,$color-blue-low-opacity ,$color-blue-light-low-opacity), url(../../img/planning-poker.jpg);
+  justify-content: space-between;
+  background-image: linear-gradient(
+      to right bottom,
+      $color-blue-low-opacity,
+      $color-blue-light-low-opacity
+    ),
+    url(../../img/planning-poker.jpg);
 }
-.room-title-logo{
+.room-title-logo {
   margin-left: 2rem;
   align-self: center;
   flex-grow: 1;
 }
-.room-title-box{
+.room-title-logo {
+  cursor: pointer;
+}
+
+.room-title-box {
   font-size: 5rem;
   padding: 2rem;
   flex-grow: 5;
   text-align: center;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #ffffff;
 }
-.room-code-box{
-  color: #FFFFFF;
+.room-code-box {
+  color: #ffffff;
   border-style: solid;
   padding: 2rem;
   align-self: flex-end;
   margin-right: 2rem;
 }
-.participants-list{
+.participants-list {
   flex-grow: 5;
   margin: 1rem 1.5rem;
   overflow: auto;
 }
-.participants-list-header{
-  background-color: rgb(116, 121, 121);
-  color: #FFFFFF;
+.participants-list-header {
+  background-color: $color-blue-light;
+  color: #ffffff;
   padding: 0.5rem;
 }
 
@@ -47,30 +55,34 @@
   top: auto !important;
   right: 2%;
   bottom: 8%;
-  left:auto !important;
+  left: auto !important;
+}
+.ceremony-dropdown {
+  margin: 0.5rem 1rem 0 1rem;
 }
 
-.participant-item{
+.participant-item {
   height: 3rem;
   font-size: 1.3rem;
   line-height: 3rem;
-  display: flex; 
+  display: flex;
   background-color: rgb(243, 245, 247);
 }
-.participant-item-text{
+.participant-item-text {
   flex-grow: 5;
+  align-self: center;
 }
 
-.participant-item:hover{
-   
+.participant-item:hover {
   .deleteIcon {
     visibility: visible;
-}
-	
+  }
 }
 
-.account-icon{
+.account-icon {
   padding-right: 1rem;
+  align-self: center;
+  color: $color-blue;
 }
 
 .deleteIcon {
@@ -80,18 +92,18 @@
   font-weight: bold;
   font-size: 2rem;
   cursor: pointer;
-  align-self: flex-end;
+  align-self: center;
 }
 
-.delete-modal{
+.delete-modal {
   width: 25%;
   top: 35% !important;
 }
-.cancel-button-comfirm{
-margin-right: 20px
+.cancel-button-comfirm {
+  margin-right: 20px;
 }
 
-.sideBarContainer{
+.sideBarContainer {
   margin: 3rem 2rem;
   height: 50rem;
   background-color: rgb(243, 245, 247);
@@ -100,14 +112,12 @@ margin-right: 20px
   border-radius: 1.5rem;
 }
 
-
-
-.white-text{
+.white-text {
   color: #ffffff;
 }
 
-.btn-delete-room{
-  align-self:center ;
+.btn-delete-room {
+  align-self: center;
   margin: 2rem;
 }
 
@@ -125,7 +135,3 @@ margin-right: 20px
   opacity: 0.01;
   transition: opacity 500ms ease-in;
 }
-
-
-
-

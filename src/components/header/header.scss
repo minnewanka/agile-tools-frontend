@@ -1,10 +1,10 @@
-@import '../../sass/variable';
+@import "../../sass/variable";
 
-.button-linkstyle-lang{
-  background:none;
-  border:none; 
-  padding:0;
-  cursor:pointer;
+.button-linkstyle-lang {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   text-transform: uppercase;
 }
 
@@ -12,12 +12,12 @@
   outline: none;
 }
 
-.underline{
-  text-decoration:underline;
+.underline {
+  text-decoration: underline;
 }
 
 .app-header {
-  text-align: center;  
+  text-align: center;
   background-color: $color-blue;
   height: $header-height;
   padding-top: 3rem;
@@ -26,12 +26,15 @@
 }
 
 .logo-header {
- height: 6rem;
+  height: 6rem;
+}
+.logo-header:hover {
+  cursor: pointer;
 }
 
-.languages{
+.languages {
   position: absolute;
-  top:2rem;
-  right:2rem;
+  top: 2rem;
+  right: 2rem;
   font-size: 1.5rem;
 }

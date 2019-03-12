@@ -1,10 +1,15 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom'
-import FormCreateRoom from '../formCreateRoom/formCreateRoom'
-import RoomList from '../roomList/roomList'
-import Dashboard from '../dashboard/dashboard'
-import Layout from './layout'
-import Page404 from '../404/404'
+import React from "react"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+  Route
+} from "react-router-dom"
+import FormCreateRoom from "../formCreateRoom"
+import RoomList from "../roomList"
+import Dashboard from "../dashboard"
+import Layout from "./layout"
+import Page404 from "../404/404"
 
 const Routes = () => {
   return (
