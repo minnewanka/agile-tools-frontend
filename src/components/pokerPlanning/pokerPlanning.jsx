@@ -16,9 +16,6 @@ class PokerPlanning extends Component {
       mounted: false
     }
     this.handleClick = this.handleClick.bind(this)
-    this.calculateStats = this.calculateStats.bind(this)
-    this.calculateSumVote = this.calculateSumVote.bind(this)
-    this.median = this.median.bind(this)
   }
 
   componentDidMount() {
