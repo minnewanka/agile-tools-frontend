@@ -135,3 +135,7 @@
   opacity: 0.01;
   transition: opacity 500ms ease-in;
 }
+
+ul.dropdown-content.select-dropdown li span {
+  color: $color-blue-light;
+}
