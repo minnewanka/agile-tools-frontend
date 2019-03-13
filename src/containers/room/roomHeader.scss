@@ -1,0 +1,36 @@
+@import "../../common/sass/variables";
+
+.roomHeader-container {
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(
+      to right bottom,
+      $color-blue-low-opacity,
+      $color-blue-light-low-opacity
+    ),
+    url(../../img/planning-poker.jpg);
+}
+
+.roomHeader-logo {
+  margin-left: 2rem;
+  align-self: center;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.roomHeader-title {
+  font-size: 5rem;
+  padding: 2rem;
+  flex-grow: 5;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.roomHeader-code {
+  color: #ffffff;
+  border-style: solid;
+  padding: 2rem;
+  align-self: flex-end;
+  margin-right: 2rem;
+}

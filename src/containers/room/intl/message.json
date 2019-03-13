@@ -1,0 +1,22 @@
+{
+  "fr": {
+    "room.participants": "Participants",
+    "room.toastConnected": " est connecté",
+    "room.toastDeconnected": " est déconnecté",
+    "room.buttonDelete": "Supprimer Room",
+    "room.buttonDeleteComfirm": "Supprimer",
+    "room.textDeleteComfirm": "Êtes vous certain de vouloir supprimer cette room ?",
+    "room.buttonCancel": "Annuler",
+    "room.headerDeleteComfirm": "Supprimer Room#"
+  },
+  "en": {
+    "room.participants": "Participants",
+    "room.toastConnected": " is connected",
+    "room.toastDeconnected": " is now deconnected",
+    "room.buttonDelete": "Delete Room",
+    "room.buttonDeleteComfirm": "Delete",
+    "room.textDeleteComfirm": "Do you really want to delete this room ?",
+    "room.buttonCancel": "Cancel",
+    "room.headerDeleteComfirm": "Delete Room#"
+  }
+}

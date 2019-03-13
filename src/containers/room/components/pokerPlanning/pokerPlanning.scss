@@ -1,0 +1,122 @@
+@import "../../../../common/sass/variables";
+
+.flipper {
+  width: 80%;
+  margin: 0 auto;
+}
+.poker-planning-container {
+  margin: 5rem;
+}
+
+.poker-card {
+  width: 18rem;
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.9);
+  white-space: nowrap;
+  border-radius: 1rem;
+}
+.poker-card-username {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.card-front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-front-content {
+  font-size: 200%;
+  font-weight: bold;
+}
+
+.card-back {
+  background: $color-blue;
+  position: relative;
+}
+
+.card-container {
+  width: 18rem;
+  height: 30rem;
+  text-align: center;
+}
+
+.card-back-image {
+  width: 6rem;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.card-column {
+  margin: 0rem 4rem;
+}
+
+.animation-card-enter {
+  -webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animation-card-exit {
+  -webkit-animation: slide-out-bottom 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    both;
+  animation: slide-out-bottom 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@-webkit-keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(10rem);
+    transform: translateY(10rem);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(10rem);
+    transform: translateY(10rem);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slide-out-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(10rem);
+    transform: translateY(10rem);
+    opacity: 0;
+  }
+}
+@keyframes slide-out-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(10rem);
+    transform: translateY(10rem);
+    opacity: 0;
+  }
+}

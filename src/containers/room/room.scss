@@ -1,0 +1,116 @@
+@import "../../common/sass/variables";
+
+.room-container {
+  min-height: calc(100vh - #{$footer-height});
+  display: flex;
+  flex-direction: column;
+
+  .participants-list {
+    flex-grow: 5;
+    margin: 1rem 1.5rem;
+    overflow: auto;
+    .participants-list-header {
+      background-color: $color-blue-light;
+      color: #ffffff;
+      padding: 0.5rem;
+    }
+  }
+
+  #toast-container {
+    top: auto !important;
+    right: 2%;
+    bottom: 8%;
+    left: auto !important;
+  }
+  .ceremony-dropdown {
+    margin: 0.5rem 1rem 0 1rem;
+  }
+
+  .participant-item {
+    height: 3rem;
+    font-size: 1.3rem;
+    line-height: 3rem;
+    display: flex;
+    background-color: rgb(243, 245, 247);
+  }
+  .participant-item-text {
+    flex-grow: 5;
+    align-self: center;
+  }
+
+  .participant-item:hover {
+    .deleteIcon {
+      visibility: visible;
+    }
+  }
+
+  .account-icon {
+    padding-right: 1rem;
+    align-self: center;
+    color: $color-blue;
+  }
+
+  .deleteIcon {
+    visibility: hidden;
+    padding-left: 0.5rem;
+    color: #f00c0c;
+    font-weight: bold;
+    font-size: 2rem;
+    cursor: pointer;
+    align-self: center;
+  }
+
+  .delete-modal {
+    width: 25%;
+    top: 35% !important;
+  }
+  .cancel-button-comfirm {
+    margin-right: 20px;
+  }
+
+  .sideBarContainer {
+    margin: 3rem 2rem;
+    min-height: 50rem;
+    min-width: 20rem;
+    background-color: rgb(243, 245, 247);
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.5rem;
+  }
+
+  .white-text {
+    color: #ffffff;
+  }
+
+  .btn-delete-room {
+    align-self: center;
+    margin: 2rem;
+  }
+
+  .fade-enter {
+    opacity: 0.01;
+  }
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  .fade-exit {
+    opacity: 1;
+  }
+  .fade-exit-active {
+    opacity: 0.01;
+    transition: opacity 500ms ease-in;
+  }
+
+  ul {
+    &.dropdown-content {
+      &.select-dropdown {
+        li {
+          span {
+            color: $color-blue-light;
+          }
+        }
+      }
+    }
+  }
+}
