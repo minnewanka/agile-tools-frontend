@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { Row, Col, Card } from "react-materialize"
 import "./roomList.scss"
-import { deleteRoom } from "../../services/roomService"
 
 class RoomList extends Component {
   componentDidMount() {

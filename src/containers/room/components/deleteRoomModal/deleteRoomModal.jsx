@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import "./deleteRoomModal.scss"
 import { Modal, Button, Icon } from "react-materialize"
-import { withRouter } from "react-router-dom"
 import { deleteRoom } from "../../../../services/roomService"
 
 class DeleteRoomModal extends Component {
