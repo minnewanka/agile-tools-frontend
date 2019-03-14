@@ -20,21 +20,18 @@ import Footer from "../../common/components/footer/footer"
 class Room extends Component {
   constructor(props) {
     super(props)
+
+    const {
+      location: { state },
+      setCurrentRoom,
+      currentRoom: { roomCode }
+    } = props
+    if (state && roomCode !== state.roomCode)
+      setCurrentRoom(state && state.roomCode)
     this.state = {
       ceremony: "pokerplanning"
     }
     this.handleTypeRoom = this.handleTypeRoom.bind(this)
-  }
-
-  componentDidMount() {
-    const {
-      location: { state: locationState },
-      setCurrentRoom
-    } = this.props
-    if (locationState) {
-      const { roomCode } = locationState
-      setCurrentRoom(roomCode)
-    }
   }
 
   handleTypeRoom(evt) {
@@ -45,8 +42,11 @@ class Room extends Component {
     const { ceremony } = this.state
     const {
       currentRoom: { participants, roomName, roomCode },
-      translate
+      translate,
+      location: { state }
     } = this.props
+    const currentParticipants =
+      state && roomCode === state.roomCode ? participants : []
     let ceremonyComponent
     if (ceremony === "pokerplanning") {
       ceremonyComponent = <PokerPlanning participants={participants} />
@@ -80,7 +80,7 @@ class Room extends Component {
                     {translate("participants")}
                   </h5>
                   <TransitionGroup>
-                    {participants.map((participant, index) => (
+                    {currentParticipants.map((participant, index) => (
                       <CSSTransition timeout={500} classNames="fade">
                         <CollectionItem
                           className="participant-item"

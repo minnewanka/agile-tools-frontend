@@ -30,6 +30,7 @@ class AppWrapper extends Component {
   }
 
   setCurrentRoom(roomCode) {
+    if (!roomCode) return
     getRoom(roomCode).then(room => {
       getVotes(room.get("code")).then(results => {
         this.setState({
@@ -61,12 +62,16 @@ class AppWrapper extends Component {
   subscriptionOnCreate(subscription) {
     subscription.on("create", object => {
       const {
-        currentRoom: { roomCode, roomName, participants }
+        currentRoom,
+        currentRoom: { participants }
       } = this.state
       const username = object.get("username")
-      const newParticipant = { username }
-      participants.push(newParticipant)
-      this.setState({ currentRoom: { roomCode, roomName, participants } })
+      this.setState({
+        currentRoom: {
+          ...currentRoom,
+          participants: [...participants, { username }]
+        }
+      })
     })
   }
 
