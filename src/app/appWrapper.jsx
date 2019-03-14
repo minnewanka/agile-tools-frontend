@@ -22,7 +22,10 @@ class AppWrapper extends Component {
       formatMessage: this.formatMessage.bind(this),
       loadRooms: this.loadRooms.bind(this),
       removeRoom: this.removeRoom.bind(this),
-      setCurrentRoom: this.setCurrentRoom.bind(this)
+      setCurrentRoom: this.setCurrentRoom.bind(this),
+      subscriptionOnCreate: this.subscriptionOnCreate.bind(this),
+      subscriptionOnUpdate: this.subscriptionOnUpdate.bind(this),
+      subscriptionOnDelete: this.subscriptionOnDelete.bind(this)
     }
   }
 
@@ -46,21 +49,32 @@ class AppWrapper extends Component {
     return messages[locale][`${prefix}.${key}`]
   }
 
-  initLiveQuery(roomCode) {
-    const {
-      currentRoom: { participants }
-    } = this.state
+  initLiveQuery(pRoomCode) {
     const query = new Parse.Query("Vote")
-    query.equalTo("roomCode", roomCode)
+    query.equalTo("roomCode", pRoomCode)
     const subscription = query.subscribe()
+    this.subscriptionOnCreate(subscription)
+    this.subscriptionOnUpdate(subscription)
+    this.subscriptionOnDelete(subscription)
+  }
 
+  subscriptionOnCreate(subscription) {
     subscription.on("create", object => {
+      const {
+        currentRoom: { roomCode, roomName, participants }
+      } = this.state
       const username = object.get("username")
       const newParticipant = { username }
       participants.push(newParticipant)
-      this.setState({ participants })
+      this.setState({ currentRoom: { roomCode, roomName, participants } })
     })
+  }
+
+  subscriptionOnUpdate(subscription) {
     subscription.on("update", object => {
+      const {
+        currentRoom: { roomCode, roomName, participants }
+      } = this.state
       const participantToUpdate = {
         username: object.get("username"),
         pokerVote: object.get("pokerplanning"),
@@ -70,14 +84,19 @@ class AppWrapper extends Component {
         x => x.username === object.get("username")
       )
       participants[foundIndex] = participantToUpdate
-      this.setState({ participants })
+      this.setState({ currentRoom: { roomCode, roomName, participants } })
     })
+  }
 
+  subscriptionOnDelete(subscription) {
     subscription.on("delete", object => {
+      const {
+        currentRoom: { roomCode, roomName, participants }
+      } = this.state
       const newParticipants = participants.filter(
         participant => participant.username !== object.get("username")
       )
-      this.setState({ participants: newParticipants })
+      this.setState({ currentRoom: { roomCode, roomName, newParticipants } })
     })
   }
 

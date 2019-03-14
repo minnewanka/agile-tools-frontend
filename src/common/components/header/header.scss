@@ -1,40 +1,24 @@
 @import "../../sass/variables";
 
-.button-linkstyle-lang {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-
-.button-linkstyle-lang:focus {
-  outline: none;
-}
-
 .underline {
   text-decoration: underline;
 }
 
 .app-header {
-  text-align: center;
   background-color: $color-blue;
   height: $header-height;
-  padding-top: 3rem;
   color: $color-white;
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 5px;
+  justify-items: center;
 }
 
 .logo-header {
   height: 6rem;
+  grid-column: 2;
+  place-self: center;
 }
 .logo-header:hover {
   cursor: pointer;
-}
-
-.languages {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  font-size: 1.5rem;
 }

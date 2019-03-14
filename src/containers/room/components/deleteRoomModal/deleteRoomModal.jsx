@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "../../room.scss"
+import "./deleteRoomModal.scss"
 import { Modal, Button, Icon } from "react-materialize"
 import { withRouter } from "react-router-dom"
 import { deleteRoom } from "../../../../services/roomService"
@@ -24,7 +24,9 @@ class DeleteRoomModal extends Component {
         className="delete-modal"
         header={translate("headerDeleteComfirm") + roomCode}
         trigger={
-          <Button className="red darken-2">{translate("buttonDelete")}</Button>
+          <Button className="delete-modal-trigger red darken-2">
+            {translate("buttonDelete")}
+          </Button>
         }
         actions={[
           <Button

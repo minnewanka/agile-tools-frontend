@@ -9,28 +9,27 @@
       $color-blue-light-low-opacity
     ),
     url(../../img/planning-poker.jpg);
-}
+  .roomHeader-logo {
+    margin-left: 5rem;
+    align-self: center;
+    cursor: pointer;
+    min-width: 20rem;
+  }
 
-.roomHeader-logo {
-  margin-left: 2rem;
-  align-self: center;
-  flex-grow: 1;
-  cursor: pointer;
-}
+  .roomHeader-title {
+    font-size: 5rem;
+    padding: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    flex-grow: 2;
+  }
 
-.roomHeader-title {
-  font-size: 5rem;
-  padding: 2rem;
-  flex-grow: 5;
-  text-align: center;
-  text-transform: uppercase;
-  color: #ffffff;
-}
-
-.roomHeader-code {
-  color: #ffffff;
-  border-style: solid;
-  padding: 2rem;
-  align-self: flex-end;
-  margin-right: 2rem;
+  .roomHeader-code {
+    color: #ffffff;
+    border-style: solid;
+    padding: 2rem;
+    align-self: flex-end;
+    margin-right: 5rem;
+  }
 }

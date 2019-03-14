@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import "./roomHeader.scss"
 import { withRouter } from "react-router-dom"
 import { ReactComponent as Logo } from "../../img/logo-text.svg"
+import LangToggle from "../../common/components/langToggle"
 
 class RoomHeader extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class RoomHeader extends Component {
         <Logo className="roomHeader-logo" onClick={this.redirect} />
         <h1 className="roomHeader-title">{roomName}</h1>
         <h1 className="roomHeader-code">Room# {roomCode}</h1>
+        <LangToggle />
       </div>
     )
   }

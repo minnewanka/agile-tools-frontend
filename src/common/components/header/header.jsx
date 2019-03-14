@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import "./header.scss"
 import { withRouter } from "react-router-dom"
 import { ReactComponent as Logo } from "../../../img/logo-text.svg"
-import { Consumer } from "../../../context/index"
+import LangToggle from "../langToggle"
 
 class HeaderApp extends Component {
   constructor(props) {
@@ -17,27 +17,10 @@ class HeaderApp extends Component {
 
   render() {
     return (
-      <Consumer>
-        {({ locale, changeLang }) => {
-          const nextLang = locale === "fr" ? "en" : "fr"
-          return (
-            <div className="app-header">
-              <div className="languages">
-                <button
-                  type="button"
-                  className="button-linkstyle-lang"
-                  onClick={() => {
-                    changeLang()
-                  }}
-                >
-                  {nextLang.toUpperCase()}
-                </button>
-              </div>
-              <Logo className="logo-header" onClick={this.redirect} />
-            </div>
-          )
-        }}
-      </Consumer>
+      <div className="app-header">
+        <Logo className="logo-header" onClick={this.redirect} />
+        <LangToggle />
+      </div>
     )
   }
 }

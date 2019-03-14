@@ -34,7 +34,18 @@
   font-size: 200%;
   font-weight: bold;
 }
-
+.card-front-topright {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.2rem;
+}
+.card-front-bottomleft {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  font-size: 1.2rem;
+}
 .card-back {
   background: $color-blue;
   position: relative;

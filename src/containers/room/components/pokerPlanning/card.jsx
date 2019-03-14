@@ -8,6 +8,8 @@ const Card = ({ isFlipped, vote, username }) => (
     <ReactCardFlip isFlipped={isFlipped} className="flipper">
       <div key="front" className="poker-card card-front">
         <span className="card-front-content">{vote}</span>
+        <span className="card-front-topright">{vote}</span>
+        <span className="card-front-bottomleft">{vote}</span>
       </div>
 
       <div key="back" className="poker-card card-back">

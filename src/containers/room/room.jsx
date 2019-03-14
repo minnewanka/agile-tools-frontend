@@ -6,14 +6,14 @@ import {
   Input,
   Collection,
   CollectionItem,
+  Button,
   Icon
 } from "react-materialize"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import RoomHeader from "./roomHeader"
 import PokerPlanning from "./components/pokerPlanning/pokerPlanning"
 import TshirtCeremony from "./components/tshirtCeremony/tshirtCeremony"
-import { getRoom } from "../../services/roomService"
-import { deleteVote, getVotes } from "../../services/voteService"
+import { deleteVote } from "../../services/voteService"
 import DeleteRoomModal from "./components/deleteRoomModal"
 import Footer from "../../common/components/footer/footer"
 
@@ -58,10 +58,10 @@ class Room extends Component {
         <RoomHeader roomName={roomName} roomCode={roomCode} />
         <div>
           <Row>
-            <Col s={10} l={10}>
+            <Col s={10} m={8} l={10}>
               {ceremonyComponent}
             </Col>
-            <Col s={10} l={2}>
+            <Col s={10} m={4} l={2}>
               <div className="sideBarContainer">
                 <div className="ceremony-dropdown">
                   <Input
@@ -76,11 +76,9 @@ class Room extends Component {
                   </Input>
                 </div>
                 <Collection className="participants-list">
-                  <li className="collection-header">
-                    <h5 className="participants-list-header center-align">
-                      {translate("participants")}
-                    </h5>
-                  </li>
+                  <h5 className="participants-list-header center-align">
+                    {translate("participants")}
+                  </h5>
                   <TransitionGroup>
                     {participants.map((participant, index) => (
                       <CSSTransition timeout={500} classNames="fade">
@@ -106,10 +104,12 @@ class Room extends Component {
                     ))}
                   </TransitionGroup>
                 </Collection>
-
-                <div className="btn-delete-room">
-                  <DeleteRoomModal roomCode={roomCode} />
-                </div>
+              </div>
+              <div className="btn-room">
+                <Button className="btn-room-reset" waves="light">
+                  Reset Vote
+                </Button>
+                <DeleteRoomModal roomCode={roomCode} />
               </div>
             </Col>
           </Row>

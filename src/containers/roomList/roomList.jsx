@@ -31,7 +31,7 @@ class RoomList extends Component {
                   <button
                     type="button"
                     key="connect"
-                    className="button-linkstyle link-connect"
+                    className="button-link link-connect"
                     onClick={() => this.redirect(room.code)}
                   >
                     {translate("connect")}
@@ -39,7 +39,7 @@ class RoomList extends Component {
                   <button
                     type="button"
                     key="delete"
-                    className="button-linkstyle link-delete"
+                    className="button-link link-delete"
                     onClick={() => removeRoom(room.code)}
                   >
                     {translate("delete")}
