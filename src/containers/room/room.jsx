@@ -46,12 +46,12 @@ class Room extends Component {
       location: { state }
     } = this.props
     const currentParticipants =
-      state && roomCode === state.roomCode ? participants : []
+      state && roomCode === state.roomCode && participants ? participants : []
     let ceremonyComponent
     if (ceremony === "pokerplanning") {
-      ceremonyComponent = <PokerPlanning participants={participants} />
+      ceremonyComponent = <PokerPlanning participants={currentParticipants} />
     } else {
-      ceremonyComponent = <TshirtCeremony participants={participants} />
+      ceremonyComponent = <TshirtCeremony participants={currentParticipants} />
     }
     return [
       <div className="room-container">

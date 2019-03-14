@@ -78,7 +78,8 @@ class AppWrapper extends Component {
   subscriptionOnUpdate(subscription) {
     subscription.on("update", object => {
       const {
-        currentRoom: { roomCode, roomName, participants }
+        currentRoom,
+        currentRoom: { participants }
       } = this.state
       const participantToUpdate = {
         username: object.get("username"),
@@ -89,19 +90,21 @@ class AppWrapper extends Component {
         x => x.username === object.get("username")
       )
       participants[foundIndex] = participantToUpdate
-      this.setState({ currentRoom: { roomCode, roomName, participants } })
+      this.setState({ currentRoom: { ...currentRoom, participants } })
     })
   }
 
   subscriptionOnDelete(subscription) {
+   
     subscription.on("delete", object => {
       const {
-        currentRoom: { roomCode, roomName, participants }
+        currentRoom,
+        currentRoom: { participants }
       } = this.state
       const newParticipants = participants.filter(
         participant => participant.username !== object.get("username")
       )
-      this.setState({ currentRoom: { roomCode, roomName, newParticipants } })
+      this.setState({ currentRoom: { ...currentRoom, participants:newParticipants } })
     })
   }
 

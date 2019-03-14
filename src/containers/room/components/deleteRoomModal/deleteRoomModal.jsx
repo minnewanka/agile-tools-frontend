@@ -22,11 +22,11 @@ class DeleteRoomModal extends Component {
       <Modal
         className="delete-modal"
         header={translate("headerDeleteComfirm") + roomCode}
-        trigger={
+        trigger={(
           <Button className="delete-modal-trigger red darken-2">
             {translate("buttonDelete")}
           </Button>
-        }
+)}
         actions={[
           <Button
             modal="close"
