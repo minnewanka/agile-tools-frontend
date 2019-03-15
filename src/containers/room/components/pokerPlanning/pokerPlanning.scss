@@ -5,17 +5,16 @@
   margin: 0 auto;
 }
 .poker-planning-container {
-  margin: 5rem;
+  display: flex;
+  margin: 2rem;
+  align-content: space-around;
 }
 
 .poker-card {
   width: 18rem;
   height: 25rem;
-  display: flex;
-  flex-direction: column;
   font-family: sans-serif;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.9);
-  white-space: nowrap;
   border-radius: 1rem;
 }
 .poker-card-username {

@@ -16,6 +16,7 @@ class AppWrapper extends Component {
       currentRoom: {
         roomCode: "",
         roomName: "",
+        ceremony: "pokerplanning",
         participants: []
       },
       changeLang: this.changeLang.bind(this),
@@ -23,6 +24,7 @@ class AppWrapper extends Component {
       loadRooms: this.loadRooms.bind(this),
       removeRoom: this.removeRoom.bind(this),
       setCurrentRoom: this.setCurrentRoom.bind(this),
+      changeCeremony: this.changeCeremony.bind(this),
       subscriptionOnCreate: this.subscriptionOnCreate.bind(this),
       subscriptionOnUpdate: this.subscriptionOnUpdate.bind(this),
       subscriptionOnDelete: this.subscriptionOnDelete.bind(this)
@@ -37,6 +39,7 @@ class AppWrapper extends Component {
           currentRoom: {
             roomCode: room.get("code"),
             roomName: room.get("name"),
+            ceremony: "pokerplanning",
             participants: results
           }
         })
@@ -90,12 +93,13 @@ class AppWrapper extends Component {
         x => x.username === object.get("username")
       )
       participants[foundIndex] = participantToUpdate
-      this.setState({ currentRoom: { ...currentRoom, participants } })
+      this.setState({
+        currentRoom: { ...currentRoom, participants }
+      })
     })
   }
 
   subscriptionOnDelete(subscription) {
-   
     subscription.on("delete", object => {
       const {
         currentRoom,
@@ -104,7 +108,9 @@ class AppWrapper extends Component {
       const newParticipants = participants.filter(
         participant => participant.username !== object.get("username")
       )
-      this.setState({ currentRoom: { ...currentRoom, participants:newParticipants } })
+      this.setState({
+        currentRoom: { ...currentRoom, participants: newParticipants }
+      })
     })
   }
 
@@ -113,6 +119,11 @@ class AppWrapper extends Component {
       const newLocale = locale === "fr" ? "en" : "fr"
       return { locale: newLocale }
     })
+  }
+
+  changeCeremony(ceremony) {
+    const { currentRoom } = this.state
+    this.setState({ currentRoom: { ...currentRoom, ceremony } })
   }
 
   loadRooms() {

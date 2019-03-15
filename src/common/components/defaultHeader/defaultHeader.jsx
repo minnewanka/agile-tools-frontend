@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "./header.scss"
+import "./defaultHeader.scss"
 import { withRouter } from "react-router-dom"
 import { ReactComponent as Logo } from "../../../img/logo-text.svg"
 import LangToggle from "../langToggle"

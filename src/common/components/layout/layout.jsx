@@ -1,16 +1,17 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
+import React from "react"
+import { Route } from "react-router-dom"
 
-import Header from '../header/header'
-import Footer from '../footer/footer'
+import DefaultHeader from "../defaultHeader/defaultHeader"
+import RoomHeader from "../roomHeader"
+import Footer from "../footer/footer"
 
-const Layout = ({ component: Page, ...rest }) => {
+const Layout = ({ component: Page, roomHeader, ...rest }) => {
   return (
     <Route
       {...rest}
       render={() => (
         <div>
-          <Header />
+          {roomHeader ? <RoomHeader /> : <DefaultHeader />}
           <Page />
           <Footer />
         </div>

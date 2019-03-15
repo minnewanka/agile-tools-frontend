@@ -4,7 +4,7 @@ import ReactCardFlip from "react-card-flip"
 import { ReactComponent as Logo } from "../../../../img/logo-blanc.svg"
 
 const Card = ({ isFlipped, vote, username }) => (
-  <div className="card-container slide-in-bottom">
+  <div className="">
     <ReactCardFlip isFlipped={isFlipped} className="flipper">
       <div key="front" className="poker-card card-front">
         <span className="card-front-content">{vote}</span>

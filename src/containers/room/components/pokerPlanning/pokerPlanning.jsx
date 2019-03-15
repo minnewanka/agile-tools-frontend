@@ -31,31 +31,23 @@ class PokerPlanning extends Component {
     const { participants } = this.props
     const { isFlipped } = this.state
     return (
-      <div
-        role="main"
-        className="poker-planning-container"
-        onClick={this.handleClick}
-      >
-        <Row className="card-row">
-          <TransitionGroup>
-            {participants
-              .filter(participant => participant.pokerVote !== undefined)
-              .map((participant, index) => {
-                return (
-                  <CSSTransition timeout={500} classNames="animation-card">
-                    <Col l={2} key={index} className="card-column">
-                      <Card
-                        key={index}
-                        isFlipped={isFlipped}
-                        vote={participant.pokerVote}
-                        username={participant.username}
-                      />
-                    </Col>
-                  </CSSTransition>
-                )
-              })}
-          </TransitionGroup>
-        </Row>
+      <div role="main" onClick={this.handleClick}>
+        <TransitionGroup className="poker-planning-container">
+          {participants
+            .filter(participant => participant.pokerVote !== undefined)
+            .map((participant, index) => {
+              return (
+                <CSSTransition timeout={500} classNames="animation-card">
+                  <Card
+                    key={index}
+                    isFlipped={isFlipped}
+                    vote={participant.pokerVote}
+                    username={participant.username}
+                  />
+                </CSSTransition>
+              )
+            })}
+        </TransitionGroup>
       </div>
     )
   }

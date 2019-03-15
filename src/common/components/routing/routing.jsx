@@ -16,7 +16,7 @@ const Routes = () => {
     <Router>
       <Switch>
         <Layout exact path="/" component={CreateRoom} />
-        <Route path="/room" component={Room} />
+        <Layout path="/room" component={Room} roomHeader />
         <Layout path="/rooms" component={RoomList} />
         <Layout path="/404" component={Page404} />
         <Redirect to="/404" />

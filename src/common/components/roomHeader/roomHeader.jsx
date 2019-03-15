@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import "./roomHeader.scss"
 import { withRouter } from "react-router-dom"
-import { ReactComponent as Logo } from "../../img/logo-text.svg"
-import LangToggle from "../../common/components/langToggle"
+import { ReactComponent as Logo } from "../../../img/logo-text.svg"
+import LangToggle from "../langToggle"
 
 class RoomHeader extends Component {
   constructor(props) {
