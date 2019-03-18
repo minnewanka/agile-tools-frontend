@@ -20,7 +20,7 @@
 }
 
 .room-list-container {
-  height: calc(100vh - (#{$header-height} + #{$footer-height}));
+  min-height: calc(100vh - (#{$header-height} + #{$footer-height}));
   .room-card {
     margin: 1rem;
   }

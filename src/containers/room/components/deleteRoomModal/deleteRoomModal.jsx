@@ -23,31 +23,32 @@ class DeleteRoomModal extends Component {
         className="delete-modal"
         header={translate("headerDeleteComfirm") + roomCode}
         trigger={(
-          <Button className="delete-modal-trigger red darken-2">
+<Button className="delete-modal-trigger  waves-effect waves-light red">
             {translate("buttonDelete")}
           </Button>
 )}
-        actions={[
-          <Button
-            modal="close"
-            waves="light"
-            className="red darken-2 "
-            onClick={() => {
-              this.deleteRoomAndRedirect(roomCode)
-            }}
-          >
-            <Icon left>delete</Icon>
-            {translate("buttonDeleteComfirm")}
-          </Button>,
-          <Button
-            flat
-            modal="close"
-            className="cancel-button-comfirm"
-            waves="light"
-          >
-            {translate("buttonCancel")}
-          </Button>
-        ]}
+        actions={(
+<div className="actions-buttons-container">
+            <Button
+              flat
+              modal="close"
+              waves="light"
+              className="actions-button-cancel"
+            >
+              {translate("buttonCancel")}
+            </Button>
+            <Button
+              modal="close"
+              waves="light"
+              className="red actions-button-delete"
+              onClick={() => {
+                this.deleteRoomAndRedirect(roomCode)
+              }}
+            >
+              {translate("buttonDeleteComfirm")}
+            </Button>
+          </div>
+)}
       >
         <p>{translate("textDeleteComfirm")}</p>
       </Modal>

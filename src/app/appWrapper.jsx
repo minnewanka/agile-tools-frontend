@@ -4,7 +4,7 @@ import App from "./app"
 import allMessages from "../common/utils/IntlUtils"
 import { Provider } from "../context/index"
 import { getRoom, getRooms, deleteRoom } from "../services/roomService"
-import { getVotes } from "../services/voteService"
+import { getVotes, resetAllVotes } from "../services/voteService"
 
 class AppWrapper extends Component {
   constructor(props) {
@@ -25,6 +25,7 @@ class AppWrapper extends Component {
       removeRoom: this.removeRoom.bind(this),
       setCurrentRoom: this.setCurrentRoom.bind(this),
       changeCeremony: this.changeCeremony.bind(this),
+      resetVote: this.resetVote.bind(this),
       subscriptionOnCreate: this.subscriptionOnCreate.bind(this),
       subscriptionOnUpdate: this.subscriptionOnUpdate.bind(this),
       subscriptionOnDelete: this.subscriptionOnDelete.bind(this)
@@ -53,6 +54,13 @@ class AppWrapper extends Component {
     return messages[locale][`${prefix}.${key}`]
   }
 
+  resetVote() {
+    const {
+      currentRoom: { roomCode, ceremony }
+    } = this.state
+    resetAllVotes(roomCode, ceremony)
+  }
+
   initLiveQuery(pRoomCode) {
     const query = new Parse.Query("Vote")
     query.equalTo("roomCode", pRoomCode)
@@ -79,6 +87,7 @@ class AppWrapper extends Component {
   }
 
   subscriptionOnUpdate(subscription) {
+    console.log("onUpdate")
     subscription.on("update", object => {
       const {
         currentRoom,

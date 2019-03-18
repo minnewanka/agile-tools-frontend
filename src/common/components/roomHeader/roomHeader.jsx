@@ -1,31 +1,33 @@
 import React, { Component } from "react"
 import "./roomHeader.scss"
-import { withRouter } from "react-router-dom"
+
 import { ReactComponent as Logo } from "../../../img/logo-text.svg"
 import LangToggle from "../langToggle"
 
-class RoomHeader extends Component {
-  constructor(props) {
-    super(props)
-    this.redirect = this.redirect.bind(this)
-  }
+const RoomHeader = props => {
+  const {
+    roomName,
+    roomCode,
+    location: { state },
+    history
+  } = props
 
-  redirect() {
-    const { history } = this.props
+  const sameRoom = state && roomCode === state.roomCode
+
+  const redirect = () => {
     history.push({ pathname: "/" })
   }
 
-  render() {
-    const { roomName, roomCode } = this.props
-    return (
-      <div className="roomHeader-container">
-        <Logo className="roomHeader-logo" onClick={this.redirect} />
-        <h1 className="roomHeader-title">{roomName}</h1>
-        <h1 className="roomHeader-code">Room# {roomCode}</h1>
-        <LangToggle />
-      </div>
-    )
-  }
+  return (
+    <div className="roomHeader-container">
+      <Logo className="roomHeader-logo" onClick={redirect} />
+      <h1 className="roomHeader-title">{sameRoom ? roomName : ""}</h1>
+      <h1 className="roomHeader-code">
+        Room# {sameRoom ? roomCode : state.roomCode || ""}
+      </h1>
+      <LangToggle />
+    </div>
+  )
 }
 
-export default withRouter(RoomHeader)
+export default RoomHeader

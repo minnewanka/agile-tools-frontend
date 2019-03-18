@@ -8,18 +8,9 @@ class PokerPlanning extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isFlipped: true,
-      maxVote: 0,
-      minVote: 1000,
-      sumVote: 0,
-      median: 0,
-      mounted: false
+      isFlipped: true
     }
     this.handleClick = this.handleClick.bind(this)
-  }
-
-  componentDidMount() {
-    this.setState({ mounted: true })
   }
 
   handleClick(e) {
@@ -31,24 +22,30 @@ class PokerPlanning extends Component {
     const { participants } = this.props
     const { isFlipped } = this.state
     return (
-      <div role="main" onClick={this.handleClick}>
-        <TransitionGroup className="poker-planning-container">
-          {participants
-            .filter(participant => participant.pokerVote !== undefined)
-            .map((participant, index) => {
-              return (
-                <CSSTransition timeout={500} classNames="animation-card">
+      <TransitionGroup
+        className="poker-planning-container row"
+        onClick={this.handleClick}
+      >
+        {participants
+          .filter(participant => participant.pokerVote)
+          .map((participant, index) => {
+            return (
+              <CSSTransition
+                timeout={500}
+                classNames="poker-card-container animation-card"
+              >
+                <Col className="poker-planning-col" s={6} m={4} l={3} xl={2}>
                   <Card
                     key={index}
                     isFlipped={isFlipped}
                     vote={participant.pokerVote}
                     username={participant.username}
                   />
-                </CSSTransition>
-              )
-            })}
-        </TransitionGroup>
-      </div>
+                </Col>
+              </CSSTransition>
+            )
+          })}
+      </TransitionGroup>
     )
   }
 }

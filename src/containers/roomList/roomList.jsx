@@ -20,9 +20,9 @@ class RoomList extends Component {
       <div className="room-list-container">
         <Row>
           {rooms.map((room, index) => (
-            <Col m={2} s={2} key={index}>
+            <Col m={4} s={10} l={2} key={index}>
               <Card
-                className="room-card"
+                className="small room-card"
                 key={index}
                 textClassName="black-text"
                 title={room.name}

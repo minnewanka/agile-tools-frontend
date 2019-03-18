@@ -1,26 +1,22 @@
-span-tshirt-size{
-  display:block;
-  width:10rem;
+span-tshirt-size {
+  display: block;
+  width: 10rem;
   height: 100%;
   margin: 0 auto;
 }
 tshirt-wrapper {
-  position:absolute;
-  top:0rem;
-  left:0rem;
-}
-svg-tshirt {
- 
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
 }
 
-.floatTL{
-  position:absolute;
-  top:5rem;
-  left:0rem;
+.floatTL {
+  position: absolute;
+  top: 5rem;
+  left: 0rem;
   z-index: +10;
   height: 100%;
   width: 100%;
   font-size: 200%;
   font-weight: bold;
- }
-
+}

@@ -1,15 +1,33 @@
 @import "../../sass/variables";
 
 .roomHeader-container {
-  height: $room-header-height;
+  min-height: $room-header-height;
   display: flex;
   justify-content: space-between;
-  background-image: linear-gradient(
-      to right bottom,
-      $color-blue-low-opacity,
-      $color-blue-light-low-opacity
-    ),
-    url(../../../img/planning-poker.jpg);
+  flex-wrap: wrap;
+  background: #1e5799; /* Old browsers */
+  background: -moz-linear-gradient(
+    -45deg,
+    #1e5799 0%,
+    #207cca 34%,
+    #207cca 63%,
+    #7db9e8 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    -45deg,
+    #1e5799 0%,
+    #207cca 34%,
+    #207cca 63%,
+    #7db9e8 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    135deg,
+    #1e5799 0%,
+    #207cca 34%,
+    #207cca 63%,
+    #7db9e8 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
   .roomHeader-logo {
     margin-left: 5rem;
     align-self: center;

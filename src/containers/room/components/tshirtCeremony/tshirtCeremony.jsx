@@ -30,11 +30,11 @@ class TshirtCeremony extends Component {
         <Row className="card-row">
           <TransitionGroup>
             {participants
-              .filter(participant => participant.tshirtVote !== undefined)
+              .filter(participant => participant.tshirtVote)
               .map((participant, index) => {
                 return (
                   <CSSTransition timeout={500} classNames="animation-card">
-                    <Col l={2} key={index}>
+                    <Col s={6} m={4} l={3} xl={2} key={index}>
                       <Tshirt
                         key={index}
                         isFlipped={isFlipped}
@@ -47,7 +47,6 @@ class TshirtCeremony extends Component {
               })}
           </TransitionGroup>
         </Row>
-        <Row className="center-align">{/* {stats} */}</Row>
       </div>
     )
   }

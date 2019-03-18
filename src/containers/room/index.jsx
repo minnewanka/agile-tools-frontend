@@ -6,11 +6,18 @@ import { Consumer } from "../../context"
 const RoomConsumer = props => {
   return (
     <Consumer>
-      {({ currentRoom, setCurrentRoom, formatMessage, changeCeremony }) => (
+      {({
+        currentRoom,
+        setCurrentRoom,
+        resetVote,
+        formatMessage,
+        changeCeremony
+      }) => (
         <Room
           currentRoom={currentRoom}
           setCurrentRoom={setCurrentRoom}
           changeCeremony={changeCeremony}
+          resetVote={resetVote}
           translate={formatMessage("room")}
           {...props}
         />
