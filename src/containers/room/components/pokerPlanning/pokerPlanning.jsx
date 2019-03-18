@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import "./pokerPlanning.scss"
-import { Row, Col } from "react-materialize"
+import { Col } from "react-materialize"
 import { TransitionGroup, CSSTransition } from "react-transition-group"
 import Card from "./card"
 
@@ -28,15 +28,16 @@ class PokerPlanning extends Component {
       >
         {participants
           .filter(participant => participant.pokerVote)
-          .map((participant, index) => {
+          .map(participant => {
             return (
               <CSSTransition
                 timeout={500}
+                key={participant.username}
                 classNames="poker-card-container animation-card"
               >
                 <Col className="poker-planning-col" s={6} m={4} l={3} xl={2}>
                   <Card
-                    key={index}
+                    key={participant.username}
                     isFlipped={isFlipped}
                     vote={participant.pokerVote}
                     username={participant.username}

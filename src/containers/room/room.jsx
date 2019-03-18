@@ -74,7 +74,7 @@ class Room extends Component {
                 </h5>
                 <TransitionGroup className="test">
                   {currentParticipants.map((participant, index) => (
-                    <CSSTransition timeout={500} classNames="fade">
+                    <CSSTransition key={index} timeout={500} classNames="fade">
                       <CollectionItem className="participant-item" key={index}>
                         <Icon className="account-icon" center>
                           account_circle

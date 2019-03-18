@@ -6,3 +6,16 @@
   cursor: pointer;
   text-transform: uppercase;
 }
+.btn-round {
+  padding: 0;
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.4);
+  }
+}

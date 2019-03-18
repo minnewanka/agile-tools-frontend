@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Row, Col, Card } from "react-materialize"
+import { Row, Col } from "react-materialize"
 import "./roomList.scss"
 
 class RoomList extends Component {
@@ -14,39 +14,35 @@ class RoomList extends Component {
   }
 
   render() {
-    const { rooms, removeRoom, translate } = this.props
+    const { rooms, removeRoom } = this.props
+    const closeRoom = (event, roomCode) => {
+      event.stopPropagation()
+      removeRoom(roomCode)
+    }
     return (
       // TODO externaliser css en commun
       <div className="room-list-container">
         <Row>
-          {rooms.map((room, index) => (
-            <Col m={4} s={10} l={2} key={index}>
-              <Card
-                className="small room-card"
-                key={index}
-                textClassName="black-text"
-                title={room.name}
-                actions={[
-                  <button
-                    type="button"
-                    key="connect"
-                    className="button-link link-connect"
-                    onClick={() => this.redirect(room.code)}
-                  >
-                    {translate("connect")}
-                  </button>,
-                  <button
-                    type="button"
-                    key="delete"
-                    className="button-link link-delete"
-                    onClick={() => removeRoom(room.code)}
-                  >
-                    {translate("delete")}
-                  </button>
-                ]}
+          {rooms.map(room => (
+            <Col key={room.code}>
+              <div
+                className="room-card"
+                onClick={() => this.redirect(room.code)}
+                role="button"
               >
-                Room# {room.code}
-              </Card>
+                <button
+                  className="btn-round close"
+                  type="button"
+                  onClick={event => closeRoom(event, room.code)}
+                >
+                  <i className="small material-icons">delete_forever</i>
+                </button>
+                <h3 className="room-name">{room.name}</h3>
+                <div className="room-infos">
+                  <p>Room# {room.code}</p>
+                  <p>5 participant(s)</p>
+                </div>
+              </div>
             </Col>
           ))}
         </Row>

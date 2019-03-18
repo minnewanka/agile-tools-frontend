@@ -1,10 +1,5 @@
 import React from "react"
-import {
-  BrowserRouter as Router,
-  Switch,
-  Redirect,
-  Route
-} from "react-router-dom"
+import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom"
 import CreateRoom from "../../../containers/createRoom"
 import RoomList from "../../../containers/roomList"
 import Room from "../../../containers/room"

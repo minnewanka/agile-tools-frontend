@@ -3,6 +3,8 @@
 .roomHeader-container {
   min-height: $room-header-height;
   display: flex;
+  align-items: center;
+  padding: 0 2rem;
   justify-content: space-between;
   flex-wrap: wrap;
   background: #1e5799; /* Old browsers */
@@ -28,18 +30,17 @@
     #7db9e8 100%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
   .roomHeader-logo {
-    margin-left: 5rem;
-    align-self: center;
+    height: 6rem;
+    margin: 0.4rem;
     cursor: pointer;
-    min-width: 20rem;
   }
 
   .roomHeader-title {
     font-size: 5rem;
-    padding: 2rem;
+    margin: 0.4rem;
     text-align: center;
-    align-self: center;
     text-transform: uppercase;
     color: #ffffff;
     flex-grow: 2;
@@ -48,9 +49,12 @@
   .roomHeader-code {
     color: #ffffff;
     border-style: solid;
+    border-radius: 1rem;
     padding: 2rem;
-    align-self: center;
-    margin-right: 5rem;
+    margin: 0.4rem 2rem 0.4rem 0.4rem;
     text-align: center;
+  }
+  .lang-toggle {
+    align-self: center;
   }
 }

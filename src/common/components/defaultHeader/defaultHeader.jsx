@@ -19,7 +19,7 @@ class HeaderApp extends Component {
     return (
       <div className="app-header">
         <Logo className="logo-header" onClick={this.redirect} />
-        <LangToggle />
+        <LangToggle className="default-header-toggle" />
       </div>
     )
   }

@@ -5,12 +5,13 @@ import allMessages from "../common/utils/IntlUtils"
 import { Provider } from "../context/index"
 import { getRoom, getRooms, deleteRoom } from "../services/roomService"
 import { getVotes, resetAllVotes } from "../services/voteService"
+import { getDefaultLanguage, saveLanguage } from "../common/utils"
 
 class AppWrapper extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      locale: "en",
+      locale: getDefaultLanguage(),
       messages: allMessages,
       rooms: [],
       currentRoom: {
@@ -49,7 +50,7 @@ class AppWrapper extends Component {
     })
   }
 
-  formatMessage = (prefix = "createRoom") => key => {
+  formatMessage = (prefix = "") => key => {
     const { messages, locale } = this.state
     return messages[locale][`${prefix}.${key}`]
   }
@@ -87,7 +88,6 @@ class AppWrapper extends Component {
   }
 
   subscriptionOnUpdate(subscription) {
-    console.log("onUpdate")
     subscription.on("update", object => {
       const {
         currentRoom,
@@ -126,6 +126,7 @@ class AppWrapper extends Component {
   changeLang() {
     this.setState(({ locale }) => {
       const newLocale = locale === "fr" ? "en" : "fr"
+      saveLanguage(newLocale)
       return { locale: newLocale }
     })
   }

@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import "./roomHeader.scss"
 
 import { ReactComponent as Logo } from "../../../img/logo-text.svg"
@@ -25,7 +25,7 @@ const RoomHeader = props => {
       <h1 className="roomHeader-code">
         Room# {sameRoom ? roomCode : state.roomCode || ""}
       </h1>
-      <LangToggle />
+      <LangToggle className="lang-toggle" />
     </div>
   )
 }
