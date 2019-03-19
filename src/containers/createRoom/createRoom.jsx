@@ -116,8 +116,7 @@ class CreateRoom extends Component {
             <h4>{translate("textMobile")}</h4>
           </div>
           <div className="store-badge-container">
-            <MobileStoreIcon storeName="google" />
-            <MobileStoreIcon storeName="apple" />
+            <MobileStoreIcon />
           </div>
         </div>
       </div>

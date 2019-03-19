@@ -1,0 +1,25 @@
+.badge-container {
+  display: flex;
+  .google-badge-container {
+    width: 250px;
+    .google-badge {
+      max-width: 100%;
+      height: auto;
+    }
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  .apple-badge-container {
+    width: 250px;
+    .apple-badge {
+      max-width: 100%;
+      height: auto;
+      margin: 6%;
+      min-width: 79%;
+    }
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
