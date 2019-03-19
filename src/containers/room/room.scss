@@ -2,14 +2,20 @@
 
 .room-container {
   min-height: calc(100vh - (#{$room-header-height} + #{$footer-height}));
-  margin: 2rem;
+  padding: 2rem;
 
   .room-container-col {
     min-height: 100%;
   }
+  .room-container-col:nth-child(2) {
+    min-height: 70rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   .sideBarContainer {
-    margin: 2rem;
     min-height: 50rem;
     min-width: 25rem;
     background-color: rgb(243, 245, 247);
@@ -74,6 +80,7 @@
   }
   .btn-room-reset {
     margin-right: 0.5rem;
+    min-width: 15rem;
   }
 
   #toast-container {

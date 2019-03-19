@@ -45,15 +45,15 @@ class Room extends Component {
       state && roomCode === state.roomCode && participants ? participants : []
 
     return (
-      <div className="room-container row">
-        <Col className="room-container-col" l={10} m={8} s={12}>
+      <div className="room-container row ">
+        <Col className="room-container-col" l={9} m={8} s={12}>
           {ceremony === "pokerplanning" ? (
             <PokerPlanning participants={currentParticipants} />
           ) : (
             <TshirtCeremony participants={currentParticipants} />
           )}
         </Col>
-        <Col className="room-container-col" l={2} m={4} s={12}>
+        <Col className="room-container-col" l={3} m={4} s={12}>
           <Row>
             <div className="sideBarContainer col">
               <div className="ceremony-dropdown">
@@ -103,7 +103,7 @@ class Room extends Component {
                 waves="light"
                 onClick={resetVote}
               >
-                Reset Vote
+                {translate("buttonReset")}
               </Button>
               <DeleteRoomModal roomCode={roomCode} />
             </div>

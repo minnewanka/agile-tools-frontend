@@ -35,7 +35,7 @@ class PokerPlanning extends Component {
                 key={participant.username}
                 classNames="poker-card-container animation-card"
               >
-                <Col className="poker-planning-col" s={6} m={4} l={3} xl={2}>
+                <Col className="poker-planning-col " s={12} m={6} l={3}>
                   <Card
                     key={participant.username}
                     isFlipped={isFlipped}

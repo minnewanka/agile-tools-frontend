@@ -1,9 +1,5 @@
 @import "../../../../common/sass/variables";
 
-.flipper {
-  width: 80%;
-  margin: 0 auto;
-}
 .poker-planning-container {
   min-height: 100%;
   padding: 0.5rem;
@@ -12,7 +8,15 @@
 .poker-planning-col {
   display: flex;
   justify-content: center;
-  margin-bottom: 3rem;
+
+  .poker-card-container {
+    margin: 2rem;
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .poker-card {
@@ -34,6 +38,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  .scissor {
+    width: 5rem;
+  }
 }
 .card-front-content {
   font-size: 200%;
