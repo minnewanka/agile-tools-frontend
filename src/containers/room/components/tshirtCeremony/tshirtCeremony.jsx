@@ -22,32 +22,30 @@ class TshirtCeremony extends Component {
     const { participants } = this.props
     const { isFlipped } = this.state
     return (
-      <div
-        role="main"
+      <TransitionGroup
         className="tshirt-ceremony-container"
         onClick={this.handleClick}
       >
-        <Row>
-          <TransitionGroup>
-            {participants
-              .filter(participant => participant.tshirtVote)
-              .map((participant, index) => {
-                return (
-                  <CSSTransition timeout={500} classNames="animation-card">
-                    <Col s={6} m={4} l={3} xl={2} key={index}>
-                      <Tshirt
-                        key={index}
-                        isFlipped={isFlipped}
-                        vote={participant.tshirtVote}
-                        username={participant.username}
-                      />
-                    </Col>
-                  </CSSTransition>
-                )
-              })}
-          </TransitionGroup>
-        </Row>
-      </div>
+        {participants
+          .filter(participant => participant.tshirtVote)
+          .map(participant => {
+            return (
+              <CSSTransition
+                timeout={500}
+                classNames="animation-card"
+                key={`tshirt${participant.username}`}
+              >
+                <Col className="tshirt-ceremony-col" s={12} m={6} l={3}>
+                  <Tshirt
+                    isFlipped={isFlipped}
+                    vote={participant.tshirtVote}
+                    username={participant.username}
+                  />
+                </Col>
+              </CSSTransition>
+            )
+          })}
+      </TransitionGroup>
     )
   }
 }

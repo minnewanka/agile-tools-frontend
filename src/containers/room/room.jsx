@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import "./room.scss"
 import { Row, Col, Button } from "react-materialize"
 import PokerPlanning from "./components/pokerPlanning"
-import TshirtCeremony from "./components/tshirtCeremony/tshirtCeremony"
+import TshirtCeremony from "./components/tshirtCeremony"
 import SideBar from "./components/sideBar/sideBar"
 import DeleteRoomModal from "./components/deleteRoomModal"
 

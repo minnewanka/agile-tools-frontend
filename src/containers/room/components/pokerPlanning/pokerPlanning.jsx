@@ -32,12 +32,11 @@ class PokerPlanning extends Component {
             return (
               <CSSTransition
                 timeout={500}
-                key={participant.username}
+                key={`pp${participant.username}`}
                 classNames="animation-card"
               >
                 <Col className="poker-planning-col" s={12} m={6} l={3}>
                   <Card
-                    key={participant.username}
                     isFlipped={isFlipped}
                     vote={participant.pokerVote}
                     username={participant.username}
