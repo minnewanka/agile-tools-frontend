@@ -141,10 +141,10 @@ class AppWrapper extends Component {
       results.forEach(result => {
         getVotes(result.code).then(participants => {
           result.nbParticipants = participants.length
+          this.setState({ rooms: results })
         })
       })
       this.setState({ rooms: results })
-      console.log(results)
     })
   }
 

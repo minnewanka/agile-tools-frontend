@@ -3,7 +3,8 @@ import { Row, Col } from "react-materialize"
 import "./roomList.scss"
 
 class RoomList extends Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props)
     const { loadRooms } = this.props
     loadRooms()
   }
@@ -19,7 +20,6 @@ class RoomList extends Component {
       event.stopPropagation()
       removeRoom(roomCode)
     }
-    console.log("rooms", rooms)
     return (
       <div className="room-list-container">
         <Row>
