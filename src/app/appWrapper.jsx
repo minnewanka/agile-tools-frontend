@@ -144,7 +144,6 @@ class AppWrapper extends Component {
           this.setState({ rooms: results })
         })
       })
-      this.setState({ rooms: results })
     })
   }
 
