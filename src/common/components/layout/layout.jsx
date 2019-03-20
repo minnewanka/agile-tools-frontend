@@ -1,7 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
 
-import DefaultHeader from "../defaultHeader/defaultHeader"
+import DefaultHeader from "../defaultHeader"
 import RoomHeader from "../roomHeader"
 import Footer from "../footer"
 

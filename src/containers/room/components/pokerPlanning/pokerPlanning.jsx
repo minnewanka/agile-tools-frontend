@@ -33,9 +33,9 @@ class PokerPlanning extends Component {
               <CSSTransition
                 timeout={500}
                 key={participant.username}
-                classNames="poker-card-container animation-card"
+                classNames="animation-card"
               >
-                <Col className="poker-planning-col " s={12} m={6} l={3}>
+                <Col className="poker-planning-col" s={12} m={6} l={3}>
                   <Card
                     key={participant.username}
                     isFlipped={isFlipped}

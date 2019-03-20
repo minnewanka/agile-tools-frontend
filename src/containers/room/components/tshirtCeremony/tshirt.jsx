@@ -1,12 +1,12 @@
 import React from "react"
-import "./tshirtCeremony.scss"
+import "./tshirt.scss"
 import ReactCardFlip from "react-card-flip"
 import { ReactComponent as TshirtBack } from "../../../../img/tshirt-back.svg"
 import { ReactComponent as TshirtFront } from "../../../../img/tshirt-front.svg"
 
 const Tshirt = ({ isFlipped, vote, username }) => (
-  <div className="card-container">
-    <ReactCardFlip isFlipped={isFlipped} className="flipper">
+  <div className="tshirt-container">
+    <ReactCardFlip isFlipped={isFlipped}>
       <div key="front">
         <TshirtFront />
         <div className="floatTL">
@@ -17,7 +17,7 @@ const Tshirt = ({ isFlipped, vote, username }) => (
         <TshirtBack />
       </div>
     </ReactCardFlip>
-    <span className="poker-card-username">{username}</span>
+    <span className="tshirt-username">{username}</span>
   </div>
 )
 

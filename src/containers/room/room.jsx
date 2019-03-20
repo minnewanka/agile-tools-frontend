@@ -1,18 +1,9 @@
 import React, { Component } from "react"
 import "./room.scss"
-import {
-  Row,
-  Col,
-  Input,
-  Collection,
-  CollectionItem,
-  Button,
-  Icon
-} from "react-materialize"
-import { CSSTransition, TransitionGroup } from "react-transition-group"
-import PokerPlanning from "./components/pokerPlanning/pokerPlanning"
+import { Row, Col, Button } from "react-materialize"
+import PokerPlanning from "./components/pokerPlanning"
 import TshirtCeremony from "./components/tshirtCeremony/tshirtCeremony"
-import { deleteVote } from "../../services/voteService"
+import SideBar from "./components/sideBar/sideBar"
 import DeleteRoomModal from "./components/deleteRoomModal"
 
 class Room extends Component {
@@ -55,49 +46,16 @@ class Room extends Component {
         </Col>
         <Col className="room-container-col" l={3} m={4} s={12}>
           <Row>
-            <div className="sideBarContainer col">
-              <div className="ceremony-dropdown">
-                <Input
-                  type="select"
-                  label="Ceremonie"
-                  icon="event_seat"
-                  defaultValue={ceremony}
-                  onChange={this.handleTypeRoom}
-                >
-                  <option value="pokerplanning">Poker Planning</option>
-                  <option value="tshirt">T Shirt</option>
-                </Input>
-              </div>
-              <Collection className="participants-list">
-                <h5 className="participants-list-header center-align">
-                  {translate("participants")}
-                </h5>
-                <TransitionGroup className="test">
-                  {currentParticipants.map((participant, index) => (
-                    <CSSTransition key={index} timeout={500} classNames="fade">
-                      <CollectionItem className="participant-item" key={index}>
-                        <Icon className="account-icon" center>
-                          account_circle
-                        </Icon>
-                        <span className="participant-item-text">
-                          {participant.username}
-                        </span>
-                        <span
-                          role="button"
-                          className="deleteIcon"
-                          onClick={() => deleteVote(participant.username)}
-                        >
-                          &times;
-                        </span>
-                      </CollectionItem>
-                    </CSSTransition>
-                  ))}
-                </TransitionGroup>
-              </Collection>
-            </div>
+            <SideBar
+              ceremony={ceremony}
+              handleTypeRoom={this.handleTypeRoom}
+              translate={translate}
+              participants={currentParticipants}
+              className="col"
+            />
           </Row>
           <Row>
-            <div className="btn-room col">
+            <div className="btn-room-container col">
               <Button
                 className="btn-room-reset"
                 waves="light"

@@ -6,110 +6,13 @@
 
   .room-container-col {
     min-height: 100%;
-  }
-  .room-container-col:nth-child(2) {
-    min-height: 70rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .sideBarContainer {
-    min-height: 50rem;
-    min-width: 25rem;
-    background-color: rgb(243, 245, 247);
-    display: flex;
-    flex-direction: column;
-    border-radius: 1.5rem;
-    .ceremony-dropdown {
-      margin: 0.5rem 1rem 0 1rem;
-    }
-    .participants-list {
-      flex-grow: 5;
-      margin: 1rem 1.5rem 3rem 1.5rem;
-      overflow: auto;
-      .participants-list-header {
-        background-color: $color-blue-light;
-        color: #ffffff;
-        padding: 0.5rem;
-      }
-      .participant-item {
-        height: 3rem;
-        font-size: 1.3rem;
-        line-height: 3rem;
-        display: flex;
-        background-color: rgb(243, 245, 247);
-        .participant-item:hover {
-          .deleteIcon {
-            visibility: visible;
-          }
-        }
-        .participant-item-text {
-          display: block;
-          align-self: center;
-          flex-grow: 5;
-        }
-        .account-icon {
-          padding-right: 1rem;
-          align-self: center;
-          color: $color-blue;
-        }
-      }
-      .participant-item:hover {
-        .deleteIcon {
-          visibility: visible;
-        }
-      }
-      .deleteIcon {
-        display: block;
-        visibility: hidden;
-        padding-left: 0.5rem;
-        color: #f00c0c;
-        font-weight: bold;
-        font-size: 2rem;
-        cursor: pointer;
-        align-self: center;
-      }
+    &:nth-child(2) {
+      min-height: 70rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
   }
-
-  .btn-room {
-    display: flex;
-    justify-content: center;
-  }
-  .btn-room-reset {
-    margin-right: 0.5rem;
-    min-width: 15rem;
-    border-radius: 0.5rem;
-  }
-
-  #toast-container {
-    top: auto !important;
-    right: 2%;
-    bottom: 8%;
-    left: auto !important;
-  }
-
-  .white-text {
-    color: #ffffff;
-  }
-
-  .fade-enter {
-    opacity: 0.01;
-  }
-  .fade-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
-  }
-  .fade-exit {
-    opacity: 1;
-  }
-  .fade-exit-active {
-    opacity: 0.01;
-    transition: opacity 500ms ease-in;
-  }
-
   ul {
     &.dropdown-content {
       &.select-dropdown {
@@ -120,5 +23,14 @@
         }
       }
     }
+  }
+  .btn-room-container {
+    display: flex;
+    justify-content: center;
+  }
+  .btn-room-reset {
+    margin-right: 0.5rem;
+    min-width: 15rem;
+    border-radius: 0.5rem;
   }
 }

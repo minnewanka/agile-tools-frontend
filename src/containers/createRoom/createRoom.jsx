@@ -3,7 +3,7 @@ import "./createRoom.scss"
 import { Button, Card, Input, Row } from "react-materialize"
 import { Link } from "react-router-dom"
 import { createRoom } from "../../services/roomService"
-import ErrorMessage from "../../common/components/errorMessage/errorMessage"
+import ErrorMessage from "../../common/components/errorMessage"
 import Loader from "../../common/components/loader/loader"
 import MobileStoreIcon from "../../common/components/mobileStoreIcon"
 
@@ -96,9 +96,7 @@ class CreateRoom extends Component {
                   onChange={this.handleRoomNameChange}
                   onFocus={this.handleRoomNameFocus}
                 />
-                <div
-                  className={loading ? "center-align loading" : "center-align"}
-                >
+                <div className={`center-align ${loading ? "loading" : ""}`}>
                   <Button waves="light" className="btn-create">
                     {translate("buttonCreate")}
                   </Button>

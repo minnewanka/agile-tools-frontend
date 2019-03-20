@@ -13,16 +13,15 @@
   grid-column-gap: 5px;
   justify-items: center;
   align-items: center;
-}
-
-.logo-header {
-  height: 6rem;
-  grid-column: 2;
-}
-.logo-header:hover {
-  cursor: pointer;
-}
-.default-header-toggle {
-  margin-left: auto;
-  margin-right: 5rem;
+  .logo-header {
+    height: 6rem;
+    grid-column: 2;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .default-header-toggle {
+    margin-left: auto;
+    margin-right: 5rem;
+  }
 }

@@ -1,10 +1,10 @@
 import React, { Component } from "react"
 import "./defaultHeader.scss"
-import { withRouter } from "react-router-dom"
+
 import { ReactComponent as Logo } from "../../../img/logo-text.svg"
 import LangToggle from "../langToggle"
 
-class HeaderApp extends Component {
+class DefaultHeader extends Component {
   constructor(props) {
     super(props)
     this.redirect = this.redirect.bind(this)
@@ -25,4 +25,4 @@ class HeaderApp extends Component {
   }
 }
 
-export default withRouter(HeaderApp)
+export default DefaultHeader

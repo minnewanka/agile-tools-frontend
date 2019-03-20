@@ -1,24 +1,5 @@
 @import "../../common/sass/variables";
 
-.link-connect {
-  color: $color-blue;
-  margin-right: 5rem;
-  .link-connect:focus,
-  .link-connect:hover,
-  .link-connect:focus {
-    color: $color-blue-light;
-  }
-}
-
-.link-delete {
-  color: $color-red;
-  .link-delete:focus,
-  .link-delete:hover,
-  .link-delete:focus {
-    color: $color-red-light;
-  }
-}
-
 .room-list-container {
   margin-left: auto;
   margin-right: auto;

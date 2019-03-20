@@ -1,5 +1,5 @@
 import React from "react"
-import "./pokerPlanning.scss"
+import "./card.scss"
 import ReactCardFlip from "react-card-flip"
 import { ReactComponent as Logo } from "../../../../img/logo-blanc.svg"
 import { ReactComponent as Scissor } from "../../../../img/open-scissors.svg"
@@ -11,9 +11,9 @@ const Card = ({ isFlipped, vote, username }) => {
         <div key="front" className="poker-card card-front">
           {vote !== "scissor" ? (
             <>
-              <span className="card-front-content">{vote}</span>
-              <span className="card-front-topright">{vote}</span>
-              <span className="card-front-bottomleft">{vote}</span>
+              <span className="content">{vote}</span>
+              <span className="topright">{vote}</span>
+              <span className="bottomleft">{vote}</span>
             </>
           ) : (
             <Scissor className="scissor" />

@@ -24,10 +24,10 @@ class TshirtCeremony extends Component {
     return (
       <div
         role="main"
-        className="poker-planning-container"
+        className="tshirt-ceremony-container"
         onClick={this.handleClick}
       >
-        <Row className="card-row">
+        <Row>
           <TransitionGroup>
             {participants
               .filter(participant => participant.tshirtVote)
