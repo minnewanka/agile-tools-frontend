@@ -1,3 +1,5 @@
+@import "../../../../common/sass/variables";
+
 span-tshirt-size {
   display: block;
   width: 10rem;
@@ -12,11 +14,12 @@ tshirt-wrapper {
 
 .floatTL {
   position: absolute;
-  top: 5rem;
+  top: 7rem;
   left: 0rem;
   z-index: +10;
   height: 100%;
   width: 100%;
   font-size: 200%;
   font-weight: bold;
+  color: $color-blue;
 }

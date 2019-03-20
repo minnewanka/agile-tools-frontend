@@ -138,7 +138,13 @@ class AppWrapper extends Component {
 
   loadRooms() {
     getRooms().then(results => {
+      results.forEach(result => {
+        getVotes(result.code).then(participants => {
+          result.nbParticipants = participants.length
+        })
+      })
       this.setState({ rooms: results })
+      console.log(results)
     })
   }
 

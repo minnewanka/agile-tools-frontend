@@ -19,8 +19,8 @@ class RoomList extends Component {
       event.stopPropagation()
       removeRoom(roomCode)
     }
+    console.log("rooms", rooms)
     return (
-      // TODO externaliser css en commun
       <div className="room-list-container">
         <Row>
           {rooms.map(room => (
@@ -40,7 +40,7 @@ class RoomList extends Component {
                 <h3 className="room-name">{room.name}</h3>
                 <div className="room-infos">
                   <p>Room# {room.code}</p>
-                  <p>5 participant(s)</p>
+                  <p>{room.nbParticipants} participant(s)</p>
                 </div>
               </div>
             </Col>

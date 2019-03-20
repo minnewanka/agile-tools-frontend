@@ -3,7 +3,7 @@ import { Route } from "react-router-dom"
 
 import DefaultHeader from "../defaultHeader/defaultHeader"
 import RoomHeader from "../roomHeader"
-import Footer from "../footer/footer"
+import Footer from "../footer"
 
 const Layout = ({ component: Page, roomHeader, ...rest }) => {
   return (
