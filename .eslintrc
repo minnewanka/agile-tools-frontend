@@ -1,6 +1,6 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb", "react-app", "prettier"],
+  "extends": ["airbnb", "react-app", "prettier", "prettier/react"],
   "rules": {
     "semi": ["error", "never"],
     "no-console": "warn",
