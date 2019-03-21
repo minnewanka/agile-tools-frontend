@@ -10,16 +10,6 @@
     margin-left: 20%;
     margin-right: 20%;
     .input-field {
-      /* input text focus color */
-      input[type="text"]:focus {
-        /* label underline focus color */
-        border-bottom: 0.1rem solid $color-blue;
-        box-shadow: 0 0.1rem 0 0 $color-blue;
-        /* label focus color */
-        + label {
-          color: $color-blue;
-        }
-      }
       /* By default, the value of top is too high for displaying the error message */
       input.error {
         + label:after {
@@ -46,17 +36,6 @@
       margin-bottom: 1.5rem;
       &.loading {
         display: none;
-      }
-      .btn-create {
-        background-color: $color-blue-light;
-        min-width: 8rem;
-        border-radius: 0.5rem;
-      }
-      /* button focus hover floting color */
-      .btn-create:focus,
-      .btn-create:hover,
-      .btn-floating:focus {
-        background-color: $color-blue;
       }
     }
   }

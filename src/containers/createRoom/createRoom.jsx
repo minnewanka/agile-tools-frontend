@@ -97,7 +97,7 @@ class CreateRoom extends Component {
                   onFocus={this.handleRoomNameFocus}
                 />
                 <div className={`center-align ${loading ? "loading" : ""}`}>
-                  <Button waves="light" className="btn-create">
+                  <Button waves="light" className="btn-sii">
                     {translate("buttonCreate")}
                   </Button>
                 </div>

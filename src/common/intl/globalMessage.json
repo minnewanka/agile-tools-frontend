@@ -1,0 +1,10 @@
+{
+  "en": {
+    "global.btn.cancel": "Cancel",
+    "global.btn.send": "Send"
+  },
+  "fr": {
+    "global.btn.cancel": "Annuler",
+    "global.btn.send": "Envoyer"
+  }
+}

@@ -1,7 +1,8 @@
 import React from "react"
 import "./footer.scss"
+import ContactUs from "../contactUs"
 
-const FooterApp = ({ translate }) => {
+const FooterApp = () => {
   return (
     <footer className="page-footer-1">
       <div className="footer-container">
@@ -19,14 +20,7 @@ const FooterApp = ({ translate }) => {
           Copyright 2019 SII Canada | All Rights Reserved
         </div>
         <div className="contactus-container">
-          <a
-            className="grey-text text-lighten-4 right"
-            href="https://www.siicanada.com/fr/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            {translate("contact")}
-          </a>
+          <ContactUs />
         </div>
       </div>
     </footer>

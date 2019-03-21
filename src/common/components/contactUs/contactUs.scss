@@ -1,0 +1,13 @@
+@import "../../sass/variables";
+
+.contact-us-container {
+  padding: 1.5rem;
+}
+.contact-us-btn {
+  color: white;
+  text-transform: lowercase;
+  font-size: 1.2rem;
+  &:focus {
+    background: $color-dark-grey;
+  }
+}

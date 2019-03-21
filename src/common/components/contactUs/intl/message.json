@@ -1,0 +1,18 @@
+{
+  "en": {
+    "contactUs.contact": "Contact Us",
+    "contactUs.firstname": "First Name",
+    "contactUs.lastname": "Last Name",
+    "contactUs.company": "Company",
+    "contactUs.email": "Email",
+    "contactUs.comments": "Comments"
+  },
+  "fr": {
+    "contactUs.contact": "Nous Contacter",
+    "contactUs.firstname": "Prénom",
+    "contactUs.lastname": "Nom de famille",
+    "contactUs.company": "Entreprise",
+    "contactUs.email": "Courriel",
+    "contactUs.comments": "Commentaire"
+  }
+}

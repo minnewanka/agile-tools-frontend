@@ -53,6 +53,8 @@ class AppWrapper extends Component {
   formatMessage = (prefix = "") => key => {
     const { messages, locale } = this.state
     return messages[locale][`${prefix}.${key}`]
+      ? messages[locale][`${prefix}.${key}`]
+      : messages[locale][`global.${key}`]
   }
 
   resetVote() {

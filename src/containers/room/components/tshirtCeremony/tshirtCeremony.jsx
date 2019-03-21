@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import "./tshirtCeremony.scss"
-import { Row, Col } from "react-materialize"
+import { Col } from "react-materialize"
 import { TransitionGroup, CSSTransition } from "react-transition-group"
 import Tshirt from "./tshirt"
 
