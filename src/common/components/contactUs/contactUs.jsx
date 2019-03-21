@@ -31,14 +31,28 @@ const ContactUs = ({ translate }) => {
       <Row>
         <Input s={6} label={translate("firstname")} />
         <Input s={6} label={translate("lastname")} />
+        <Input type="email" label={translate("email")} s={6} />
         <Input s={6} label={translate("company")} />
-        <Input type="email" label={translate("email")} s={12} />
-        <Input
-          label={translate("comments")}
-          type="textarea"
-          // placeholder="Décrivez votre problème ou partagez vos idées"
-          s={12}
-        />
+      </Row>
+      <Row>
+        <div className="comment-section">
+          <Input
+            className="subject"
+            type="select"
+            label={translate("subject")}
+            defaultValue={translate("comment")}
+            s={3}
+          >
+            <option value="comment">{translate("comment")}</option>
+            <option value="bug">{translate("bug")}</option>
+          </Input>
+          <Input
+            label={translate("message")}
+            type="textarea"
+            // placeholder="Décrivez votre problème ou partagez vos idées"
+            s={12}
+          />
+        </div>
       </Row>
     </Modal>
   )

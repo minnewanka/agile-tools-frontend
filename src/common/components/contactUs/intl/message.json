@@ -1,18 +1,24 @@
 {
   "en": {
-    "contactUs.contact": "Contact Us",
+    "contactUs.contact": "Contact us",
     "contactUs.firstname": "First Name",
     "contactUs.lastname": "Last Name",
     "contactUs.company": "Company",
     "contactUs.email": "Email",
-    "contactUs.comments": "Comments"
+    "contactUs.subject": "Subjet",
+    "contactUs.comment": "Comments",
+    "contactUs.bug": "Report a bug",
+    "contactUs.message": "Message"
   },
   "fr": {
-    "contactUs.contact": "Nous Contacter",
+    "contactUs.contact": "Nous contacter",
     "contactUs.firstname": "Prénom",
     "contactUs.lastname": "Nom de famille",
     "contactUs.company": "Entreprise",
     "contactUs.email": "Courriel",
-    "contactUs.comments": "Commentaire"
+    "contactUs.subject": "Sujet",
+    "contactUs.comment": "Commentaire",
+    "contactUs.bug": "Signaler un bogue",
+    "contactUs.message": "Message"
   }
 }

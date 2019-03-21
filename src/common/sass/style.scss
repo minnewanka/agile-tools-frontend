@@ -65,6 +65,20 @@
   border-bottom: 1px solid $color-blue;
   box-shadow: 0 1px 0 0 $color-blue;
 }
+.input-field label:not(.label-icon).active {
+  font-size: 1.2rem;
+}
+ul {
+  &.dropdown-content {
+    &.select-dropdown {
+      li {
+        span {
+          color: $color-blue-light;
+        }
+      }
+    }
+  }
+}
 
 .fade-enter {
   opacity: 0.01;
