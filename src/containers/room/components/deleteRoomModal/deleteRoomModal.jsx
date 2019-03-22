@@ -22,13 +22,13 @@ class DeleteRoomModal extends Component {
       <Modal
         className="delete-modal"
         header={translate("headerDeleteComfirm") + roomCode}
-        trigger={(
-<Button className="delete-modal-trigger  waves-effect waves-light red">
+        trigger={
+          <Button className="delete-modal-trigger  waves-effect red">
             {translate("buttonDelete")}
           </Button>
-)}
-        actions={(
-<div className="actions-buttons-container">
+        }
+        actions={
+          <div className="actions-buttons-container">
             <Button
               flat
               modal="close"
@@ -48,7 +48,7 @@ class DeleteRoomModal extends Component {
               {translate("buttonDeleteComfirm")}
             </Button>
           </div>
-)}
+        }
       >
         <p>{translate("textDeleteComfirm")}</p>
       </Modal>

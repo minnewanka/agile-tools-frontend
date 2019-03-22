@@ -21,9 +21,13 @@ const RoomHeader = props => {
   return (
     <div className="roomHeader-container">
       <Logo className="roomHeader-logo" onClick={redirect} />
-      <h1 className="roomHeader-title">{sameRoom ? roomName : ""}</h1>
-      <h1 className="roomHeader-code">Room# {sameRoom ? roomCode : ""}</h1>
-      <LangToggle className="lang-toggle" />
+      <div>
+        <h2 className="roomHeader-code">Room# {sameRoom ? roomCode : ""}</h2>
+        <h3 className="roomHeader-title">{sameRoom ? roomName : ""}</h3>
+      </div>
+      <div className="lang-toggle-container">
+        <LangToggle className="lang-toggle" />
+      </div>
     </div>
   )
 }

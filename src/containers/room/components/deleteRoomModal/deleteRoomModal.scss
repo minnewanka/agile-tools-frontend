@@ -1,7 +1,12 @@
+@import "../../../../common/sass/variables";
+
 .delete-modal-trigger {
   min-width: 15rem;
-  background-color: #dc9288;
   border-radius: 0.5rem;
+  &:before {
+    background-color: rgba(85, 0, 145, 0.699) lighten-3;
+    color: white;
+  }
 }
 .delete-modal {
   width: 25%;

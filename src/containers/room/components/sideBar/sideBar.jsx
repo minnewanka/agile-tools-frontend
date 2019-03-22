@@ -25,9 +25,13 @@ const SideBar = props => {
           {translate("participants")}
         </h5>
         <TransitionGroup>
-          {participants.map((participant, index) => (
-            <CSSTransition key={index} timeout={500} classNames="fade">
-              <CollectionItem className="participant-item" key={index}>
+          {participants.map(participant => (
+            <CSSTransition
+              timeout={500}
+              classNames="fade"
+              key={`sideBarParticipant${participant.username}`}
+            >
+              <CollectionItem className="participant-item">
                 <Icon className="account-icon" center>
                   account_circle
                 </Icon>
