@@ -11,33 +11,109 @@ class ContactUs extends Component {
       lastname: "",
       email: "",
       company: "",
-      subject: "",
-      message: ""
+      subject: "COMMENT",
+      message: "",
+      errors: [],
+      isSent: false
     }
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleValidation = this.handleValidation.bind(this)
+    this.handleInputFocus = this.handleInputFocus.bind(this)
     this.sendFeedback = this.sendFeedback.bind(this)
+    this.reset = this.reset.bind(this)
   }
 
   sendFeedback = () => {
     Parse.Cloud.run("sendFeedback", this.state)
   }
 
+  reset() {
+    this.setState({
+      firstname: "",
+      lastname: "",
+      email: "",
+      company: "",
+      subject: "COMMENT",
+      message: "",
+      errors: [],
+      isSent: false
+    })
+  }
+
+  handleSubmit() {
+    const { errors } = this.state
+    this.handleValidation()
+    if (errors.length <= 0) {
+      this.sendFeedback()
+      this.setState({ isSent: true })
+
+      setTimeout(() => {
+        /* Only way to programmaly close modal for now
+    see https://react-materialize.github.io/#/modals */
+        /* eslint-disable no-undef */
+        $(`#contactModal`).modal("close")
+        /* eslint-enable no-undef */
+        this.reset()
+      }, 1250)
+    }
+  }
+
+  handleInputFocus(event) {
+    const { errors } = this.state
+    const { target } = event
+    const { name } = target
+    if (errors.includes(name)) {
+      const filtered = errors.filter(error => error !== name)
+      this.setState({ errors: filtered })
+    }
+  }
+
+  handleValidation() {
+    const { errors, firstname, lastname, email, company, message } = this.state
+    if (!firstname && !errors.includes("firstname")) errors.push("firstname")
+    if (!lastname && !errors.includes("lastname")) errors.push("lastname")
+    if (!email && !errors.includes("email")) errors.push("email")
+    if (!company && !errors.includes("company")) errors.push("company")
+    if (!message && !errors.includes("message")) errors.push("message")
+
+    this.setState({ errors })
+  }
+
   handleInputChange(event) {
     const { target } = event
     const { name } = target
-    const value = target.type === "checkbox" ? target.checked : target.value
     this.setState({
-      [name]: value
+      [name]: target.value
     })
-    console.log(this.state)
   }
 
   render() {
     const { translate } = this.props
+    const {
+      firstname,
+      lastname,
+      email,
+      company,
+      message,
+      errors,
+      isSent
+    } = this.state
+    let thankyouMessage
+    if (isSent) {
+      thankyouMessage = (
+        <div className="thankyou-container">
+          <p>{translate("thankyou")}</p>
+        </div>
+      )
+    }
+
     return (
       <Modal
+        id="contactModal"
         header={translate("contact")}
         className="contact-us-container"
+        modalOptions={{ dismissible: false }}
         trigger={
           <button type="button" className="contact-us-btn button-noStyle">
             {translate("contact")}
@@ -50,45 +126,66 @@ class ContactUs extends Component {
               modal="close"
               waves="light"
               className="actions-button-cancel"
+              onClick={this.reset}
             >
               {translate("btn.cancel")}
             </Button>
             <Button
-              modal="close"
               waves="light"
               className="btn-sii"
-              onClick={this.sendFeedback}
+              onClick={this.handleSubmit}
             >
               {translate("btn.send")}
             </Button>
           </div>
         }
       >
-        <Row>
+        <Row className="contact-form-container">
           <Input
             name="firstname"
+            required
             s={6}
             label={translate("firstname")}
+            value={firstname}
             onChange={this.handleInputChange}
+            onFocus={this.handleInputFocus}
+            className={errors.includes("firstname") ? "error" : ""}
+            error={
+              errors.includes("firstname") ? translate("fieldRequired") : ""
+            }
           />
           <Input
             name="lastname"
             s={6}
             label={translate("lastname")}
+            value={lastname}
             onChange={this.handleInputChange}
+            onFocus={this.handleInputFocus}
+            className={errors.includes("lastname") ? "error" : ""}
+            error={
+              errors.includes("lastname") ? translate("fieldRequired") : ""
+            }
           />
           <Input
             name="email"
             type="email"
             label={translate("email")}
+            value={email}
             s={6}
             onChange={this.handleInputChange}
+            onFocus={this.handleInputFocus}
+            className={errors.includes("email") ? "error" : ""}
+            error={errors.includes("email") ? translate("fieldRequired") : ""}
           />
           <Input
             name="company"
             s={6}
             label={translate("company")}
+            value={company}
             onChange={this.handleInputChange}
+            onFocus={this.handleInputFocus}
+            className={errors.includes("company") ? "error" : ""}
+            error={errors.includes("company") ? translate("fieldRequired") : ""}
           />
         </Row>
         <Row>
@@ -102,18 +199,26 @@ class ContactUs extends Component {
               s={3}
               onChange={this.handleInputChange}
             >
-              <option value="comment">{translate("comment")}</option>
-              <option value="bug">{translate("bug")}</option>
+              <option value="COMMENT">{translate("comment")}</option>
+              <option value="BUG">{translate("bug")}</option>
             </Input>
             <Input
               name="message"
               label={translate("message")}
               type="textarea"
+              value={message}
               s={12}
               onChange={this.handleInputChange}
+              onFocus={this.handleInputFocus}
+              className={errors.includes("message") ? "error" : ""}
+              error={
+                errors.includes("message") ? translate("fieldRequired") : ""
+              }
             />
           </div>
         </Row>
+        {thankyouMessage}
+        <Row />
       </Modal>
     )
   }

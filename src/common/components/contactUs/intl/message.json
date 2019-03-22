@@ -8,7 +8,8 @@
     "contactUs.subject": "Subjet",
     "contactUs.comment": "Comments",
     "contactUs.bug": "Report a bug",
-    "contactUs.message": "Message"
+    "contactUs.message": "Message",
+    "contactUs.thankyou": "Thank you for your feedback !"
   },
   "fr": {
     "contactUs.contact": "Nous contacter",
@@ -19,6 +20,7 @@
     "contactUs.subject": "Sujet",
     "contactUs.comment": "Commentaire",
     "contactUs.bug": "Signaler un bogue",
-    "contactUs.message": "Message"
+    "contactUs.message": "Message",
+    "contactUs.thankyou": "Merci pour votre retour d'expérience !"
   }
 }

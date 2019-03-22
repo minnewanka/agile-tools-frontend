@@ -1,9 +1,17 @@
 @import "../../sass/variables";
 
 .contact-us-container {
-  padding: 1.5rem;
+  .contact-form-container {
+    margin-top: 2rem;
+  }
+  padding: 1rem;
   .comment-section {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+  }
+  .thankyou-container {
+    font-size: 1.3rem;
+    color: green;
+    text-align: right;
   }
 }
 .contact-us-btn {

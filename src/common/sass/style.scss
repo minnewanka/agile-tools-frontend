@@ -51,6 +51,7 @@
   font-size: 1rem;
   color: $color-blue;
 }
+
 /* label underline focus color */
 .input-field input[type="text"]:focus {
   border-bottom: 1px solid $color-blue;
@@ -65,8 +66,63 @@
   border-bottom: 1px solid $color-blue;
   box-shadow: 0 1px 0 0 $color-blue;
 }
+.row .input-field textarea.invalid + label {
+  color: $color-red;
+}
+.row .input-field textarea.invalid + label::after {
+  white-space: nowrap;
+}
+
 .input-field label:not(.label-icon).active {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.input-field {
+  padding: 3rem;
+  input[type="text"] {
+    font-size: 1.5rem;
+  }
+  input[type="email"] {
+    font-size: 1.5rem;
+  }
+  textarea.materialize-textarea {
+    font-size: 1.5rem;
+  }
+
+  input.error {
+    + label:after {
+      white-space: nowrap;
+      font-size: 1rem;
+      top: 2.5rem;
+    }
+  }
+  /* input text error */
+  input.error[type="text"] {
+    /* label underline focus color error */
+    border-bottom: 0.1rem solid $color-red;
+    box-shadow: 0 0.1rem 0 0 $color-red;
+    /* label color error */
+    + label {
+      color: $color-red;
+    }
+    /* focus and label color error */
+    :focus + label {
+      color: $color-red;
+    }
+  }
+  input.error[type="email"] {
+    /* label underline focus color error */
+    border-bottom: 0.1rem solid $color-red;
+    box-shadow: 0 0.1rem 0 0 $color-red;
+    /* label color error */
+    + label {
+      color: $color-red;
+    }
+    /* focus and label color error */
+    :focus + label {
+      color: $color-red;
+    }
+  }
 }
 ul {
   &.dropdown-content {
