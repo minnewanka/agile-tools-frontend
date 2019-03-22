@@ -37,7 +37,7 @@ class RoomList extends Component {
                 >
                   <i className="small material-icons">delete_forever</i>
                 </button>
-                <h3 className="room-name">{room.name}</h3>
+                <h4 className="room-name">{room.name}</h4>
                 <div className="room-infos">
                   <p>Room# {room.code}</p>
                   <p>{room.nbParticipants} participant(s)</p>

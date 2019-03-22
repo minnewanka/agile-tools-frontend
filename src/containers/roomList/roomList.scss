@@ -45,8 +45,9 @@
       line-height: 2.5rem;
     }
     .room-name {
-      display: block;
-      width: auto;
+      width: 20rem;
+      word-wrap: break-word;
+      padding: 0.5rem;
     }
     .room-infos {
       width: 100%;

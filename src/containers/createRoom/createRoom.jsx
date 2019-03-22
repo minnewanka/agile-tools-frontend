@@ -92,6 +92,7 @@ class CreateRoom extends Component {
                   label={translate("inputLabel")}
                   error={error ? translate("fieldEmptyRoom") : ""}
                   validate
+                  maxlength="25"
                   data-length="25"
                   onChange={this.handleRoomNameChange}
                   onFocus={this.handleRoomNameFocus}
