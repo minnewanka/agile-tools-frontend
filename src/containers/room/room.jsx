@@ -3,7 +3,7 @@ import "./room.scss"
 import { Row, Col, Button } from "react-materialize"
 import PokerPlanning from "./components/pokerPlanning"
 import TshirtCeremony from "./components/tshirtCeremony"
-import SideBar from "./components/sideBar/sideBar"
+import SideBar from "./components/sideBar"
 import DeleteRoomModal from "./components/deleteRoomModal"
 
 class Room extends Component {
@@ -18,6 +18,11 @@ class Room extends Component {
     if (state && roomCode !== state.roomCode)
       setCurrentRoom(state && state.roomCode)
     this.handleTypeRoom = this.handleTypeRoom.bind(this)
+  }
+
+  handleFlip(e) {
+    e.preventDefault()
+    this.setState(prevState => ({ isFlipped: !prevState.isFlipped }))
   }
 
   handleTypeRoom(evt) {

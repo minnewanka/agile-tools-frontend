@@ -18,7 +18,9 @@ class AppWrapper extends Component {
         roomCode: "",
         roomName: "",
         ceremony: "pokerplanning",
-        participants: []
+        participants: [],
+        isFlipped: true,
+        toggleFlipped: this.toggleFlipped.bind(this)
       },
       changeLang: this.changeLang.bind(this),
       formatMessage: this.formatMessage.bind(this),
@@ -37,8 +39,10 @@ class AppWrapper extends Component {
     if (!roomCode) return
     getRoom(roomCode).then(room => {
       getVotes(room.get("code")).then(results => {
+        const { currentRoom } = this.state
         this.setState({
           currentRoom: {
+            ...currentRoom,
             roomCode: room.get("code"),
             roomName: room.get("name"),
             ceremony: "pokerplanning",
@@ -104,6 +108,7 @@ class AppWrapper extends Component {
         x => x.username === object.get("username")
       )
       participants[foundIndex] = participantToUpdate
+
       this.setState({
         currentRoom: { ...currentRoom, participants }
       })
@@ -135,18 +140,20 @@ class AppWrapper extends Component {
 
   changeCeremony(ceremony) {
     const { currentRoom } = this.state
-    this.setState({ currentRoom: { ...currentRoom, ceremony } })
+    this.setState({
+      currentRoom: { ...currentRoom, ceremony, isFlipped: true }
+    })
   }
 
-  loadRooms() {
-    getRooms().then(results => {
-      results.forEach(result => {
-        getVotes(result.code).then(participants => {
-          result.nbParticipants = participants.length
-          this.setState({ rooms: results })
-        })
-      })
+  async loadRooms() {
+    const results = await getRooms()
+    const promises = results.map(async result => {
+      const resulti = result
+      const votes = await getVotes(result.code)
+      resulti.nbParticipants = votes.length
     })
+    await Promise.all(promises)
+    this.setState({ rooms: results })
   }
 
   removeRoom(roomCode) {
@@ -154,6 +161,16 @@ class AppWrapper extends Component {
     deleteRoom(roomCode).then(() => {
       const newArray = rooms.filter(room => room.code !== roomCode)
       this.setState({ rooms: newArray })
+    })
+  }
+
+  toggleFlipped() {
+    const {
+      currentRoom,
+      currentRoom: { isFlipped }
+    } = this.state
+    this.setState({
+      currentRoom: { ...currentRoom, isFlipped: !isFlipped }
     })
   }
 

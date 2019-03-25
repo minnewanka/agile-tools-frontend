@@ -1,0 +1,40 @@
+@import "../../../../common/sass/variables";
+
+.participant-item {
+  width: 100%;
+  display: flex;
+  background-color: rgb(243, 245, 247);
+  align-items: center;
+  padding: 0 1rem;
+
+  &:hover {
+    .deleteIcon {
+      visibility: visible;
+    }
+  }
+  .participant-item-text {
+    display: block;
+    min-width: 10rem;
+  }
+  .participant-vote {
+    min-width: 3rem;
+    margin: 0 2rem;
+    color: $color-blue;
+  }
+  .scissor-icon {
+    min-width: 3rem;
+    padding-top: 0.5rem;
+    font-size: 1.6rem;
+    color: $color-blue;
+  }
+  .deleteIcon {
+    margin: 0 0.5rem;
+    display: block;
+    visibility: hidden;
+    color: #f00c0c;
+    font-weight: bold;
+    font-size: 2rem;
+    cursor: pointer;
+    align-self: center;
+  }
+}
