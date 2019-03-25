@@ -6,7 +6,6 @@ import Card from "./card"
 
 const PokerPlanning = props => {
   const { participants, isFlipped, toogleFlipped } = props
-  console.log(props)
   return (
     <TransitionGroup
       className="poker-planning-container row"

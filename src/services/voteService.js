@@ -21,7 +21,6 @@ const deleteVote = async username => {
 }
 
 const resetAllVotes = async (roomCode, ceremony) => {
-  console.log("resetAllVotes", roomCode, ceremony)
   const Vote = Parse.Object.extend("Vote")
   const query = new Parse.Query(Vote)
   query.equalTo("roomCode", roomCode)

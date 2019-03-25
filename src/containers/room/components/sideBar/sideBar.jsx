@@ -59,7 +59,6 @@ const SideBar = props => {
               timeout={500}
               classNames="fade"
               key={`sideBarParticipant${participant.username}`}
-              participantsToRender
             >
               <CollectionItem className="collectionItem-container">
                 <ParticipantItem

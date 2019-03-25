@@ -5,13 +5,18 @@
   display: flex;
   background-color: rgb(243, 245, 247);
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 2rem;
 
   &:hover {
     .deleteIcon {
       visibility: visible;
     }
   }
+
+  .hidden {
+    visibility: hidden;
+  }
+
   .participant-item-text {
     display: block;
     min-width: 10rem;
