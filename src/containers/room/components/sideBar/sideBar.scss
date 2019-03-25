@@ -1,6 +1,9 @@
 @import "../../../../common/sass/variables";
 
 .sideBarContainer {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 5rem;
   min-height: 50rem;
   min-width: 27rem;
   background-color: rgb(243, 245, 247);
