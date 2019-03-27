@@ -63,9 +63,13 @@ class AppWrapper extends Component {
 
   resetVote() {
     const {
+      currentRoom,
       currentRoom: { roomCode, ceremony }
     } = this.state
     resetAllVotes(roomCode, ceremony)
+    this.setState({
+      currentRoom: { ...currentRoom, isFlipped: true }
+    })
   }
 
   initLiveQuery(pRoomCode) {
