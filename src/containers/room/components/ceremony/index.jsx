@@ -1,12 +1,13 @@
 import React from "react"
-import TshirtCeremony from "./tshirtCeremony"
+import Ceremony from "./ceremony"
 import { Consumer } from "../../../../context"
 
-const TshirtCeremonyConsumer = props => {
+const CeremonyConsumer = props => {
   return (
     <Consumer>
-      {({ currentRoom: { isFlipped, toggleFlipped } }) => (
-        <TshirtCeremony
+      {({ currentRoom: { ceremony, isFlipped, toggleFlipped } }) => (
+        <Ceremony
+          ceremony={ceremony}
           isFlipped={isFlipped}
           toogleFlipped={toggleFlipped}
           {...props}
@@ -16,4 +17,4 @@ const TshirtCeremonyConsumer = props => {
   )
 }
 
-export default TshirtCeremonyConsumer
+export default CeremonyConsumer

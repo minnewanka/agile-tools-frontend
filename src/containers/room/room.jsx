@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import "./room.scss"
 import { Row, Col, Button } from "react-materialize"
-import PokerPlanning from "./components/pokerPlanning"
-import TshirtCeremony from "./components/tshirtCeremony"
+import Ceremony from "./components/ceremony"
 import SideBar from "./components/sideBar"
 import DeleteRoomModal from "./components/deleteRoomModal"
 
@@ -43,11 +42,7 @@ class Room extends Component {
     return (
       <div className="room-container row ">
         <Col className="room-container-col" l={9} m={8} s={12}>
-          {ceremony === "pokerplanning" ? (
-            <PokerPlanning participants={currentParticipants} />
-          ) : (
-            <TshirtCeremony participants={currentParticipants} />
-          )}
+          <Ceremony participants={currentParticipants} />
         </Col>
         <Col className="room-container-col" l={3} m={4} s={12}>
           <Row>
