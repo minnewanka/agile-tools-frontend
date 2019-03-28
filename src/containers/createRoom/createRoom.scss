@@ -1,4 +1,5 @@
 @import "../../common/sass/variables";
+@import "../../common/sass/mixin";
 
 .main-container {
   height: calc(100vh - (#{$header-height} + #{$footer-height}));
@@ -8,6 +9,9 @@
   justify-content: space-around;
   .card-session {
     width: 50rem;
+    @include responsive(phone) {
+      width: 35rem;
+    }
     align-self: center;
     /* Button create */
     .center-align {

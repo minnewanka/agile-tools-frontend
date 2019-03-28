@@ -113,7 +113,7 @@ class CreateRoom extends Component {
         </div>
         <div>
           <div className="store-badge-text center-align">
-            <h4>{translate("textMobile")}</h4>
+            <h5>{translate("textMobile")}</h5>
           </div>
           <div className="store-badge-container">
             <MobileStoreIcon />

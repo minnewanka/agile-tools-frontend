@@ -1,3 +1,5 @@
+@import "../common/sass/mixin";
+
 *,
 *::after,
 *::before {
@@ -7,10 +9,19 @@
 }
 
 html {
-  font-size: 10px;
+  font-size: 62.5%;
+
+  @include responsive(tab-land) {
+    font-size: 56.25%;
+  }
+  @include responsive(tab-port) {
+    font-size: 50%;
+  }
+  @include responsive(big-desktop) {
+    font-size: 65%;
+  }
 }
 
 body {
   box-sizing: border-box;
-  font-weight: 400;
 }

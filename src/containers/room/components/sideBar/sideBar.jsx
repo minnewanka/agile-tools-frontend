@@ -11,9 +11,11 @@ const SideBar = props => {
   const sortParticipants = pParticipants => {
     if (ceremony === "pokerplanning") {
       return pParticipants.concat().sort((a, b) => {
-        if (b.pokerVote === "scissor") return 1
-        if (a.pokerVote === "scissor") return -1
-        return b.pokerVote - a.pokerVote
+        if (b.pokerplanning === "scissor" || a.pokerplanning === undefined)
+          return 1
+        if (a.pokerplanning === "scissor" || b.pokerplanning === undefined)
+          return -1
+        return b.pokerplanning - a.pokerplanning
       })
     }
     const ordering = {
@@ -25,7 +27,7 @@ const SideBar = props => {
       XXL: 6
     }
     return pParticipants.concat().sort((a, b) => {
-      return ordering[b.tshirtVote] - ordering[a.tshirtVote]
+      return ordering[b.tshirt] - ordering[a.tshirt]
     })
   }
 
@@ -41,7 +43,7 @@ const SideBar = props => {
           type="select"
           label="Ceremonie"
           icon="event_seat"
-          defaultValue={ceremony}
+          defaultValue="pokerplanning"
           onChange={handleTypeRoom}
         >
           <option value="pokerplanning">Poker Planning</option>

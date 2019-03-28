@@ -105,8 +105,8 @@ class AppWrapper extends Component {
       } = this.state
       const participantToUpdate = {
         username: object.get("username"),
-        pokerVote: object.get("pokerplanning"),
-        tshirtVote: object.get("tshirt")
+        pokerplanning: object.get("pokerplanning"),
+        tshirt: object.get("tshirt")
       }
       const foundIndex = participants.findIndex(
         x => x.username === object.get("username")

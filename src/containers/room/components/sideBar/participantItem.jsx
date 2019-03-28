@@ -11,15 +11,15 @@ const ParticipantItem = props => {
       <span className="participant-item-text">{participant.username}</span>
       <div className={`participant-vote ${isFlipped ? "hidden" : ""}`}>
         {ceremony === "pokerplanning" ? (
-          participant.pokerVote !== "scissor" ? (
-            participant.pokerVote
+          participant.pokerplanning !== "scissor" ? (
+            participant.pokerplanning
           ) : (
             <Icon className="scissor-icon">
               <span>content_cut</span>
             </Icon>
           )
         ) : (
-          participant.tshirtVote
+          participant.tshirt
         )}
       </div>
       <span

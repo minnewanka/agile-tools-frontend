@@ -7,8 +7,8 @@ const getVotes = async roomCode => {
   const results = await query.find()
   const participants = results.map(result => ({
     username: result.get("username"),
-    pokerVote: result.get("pokerplanning"),
-    tshirtVote: result.get("tshirt")
+    pokerplanning: result.get("pokerplanning"),
+    tshirt: result.get("tshirt")
   }))
   return participants
 }

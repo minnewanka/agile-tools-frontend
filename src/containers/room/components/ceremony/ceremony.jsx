@@ -13,7 +13,7 @@ const PokerPlanning = props => {
       onClick={toogleFlipped}
     >
       {participants
-        .filter(participant => participant.pokerVote)
+        .filter(participant => participant[ceremony])
         .map(participant => {
           return (
             <CSSTransition
@@ -25,13 +25,13 @@ const PokerPlanning = props => {
                 {ceremony === "pokerplanning" ? (
                   <Card
                     isFlipped={isFlipped}
-                    vote={participant.pokerVote}
+                    vote={participant.pokerplanning}
                     username={participant.username}
                   />
                 ) : (
                   <Tshirt
                     isFlipped={isFlipped}
-                    vote={participant.tshirtVote}
+                    vote={participant.tshirt}
                     username={participant.username}
                   />
                 )}
