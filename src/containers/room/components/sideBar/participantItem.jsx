@@ -10,7 +10,7 @@ const ParticipantItem = props => {
     <div className="participant-item">
       <span className="participant-item-text">{participant.username}</span>
       <div className="participant-vote">
-        {isFlipped ? (
+        {isFlipped && participant[ceremony] ? (
           <Icon className="scissor-icon">
             <span>check</span>
           </Icon>

@@ -20,6 +20,25 @@
   }
 }
 
+.button-default-style {
+  min-width: 15rem;
+  min-height: 3.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  font-weight: 500;
+  box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.253);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  &:hover:enabled {
+    transform: translateY(-0.2rem);
+    box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.253);
+  }
+}
+
 .btn {
   overflow: hidden;
 }

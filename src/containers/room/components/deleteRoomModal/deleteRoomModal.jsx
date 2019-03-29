@@ -23,9 +23,12 @@ class DeleteRoomModal extends Component {
         className="delete-modal"
         header={translate("headerDeleteComfirm") + roomCode}
         trigger={
-          <Button className="delete-modal-trigger  waves-effect red">
+          <button
+            type="button"
+            className="button-default-style delete-modal-trigger"
+          >
             {translate("buttonDelete")}
-          </Button>
+          </button>
         }
         actions={
           <div className="actions-buttons-container">

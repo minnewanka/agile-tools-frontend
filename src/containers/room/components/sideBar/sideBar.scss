@@ -1,7 +1,7 @@
 @import "../../../../common/sass/variables";
 
 .sideBarContainer {
-  min-height: 45rem;
+  min-height: 50rem;
   min-width: 15rem;
   background-color: rgb(243, 245, 247);
   display: flex;
@@ -9,6 +9,9 @@
   border-radius: 1.5rem;
   .ceremony-dropdown {
     margin: 2rem 1rem 0 1rem;
+    .select-ceremony {
+      display: inline;
+    }
   }
   .participants-list {
     margin: 1rem 1.5rem 3rem 1.5rem;

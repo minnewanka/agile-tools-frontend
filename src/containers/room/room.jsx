@@ -31,7 +31,13 @@ class Room extends Component {
 
   render() {
     const {
-      currentRoom: { participants, roomCode, ceremony },
+      currentRoom: {
+        participants,
+        roomCode,
+        ceremony,
+        isFlipped,
+        toggleFlipped
+      },
       translate,
       resetVote,
       location: { state }
@@ -39,34 +45,49 @@ class Room extends Component {
     const currentParticipants =
       state && roomCode === state.roomCode && participants ? participants : []
 
+    const isEveryoneVote =
+      currentParticipants.length ===
+        currentParticipants.filter(participant => participant[ceremony])
+          .length || !isFlipped
+
     return (
-      <div className="room-container row ">
-        <Col className="room-container-col" l={9} m={8} s={12}>
-          <Ceremony participants={currentParticipants} />
-        </Col>
-        <Col className="room-container-col" l={3} m={4} s={12}>
-          <Row>
-            <SideBar
-              ceremony={ceremony}
-              handleTypeRoom={this.handleTypeRoom}
-              translate={translate}
-              participants={currentParticipants}
-              className="col"
-            />
-          </Row>
-          <Row>
-            <div className="btn-room-container col">
-              <Button
-                className="btn-room-reset"
-                waves="light"
-                onClick={resetVote}
-              >
-                {translate("buttonReset")}
-              </Button>
-              <DeleteRoomModal roomCode={roomCode} />
-            </div>
-          </Row>
-        </Col>
+      <div className="room-container">
+        <Row className="room-container-row">
+          <Col className="room-container-col" l={9} m={8} s={12}>
+            <Ceremony participants={currentParticipants} />
+          </Col>
+          <Col className="room-container-col" l={3} m={4} s={12}>
+            <Row>
+              <SideBar
+                ceremony={ceremony}
+                handleTypeRoom={this.handleTypeRoom}
+                translate={translate}
+                participants={currentParticipants}
+                className="col"
+              />
+            </Row>
+          </Col>
+        </Row>
+        <div className="room-button-row row">
+          <button
+            type="button"
+            className="button-default-style btn-room-reveal"
+            disabled={!isEveryoneVote}
+            waves="light"
+            onClick={toggleFlipped}
+          >
+            {isFlipped ? "Reveal" : "Hide"}
+          </button>
+
+          <Button
+            className="button-default-style btn-room-reset"
+            waves="light"
+            onClick={resetVote}
+          >
+            {translate("buttonReset")}
+          </Button>
+          <DeleteRoomModal roomCode={roomCode} />
+        </div>
       </div>
     )
   }

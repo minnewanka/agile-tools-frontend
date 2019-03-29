@@ -1,7 +1,13 @@
 @import "../../../../common/sass/variables";
+@import "../../../../common/sass/mixin";
 
 .poker-planning-container {
-  max-height: 730px;
+  max-height: 700px;
+  @include responsive(phone) {
+    width: 35rem;
+  }
+  // background-color: red;
+
   padding: 0.5rem;
   overflow: scroll;
   scroll-snap-type: y mandatory;

@@ -2,11 +2,11 @@
 
 .delete-modal-trigger {
   margin: 0.5rem;
-  min-width: 15rem;
-  border-radius: 0.5rem;
-  &:before {
-    background-color: rgba(85, 0, 145, 0.699) lighten-3;
-    color: white;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.726);
+  &:hover {
+    background-color: rgba(255, 0, 0, 0.308);
+    color: #fff;
   }
 }
 .delete-modal {

@@ -49,6 +49,16 @@ const SideBar = props => {
           <option value="pokerplanning">Poker Planning</option>
           <option value="tshirt">T Shirt</option>
         </Input>
+        {/* <select
+          className="select-ceremony"
+          value="grapefruit"
+          onChange={handleTypeRoom}
+        >
+          <option value="grapefruit">Grapefruit</option>
+          <option value="lime">Lime</option>
+          <option value="coconut">Coconut</option>
+          <option value="mango">Mango</option>
+        </select> */}
       </div>
 
       <Collection className="participants-list">

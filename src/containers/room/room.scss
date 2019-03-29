@@ -2,46 +2,80 @@
 
 .room-container {
   min-height: calc(100vh - (#{$room-header-height} + #{$footer-height}));
-  padding: 2rem;
+  padding-top: 2rem;
   display: flex;
-  flex-wrap: wrap;
-
-  .room-container-col {
-    min-height: 100%;
-    &:nth-child(2) {
+  flex-direction: column;
+  justify-content: space-between;
+  .room-container-row {
+    min-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .room-container-col {
       min-height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      &:nth-child(2) {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
     }
-  }
-  ul {
-    &.dropdown-content {
-      &.select-dropdown {
-        li {
-          span {
-            color: $color-blue-light;
+    ul {
+      &.dropdown-content {
+        &.select-dropdown {
+          li {
+            span {
+              color: $color-blue-light;
+            }
           }
         }
       }
     }
+    .vote-toggle {
+      width: 8rem;
+      height: 8rem;
+      line-height: 8rem;
+      background-color: green;
+      color: white;
+      font-size: 2rem;
+    }
+    .btn-room-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-room-reset {
+      margin: 0.5rem;
+      min-width: 15rem;
+      border-radius: 0.5rem;
+    }
   }
-  .vote-toggle {
-    width: 8rem;
-    height: 8rem;
-    line-height: 8rem;
-    background-color: green;
-    color: white;
-    font-size: 2rem;
-  }
-  .btn-room-container {
+
+  .room-button-row {
+    background-color: rgb(214, 215, 216);
+    margin: 0;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-  }
-  .btn-room-reset {
-    margin: 0.5rem;
-    min-width: 15rem;
-    border-radius: 0.5rem;
+    .btn-room-reveal {
+      margin: 0.5rem;
+      color: white;
+      background-color: $color-blue;
+      &:hover {
+        background-color: $color-blue-light;
+        color: #fff;
+      }
+      &:disabled {
+        background-color: $color-blue-light;
+        color: #fff;
+      }
+    }
+    .btn-room-reset {
+      margin: 0.5rem;
+      color: white;
+      background-color: #00a28c;
+      &:hover {
+        background-color: #00a28c3f;
+        color: #fff;
+      }
+    }
   }
 }
