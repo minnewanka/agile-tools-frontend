@@ -8,6 +8,12 @@
   box-sizing: inherit;
 }
 
+.l5ths {
+  margin-left: auto;
+  left: auto;
+  right: auto;
+}
+
 html {
   font-size: 62.5%;
 
@@ -17,6 +23,11 @@ html {
   @include responsive(tab-port) {
     font-size: 50%;
   }
+  @include responsive(desktop) {
+    .row .col.l5ths {
+      width: 20%;
+    }
+  }
   @include responsive(big-desktop) {
     font-size: 65%;
   }
@@ -24,4 +35,23 @@ html {
 
 body {
   box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cbcbcb;
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+  border: 0.1px solid #b7b7b7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #909090;
 }

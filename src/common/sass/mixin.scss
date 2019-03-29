@@ -24,6 +24,11 @@
       @content;
     }
   }
+  @if $breakpoint == desktop {
+    @media (min-width: 75em) {
+      @content;
+    }
+  }
 
   @if $breakpoint == big-desktop {
     //1800

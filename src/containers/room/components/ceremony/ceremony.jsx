@@ -21,7 +21,7 @@ const PokerPlanning = props => {
               key={`pp${participant.username}`}
               classNames="animation-card"
             >
-              <Col className="poker-planning-col" s={12} m={6} l={3}>
+              <div className="col s12 m6 l3 l5ths poker-planning-col">
                 {ceremony === "pokerplanning" ? (
                   <Card
                     isFlipped={isFlipped}
@@ -35,7 +35,7 @@ const PokerPlanning = props => {
                     username={participant.username}
                   />
                 )}
-              </Col>
+              </div>
             </CSSTransition>
           )
         })}
