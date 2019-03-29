@@ -2,10 +2,11 @@
 
 .participant-item {
   width: 100%;
+  padding: 0 0.5rem;
   display: flex;
   background-color: rgb(243, 245, 247);
   align-items: center;
-  padding: 0 2rem;
+  justify-content: space-around;
 
   &:hover {
     .deleteIcon {
@@ -23,7 +24,6 @@
   }
   .participant-vote {
     min-width: 3rem;
-    margin: 0 2rem;
     color: $color-blue;
     text-align: center;
   }
@@ -34,7 +34,6 @@
     color: $color-blue;
   }
   .deleteIcon {
-    margin: 0 0.5rem;
     display: block;
     visibility: hidden;
     color: #f00c0c;
