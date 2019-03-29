@@ -26,6 +26,14 @@
       }
     }
   }
+  .vote-toggle {
+    width: 8rem;
+    height: 8rem;
+    line-height: 8rem;
+    background-color: green;
+    color: white;
+    font-size: 2rem;
+  }
   .btn-room-container {
     display: flex;
     justify-content: center;
