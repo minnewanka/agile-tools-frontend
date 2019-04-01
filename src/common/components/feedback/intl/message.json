@@ -1,0 +1,28 @@
+{
+  "en": {
+    "feedback.contact": "Contact us",
+    "feedback.triggerbtn": "feedback",
+    "feedback.firstname": "First Name",
+    "feedback.lastname": "Last Name",
+    "feedback.company": "Company",
+    "feedback.email": "Email",
+    "feedback.subject": "Subjet",
+    "feedback.comment": "Comments",
+    "feedback.bug": "Report a bug",
+    "feedback.message": "Message",
+    "feedback.thankyou": "Thank you for your feedback !"
+  },
+  "fr": {
+    "feedback.contact": "Nous contacter",
+    "feedback.triggerbtn": "feedback",
+    "feedback.firstname": "Prénom",
+    "feedback.lastname": "Nom de famille",
+    "feedback.company": "Entreprise",
+    "feedback.email": "Courriel",
+    "feedback.subject": "Sujet",
+    "feedback.comment": "Commentaire",
+    "feedback.bug": "Signaler un bogue",
+    "feedback.message": "Message",
+    "feedback.thankyou": "Merci pour votre retour d'expérience !"
+  }
+}

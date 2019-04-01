@@ -1,0 +1,35 @@
+@import "../../sass/variables";
+
+.feedback-us-container {
+  .feedback-form-container {
+    margin-top: 2rem;
+  }
+  padding: 1rem;
+  .comment-section {
+    margin-top: 2rem;
+  }
+  .thankyou-container {
+    color: green;
+    text-align: right;
+  }
+}
+.feedback-us-btn {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  width: 10rem;
+  height: 3.5rem;
+  -ms-transform: rotate(-90deg); /* IE 9 */
+  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+  transform: rotate(-90deg) translateY(3.5rem);
+  letter-spacing: 1px;
+  align-self: right;
+  font-size: 1.5rem;
+  border-radius: 0.6rem 0.6rem 0 0;
+  border: solid 4px #006699;
+  background-color: #006699;
+  color: white;
+  &:focus {
+    background-color: #006699;
+  }
+}

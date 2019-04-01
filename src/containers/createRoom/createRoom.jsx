@@ -93,7 +93,7 @@ class CreateRoom extends Component {
                   placeholder={translate("inputPlaceholder")}
                   error={error ? translate("fieldEmptyRoom") : ""}
                   validate
-                  minlength="3"
+                  minLength="3"
                   maxLength="25"
                   data-length="25"
                   onChange={this.handleRoomNameChange}

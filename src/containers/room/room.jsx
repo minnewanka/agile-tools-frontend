@@ -71,28 +71,23 @@ class Room extends Component {
           </Col>
         </Row>
         <div className="room-button-row row">
-          <div className="edit-action-btn">
-            <button
-              type="button"
-              className="button-default-style btn-room-reveal"
-              disabled={!isEveryoneVote}
-              waves="light"
-              onClick={toggleFlipped}
-            >
-              {isFlipped ? translate("buttonReveal") : translate("buttonHide")}
-            </button>
-
-            <Button
-              className="button-default-style btn-room-reset"
-              waves="light"
-              onClick={resetVote}
-            >
-              {translate("buttonReset")}
-            </Button>
-          </div>
-          <div className="delete-btn">
-            <DeleteRoomModal roomCode={roomCode} />
-          </div>
+          <button
+            type="button"
+            className="button-default-style btn-room-reveal"
+            disabled={!isEveryoneVote}
+            waves="light"
+            onClick={toggleFlipped}
+          >
+            {isFlipped ? translate("buttonReveal") : translate("buttonHide")}
+          </button>
+          <Button
+            className="button-default-style btn-room-reset"
+            waves="light"
+            onClick={resetVote}
+          >
+            {translate("buttonReset")}
+          </Button>
+          <DeleteRoomModal roomCode={roomCode} />
         </div>
       </div>
     )

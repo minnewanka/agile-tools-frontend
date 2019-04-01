@@ -1,12 +1,11 @@
 import React from "react"
 import "./ceremony.scss"
-import { Col } from "react-materialize"
 import { TransitionGroup, CSSTransition } from "react-transition-group"
 import Card from "./card"
 import Tshirt from "./tshirt"
 
 const PokerPlanning = props => {
-  const { ceremony, participants, isFlipped, toogleFlipped } = props
+  const { ceremony, participants, isFlipped } = props
   return (
     <TransitionGroup className="poker-planning-container row">
       {participants
