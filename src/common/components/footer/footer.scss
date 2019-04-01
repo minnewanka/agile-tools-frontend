@@ -8,15 +8,13 @@
   background-color: $footer-background-color;
   height: $footer-height;
   align-items: center;
-  .contactus-container {
-    margin-left: auto;
-    margin-right: 5rem;
-  }
+
   .copyright-container {
+    grid-column-start: 2;
     color: white;
   }
   .powered-container {
-    margin-left: 5rem;
-    margin-right: auto;
+    margin-left: auto;
+    margin-right: 5rem;
   }
 }
