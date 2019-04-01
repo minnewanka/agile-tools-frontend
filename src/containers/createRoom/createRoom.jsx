@@ -44,7 +44,7 @@ class CreateRoom extends Component {
 
   handleSubmit(evt) {
     const { roomName } = this.state
-    if (roomName.length === 0) {
+    if (!roomName || !roomName.trim()) {
       this.setState({ error: true })
       evt.preventDefault()
       return
@@ -92,6 +92,7 @@ class CreateRoom extends Component {
                   label={translate("inputLabel")}
                   error={error ? translate("fieldEmptyRoom") : ""}
                   validate
+                  minlength="3"
                   maxLength="25"
                   data-length="25"
                   onChange={this.handleRoomNameChange}
