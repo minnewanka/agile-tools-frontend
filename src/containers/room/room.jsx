@@ -46,9 +46,11 @@ class Room extends Component {
       state && roomCode === state.roomCode && participants ? participants : []
 
     const isEveryoneVote =
-      currentParticipants.length ===
+      currentParticipants.length > 0 &&
+      (currentParticipants.length ===
         currentParticipants.filter(participant => participant[ceremony])
-          .length || !isFlipped
+          .length ||
+        !isFlipped)
 
     return (
       <div className="room-container">
