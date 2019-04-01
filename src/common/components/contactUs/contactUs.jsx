@@ -70,11 +70,10 @@ class ContactUs extends Component {
   }
 
   handleValidation() {
-    const { errors, firstname, lastname, email, company, message } = this.state
+    const { errors, firstname, lastname, email, message } = this.state
     if (!firstname && !errors.includes("firstname")) errors.push("firstname")
     if (!lastname && !errors.includes("lastname")) errors.push("lastname")
     if (!email && !errors.includes("email")) errors.push("email")
-    if (!company && !errors.includes("company")) errors.push("company")
     if (!message && !errors.includes("message")) errors.push("message")
 
     this.setState({ errors })
