@@ -38,44 +38,49 @@
       color: white;
       font-size: 2rem;
     }
+
     .btn-room-container {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-    }
-    .btn-room-reset {
-      margin: 0.5rem;
-      min-width: 15rem;
-      border-radius: 0.5rem;
     }
   }
 
   .room-button-row {
     background-color: rgb(214, 215, 216);
     margin: 0;
-    display: flex;
-    justify-content: center;
-    .btn-room-reveal {
-      margin: 0.5rem;
-      color: white;
-      background-color: $color-blue;
-      &:hover {
-        background-color: $color-blue-light;
-        color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 5px;
+    justify-items: center;
+    .edit-action-btn {
+      grid-column-start: 2;
+      .btn-room-reveal {
+        margin: 0.5rem;
+        color: white;
+        background-color: $color-blue;
+        &:hover {
+          background-color: $color-blue-light;
+          color: #fff;
+        }
+        &:disabled {
+          background-color: $color-blue-light;
+          color: #fff;
+        }
       }
-      &:disabled {
-        background-color: $color-blue-light;
-        color: #fff;
+      .btn-room-reset {
+        margin: 0.5rem;
+        color: white;
+        background-color: #00a28c;
+        &:hover {
+          background-color: #00a28c3f;
+          color: #fff;
+        }
       }
     }
-    .btn-room-reset {
-      margin: 0.5rem;
-      color: white;
-      background-color: #00a28c;
-      &:hover {
-        background-color: #00a28c3f;
-        color: #fff;
-      }
+    .delete-btn {
+      margin-left: auto;
+      margin-right: 12.5rem;
     }
   }
 }
