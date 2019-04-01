@@ -8,6 +8,8 @@
     "room.textDeleteComfirm": "Êtes vous certain de vouloir supprimer cette room ?",
     "room.buttonCancel": "Annuler",
     "room.buttonReset": "Réinitialiser",
+    "room.buttonReveal": "Révéler",
+    "room.buttonHide": "Masquer",
     "room.headerDeleteComfirm": "Supprimer Room#"
   },
   "en": {
@@ -18,7 +20,9 @@
     "room.buttonDeleteComfirm": "Delete",
     "room.textDeleteComfirm": "Do you really want to delete this room ?",
     "room.buttonCancel": "Cancel",
-    "room.buttonReset": "Reset",
+    "room.buttonReset": "Clear",
+    "room.buttonReveal": "Reveal",
+    "room.buttonHide": "Hide",
     "room.headerDeleteComfirm": "Delete Room#"
   }
 }

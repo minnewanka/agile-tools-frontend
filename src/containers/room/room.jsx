@@ -79,7 +79,7 @@ class Room extends Component {
               waves="light"
               onClick={toggleFlipped}
             >
-              {isFlipped ? "Reveal" : "Hide"}
+              {isFlipped ? translate("buttonReveal") : translate("buttonHide")}
             </button>
 
             <Button
