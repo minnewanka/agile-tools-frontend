@@ -48,30 +48,39 @@
 
   .room-button-row {
     margin: 0;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 5px;
+    justify-items: center;
 
-    .btn-room-reveal {
-      margin: 0.5rem;
-      color: white;
-      background-color: $color-blue;
-      &:hover {
-        background-color: $color-blue-light;
-        color: #fff;
+    .edit-btn-container {
+      grid-column-start: 2;
+      .btn-room-reveal {
+        margin: 0.5rem;
+        color: white;
+        background-color: $color-blue;
+        &:hover {
+          background-color: $color-blue-light;
+          color: #fff;
+        }
+        &:disabled {
+          background-color: $color-blue-light;
+          color: #fff;
+        }
       }
-      &:disabled {
-        background-color: $color-blue-light;
-        color: #fff;
+      .btn-room-reset {
+        margin: 0.5rem;
+        color: white;
+        background-color: #00a28c;
+        &:hover {
+          background-color: #00a28c3f;
+          color: #fff;
+        }
       }
     }
-    .btn-room-reset {
-      margin: 0.5rem;
-      color: white;
-      background-color: #00a28c;
-      &:hover {
-        background-color: #00a28c3f;
-        color: #fff;
-      }
+    .delete-btn-container {
+      margin-left: auto;
+      margin-right: 23%;
     }
   }
 }

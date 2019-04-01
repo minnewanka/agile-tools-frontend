@@ -90,7 +90,7 @@ class CreateRoom extends Component {
                   m={12}
                   s={12}
                   label={translate("inputLabel")}
-                  placeholder={translate("inputPlaceholder")}
+                  placeholder={error ? "" : translate("inputPlaceholder")}
                   error={error ? translate("fieldEmptyRoom") : ""}
                   validate
                   minLength="3"
