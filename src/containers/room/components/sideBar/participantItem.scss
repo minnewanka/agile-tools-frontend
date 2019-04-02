@@ -2,7 +2,7 @@
 
 .participant-item {
   width: 100%;
-  padding: 0 0.5rem;
+  padding: 0.5rem;
   display: flex;
   background-color: rgb(243, 245, 247);
   align-items: center;
@@ -20,17 +20,15 @@
 
   .participant-item-text {
     display: block;
-    min-width: 10rem;
+    min-width: 12rem;
   }
   .participant-vote {
-    min-width: 3rem;
     color: $color-blue;
     text-align: center;
+    min-width: 4rem;
   }
   .scissor-icon {
-    min-width: 3rem;
-    padding-top: 0.5rem;
-    font-size: 1.6rem;
+    font-size: 1em;
     color: $color-blue;
   }
   .deleteIcon {

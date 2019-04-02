@@ -1,10 +1,12 @@
 {
   "fr": {
     "sideBar.ceremony": "Cérémonie",
-    "sideBar.participants": "Participants"
+    "sideBar.participants": "Participants",
+    "sideBar.voted": "a voté"
   },
   "en": {
     "sideBar.ceremony": "Ceremony",
-    "sideBar.participants": "Participants"
+    "sideBar.participants": "Participants",
+    "sideBar.voted": "voted"
   }
 }

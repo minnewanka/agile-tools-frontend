@@ -66,6 +66,7 @@ const SideBar = props => {
                   participant={participant}
                   isFlipped={isFlipped}
                   ceremony={ceremony}
+                  translate={translate}
                 />
               </CollectionItem>
             </CSSTransition>

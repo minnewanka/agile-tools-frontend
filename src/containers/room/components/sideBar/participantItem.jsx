@@ -5,13 +5,13 @@ import { deleteVote } from "../../../../services/voteService"
 import "./participantItem.scss"
 
 const ParticipantItem = props => {
-  const { participant, isFlipped, ceremony } = props
+  const { participant, isFlipped, ceremony, translate } = props
   return (
     <div className="participant-item">
       <span className="participant-item-text">{participant.username}</span>
       <div className="participant-vote">
         {isFlipped && participant[ceremony] ? (
-          <Icon className="scissor-icon">check</Icon>
+          translate("voted")
         ) : ceremony === "pokerplanning" ? (
           participant.pokerplanning !== "scissor" ? (
             participant.pokerplanning
