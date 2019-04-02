@@ -1,6 +1,5 @@
 {
   "fr": {
-    "room.participants": "Participants",
     "room.toastConnected": " est connecté",
     "room.toastDeconnected": " est déconnecté",
     "room.buttonDelete": "Supprimer Room",
@@ -13,7 +12,6 @@
     "room.headerDeleteComfirm": "Supprimer Room#"
   },
   "en": {
-    "room.participants": "Participants",
     "room.toastConnected": " is connected",
     "room.toastDeconnected": " is now deconnected",
     "room.buttonDelete": "Delete Room",

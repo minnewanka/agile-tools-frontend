@@ -11,9 +11,7 @@ const ParticipantItem = props => {
       <span className="participant-item-text">{participant.username}</span>
       <div className="participant-vote">
         {isFlipped && participant[ceremony] ? (
-          <Icon className="scissor-icon">
-            <span>check</span>
-          </Icon>
+          <Icon className="scissor-icon">check</Icon>
         ) : ceremony === "pokerplanning" ? (
           participant.pokerplanning !== "scissor" ? (
             participant.pokerplanning

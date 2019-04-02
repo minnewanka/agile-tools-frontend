@@ -26,6 +26,7 @@ class Room extends Component {
 
   handleTypeRoom(evt) {
     const { changeCeremony } = this.props
+
     changeCeremony(evt.target.value)
   }
 
@@ -63,7 +64,6 @@ class Room extends Component {
               <SideBar
                 ceremony={ceremony}
                 handleTypeRoom={this.handleTypeRoom}
-                translate={translate}
                 participants={currentParticipants}
                 className="col"
               />

@@ -7,7 +7,7 @@ import Tshirt from "./tshirt"
 const PokerPlanning = props => {
   const { ceremony, participants, isFlipped } = props
   return (
-    <TransitionGroup className="poker-planning-container row">
+    <TransitionGroup className="poker-planning-container row custom-scrollbar">
       {participants
         .filter(participant => participant[ceremony])
         .map(participant => {

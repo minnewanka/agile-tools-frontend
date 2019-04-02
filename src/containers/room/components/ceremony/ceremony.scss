@@ -2,13 +2,14 @@
 @import "../../../../common/sass/mixin";
 
 .poker-planning-container {
-  max-height: 700px;
+  height: 700px;
   @include responsive(phone) {
     width: 35rem;
   }
 
   padding: 0.5rem;
   overflow: auto;
+  overflow-x: hidden;
   scroll-snap-type: y mandatory;
   border-radius: 1.5rem;
 

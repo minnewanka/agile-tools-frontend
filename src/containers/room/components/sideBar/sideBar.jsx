@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import React from "react"
 import "./sideBar.scss"
-import { Input, Collection, CollectionItem } from "react-materialize"
+import { Collection, CollectionItem } from "react-materialize"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import ParticipantItem from "./participantItem"
 
@@ -39,32 +39,21 @@ const SideBar = props => {
   return (
     <div className="sideBarContainer">
       <div className="ceremony-dropdown">
-        <Input
-          type="select"
-          label="Ceremonie"
-          icon="event_seat"
+        <div className="ceremony-text">{translate("ceremony")}</div>
+        <select
           defaultValue="pokerplanning"
+          className="sidebar-select"
           onChange={handleTypeRoom}
         >
           <option value="pokerplanning">Poker Planning</option>
           <option value="tshirt">T Shirt</option>
-        </Input>
-        {/* <select
-          className="select-ceremony"
-          value="grapefruit"
-          onChange={handleTypeRoom}
-        >
-          <option value="grapefruit">Grapefruit</option>
-          <option value="lime">Lime</option>
-          <option value="coconut">Coconut</option>
-          <option value="mango">Mango</option>
-        </select> */}
+        </select>
+      </div>
+      <div className="participants-list-header center-align">
+        <h5>{translate("participants")}</h5>
       </div>
 
-      <Collection className="participants-list">
-        <h5 className="participants-list-header center-align">
-          {translate("participants")}
-        </h5>
+      <Collection className="participants-list custom-scrollbar">
         <TransitionGroup>
           {participantsToRender.map(participant => (
             <CSSTransition

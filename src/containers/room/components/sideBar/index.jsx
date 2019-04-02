@@ -5,8 +5,12 @@ import { Consumer } from "../../../../context"
 const SideBarConsumer = props => {
   return (
     <Consumer>
-      {({ currentRoom: { isFlipped } }) => (
-        <SideBar isFlipped={isFlipped} {...props} />
+      {({ currentRoom: { isFlipped }, formatMessage }) => (
+        <SideBar
+          isFlipped={isFlipped}
+          {...props}
+          translate={formatMessage("sideBar")}
+        />
       )}
     </Consumer>
   )
