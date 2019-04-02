@@ -16,9 +16,7 @@ const ParticipantItem = props => {
           participant.pokerplanning !== "scissor" ? (
             participant.pokerplanning
           ) : (
-            <Icon className="scissor-icon">
-              <span>content_cut</span>
-            </Icon>
+            <Icon className="scissor-icon">content_cut</Icon>
           )
         ) : (
           participant.tshirt
