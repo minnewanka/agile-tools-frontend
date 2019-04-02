@@ -1,7 +1,7 @@
 import React from "react"
 import "./footer.scss"
 
-const FooterApp = () => {
+const FooterApp = ({ locale }) => {
   return (
     <footer className="page-footer-1">
       <div className="footer-container">
@@ -11,7 +11,7 @@ const FooterApp = () => {
         <div className="powered-container">
           <a
             className="grey-text text-lighten-4 right"
-            href="https://www.siicanada.com/fr/"
+            href={`https://www.siicanada.com/${locale}/`}
             rel="noopener noreferrer"
             target="_blank"
           >
