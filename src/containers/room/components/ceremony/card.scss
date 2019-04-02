@@ -10,8 +10,12 @@
   align-items: center;
 
   .poker-card {
-    width: 14.2rem;
-    height: 20rem;
+    width: 12.8rem;
+    height: 18rem;
+    @include responsive(big-desktop) {
+      width: 16.5rem;
+      height: 23rem;
+    }
     font-family: sans-serif;
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.507);
     border-radius: 1rem;

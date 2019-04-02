@@ -1,4 +1,5 @@
 @import "../../common/sass/variables";
+@import "../../common/sass/mixin";
 
 .room-container {
   min-height: calc(100vh - (#{$room-header-height} + #{$footer-height}));
@@ -47,14 +48,20 @@
   }
 
   .room-button-row {
-    margin: 0;
+    margin: 0.5rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    @include responsive(phone) {
+      grid-template-columns: 3fr 1fr;
+    }
     grid-column-gap: 5px;
     justify-items: center;
 
     .edit-btn-container {
       grid-column-start: 2;
+      @include responsive(phone) {
+        grid-column-start: 1;
+      }
       .btn-room-reveal {
         margin: 0.5rem;
         color: white;

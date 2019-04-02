@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import "./room.scss"
-import { Row, Col, Button } from "react-materialize"
+import { Row, Col } from "react-materialize"
 import Ceremony from "./components/ceremony"
 import SideBar from "./components/sideBar"
 import DeleteRoomModal from "./components/deleteRoomModal"
@@ -81,13 +81,14 @@ class Room extends Component {
             >
               {isFlipped ? translate("buttonReveal") : translate("buttonHide")}
             </button>
-            <Button
+            <button
+              type="button"
               className="button-default-style btn-room-reset"
               waves="light"
               onClick={resetVote}
             >
               {translate("buttonReset")}
-            </Button>
+            </button>
           </div>
           <div className="delete-btn-container">
             <DeleteRoomModal roomCode={roomCode} />
