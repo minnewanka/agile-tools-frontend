@@ -35,6 +35,20 @@
     <!-- Import jQuery before materialize.js -->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: 'AIzaSyAtI2gd0nVRWSgJswLVZEFcNGN7rrR0qRk',
+        authDomain: 'sii-canada-agile-tools.firebaseapp.com',
+        databaseURL: 'https://sii-canada-agile-tools.firebaseio.com',
+        projectId: 'sii-canada-agile-tools',
+        storageBucket: 'sii-canada-agile-tools.appspot.com',
+        messagingSenderId: '475582937680'
+      }
+
+      firebase.initializeApp(config)
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
