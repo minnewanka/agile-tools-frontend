@@ -1,3 +1,5 @@
+@import './mixin';
+
 $color-blue: #005aa2; // Default color for the web app
 $color-blue-light: #88b4dc;
 $color-blue-low-opacity: #0059a2d5; // Default color for the web app
@@ -10,5 +12,9 @@ $footer-background-color: #282a2b;
 
 $footer-height: 5rem;
 $header-height: 7rem;
-$room-header-height: 10rem;
+$room-header-height: 8rem;
 $max-width-container: 1300px;
+
+@include responsive(big-desktop) {
+  $room-header-height: 10rem;
+}

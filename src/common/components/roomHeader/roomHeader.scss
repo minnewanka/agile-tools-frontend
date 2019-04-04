@@ -1,4 +1,5 @@
-@import "../../sass/variables";
+@import '../../sass/variables';
+@import '../../sass/mixin';
 
 .roomHeader-container {
   min-height: $room-header-height;
@@ -32,7 +33,10 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
   .roomHeader-logo {
-    height: 6rem;
+    height: 4.5rem;
+    @include responsive(big-desktop) {
+      height: 6rem;
+    }
     margin: 0.4rem;
     cursor: pointer;
   }
@@ -40,14 +44,20 @@
   .roomHeader-title {
     text-align: center;
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    @include responsive(big-desktop) {
+      font-size: 2rem;
+    }
     margin-right: 10rem;
   }
 
   .roomHeader-code {
     color: #ffffff;
     text-align: center;
-    font-size: 3rem;
+    font-size: 2.5rem;
+    @include responsive(big-desktop) {
+      font-size: 3rem;
+    }
     margin-right: 10rem;
   }
 

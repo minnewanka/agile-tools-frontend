@@ -1,5 +1,5 @@
-@import "./variables";
-@import "./mixin";
+@import './variables';
+@import './mixin';
 
 .button-noStyle {
   background: none;
@@ -22,10 +22,14 @@
 }
 
 .button-default-style {
-  width: 15rem;
-  height: 3.5rem;
+  width: 12rem;
+  height: 3rem;
   @include responsive(phone) {
     width: 10em;
+    height: 3.5rem;
+  }
+  @include responsive(big-desktop) {
+    width: 15rem;
     height: 3.5rem;
   }
   border-radius: 0.5rem;
@@ -52,7 +56,7 @@
 }
 
 .btn:before {
-  content: "";
+  content: '';
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.233);
   position: absolute;
@@ -83,11 +87,11 @@
   font-size: 1.3rem;
 }
 /* label focus color */
-.input-field input[type="text"]:focus + label {
+.input-field input[type='text']:focus + label {
   font-size: 1rem;
   color: $color-blue;
 }
-.input-field input[type="email"]:focus + label {
+.input-field input[type='email']:focus + label {
   font-size: 1rem;
   color: $color-blue;
 }
@@ -97,11 +101,11 @@
 }
 
 /* label underline focus color */
-.input-field input[type="text"]:focus {
+.input-field input[type='text']:focus {
   border-bottom: 1px solid $color-blue;
   box-shadow: 0 1px 0 0 $color-blue;
 }
-.input-field input[type="email"]:focus {
+.input-field input[type='email']:focus {
   border-bottom: 1px solid $color-blue;
   box-shadow: 0 1px 0 0 $color-blue;
 }
@@ -123,10 +127,10 @@
 
 .input-field {
   padding: 3rem;
-  input[type="text"] {
+  input[type='text'] {
     font-size: 1.5rem;
   }
-  input[type="email"] {
+  input[type='email'] {
     font-size: 1.5rem;
   }
   textarea.materialize-textarea {
@@ -141,7 +145,7 @@
     }
   }
   /* input text error */
-  input.error[type="text"] {
+  input.error[type='text'] {
     /* label underline focus color error */
     border-bottom: 0.1rem solid $color-red;
     box-shadow: 0 0.1rem 0 0 $color-red;
@@ -154,7 +158,7 @@
       color: $color-red;
     }
   }
-  input.error[type="email"] {
+  input.error[type='email'] {
     /* label underline focus color error */
     border-bottom: 0.1rem solid $color-red;
     box-shadow: 0 0.1rem 0 0 $color-red;

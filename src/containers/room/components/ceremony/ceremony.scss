@@ -1,15 +1,15 @@
-@import "../../../../common/sass/variables";
-@import "../../../../common/sass/mixin";
+@import '../../../../common/sass/variables';
+@import '../../../../common/sass/mixin';
 
 .poker-planning-container {
   @include responsive(phone) {
     width: 350px;
   }
   @include responsive(desktop) {
-    height: 500px;
+    height: 440px;
   }
   @include responsive(big-desktop) {
-    height: 700px;
+    height: 750px;
   }
 
   padding: 0.5rem;
