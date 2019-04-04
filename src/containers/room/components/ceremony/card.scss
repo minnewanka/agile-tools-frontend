@@ -37,8 +37,8 @@
     }
     .topright {
       position: absolute;
-      top: 1.2rem;
-      right: 1.2rem;
+      top: 1rem;
+      right: 1rem;
 
       @include responsive(big-desktop) {
         top: 1.5rem;
@@ -48,8 +48,8 @@
     }
     .bottomleft {
       position: absolute;
-      bottom: 1.2rem;
-      left: 1.2rem;
+      bottom: 1rem;
+      left: 1rem;
 
       @include responsive(big-desktop) {
         bottom: 1.5rem;

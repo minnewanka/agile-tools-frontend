@@ -3,7 +3,7 @@
 
 .sideBarContainer {
   height: 40rem;
-  min-width: 10rem;
+  min-width: 25rem;
   @include responsive(big-desktop) {
     height: 50rem;
     min-width: 28rem;
@@ -45,7 +45,7 @@
     height: inherit;
     overflow: auto;
     overflow-x: hidden;
-    margin: 1rem 1.5rem 3rem 1.5rem;
+    // margin: 1rem 1.5rem 3rem 1.5rem;
 
     .collectionItem-container {
       padding: 0;

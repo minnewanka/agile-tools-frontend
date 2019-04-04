@@ -33,7 +33,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
   .roomHeader-logo {
-    height: 4.5rem;
+    height: 4rem;
     @include responsive(big-desktop) {
       height: 6rem;
     }
@@ -44,7 +44,7 @@
   .roomHeader-title {
     text-align: center;
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     @include responsive(big-desktop) {
       font-size: 2rem;
     }
@@ -54,7 +54,7 @@
   .roomHeader-code {
     color: #ffffff;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     @include responsive(big-desktop) {
       font-size: 3rem;
     }

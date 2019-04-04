@@ -26,6 +26,7 @@
   }
   @if $breakpoint == desktop {
     @media (min-width: 75em) {
+      // > 1200px
       @content;
     }
   }

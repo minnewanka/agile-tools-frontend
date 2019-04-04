@@ -1,4 +1,4 @@
-@import "../../../../common/sass/variables";
+@import '../../../../common/sass/variables';
 
 .participant-item {
   width: 100%;
@@ -19,8 +19,7 @@
   }
 
   .participant-item-text {
-    padding-left: 1.4rem;
-    display: block;
+    padding-left: 1.5rem;
     min-width: 15rem;
   }
   .participant-vote {
