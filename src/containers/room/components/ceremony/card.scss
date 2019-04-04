@@ -1,5 +1,5 @@
-@import '../../../../common/sass/variables';
-@import '../../../../common/sass/mixin';
+@import "../../../../common/sass/variables";
+@import "../../../../common/sass/mixin";
 
 .poker-card-container {
   margin: 2rem;
@@ -13,8 +13,8 @@
     width: 10.65rem;
     height: 15rem;
     @include responsive(big-desktop) {
-      width: 16.5rem;
-      height: 23rem;
+      width: 14.2rem;
+      height: 20rem;
     }
     font-family: sans-serif;
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.507);
