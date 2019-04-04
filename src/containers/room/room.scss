@@ -1,8 +1,13 @@
-@import '../../common/sass/variables';
-@import '../../common/sass/mixin';
+@import "../../common/sass/variables";
+@import "../../common/sass/mixin";
 
 .room-container {
   min-height: calc(100vh - (#{$room-header-height} + #{$footer-height}));
+
+  @include responsive(mid-desktop) {
+    min-height: calc(100vh - (#{$room-header-height-mid} + #{$footer-height}));
+  }
+
   padding-top: 2rem;
   display: flex;
   flex-direction: column;

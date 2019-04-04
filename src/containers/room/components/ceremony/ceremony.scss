@@ -1,6 +1,6 @@
-@import '../../../../common/sass/variables';
-@import '../../../../common/sass/mixin';
-@import '../../../../common/sass/animation';
+@import "../../../../common/sass/variables";
+@import "../../../../common/sass/mixin";
+@import "../../../../common/sass/animation";
 
 .poker-planning-container {
   @include responsive(phone) {
@@ -10,7 +10,7 @@
     height: 440px;
   }
   @include responsive(big-desktop) {
-    height: 750px;
+    height: 650px;
   }
 
   padding: 0.5rem;
