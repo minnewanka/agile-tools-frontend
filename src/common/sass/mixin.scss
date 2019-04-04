@@ -2,6 +2,7 @@
 -phone
 -tab-port
 -tab-land
+-desktop
 -big-desktop
 */
 @mixin responsive($breakpoint) {
@@ -27,6 +28,12 @@
   @if $breakpoint == desktop {
     @media (min-width: 75em) {
       // > 1200px
+      @content;
+    }
+  }
+  @if $breakpoint == mid-desktop {
+    @media (min-width: 93.75em) {
+      // > 1500px
       @content;
     }
   }
