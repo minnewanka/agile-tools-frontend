@@ -1,74 +1,26 @@
-@import "../../common/sass/variables";
-@import "../../common/sass/mixin";
+@import '../../common/sass/variables';
+@import '../../common/sass/mixin';
 
 .room-container {
-  min-height: calc(100vh - (#{$room-header-height} + #{$footer-height}));
-
-  @include responsive(mid-desktop) {
-    min-height: calc(100vh - (#{$room-header-height-mid} + #{$footer-height}));
-  }
-
-  padding-top: 2rem;
+  height: calc(100% - #{$footer-height});
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  .room-container-row {
-    min-width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    .room-container-col {
-      min-height: 100%;
-      &:nth-child(2) {
-        min-height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-    }
-    ul {
-      &.dropdown-content {
-        &.select-dropdown {
-          li {
-            span {
-              color: $color-blue-light;
-            }
-          }
-        }
-      }
-    }
-    .vote-toggle {
-      width: 8rem;
-      height: 8rem;
-      line-height: 8rem;
-      background-color: green;
-      color: white;
-      font-size: 2rem;
-    }
 
-    .btn-room-container {
+  .left-container {
+    height: 100%;
+    width: 75%;
+    .header-container {
+      height: 15%;
+    }
+    .ceremony-container {
+      height: 70%;
+    }
+    .ceremony-actions-container {
+      height: 15%;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-    }
-  }
-
-  .room-button-row {
-    margin: 0.5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    @include responsive(phone) {
-      grid-template-columns: 3fr 1fr;
-    }
-    grid-column-gap: 5px;
-    justify-items: center;
-
-    .edit-btn-container {
-      grid-column-start: 2;
-      @include responsive(phone) {
-        grid-column-start: 1;
-      }
+      align-items: center;
       .btn-room-reveal {
-        margin: 0.5rem;
+        margin: 10rem;
         color: white;
         background-color: $color-blue;
         &:hover {
@@ -81,7 +33,7 @@
         }
       }
       .btn-room-reset {
-        margin: 0.5rem;
+        margin: 10rem;
         color: white;
         background-color: #00a28c;
         &:hover {
@@ -90,9 +42,37 @@
         }
       }
     }
-    .delete-btn-container {
-      margin-left: auto;
-      margin-right: 23%;
+  }
+  .right-container {
+    height: 100%;
+    width: 25%;
+    background-color: $color-blue;
+    .lang-container {
+      height: 15%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 5rem;
+      .lang-toggle {
+        background-color: white;
+        color: $color-blue;
+      }
+    }
+    .ceremony-radio-container {
+      height: 8%;
+    }
+    .sidebar-container {
+      height: 62%;
+      padding: 0 3rem;
+      .sidebar {
+        height: 100%;
+      }
+    }
+    .btn-delete-container {
+      height: 15%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

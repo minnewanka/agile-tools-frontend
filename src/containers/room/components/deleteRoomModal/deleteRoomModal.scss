@@ -1,12 +1,12 @@
-@import "../../../../common/sass/variables";
+@import '../../../../common/sass/variables';
 
 .delete-modal-trigger {
   margin: 0.5rem;
   color: white;
   background-color: rgba(255, 0, 0, 0.726);
   &:hover {
-    background-color: rgba(255, 0, 0, 0.308);
-    color: #fff;
+    background-color: white;
+    color: rgba(255, 0, 0, 0.726);
   }
   &:focus {
     background-color: rgba(255, 0, 0, 0.308);

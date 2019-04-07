@@ -1,13 +1,13 @@
-import React from "react"
-import "./langToggle.scss"
+import React from 'react'
+import './langToggle.scss'
 
 const LangToggle = props => {
-  const { locale, changeLang, className } = props
-  const nextLang = locale === "fr" ? "en" : "fr"
+  const { locale, changeLang } = props
+  const nextLang = locale === 'fr' ? 'en' : 'fr'
   return (
     <button
       type="button"
-      className={`lang-toggle btn-round ${className}`}
+      className="lang-toggle"
       onClick={() => {
         changeLang()
       }}

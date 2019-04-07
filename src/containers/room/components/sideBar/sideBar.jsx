@@ -1,19 +1,26 @@
 /* eslint-disable no-nested-ternary */
-import React from "react"
-import "./sideBar.scss"
-import { Collection, CollectionItem } from "react-materialize"
-import { CSSTransition, TransitionGroup } from "react-transition-group"
-import ParticipantItem from "./participantItem"
+import React from 'react'
+import './sideBar.scss'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import ParticipantItem from './participantItem'
 
 const SideBar = props => {
-  const { ceremony, handleTypeRoom, translate, participants, isFlipped } = props
+  const {
+    ceremony,
+    roomCode,
+    roomName,
+    handleTypeRoom,
+    translate,
+    participants,
+    isFlipped
+  } = props
 
   const sortParticipants = pParticipants => {
-    if (ceremony === "pokerplanning") {
+    if (ceremony === 'pokerplanning') {
       return pParticipants.concat().sort((a, b) => {
-        if (b.pokerplanning === "scissor" || a.pokerplanning === undefined)
+        if (b.pokerplanning === 'scissor' || a.pokerplanning === undefined)
           return 1
-        if (a.pokerplanning === "scissor" || b.pokerplanning === undefined)
+        if (a.pokerplanning === 'scissor' || b.pokerplanning === undefined)
           return -1
         return b.pokerplanning - a.pokerplanning
       })
@@ -38,22 +45,12 @@ const SideBar = props => {
 
   return (
     <div className="sideBarContainer">
-      <div className="ceremony-dropdown">
-        <div className="ceremony-text">{translate("ceremony")}</div>
-        <select
-          defaultValue="pokerplanning"
-          className="sidebar-select"
-          onChange={handleTypeRoom}
-        >
-          <option value="pokerplanning">Poker Planning</option>
-          <option value="tshirt">T Shirt</option>
-        </select>
-      </div>
-      <div className="participants-list-header center-align">
-        <h5>{translate("participants")}</h5>
+      <div className="roomInfo">
+        <h4>Room# {roomCode}</h4>
+        <h6>{roomName}</h6>
       </div>
 
-      <Collection className="participants-list custom-scrollbar">
+      <ul className="participants-list custom-scrollbar">
         <TransitionGroup>
           {participantsToRender.map(participant => (
             <CSSTransition
@@ -61,18 +58,18 @@ const SideBar = props => {
               classNames="fade"
               key={`sideBarParticipant${participant.username}`}
             >
-              <CollectionItem className="collectionItem-container">
+              <li>
                 <ParticipantItem
                   participant={participant}
                   isFlipped={isFlipped}
                   ceremony={ceremony}
                   translate={translate}
                 />
-              </CollectionItem>
+              </li>
             </CSSTransition>
           ))}
         </TransitionGroup>
-      </Collection>
+      </ul>
     </div>
   )
 }

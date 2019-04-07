@@ -1,23 +1,13 @@
-@import "../../../../common/sass/variables";
-@import "../../../../common/sass/mixin";
-@import "../../../../common/sass/animation";
+@import '../../../../common/sass/variables';
+@import '../../../../common/sass/mixin';
+@import '../../../../common/sass/animation';
 
 .poker-planning-container {
-  height: 440px;
-
-  @include responsive(phone) {
-    width: 350px;
-  }
-  @include responsive(big-desktop) {
-    height: 650px;
-  }
-
+  height: 100%;
   padding: 0.5rem;
   overflow: auto;
   overflow-x: hidden;
   scroll-snap-type: y mandatory;
-  border-radius: 1.5rem;
-
   .poker-planning-col {
     display: flex;
     justify-content: center;

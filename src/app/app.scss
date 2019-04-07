@@ -1,4 +1,4 @@
-@import "../common/sass/mixin";
+@import '../common/sass/mixin';
 
 *,
 *::after,
@@ -35,4 +35,11 @@ html {
 
 body {
   box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
 }
