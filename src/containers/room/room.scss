@@ -46,7 +46,8 @@
   .right-container {
     height: 100%;
     width: 25%;
-    background-color: $color-blue;
+    background-image: url('../../img/page2.png');
+    background-size: cover;
     .lang-container {
       height: 15%;
       display: flex;

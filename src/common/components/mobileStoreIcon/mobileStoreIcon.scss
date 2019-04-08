@@ -1,12 +1,9 @@
-@import "../../../common/sass/mixin";
+@import '../../../common/sass/mixin';
 
 .badge-container {
   display: flex;
   .google-badge-container {
-    width: 25rem;
-    @include responsive(phone) {
-      width: 15rem;
-    }
+    width: 15rem;
     .google-badge {
       max-width: 100%;
       height: auto;
@@ -16,10 +13,7 @@
     }
   }
   .apple-badge-container {
-    width: 25rem;
-    @include responsive(phone) {
-      width: 13rem;
-    }
+    width: 13rem;
     .apple-badge {
       max-width: 100%;
       height: auto;

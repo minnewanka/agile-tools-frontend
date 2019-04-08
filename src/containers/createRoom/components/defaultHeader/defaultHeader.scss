@@ -1,4 +1,5 @@
-@import '../../sass/variables';
+@import '../../../../common/sass/variables';
+@import '../../../../common/sass/mixin';
 
 .underline {
   text-decoration: underline;
@@ -9,9 +10,11 @@
   color: $color-white;
   display: flex;
   justify-content: space-between;
-  padding: 0 5rem;
+  align-items: center;
+  padding: 0 10rem;
   .logo-header {
     height: 5rem;
+    grid-column: 2;
     &:hover {
       cursor: pointer;
     }

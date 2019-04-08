@@ -1,18 +1,20 @@
-@import "../../common/sass/variables";
-@import "../../common/sass/mixin";
+@import '../../common/sass/variables';
+@import '../../common/sass/mixin';
 
 .main-container {
-  height: calc(100vh - (#{$header-height} + #{$footer-height}));
-  position: relative;
+  height: calc(100vh - #{$footer-height});
+  // background-color: $color-blue;
+  background-image: url('../../img/page1.png');
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  .card-session {
-    width: 50rem;
-    @include responsive(phone) {
-      width: 35rem;
-    }
-    align-self: center;
+
+  .card-container {
+    align-self: flex-start;
+    width: 35rem;
+    margin-left: 5rem;
+    margin-bottom: 5rem;
     /* Button create */
     .center-align {
       margin-bottom: 1.5rem;
@@ -20,9 +22,25 @@
         display: none;
       }
     }
+    .room-form {
+      width: 100%;
+    }
+    .room-card {
+      border-radius: 3rem;
+      background-color: $color-blue-light;
+      padding: 1rem;
+      color: $color-blue;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .btn-create {
+        background-color: $color-blue;
+        color: white;
+      }
+    }
   }
   .store-badge-text {
-    color: $color-blue;
+    color: white;
   }
 
   .store-badge-container {

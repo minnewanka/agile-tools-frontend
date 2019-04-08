@@ -1,18 +1,19 @@
-import React, { Component } from "react"
-import "./createRoom.scss"
-import { Button, Card, Input, Row } from "react-materialize"
-import { Link } from "react-router-dom"
-import { createRoom } from "../../services/roomService"
-import ErrorMessage from "../../common/components/errorMessage"
-import Loader from "../../common/components/loader/loader"
-import MobileStoreIcon from "../../common/components/mobileStoreIcon"
+import React, { Component } from 'react'
+import './createRoom.scss'
+import { Input, Row } from 'react-materialize'
+import { Link } from 'react-router-dom'
+import { createRoom } from '../../services/roomService'
+import ErrorMessage from '../../common/components/errorMessage'
+import Loader from '../../common/components/loader/loader'
+import MobileStoreIcon from '../../common/components/mobileStoreIcon'
+import DefaultHeader from '../../common/components/defaultHeader'
 
 class CreateRoom extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      roomName: "",
-      roomCode: "",
+      roomName: '',
+      roomCode: '',
       error: false,
       errorServer: false,
       loading: false,
@@ -36,7 +37,7 @@ class CreateRoom extends Component {
     const { history } = this.props
     if (redirect) {
       history.push({
-        pathname: "/room",
+        pathname: '/room',
         state: { roomCode }
       })
     }
@@ -56,7 +57,7 @@ class CreateRoom extends Component {
           errorServer: false,
           loading: false,
           redirect: true,
-          roomCode: room.get("code")
+          roomCode: room.get('code')
         })
       },
       error => {
@@ -74,24 +75,25 @@ class CreateRoom extends Component {
     const { translate } = this.props
     return (
       <div className="main-container">
-        <div className="card-session">
+        <DefaultHeader />
+        <div className="card-container">
           <ErrorMessage key={0} error={errorServer} />
-          <Card
-            key={1}
-            className="white"
-            textClassName="black-text"
-            title={translate("title")}
-          >
-            <form onSubmit={this.handleSubmit}>
+          <div className="room-card">
+            <h3>{translate('title')}</h3>
+            <form
+              className="room-form"
+              autoomplete="off"
+              onSubmit={this.handleSubmit}
+            >
               <Row>
                 <Input
-                  className={error ? "error" : ""}
+                  className={`room-input ${error ? 'error' : ''}`}
                   type="text"
                   m={12}
                   s={12}
-                  label={translate("inputLabel")}
-                  placeholder={error ? "" : translate("inputPlaceholder")}
-                  error={error ? translate("fieldEmptyRoom") : ""}
+                  label=" "
+                  placeholder={error ? '' : translate('inputPlaceholder')}
+                  error={error ? translate('fieldEmptyRoom') : ''}
                   validate
                   minLength="3"
                   maxLength="25"
@@ -99,26 +101,27 @@ class CreateRoom extends Component {
                   onChange={this.handleRoomNameChange}
                   onFocus={this.handleRoomNameFocus}
                 />
-                <div className={`center-align ${loading ? "loading" : ""}`}>
-                  <Button waves="light" className="btn-sii">
-                    {translate("buttonCreate")}
-                  </Button>
+                <div className={`center-align ${loading ? 'loading' : ''}`}>
+                  <button
+                    type="submit"
+                    className="button-default-style btn-create"
+                  >
+                    {translate('buttonCreate')}
+                  </button>
                 </div>
                 <Loader key={2} loading={loading} />
               </Row>
             </form>
             {this.redirect()}
             <div className="right-align">
-              <Link to="/rooms">{translate("redirectLink")}</Link>{" "}
+              <Link to="/rooms">{translate('redirectLink')}</Link>{' '}
             </div>
-          </Card>
-        </div>
-        <div>
-          <div className="store-badge-text center-align">
-            <h5>{translate("textMobile")}</h5>
           </div>
-          <div className="store-badge-container">
-            <MobileStoreIcon />
+          <div className="store-badge-text center-align">
+            <h5>{translate('textMobile')}</h5>
+            <div className="store-badge-container">
+              <MobileStoreIcon />
+            </div>
           </div>
         </div>
       </div>

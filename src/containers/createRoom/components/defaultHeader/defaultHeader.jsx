@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import './defaultHeader.scss'
-
-import { ReactComponent as Logo } from '../../../img/logo-by-siicanada-blanc.svg'
-import LangToggle from '../langToggle'
+import { ReactComponent as Logo } from '../../../../img/logo-by-siicanada-blanc.svg'
+import LangToggle from '../../../../common/components/langToggle'
 
 class DefaultHeader extends Component {
   constructor(props) {
