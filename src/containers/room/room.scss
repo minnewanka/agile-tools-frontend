@@ -85,7 +85,11 @@ $ceremony-radio-container-height: 6rem;
             #{$lang-container-height} + #{$ceremony-radio-container-height} + #{$btn-delete-container-height}
           )
       );
-      padding: 1rem 5rem;
+      padding: 1rem 2rem;
+
+      @include responsive(mid-desktop) {
+        padding: 1rem 5rem;
+      }
       .sidebar {
         height: 100%;
       }

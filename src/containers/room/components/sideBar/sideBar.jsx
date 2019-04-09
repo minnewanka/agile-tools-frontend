@@ -45,8 +45,8 @@ const SideBar = props => {
   return (
     <div className="sideBarContainer">
       <div className="roomInfo">
-        <h4>Room# {roomCode}</h4>
-        <h6>{roomName}</h6>
+        <h3 className="heading1">Room# {roomCode}</h3>
+        <h5 className="heading2">{roomName}</h5>
       </div>
 
       <ul className="participants-list custom-scrollbar">

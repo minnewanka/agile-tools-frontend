@@ -8,11 +8,25 @@
   border-radius: 1.5rem;
   padding: 0.5rem;
   height: 100%;
+  @include responsive(tab-land) {
+    max-height: 80%;
+  }
 
   .roomInfo {
     color: $color-blue;
     padding: 0 2rem;
     margin-bottom: 1rem;
+    .heading1 {
+      @include responsive(tab-land) {
+        font-size: 2rem;
+      }
+    }
+
+    .heading2 {
+      @include responsive(tab-land) {
+        font-size: 1.5rem;
+      }
+    }
   }
   .participants-list {
     overflow: auto;
