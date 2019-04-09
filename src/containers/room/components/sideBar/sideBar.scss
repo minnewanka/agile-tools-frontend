@@ -6,9 +6,9 @@
   display: flex;
   flex-direction: column;
   border-radius: 1.5rem;
-  padding: 0.5rem;
+  padding: 1rem;
   height: 100%;
-  @include responsive(tab-land) {
+  @include responsive(tab-port) {
     max-height: 80%;
   }
 
@@ -33,6 +33,6 @@
     overflow-x: hidden;
     border: none;
     color: #606168;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
   }
 }
