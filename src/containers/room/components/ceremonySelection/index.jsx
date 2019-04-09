@@ -5,8 +5,12 @@ import { Consumer } from '../../../../context'
 const CeremonySelectionConsumer = props => {
   return (
     <Consumer>
-      {({ changeCeremony }) => (
-        <CeremonySelection changeCeremony={changeCeremony} {...props} />
+      {({ changeCeremony, currentRoom: { ceremony } }) => (
+        <CeremonySelection
+          changeCeremony={changeCeremony}
+          ceremony={ceremony}
+          {...props}
+        />
       )}
     </Consumer>
   )

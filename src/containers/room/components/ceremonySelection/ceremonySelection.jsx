@@ -3,12 +3,15 @@ import './ceremonySelection.scss'
 import { Icon } from 'react-materialize'
 
 const CeremonySelection = props => {
-  const { changeCeremony } = props
+  const { changeCeremony, ceremony } = props
+  console.log(ceremony)
   return (
     <div className="ceremonySelection">
       <div
         role="button"
-        className="pokerplanning"
+        className={`ceremony-icon ${
+          ceremony === 'pokerplanning' ? 'border-white' : ''
+        }`}
         onClick={() => changeCeremony('pokerplanning')}
       >
         <div>poker planning</div>
@@ -18,7 +21,9 @@ const CeremonySelection = props => {
       </div>
       <div
         role="button"
-        className="tshirt"
+        className={`ceremony-icon ${
+          ceremony === 'tshirt' ? 'border-white' : ''
+        }`}
         onClick={() => changeCeremony('tshirt')}
       >
         <div>tshirt</div>

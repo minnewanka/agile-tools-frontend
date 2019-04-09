@@ -79,15 +79,15 @@ class CreateRoom extends Component {
         <div className="card-container">
           <ErrorMessage key={0} error={errorServer} />
           <div className="room-card">
-            <h3>{translate('title')}</h3>
+            <h3 className="title">{translate('title')}</h3>
             <form
               className="room-form"
-              autoomplete="off"
+              autoComplete="off"
               onSubmit={this.handleSubmit}
             >
               <Row>
                 <Input
-                  className={`room-input ${error ? 'error' : ''}`}
+                  className={`${error ? 'error' : ''}`}
                   type="text"
                   m={12}
                   s={12}

@@ -1,5 +1,5 @@
-@import "../../common/sass/variables";
-@import "../../common/sass/mixin";
+@import '../../common/sass/variables';
+@import '../../common/sass/mixin';
 
 .room-list-container {
   margin-left: auto;
@@ -11,7 +11,7 @@
   @include responsive(phone) {
     max-width: 42rem;
   }
-  min-height: calc(100vh - (#{$header-height} + #{$footer-height}));
+  min-height: calc(100vh - #{$footer-height});
   padding: 1.2rem;
 
   .room-card {

@@ -30,6 +30,7 @@
         &:disabled {
           background-color: $color-blue-light;
           color: #fff;
+          box-shadow: none;
         }
       }
       .btn-room-reset {

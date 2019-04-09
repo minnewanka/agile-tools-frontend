@@ -26,9 +26,12 @@
       width: 100%;
     }
     .room-card {
+      .title {
+        margin: 0;
+      }
       border-radius: 3rem;
       background-color: $color-blue-light;
-      padding: 1rem;
+      padding: 1.5rem;
       color: $color-blue;
       display: flex;
       flex-direction: column;
@@ -40,6 +43,7 @@
     }
   }
   .store-badge-text {
+    margin-top: 2rem;
     color: white;
   }
 
