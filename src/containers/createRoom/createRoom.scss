@@ -16,6 +16,9 @@
     left: 10%;
     align-self: flex-start;
     width: 35rem;
+    @include responsive(big-desktop) {
+      width: 40rem;
+    }
     /* Button create */
     .center-align {
       margin-bottom: 1.5rem;
