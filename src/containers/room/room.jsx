@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import './room.scss'
-import Ceremony from './components/ceremony'
-import SideBar from './components/sideBar'
-import DeleteRoomModal from './components/deleteRoomModal'
-import LangToggle from '../../common/components/langToggle'
-import RoomHeader from '../../common/components/roomHeader'
-import CeremonySelection from './components/ceremonySelection'
+import React, { Component } from "react"
+import "./room.scss"
+import Ceremony from "./components/ceremony"
+import SideBar from "./components/sideBar"
+import DeleteRoomModal from "./components/deleteRoomModal"
+import LangToggle from "../../common/components/langToggle"
+import RoomHeader from "../../common/components/roomHeader"
+import CeremonySelection from "./components/ceremonySelection"
 
 class Room extends Component {
   constructor(props) {
@@ -72,7 +72,7 @@ class Room extends Component {
               waves="light"
               onClick={toggleFlipped}
             >
-              {isFlipped ? translate('buttonReveal') : translate('buttonHide')}
+              {isFlipped ? translate("buttonReveal") : translate("buttonHide")}
             </button>
             <button
               type="button"
@@ -80,7 +80,7 @@ class Room extends Component {
               waves="light"
               onClick={resetVote}
             >
-              {translate('buttonReset')}
+              {translate("buttonReset")}
             </button>
           </div>
         </div>

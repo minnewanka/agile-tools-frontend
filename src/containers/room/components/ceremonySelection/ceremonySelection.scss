@@ -1,3 +1,6 @@
+@import "../../../../common/sass/variables";
+@import "../../../../common/sass/mixin";
+
 .ceremonySelection {
   height: 100%;
   color: white;
@@ -6,12 +9,16 @@
   align-items: center;
 
   .ceremony-icon {
-    height: 100%;
-    width: 8em;
+    height: 7rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 2rem;
+    margin: 0.6rem;
+
+    @include responsive(big-desktop) {
+      margin: 1rem;
+    }
     &:hover {
       cursor: pointer;
     }

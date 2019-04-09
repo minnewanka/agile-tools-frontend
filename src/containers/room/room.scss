@@ -1,26 +1,38 @@
-@import '../../common/sass/variables';
-@import '../../common/sass/mixin';
+@import "../../common/sass/variables";
+@import "../../common/sass/mixin";
+
+$header-container-height: 12rem;
+$ceremony-actions-container-height: 10rem;
+$lang-container-height: 12rem;
+$btn-delete-container-height: 10rem;
+$ceremony-radio-container-height: 6rem;
 
 .room-container {
   height: calc(100% - #{$footer-height});
   display: flex;
 
   .left-container {
-    height: 100%;
     width: 75%;
+    display: flex;
+    flex-direction: column;
     .header-container {
-      height: 15%;
+      height: $header-container-height;
     }
     .ceremony-container {
-      height: 70%;
+      flex: auto;
+      max-height: calc(
+        100% -
+          (#{$header-container-height} + #{$ceremony-actions-container-height})
+      );
+      padding: 1rem;
     }
     .ceremony-actions-container {
-      height: 15%;
+      height: $ceremony-actions-container-height;
       display: flex;
       justify-content: center;
       align-items: center;
       .btn-room-reveal {
-        margin: 10rem;
+        margin: 0 10rem;
         color: white;
         background-color: $color-blue;
         &:hover {
@@ -34,7 +46,7 @@
         }
       }
       .btn-room-reset {
-        margin: 10rem;
+        margin: 0 10rem;
         color: white;
         background-color: #00a28c;
         &:hover {
@@ -45,12 +57,14 @@
     }
   }
   .right-container {
-    height: 100%;
     width: 25%;
-    background-image: url('../../img/page2.png');
+    background-image: url("../../img/page2.png");
     background-size: cover;
+    display: flex;
+    flex-direction: column;
     .lang-container {
-      height: 15%;
+      height: $lang-container-height;
+
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -61,17 +75,23 @@
       }
     }
     .ceremony-radio-container {
-      height: 8%;
+      height: $ceremony-radio-container-height;
     }
     .sidebar-container {
-      height: 62%;
-      padding: 0 3rem;
+      flex: auto;
+      max-height: calc(
+        100% -
+          (
+            #{$lang-container-height} + #{$ceremony-radio-container-height} + #{$btn-delete-container-height}
+          )
+      );
+      padding: 1rem 5rem;
       .sidebar {
         height: 100%;
       }
     }
     .btn-delete-container {
-      height: 15%;
+      height: $btn-delete-container-height;
       display: flex;
       justify-content: center;
       align-items: center;

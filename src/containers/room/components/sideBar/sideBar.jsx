@@ -1,26 +1,25 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react'
-import './sideBar.scss'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import ParticipantItem from './participantItem'
+import React from "react"
+import "./sideBar.scss"
+import { CSSTransition, TransitionGroup } from "react-transition-group"
+import ParticipantItem from "./participantItem"
 
 const SideBar = props => {
   const {
     ceremony,
     roomCode,
     roomName,
-    handleTypeRoom,
     translate,
     participants,
     isFlipped
   } = props
 
   const sortParticipants = pParticipants => {
-    if (ceremony === 'pokerplanning') {
+    if (ceremony === "pokerplanning") {
       return pParticipants.concat().sort((a, b) => {
-        if (b.pokerplanning === 'scissor' || a.pokerplanning === undefined)
+        if (b.pokerplanning === "scissor" || a.pokerplanning === undefined)
           return 1
-        if (a.pokerplanning === 'scissor' || b.pokerplanning === undefined)
+        if (a.pokerplanning === "scissor" || b.pokerplanning === undefined)
           return -1
         return b.pokerplanning - a.pokerplanning
       })

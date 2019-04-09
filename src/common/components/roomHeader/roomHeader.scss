@@ -1,5 +1,5 @@
-@import '../../sass/variables';
-@import '../../sass/mixin';
+@import "../../sass/variables";
+@import "../../sass/mixin";
 
 .roomHeader-container {
   height: 100%;
@@ -11,6 +11,9 @@
 
   .roomHeader-logo {
     height: 6rem;
+    @include responsive(phone) {
+      height: 5rem;
+    }
     margin: 0.4rem;
     cursor: pointer;
   }
@@ -19,6 +22,9 @@
     height: 100%;
     text-align: center;
     font-size: 4rem;
+    @include responsive(phone) {
+      font-size: 2rem;
+    }
     display: flex;
     align-items: center;
 

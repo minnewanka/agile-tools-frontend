@@ -1,5 +1,5 @@
-@import '../../../../common/sass/variables';
-@import '../../../../common/sass/mixin';
+@import "../../../../common/sass/variables";
+@import "../../../../common/sass/mixin";
 
 .sideBarContainer {
   background-color: $color-blue-light;
@@ -8,13 +8,13 @@
   border-radius: 1.5rem;
   padding: 0.5rem;
   height: 100%;
+
   .roomInfo {
     color: $color-blue;
     padding: 0 2rem;
     margin-bottom: 1rem;
   }
   .participants-list {
-    height: 100%;
     overflow: auto;
     overflow-x: hidden;
     border: none;
