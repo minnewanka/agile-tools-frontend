@@ -7,7 +7,7 @@ import Tshirt from "./tshirt"
 const PokerPlanning = props => {
   const { ceremony, participants, isFlipped } = props
   return (
-    <TransitionGroup className="poker-planning-container row custom-scrollbar">
+    <TransitionGroup className="poker-planning-container  custom-scrollbar">
       {participants
         .filter(participant => participant[ceremony])
         .map(participant => {
@@ -17,21 +17,19 @@ const PokerPlanning = props => {
               key={`pp${participant.username}`}
               classNames="animation-card"
             >
-              <div className="col s12 m6 l3 l5ths poker-planning-col">
-                {ceremony === "pokerplanning" ? (
-                  <Card
-                    isFlipped={isFlipped}
-                    vote={participant.pokerplanning}
-                    username={participant.username}
-                  />
-                ) : (
-                  <Tshirt
-                    isFlipped={isFlipped}
-                    vote={participant.tshirt}
-                    username={participant.username}
-                  />
-                )}
-              </div>
+              {ceremony === "pokerplanning" ? (
+                <Card
+                  isFlipped={isFlipped}
+                  vote={participant.pokerplanning}
+                  username={participant.username}
+                />
+              ) : (
+                <Tshirt
+                  isFlipped={isFlipped}
+                  vote={participant.tshirt}
+                  username={participant.username}
+                />
+              )}
             </CSSTransition>
           )
         })}

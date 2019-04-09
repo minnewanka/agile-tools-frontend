@@ -1,17 +1,19 @@
-@import '../../sass/variables';
+@import "../../sass/variables";
+@import "../../sass/mixin";
 
 .underline {
   text-decoration: underline;
 }
 
 .app-header {
-  height: $header-height;
+  height: 10rem;
   color: $color-white;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0 5rem;
   .logo-header {
-    height: 5rem;
+    height: 8rem;
     &:hover {
       cursor: pointer;
     }

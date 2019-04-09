@@ -1,6 +1,6 @@
-@import '../../../../common/sass/variables';
-@import '../../../../common/sass/mixin';
-@import '../../../../common/sass/animation';
+@import "../../../../common/sass/variables";
+@import "../../../../common/sass/mixin";
+@import "../../../../common/sass/animation";
 
 .poker-planning-container {
   height: 100%;
@@ -8,11 +8,9 @@
   overflow: auto;
   overflow-x: hidden;
   scroll-snap-type: y mandatory;
-  .poker-planning-col {
-    display: flex;
-    justify-content: center;
-    scroll-snap-align: start;
-  }
+  scroll-snap-align: start;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .animation-card-enter {

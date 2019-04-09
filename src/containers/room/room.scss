@@ -13,6 +13,9 @@ $ceremony-radio-container-height: 6rem;
 
   .left-container {
     width: 75%;
+    @include responsive(phone) {
+      width: 50%;
+    }
     display: flex;
     flex-direction: column;
     .header-container {
@@ -33,6 +36,9 @@ $ceremony-radio-container-height: 6rem;
       align-items: center;
       .btn-room-reveal {
         margin: 0 10rem;
+        @include responsive(phone) {
+          margin: 0 0.5rem;
+        }
         color: white;
         background-color: $color-blue;
         &:hover {
@@ -47,6 +53,9 @@ $ceremony-radio-container-height: 6rem;
       }
       .btn-room-reset {
         margin: 0 10rem;
+        @include responsive(phone) {
+          margin: 0 0.5rem;
+        }
         color: white;
         background-color: #00a28c;
         &:hover {
@@ -58,6 +67,9 @@ $ceremony-radio-container-height: 6rem;
   }
   .right-container {
     width: 25%;
+    @include responsive(phone) {
+      width: 50%;
+    }
     background-image: url("../../img/page2.png");
     background-size: cover;
     display: flex;
@@ -87,6 +99,9 @@ $ceremony-radio-container-height: 6rem;
       );
       padding: 1rem 2rem;
 
+      @include responsive(phone) {
+        padding: 1rem 0.5rem;
+      }
       @include responsive(mid-desktop) {
         padding: 1rem 5rem;
       }
