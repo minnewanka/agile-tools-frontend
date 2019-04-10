@@ -1,0 +1,33 @@
+@import "../../../common/sass/mixin";
+
+.badge-container {
+  display: flex;
+  .google-badge-container {
+    width: 15rem;
+    @include responsive(big-desktop) {
+      width: 20rem;
+    }
+    .google-badge {
+      max-width: 100%;
+      height: auto;
+    }
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  .apple-badge-container {
+    width: 13rem;
+    @include responsive(big-desktop) {
+      width: 20rem;
+    }
+    .apple-badge {
+      max-width: 100%;
+      height: auto;
+      margin: 6%;
+      min-width: 83%;
+    }
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

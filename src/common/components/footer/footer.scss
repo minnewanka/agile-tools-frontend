@@ -1,0 +1,20 @@
+@import "../../sass/variables";
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 5px;
+  justify-items: center;
+  background-color: $footer-background-color;
+  height: $footer-height;
+  align-items: center;
+
+  .copyright-container {
+    grid-column-start: 2;
+    color: white;
+  }
+  .powered-container {
+    margin-left: auto;
+    margin-right: 5rem;
+  }
+}

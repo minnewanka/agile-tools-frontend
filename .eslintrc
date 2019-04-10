@@ -1,0 +1,28 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "react-app", "prettier", "prettier/react"],
+  "rules": {
+    "semi": ["error", "never"],
+    "no-console": "warn",
+    "react/no-array-index-key": "never",
+    "react/jsx-one-expression-per-line": "never",
+    "react/prop-types": "never",
+    "react/no-unused-state": "warning",
+    "jsx-a11y/interactive-supports-focus": "warning",
+    "jsx-a11y/click-events-have-key-events": "never",
+    "jsx-a11y/no-noninteractive-element-interactions": "never",
+    "jsx-a11y/label-has-for": "never",
+    "import/no-extraneous-dependencies": [
+      "warning",
+      {
+        "devDependencies": false,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ]
+  },
+  "globals": {
+    "document": true,
+    "window": true
+  }
+}

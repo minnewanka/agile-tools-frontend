@@ -1,0 +1,222 @@
+@import "./variables";
+@import "./mixin";
+
+.button-noStyle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.btn-round {
+  padding: 0;
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.4);
+  }
+}
+
+.button-default-style {
+  width: 12rem;
+  height: 3rem;
+  @include responsive(phone) {
+    width: 10em;
+    height: 3.5rem;
+  }
+  @include responsive(big-desktop) {
+    width: 15rem;
+    height: 3.5rem;
+  }
+  border-radius: 0.5rem;
+  text-align: center;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  font-weight: 500;
+  box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.253);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  &:hover:enabled {
+    transform: translateY(-0.2rem);
+    box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.253);
+  }
+}
+
+.btn {
+  overflow: hidden;
+}
+.btn:hover:before {
+  opacity: 1;
+}
+
+.btn:before {
+  content: "";
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.233);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: opacity 0.2s;
+  z-index: -1;
+}
+
+.btn-sii {
+  background-color: $color-blue-light;
+  min-width: 8rem;
+  border-radius: 0.5rem;
+}
+/* button focus hover floting color */
+.btn-sii:focus,
+.btn-sii:hover,
+.btn-floating:focus {
+  background-color: $color-blue;
+}
+
+/* Override CSS Materialize */
+/* label color */
+.input-field label {
+  color: $color-blue;
+  font-size: 1.3rem;
+}
+/* label focus color */
+.input-field input[type="text"]:focus + label {
+  font-size: 1rem;
+  color: $color-blue;
+}
+.input-field input[type="email"]:focus + label {
+  font-size: 1rem;
+  color: $color-blue;
+}
+.row .input-field textarea:focus + label {
+  font-size: 1rem;
+  color: $color-blue;
+}
+
+/* label underline focus color */
+.input-field input[type="text"]:focus {
+  border-bottom: 1px solid $color-blue;
+  box-shadow: 0 1px 0 0 $color-blue;
+}
+.input-field input[type="email"]:focus {
+  border-bottom: 1px solid $color-blue;
+  box-shadow: 0 1px 0 0 $color-blue;
+}
+
+.row .input-field textarea:focus {
+  border-bottom: 1px solid $color-blue;
+  box-shadow: 0 1px 0 0 $color-blue;
+}
+.row .input-field textarea.invalid + label {
+  color: $color-red;
+}
+.row .input-field textarea.invalid + label::after {
+  white-space: nowrap;
+}
+
+.input-field label:not(.label-icon).active {
+  font-size: 1.1rem;
+}
+
+.input-field {
+  padding: 3rem;
+  input[type="text"] {
+    font-size: 1.5rem;
+  }
+  input[type="email"] {
+    font-size: 1.5rem;
+  }
+  textarea.materialize-textarea {
+    font-size: 1.5rem;
+  }
+
+  input.error {
+    + label:after {
+      white-space: nowrap;
+      font-size: 1rem;
+      top: 2.5rem;
+    }
+  }
+  /* input text error */
+  input.error[type="text"] {
+    /* label underline focus color error */
+    border-bottom: 0.1rem solid $color-red;
+    box-shadow: 0 0.1rem 0 0 $color-red;
+    /* label color error */
+    + label {
+      color: $color-red;
+    }
+    /* focus and label color error */
+    :focus + label {
+      color: $color-red;
+    }
+  }
+  input.error[type="email"] {
+    /* label underline focus color error */
+    border-bottom: 0.1rem solid $color-red;
+    box-shadow: 0 0.1rem 0 0 $color-red;
+    /* label color error */
+    + label {
+      color: $color-red;
+    }
+    /* focus and label color error */
+    :focus + label {
+      color: $color-red;
+    }
+  }
+}
+ul {
+  &.dropdown-content {
+    &.select-dropdown {
+      li {
+        span {
+          color: $color-blue;
+        }
+      }
+    }
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  background-color: #f5f5f5;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.42, #7db9e8),
+    color-stop(0.86, #1283da)
+  );
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 500ms ease-in;
+}

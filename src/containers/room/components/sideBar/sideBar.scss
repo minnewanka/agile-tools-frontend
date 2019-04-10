@@ -1,0 +1,38 @@
+@import "../../../../common/sass/variables";
+@import "../../../../common/sass/mixin";
+
+.sideBarContainer {
+  background-color: $color-blue-light;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  height: 100%;
+  @include responsive(tab-port) {
+    max-height: 80%;
+  }
+
+  .roomInfo {
+    color: $color-blue;
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+    .heading1 {
+      @include responsive(tab-land) {
+        font-size: 2rem;
+      }
+    }
+
+    .heading2 {
+      @include responsive(tab-land) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .participants-list {
+    overflow: auto;
+    overflow-x: hidden;
+    border: none;
+    color: #606168;
+    font-size: 1.3rem;
+  }
+}

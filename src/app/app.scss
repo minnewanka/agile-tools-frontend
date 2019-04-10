@@ -1,0 +1,45 @@
+@import '../common/sass/mixin';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.l5ths {
+  margin-left: auto;
+  left: auto;
+  right: auto;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include responsive(tab-land) {
+    font-size: 56.25%;
+  }
+  @include responsive(tab-port) {
+    font-size: 50%;
+  }
+  @include responsive(desktop) {
+    .row .col.l5ths {
+      width: 20%;
+    }
+  }
+  @include responsive(big-desktop) {
+    font-size: 65%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}

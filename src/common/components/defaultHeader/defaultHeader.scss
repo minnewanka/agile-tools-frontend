@@ -1,0 +1,21 @@
+@import "../../sass/variables";
+@import "../../sass/mixin";
+
+.underline {
+  text-decoration: underline;
+}
+
+.app-header {
+  height: 10rem;
+  color: $color-white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5rem;
+  .logo-header {
+    height: 8rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

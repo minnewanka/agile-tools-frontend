@@ -1,0 +1,75 @@
+@import "../../common/sass/variables";
+@import "../../common/sass/mixin";
+
+.room-list-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $max-width-container;
+  @include responsive(tab-land) {
+    max-width: 80rem;
+  }
+  @include responsive(phone) {
+    max-width: 42rem;
+  }
+  min-height: calc(100vh - #{$footer-height});
+  padding: 1.2rem;
+
+  .room-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    border: solid 1px;
+    height: 20rem;
+    width: 20rem;
+    @include responsive(phone) {
+      height: 15rem;
+      width: 15rem;
+    }
+    margin: 1rem;
+    color: $color-blue;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+      background-color: $color-blue;
+      color: white;
+      .close {
+        visibility: visible;
+      }
+    }
+    .close {
+      visibility: hidden;
+      display: flex;
+      align-self: flex-end;
+      justify-self: flex-start;
+      margin-top: 1rem;
+      margin-right: 1rem;
+      background-color: $color-dark-grey;
+      color: $color-white;
+      width: 2.5rem;
+      height: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      line-height: 2.5rem;
+    }
+    .room-name {
+      width: 20rem;
+      word-wrap: break-word;
+      padding: 0.5rem;
+    }
+    .room-infos {
+      width: 100%;
+      background-color: $color-blue;
+      color: white;
+      p:first-child {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

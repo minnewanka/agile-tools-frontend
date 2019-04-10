@@ -1,0 +1,119 @@
+@import "../../common/sass/variables";
+@import "../../common/sass/mixin";
+
+$header-container-height: 12rem;
+$ceremony-actions-container-height: 10rem;
+$lang-container-height: 12rem;
+$btn-delete-container-height: 10rem;
+$ceremony-radio-container-height: 6rem;
+
+.room-container {
+  height: calc(100% - #{$footer-height});
+  display: flex;
+
+  .left-container {
+    width: 75%;
+    @include responsive(phone) {
+      width: 50%;
+    }
+    display: flex;
+    flex-direction: column;
+    .header-container {
+      height: $header-container-height;
+    }
+    .ceremony-container {
+      flex: auto;
+      max-height: calc(
+        100% -
+          (#{$header-container-height} + #{$ceremony-actions-container-height})
+      );
+      padding: 1rem;
+    }
+    .ceremony-actions-container {
+      height: $ceremony-actions-container-height;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .btn-room-reveal {
+        margin: 0 10rem;
+        @include responsive(phone) {
+          margin: 0 0.5rem;
+        }
+        color: white;
+        background-color: $color-blue;
+        &:hover {
+          background-color: $color-blue-light;
+          color: #fff;
+        }
+        &:disabled {
+          background-color: $color-blue-light;
+          color: #fff;
+          box-shadow: none;
+        }
+      }
+      .btn-room-reset {
+        margin: 0 10rem;
+        @include responsive(phone) {
+          margin: 0 0.5rem;
+        }
+        color: white;
+        background-color: #00a28c;
+        &:hover {
+          background-color: #00a28c3f;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .right-container {
+    width: 25%;
+    @include responsive(phone) {
+      width: 50%;
+    }
+    background-image: url("../../img/page2.png");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    .lang-container {
+      height: $lang-container-height;
+
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 5rem;
+      .lang-toggle {
+        background-color: white;
+        color: $color-blue;
+      }
+    }
+    .ceremony-radio-container {
+      height: $ceremony-radio-container-height;
+    }
+    .sidebar-container {
+      flex: auto;
+      max-height: calc(
+        100% -
+          (
+            #{$lang-container-height} + #{$ceremony-radio-container-height} + #{$btn-delete-container-height}
+          )
+      );
+      padding: 1rem 2rem;
+
+      @include responsive(phone) {
+        padding: 1rem 0.5rem;
+      }
+      @include responsive(mid-desktop) {
+        padding: 1rem 5rem;
+      }
+      .sidebar {
+        height: 100%;
+      }
+    }
+    .btn-delete-container {
+      height: $btn-delete-container-height;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

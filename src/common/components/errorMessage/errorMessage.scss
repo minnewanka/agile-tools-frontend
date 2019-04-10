@@ -1,0 +1,13 @@
+@import "../../sass/variables";
+
+.card-panel.red.lighten-1 {
+  opacity: 1;
+  transition: opacity 1s, height 0s;
+
+  color: $color-white;
+  &.fade-in {
+    transition: height 500ms, opacity 300ms;
+    padding: 0;
+    opacity: 0;
+  }
+}

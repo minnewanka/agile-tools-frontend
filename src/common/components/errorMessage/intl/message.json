@@ -1,0 +1,8 @@
+{
+  "en": {
+    "errorMessage.backend.connexion": "An error occured during the creation of the room. Please try again :-)"
+  },
+  "fr": {
+    "errorMessage.backend.connexion": "Une erreur est survenue lors de la création de la room . Veuillez réessayer :-)"
+  }
+}

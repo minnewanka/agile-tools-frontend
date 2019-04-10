@@ -1,0 +1,50 @@
+@import "../../sass/variables";
+@import "../../sass/mixin";
+
+.feedback-us-container {
+  .feedback-form-container {
+    margin-top: 2rem;
+  }
+  padding: 1rem;
+  .comment-section {
+    margin-top: 2rem;
+  }
+  .thankyou-container {
+    color: green;
+    text-align: right;
+  }
+}
+.feedback-us-btn {
+  position: fixed;
+  bottom: 20%;
+  transition: all 0.2s ease-in-out;
+  right: 0;
+  width: 8rem;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  transform: rotate(-90deg) translateY(3rem);
+  -ms-transform: rotate(-90deg) translateY(3rem); /* IE 9 */
+  -webkit-transform: rotate(-90deg) translateY(3rem); /* Chrome, Safari, Opera */
+  @include responsive(big-desktop) {
+    width: 10rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+    transform: rotate(-90deg) translateY(3.5rem);
+    -ms-transform: rotate(-90deg) translateY(3.5rem); /* IE 9 */
+    -webkit-transform: rotate(-90deg) translateY(3.5rem); /* Chrome, Safari, Opera */
+  }
+  letter-spacing: 1px;
+  align-self: right;
+  border-radius: 0.6rem 0.6rem 0 0;
+  border: solid 4px #006699;
+  background-color: #006699;
+  color: white;
+  &:focus {
+    background-color: #006699;
+  }
+  &:hover {
+    transform: rotate(-90deg) translateY(3rem) scale(1.2);
+    -ms-transform: rotate(-90deg) translateY(3rem) scale(1.2); /* IE 9 */
+    -webkit-transform: rotate(-90deg) translateY(3rem) scale(1.2); /* Chrome, Safari, Opera */
+  }
+}
