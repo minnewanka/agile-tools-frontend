@@ -2,7 +2,7 @@ pipeline {
 
   agent any
   environment { 
-        APP_NAME = 'agile-webapp'
+        APP_NAME = 'agile-frontend'
         APP_VERSION = '1.0.0-SNAPSHOT'
     }
 
