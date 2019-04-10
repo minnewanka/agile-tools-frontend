@@ -1,8 +1,12 @@
 import React from "react"
-import ReactDOM from "react-dom"
+import { shallow } from "enzyme"
 import AppWrapper from "../appWrapper"
+import App from "../app"
 
-it("renders without crashing", () => {
-  const div = document.createElement("div")
-  ReactDOM.render(<AppWrapper />, div)
+it("smoke test AppWrapper", () => {
+  shallow(<AppWrapper />)
+})
+
+it("smoke test App", () => {
+  shallow(<App />)
 })
