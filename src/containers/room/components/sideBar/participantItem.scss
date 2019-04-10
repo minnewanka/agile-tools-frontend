@@ -1,14 +1,15 @@
-@import '../../../../common/sass/variables';
+@import "../../../../common/sass/variables";
 
 .participant-item {
   width: 100%;
-  padding: 0.5rem;
   display: flex;
-  background-color: rgb(243, 245, 247);
+  // background-color: rgb(243, 245, 247);
+
   align-items: center;
   justify-content: space-around;
-
   &:hover {
+    background-color: red;
+    color: white;
     .deleteIcon {
       visibility: visible;
     }
@@ -19,7 +20,6 @@
   }
 
   .participant-item-text {
-    padding-left: 1.5rem;
     min-width: 15rem;
   }
   .participant-vote {
@@ -34,7 +34,7 @@
   .deleteIcon {
     display: block;
     visibility: hidden;
-    color: #f00c0c;
+    color: white;
     font-weight: bold;
     font-size: 2rem;
     cursor: pointer;

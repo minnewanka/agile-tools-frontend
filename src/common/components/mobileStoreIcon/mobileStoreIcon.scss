@@ -3,9 +3,9 @@
 .badge-container {
   display: flex;
   .google-badge-container {
-    width: 25rem;
-    @include responsive(phone) {
-      width: 15rem;
+    width: 15rem;
+    @include responsive(big-desktop) {
+      width: 20rem;
     }
     .google-badge {
       max-width: 100%;
@@ -16,9 +16,9 @@
     }
   }
   .apple-badge-container {
-    width: 25rem;
-    @include responsive(phone) {
-      width: 13rem;
+    width: 13rem;
+    @include responsive(big-desktop) {
+      width: 20rem;
     }
     .apple-badge {
       max-width: 100%;

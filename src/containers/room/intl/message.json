@@ -9,7 +9,7 @@
     "room.buttonReset": "Réinitialiser",
     "room.buttonReveal": "Révéler",
     "room.buttonHide": "Masquer",
-    "room.headerDeleteComfirm": "Supprimer Room#"
+    "room.headerDeleteComfirm": "Supprimer Room# "
   },
   "en": {
     "room.toastConnected": " is connected",
@@ -21,6 +21,6 @@
     "room.buttonReset": "Clear",
     "room.buttonReveal": "Reveal",
     "room.buttonHide": "Hide",
-    "room.headerDeleteComfirm": "Delete Room#"
+    "room.headerDeleteComfirm": "Delete Room# "
   }
 }

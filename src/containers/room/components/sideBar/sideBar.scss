@@ -1,57 +1,38 @@
-@import '../../../../common/sass/variables';
-@import '../../../../common/sass/mixin';
+@import "../../../../common/sass/variables";
+@import "../../../../common/sass/mixin";
 
 .sideBarContainer {
-  height: 40rem;
-  min-width: 25rem;
-  @include responsive(big-desktop) {
-    height: 50rem;
-    min-width: 28rem;
-  }
-  background-color: rgb(243, 245, 247);
+  background-color: $color-blue-light;
   display: flex;
   flex-direction: column;
   border-radius: 1.5rem;
-  padding: 0.5rem;
-  .ceremony-dropdown {
-    margin: 0.5rem;
-    .ceremony-text {
-      margin-left: 1rem;
-    }
-    .sidebar-select {
-      position: relative;
-      display: block;
-      font-size: 1.5rem;
-      line-height: 3;
-      background: rgb(243, 245, 247);
-      overflow: hidden;
-      border-radius: 0.25em;
-      margin: 0;
-      padding: 0 0 0 0.5em;
-      color: $color-blue;
-      cursor: pointer;
-    }
+  padding: 1rem;
+  height: 100%;
+  @include responsive(tab-port) {
+    max-height: 80%;
   }
-  .participants-list-header {
-    height: 3rem;
-    background-color: $color-blue-light;
-    color: #ffffff;
-    padding: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  .roomInfo {
+    color: $color-blue;
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+    .heading1 {
+      @include responsive(tab-land) {
+        font-size: 2rem;
+      }
+    }
+
+    .heading2 {
+      @include responsive(tab-land) {
+        font-size: 1.5rem;
+      }
+    }
   }
   .participants-list {
-    height: inherit;
     overflow: auto;
     overflow-x: hidden;
-    // margin: 1rem 1.5rem 3rem 1.5rem;
-
-    .collectionItem-container {
-      padding: 0;
-      height: 3rem;
-      font-size: 1.25rem;
-      line-height: 3rem;
-    }
+    border: none;
+    color: #606168;
+    font-size: 1.3rem;
   }
 }

@@ -1,9 +1,11 @@
 import React, { Component } from "react"
 import "./room.scss"
-import { Row, Col } from "react-materialize"
 import Ceremony from "./components/ceremony"
 import SideBar from "./components/sideBar"
 import DeleteRoomModal from "./components/deleteRoomModal"
+import LangToggle from "../../common/components/langToggle"
+import RoomHeader from "../../common/components/roomHeader"
+import CeremonySelection from "./components/ceremonySelection"
 
 class Room extends Component {
   constructor(props) {
@@ -55,23 +57,14 @@ class Room extends Component {
 
     return (
       <div className="room-container">
-        <Row className="room-container-row">
-          <Col className="room-container-col" l={9} m={8} s={12}>
+        <div className="left-container">
+          <div className="header-container">
+            <RoomHeader />
+          </div>
+          <div className="ceremony-container">
             <Ceremony participants={currentParticipants} />
-          </Col>
-          <Col className="room-container-col" l={3} m={4} s={12}>
-            <Row>
-              <SideBar
-                ceremony={ceremony}
-                handleTypeRoom={this.handleTypeRoom}
-                participants={currentParticipants}
-                className="col"
-              />
-            </Row>
-          </Col>
-        </Row>
-        <div className="room-button-row row">
-          <div className="edit-btn-container">
+          </div>
+          <div className="ceremony-actions-container">
             <button
               type="button"
               className="button-default-style btn-room-reveal"
@@ -90,7 +83,23 @@ class Room extends Component {
               {translate("buttonReset")}
             </button>
           </div>
-          <div className="delete-btn-container">
+        </div>
+        <div className="right-container">
+          <div className="lang-container">
+            <LangToggle className="lang-toggle" />
+          </div>
+          <div className="ceremony-radio-container">
+            <CeremonySelection />
+          </div>
+          <div className="sidebar-container">
+            <SideBar
+              ceremony={ceremony}
+              handleTypeRoom={this.handleTypeRoom}
+              participants={currentParticipants}
+              className="sidebar"
+            />
+          </div>
+          <div className="btn-delete-container">
             <DeleteRoomModal roomCode={roomCode} />
           </div>
         </div>

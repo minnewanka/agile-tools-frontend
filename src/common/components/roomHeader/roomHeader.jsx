@@ -1,12 +1,10 @@
-import React from "react"
-import "./roomHeader.scss"
+import React from 'react'
+import './roomHeader.scss'
 
-import { ReactComponent as Logo } from "../../../img/logo-text.svg"
-import LangToggle from "../langToggle"
+import { ReactComponent as Logo } from '../../../img/logo-by-siicanada-bleu.svg'
 
 const RoomHeader = props => {
   const {
-    roomName,
     roomCode,
     location: { state },
     history
@@ -15,18 +13,15 @@ const RoomHeader = props => {
   const sameRoom = state && roomCode === state.roomCode
 
   const redirect = () => {
-    history.push({ pathname: "/" })
+    history.push({ pathname: '/' })
   }
 
   return (
     <div className="roomHeader-container">
       <Logo className="roomHeader-logo" onClick={redirect} />
-      <div>
-        <h2 className="roomHeader-code">Room# {sameRoom ? roomCode : ""}</h2>
-        <h3 className="roomHeader-title">{sameRoom ? roomName : ""}</h3>
-      </div>
-      <div className="lang-toggle-container">
-        <LangToggle className="lang-toggle" />
+      <div className="code-container">
+        <span className="code-label">Room#</span>
+        <span className="code-value">{sameRoom ? roomCode : ''}</span>
       </div>
     </div>
   )

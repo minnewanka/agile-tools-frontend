@@ -15,6 +15,8 @@ class Card extends Component {
   componentDidUpdate(prevProps) {
     const { vote } = this.props
     if (vote !== prevProps.vote) {
+      // setState in an if claue is OK
+      /* eslint-disable react/no-did-update-set-state */
       this.setState({ shake: true })
     }
   }
