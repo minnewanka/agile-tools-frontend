@@ -1,5 +1,5 @@
-@import "../../common/sass/variables";
-@import "../../common/sass/mixin";
+@import '../../common/sass/variables';
+@import '../../common/sass/mixin';
 
 $header-container-height: 12rem;
 $ceremony-actions-container-height: 10rem;
@@ -70,7 +70,7 @@ $ceremony-radio-container-height: 6rem;
     @include responsive(phone) {
       width: 50%;
     }
-    background-image: url("../../img/page2.png");
+    background-image: url('../../img/page2.png');
     background-size: cover;
     display: flex;
     flex-direction: column;

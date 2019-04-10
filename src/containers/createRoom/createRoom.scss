@@ -1,11 +1,12 @@
-@import "../../common/sass/variables";
-@import "../../common/sass/mixin";
+@import '../../common/sass/variables';
+@import '../../common/sass/mixin';
 
 .main-container {
   height: calc(100vh - #{$footer-height});
   // background-color: $color-blue;
-  background-image: url("../../img/page1.png");
+  background-image: url('../../img/page1.png');
   background-size: cover;
+  background-size: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
