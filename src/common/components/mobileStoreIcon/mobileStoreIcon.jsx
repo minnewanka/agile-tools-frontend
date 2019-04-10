@@ -7,7 +7,7 @@ const MobileStoreIcon = ({ locale }) => (
   <div className="badge-container">
     <div className="google-badge-container">
       <a
-        href="https://www.siicanada.com/fr/"
+        href="https://play.google.com/store/apps/details?id=ca.siicanada.agiletools"
         target="_blank"
         rel="noopener noreferrer"
       >
