@@ -1,6 +1,6 @@
-import React from "react"
-import Ceremony from "./ceremony"
-import { Consumer } from "../../../../context"
+import React from 'react'
+import Ceremony from './ceremony'
+import { Consumer } from '../../../../context'
 
 const CeremonyConsumer = props => {
   return (

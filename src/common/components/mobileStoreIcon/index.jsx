@@ -1,6 +1,6 @@
-import React from "react"
-import { Consumer } from "../../../context"
-import MobileStoreIcon from "./mobileStoreIcon"
+import React from 'react'
+import { Consumer } from '../../../context'
+import MobileStoreIcon from './mobileStoreIcon'
 
 const MobileStoreIconConsumer = props => (
   <Consumer>

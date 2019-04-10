@@ -1,7 +1,7 @@
-import React, { Component } from "react"
-import { Row, Col } from "react-materialize"
-import { CSSTransition, TransitionGroup } from "react-transition-group"
-import "./roomList.scss"
+import React, { Component } from 'react'
+import { Row, Col } from 'react-materialize'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import './roomList.scss'
 
 class RoomList extends Component {
   async componentDidMount() {
@@ -11,7 +11,7 @@ class RoomList extends Component {
 
   redirect = roomCode => {
     const { history } = this.props
-    history.push({ pathname: "/room", state: { roomCode } })
+    history.push({ pathname: '/room', state: { roomCode } })
   }
 
   render() {

@@ -1,7 +1,7 @@
-import React, { Component } from "react"
-import "./deleteRoomModal.scss"
-import { Modal, Button } from "react-materialize"
-import { deleteRoom } from "../../../../services/roomService"
+import React, { Component } from 'react'
+import './deleteRoomModal.scss'
+import { Modal, Button } from 'react-materialize'
+import { deleteRoom } from '../../../../services/roomService'
 
 class DeleteRoomModal extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class DeleteRoomModal extends Component {
   deleteRoomAndRedirect(coodeRoom) {
     const { history } = this.props
     deleteRoom(coodeRoom).then(() => {
-      history.push({ pathname: "/" })
+      history.push({ pathname: '/' })
     })
   }
 
@@ -21,13 +21,13 @@ class DeleteRoomModal extends Component {
     return (
       <Modal
         className="delete-modal"
-        header={translate("headerDeleteComfirm") + roomCode}
+        header={translate('headerDeleteComfirm') + roomCode}
         trigger={
           <button
             type="button"
             className="button-default-style delete-modal-trigger"
           >
-            {translate("buttonDelete")}
+            {translate('buttonDelete')}
           </button>
         }
         actions={
@@ -38,7 +38,7 @@ class DeleteRoomModal extends Component {
               waves="light"
               className="actions-button-cancel"
             >
-              {translate("buttonCancel")}
+              {translate('buttonCancel')}
             </Button>
             <Button
               modal="close"
@@ -48,12 +48,12 @@ class DeleteRoomModal extends Component {
                 this.deleteRoomAndRedirect(roomCode)
               }}
             >
-              {translate("buttonDeleteComfirm")}
+              {translate('buttonDeleteComfirm')}
             </Button>
           </div>
         }
       >
-        <p>{translate("textDeleteComfirm")}</p>
+        <p>{translate('textDeleteComfirm')}</p>
       </Modal>
     )
   }

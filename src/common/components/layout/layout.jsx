@@ -9,9 +9,9 @@ const Layout = ({ component: Page, roomHeader, ...rest }) => {
     <Route
       {...rest}
       render={() => [
-        <Page key='page' />,
-        <Feedback key='feedback' />,
-        <Footer key='footer' />
+        <Page key="page" />,
+        <Feedback key="feedback" />,
+        <Footer key="footer" />
       ]}
     />
   )

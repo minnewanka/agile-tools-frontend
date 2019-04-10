@@ -1,8 +1,8 @@
-import React from "react"
-import "./ceremony.scss"
-import { TransitionGroup, CSSTransition } from "react-transition-group"
-import Card from "./card"
-import Tshirt from "./tshirt"
+import React from 'react'
+import './ceremony.scss'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import Card from './card'
+import Tshirt from './tshirt'
 
 const PokerPlanning = props => {
   const { ceremony, participants, isFlipped } = props
@@ -17,7 +17,7 @@ const PokerPlanning = props => {
               key={`pp${participant.username}`}
               classNames="animation-card"
             >
-              {ceremony === "pokerplanning" ? (
+              {ceremony === 'pokerplanning' ? (
                 <Card
                   isFlipped={isFlipped}
                   vote={participant.pokerplanning}

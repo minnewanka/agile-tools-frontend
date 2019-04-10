@@ -1,8 +1,8 @@
 /* eslint-disable no-nested-ternary */
-import React from "react"
-import { Icon } from "react-materialize"
-import { deleteVote } from "../../../../services/voteService"
-import "./participantItem.scss"
+import React from 'react'
+import { Icon } from 'react-materialize'
+import { deleteVote } from '../../../../services/voteService'
+import './participantItem.scss'
 
 const ParticipantItem = props => {
   const { participant, isFlipped, ceremony, translate } = props
@@ -11,9 +11,9 @@ const ParticipantItem = props => {
       <span className="participant-item-text">{participant.username}</span>
       <div className="participant-vote">
         {isFlipped && participant[ceremony] ? (
-          translate("voted")
-        ) : ceremony === "pokerplanning" ? (
-          participant.pokerplanning !== "scissor" ? (
+          translate('voted')
+        ) : ceremony === 'pokerplanning' ? (
+          participant.pokerplanning !== 'scissor' ? (
             participant.pokerplanning
           ) : (
             <Icon className="scissor-icon">content_cut</Icon>

@@ -1,11 +1,11 @@
-import React, { Component } from "react"
-import Parse from "parse"
-import App from "./app"
-import allMessages from "../common/utils/IntlUtils"
-import { Provider } from "../context/index"
-import { getRoom, getRooms, deleteRoom } from "../services/roomService"
-import { getVotes, resetAllVotes } from "../services/voteService"
-import { getDefaultLanguage, saveLanguage } from "../common/utils"
+import React, { Component } from 'react'
+import Parse from 'parse'
+import App from './app'
+import allMessages from '../common/utils/IntlUtils'
+import { Provider } from '../context/index'
+import { getRoom, getRooms, deleteRoom } from '../services/roomService'
+import { getVotes, resetAllVotes } from '../services/voteService'
+import { getDefaultLanguage, saveLanguage } from '../common/utils'
 
 class AppWrapper extends Component {
   constructor(props) {
@@ -15,9 +15,9 @@ class AppWrapper extends Component {
       messages: allMessages,
       rooms: [],
       currentRoom: {
-        roomCode: "",
-        roomName: "",
-        ceremony: "pokerplanning",
+        roomCode: '',
+        roomName: '',
+        ceremony: 'pokerplanning',
         participants: [],
         isFlipped: true,
         toggleFlipped: this.toggleFlipped.bind(this)
@@ -38,23 +38,23 @@ class AppWrapper extends Component {
   setCurrentRoom(roomCode) {
     if (!roomCode) return
     getRoom(roomCode).then(room => {
-      getVotes(room.get("code")).then(results => {
+      getVotes(room.get('code')).then(results => {
         const { currentRoom } = this.state
         this.setState({
           currentRoom: {
             ...currentRoom,
-            roomCode: room.get("code"),
-            roomName: room.get("name"),
-            ceremony: "pokerplanning",
+            roomCode: room.get('code'),
+            roomName: room.get('name'),
+            ceremony: 'pokerplanning',
             participants: results
           }
         })
       })
-      this.initLiveQuery(room.get("code"))
+      this.initLiveQuery(room.get('code'))
     })
   }
 
-  formatMessage = (prefix = "") => key => {
+  formatMessage = (prefix = '') => key => {
     const { messages, locale } = this.state
     return messages[locale][`${prefix}.${key}`]
       ? messages[locale][`${prefix}.${key}`]
@@ -73,8 +73,8 @@ class AppWrapper extends Component {
   }
 
   initLiveQuery(pRoomCode) {
-    const query = new Parse.Query("Vote")
-    query.equalTo("roomCode", pRoomCode)
+    const query = new Parse.Query('Vote')
+    query.equalTo('roomCode', pRoomCode)
     const subscription = query.subscribe()
     this.subscriptionOnCreate(subscription)
     this.subscriptionOnUpdate(subscription)
@@ -82,12 +82,12 @@ class AppWrapper extends Component {
   }
 
   subscriptionOnCreate(subscription) {
-    subscription.on("create", object => {
+    subscription.on('create', object => {
       const {
         currentRoom,
         currentRoom: { participants }
       } = this.state
-      const username = object.get("username")
+      const username = object.get('username')
       this.setState({
         currentRoom: {
           ...currentRoom,
@@ -98,18 +98,18 @@ class AppWrapper extends Component {
   }
 
   subscriptionOnUpdate(subscription) {
-    subscription.on("update", object => {
+    subscription.on('update', object => {
       const {
         currentRoom,
         currentRoom: { participants }
       } = this.state
       const participantToUpdate = {
-        username: object.get("username"),
-        pokerplanning: object.get("pokerplanning"),
-        tshirt: object.get("tshirt")
+        username: object.get('username'),
+        pokerplanning: object.get('pokerplanning'),
+        tshirt: object.get('tshirt')
       }
       const foundIndex = participants.findIndex(
-        x => x.username === object.get("username")
+        x => x.username === object.get('username')
       )
       participants[foundIndex] = participantToUpdate
 
@@ -120,13 +120,13 @@ class AppWrapper extends Component {
   }
 
   subscriptionOnDelete(subscription) {
-    subscription.on("delete", object => {
+    subscription.on('delete', object => {
       const {
         currentRoom,
         currentRoom: { participants }
       } = this.state
       const newParticipants = participants.filter(
-        participant => participant.username !== object.get("username")
+        participant => participant.username !== object.get('username')
       )
       this.setState({
         currentRoom: { ...currentRoom, participants: newParticipants }
@@ -136,7 +136,7 @@ class AppWrapper extends Component {
 
   changeLang() {
     this.setState(({ locale }) => {
-      const newLocale = locale === "fr" ? "en" : "fr"
+      const newLocale = locale === 'fr' ? 'en' : 'fr'
       saveLanguage(newLocale)
       return { locale: newLocale }
     })

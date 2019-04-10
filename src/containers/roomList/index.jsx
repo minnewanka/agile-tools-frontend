@@ -1,7 +1,7 @@
-import React from "react"
-import { withRouter } from "react-router-dom"
-import RoomList from "./roomList"
-import { Consumer } from "../../context"
+import React from 'react'
+import { withRouter } from 'react-router-dom'
+import RoomList from './roomList'
+import { Consumer } from '../../context'
 
 const RoomListConsumer = props => {
   return (
@@ -11,7 +11,7 @@ const RoomListConsumer = props => {
           rooms={rooms}
           loadRooms={loadRooms}
           removeRoom={removeRoom}
-          translate={formatMessage("roomList")}
+          translate={formatMessage('roomList')}
           {...props}
         />
       )}

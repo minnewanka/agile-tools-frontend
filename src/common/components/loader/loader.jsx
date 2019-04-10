@@ -1,9 +1,9 @@
-import React from "react"
-import "./loader.scss"
-import { Col, Preloader, Row } from "react-materialize"
+import React from 'react'
+import './loader.scss'
+import { Col, Preloader, Row } from 'react-materialize'
 
 const Loader = ({ loading }) => {
-  const classNameLoader = "loader"
+  const classNameLoader = 'loader'
   return (
     <Row>
       <Col

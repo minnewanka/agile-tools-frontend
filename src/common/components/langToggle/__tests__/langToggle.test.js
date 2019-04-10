@@ -1,7 +1,7 @@
-import React from "react"
-import { shallow } from "enzyme"
-import LangToggle from "../"
+import React from 'react'
+import { shallow } from 'enzyme'
+import LangToggle from '../'
 
-it("smoke test", () => {
+it('smoke test', () => {
   shallow(<LangToggle />)
 })

@@ -1,7 +1,7 @@
-import React from "react"
-import { shallow } from "enzyme"
-import Feedback from ".."
+import React from 'react'
+import { shallow } from 'enzyme'
+import Feedback from '..'
 
-it("smoke test", () => {
+it('smoke test', () => {
   shallow(<Feedback />)
 })

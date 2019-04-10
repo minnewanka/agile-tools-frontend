@@ -1,5 +1,5 @@
-import React from "react"
-import "./404.scss"
+import React from 'react'
+import './404.scss'
 
 const Page404 = () => {
   return (

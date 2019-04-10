@@ -1,7 +1,7 @@
-import React from "react"
-import { shallow } from "enzyme"
-import MobileStoreIcon from "../"
+import React from 'react'
+import { shallow } from 'enzyme'
+import MobileStoreIcon from '../'
 
-it("smoke test", () => {
+it('smoke test', () => {
   shallow(<MobileStoreIcon />)
 })

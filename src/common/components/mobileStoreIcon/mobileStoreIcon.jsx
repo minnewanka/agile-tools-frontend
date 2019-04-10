@@ -1,7 +1,7 @@
-import React from "react"
-import "./mobileStoreIcon.scss"
-import { ReactComponent as AppleBadgeEN } from "../../../img/apple-badge-en.svg"
-import { ReactComponent as AppleBadgeFR } from "../../../img/apple-badge-fr.svg"
+import React from 'react'
+import './mobileStoreIcon.scss'
+import { ReactComponent as AppleBadgeEN } from '../../../img/apple-badge-en.svg'
+import { ReactComponent as AppleBadgeFR } from '../../../img/apple-badge-fr.svg'
 
 const MobileStoreIcon = ({ locale }) => (
   <div className="badge-container">
@@ -24,7 +24,7 @@ const MobileStoreIcon = ({ locale }) => (
         target="_blank"
         rel="noopener noreferrer"
       >
-        {locale === "fr" ? (
+        {locale === 'fr' ? (
           <AppleBadgeFR className="apple-badge" />
         ) : (
           <AppleBadgeEN className="apple-badge" />
