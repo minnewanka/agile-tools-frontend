@@ -43,7 +43,15 @@ class Card extends Component {
           </div>
 
           <div key="back" className="poker-card card-back">
-            <Logo className="card-back-image" />
+            {username === 'Chuck Norris' ? (
+              <img
+                src="images/chuck_norris.png"
+                alt="chucknorris"
+                className="chucknorris"
+              />
+            ) : (
+              <Logo className="card-back-image" />
+            )}
           </div>
         </ReactCardFlip>
         <span className="poker-card-username">{username}</span>
