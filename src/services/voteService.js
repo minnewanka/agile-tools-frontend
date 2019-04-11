@@ -8,7 +8,8 @@ const getVotes = async roomCode => {
   const participants = results.map(result => ({
     username: result.get('username'),
     pokerplanning: result.get('pokerplanning'),
-    tshirt: result.get('tshirt')
+    tshirt: result.get('tshirt'),
+    trafficlight: result.get('trafficlight')
   }))
   return participants
 }
@@ -31,4 +32,8 @@ const resetAllVotes = async (roomCode, ceremony) => {
   return Parse.Object.saveAll(results)
 }
 
-export { getVotes, deleteVote, resetAllVotes }
+export {
+  getVotes,
+  deleteVote,
+  resetAllVotes
+}

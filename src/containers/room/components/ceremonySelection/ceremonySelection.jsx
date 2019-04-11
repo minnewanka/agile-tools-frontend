@@ -31,6 +31,18 @@ const CeremonySelection = props => {
           cloud
         </Icon>
       </div>
+      <div
+        role="button"
+        className={`ceremony-icon ${
+          ceremony === 'trafficlight' ? 'border-white' : ''
+        }`}
+        onClick={() => changeCeremony('trafficlight')}
+      >
+        <div>traffic light</div>
+        <Icon middle className="ceremony-icon">
+          cloud
+        </Icon>
+      </div>
     </div>
   )
 }
