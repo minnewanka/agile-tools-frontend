@@ -5,8 +5,8 @@ import RoomHeader from './roomHeader'
 
 const RoomHeaderConsumer = props => (
   <Consumer>
-    {({ currentRoom: { roomName, roomCode } }) => {
-      return <RoomHeader roomName={roomName} roomCode={roomCode} {...props} />
+    {({ currentRoom: { roomCode } }) => {
+      return <RoomHeader roomCode={roomCode} {...props} />
     }}
   </Consumer>
 )
