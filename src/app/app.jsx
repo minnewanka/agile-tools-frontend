@@ -5,7 +5,7 @@ import './app.scss'
 import '../common/sass/style.scss'
 
 Parse.initialize('SIIAG')
-Parse.serverURL = 'https://sii-agile-tools.herokuapp.com/parse'
+Parse.serverURL = process.env.REACT_APP_PARSE_SERVER
 
 const App = () => (
   <div className="App">
