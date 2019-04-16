@@ -17,6 +17,7 @@
     padding: 0.5rem;
     text-align: center;
     margin: 0.6rem;
+    transition: all 0.2s ease-in-out;
 
     @include responsive(big-desktop) {
       margin: 1rem;
@@ -24,6 +25,7 @@
 
     &:hover:not(.border-white) {
       cursor: pointer;
+      transform: scale(1.4);
     }
 
 
@@ -46,6 +48,9 @@
 
   .border-white {
     border: solid;
+    border-radius: 10px;
+    border-width: 2px;
     border-color: white;
+    box-shadow: rgba(255, 255, 255, 1) 0 0 0.5rem;
   }
 }

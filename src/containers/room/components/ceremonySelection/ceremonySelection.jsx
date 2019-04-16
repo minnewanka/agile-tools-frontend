@@ -1,6 +1,5 @@
 import React from 'react'
 import './ceremonySelection.scss'
-import { Icon } from 'react-materialize'
 import { ReactComponent as PokerPlanningIcon } from '../../../../img/poker-planning-icon.svg'
 import { ReactComponent as TshirtIcon } from '../../../../img/tshirt-icon.svg'
 import { ReactComponent as TrafficIcon } from '../../../../img/trafficlight-icon.svg'
