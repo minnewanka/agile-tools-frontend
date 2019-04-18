@@ -120,6 +120,7 @@
     display: block;
     margin-top: 0.8rem;
     font-size: 1.3rem;
+    white-space: nowrap;
 
     @include responsive(big-desktop) {
       font-size: 1.7rem;
