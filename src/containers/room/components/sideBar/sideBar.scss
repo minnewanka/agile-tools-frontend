@@ -16,23 +16,37 @@
     color: $color-blue;
     padding: 0 2rem;
     margin-bottom: 1rem;
-    .heading1 {
-      @include responsive(tab-land) {
-        font-size: 2rem;
+    .firstline {
+      display: flex;
+      justify-content: space-between;
+      .heading1 {
+        @include responsive(tab-land) {
+          font-size: 2rem;
+        }
+      }
+      .logo-icon-container {
+        background-color: Transparent;
+        border: none;
+        .logo-icon {
+          font-size: 3em;
+          width: 1.25em;
+          @include responsive(big-desktop) {
+            margin: 0rem;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+          &:active {
+            transform: translateY(-2px);
+            filter: saturate(200%);
+          }
+        }
       }
     }
-
     .heading2 {
       @include responsive(tab-land) {
         font-size: 1.5rem;
       }
     }
-  }
-  .participants-list {
-    overflow: auto;
-    overflow-x: hidden;
-    border: none;
-    color: #606168;
-    font-size: 1.3rem;
   }
 }

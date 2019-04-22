@@ -1,0 +1,10 @@
+@import '../../../../common/sass/variables';
+@import '../../../../common/sass/mixin';
+
+.participants-list {
+  overflow: auto;
+  overflow-x: hidden;
+  border: none;
+  color: #606168;
+  font-size: 1.3rem;
+}

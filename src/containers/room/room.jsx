@@ -99,6 +99,7 @@ class Room extends Component {
               className="sidebar"
             />
           </div>
+          <div className="sidebar-container" />
           <div className="btn-delete-container">
             <DeleteRoomModal roomCode={roomCode} />
           </div>
