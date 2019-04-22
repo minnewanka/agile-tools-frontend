@@ -189,18 +189,10 @@ class Feedback extends Component {
         </Row>
         <Row>
           <div className="comment-section">
-            <Input
-              name="subject"
-              className="subject"
-              type="select"
-              label={translate('subject')}
-              defaultValue={translate('comment')}
-              s={3}
-              onChange={this.handleInputChange}
-            >
+            <select className="selectionType" onChange={this.handleInputChange}>
               <option value="COMMENT">{translate('comment')}</option>
               <option value="BUG">{translate('bug')}</option>
-            </Input>
+            </select>
             <Input
               name="message"
               label={translate('message')}
