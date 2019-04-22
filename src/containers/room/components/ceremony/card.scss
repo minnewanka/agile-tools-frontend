@@ -3,14 +3,17 @@
 
 .poker-card-container {
   width: 10rem;
-  margin: 0 6rem 6rem 6rem;
+  height: 15rem;
+
+  margin: 0 6rem 3rem 6rem;
+  padding: 0.5rem;
 
   @include responsive(tab-port) {
     margin: 0 2rem 2rem 2rem;
   }
 
   @include responsive(big-desktop) {
-    margin: 0 8rem 5rem 8rem;
+    margin: 0 7rem 0rem 7rem;
   }
 
   display: flex;
