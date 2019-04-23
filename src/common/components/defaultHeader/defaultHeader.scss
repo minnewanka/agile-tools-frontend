@@ -1,5 +1,5 @@
-@import "../../sass/variables";
-@import "../../sass/mixin";
+@import '../../sass/variables';
+@import '../../sass/mixin';
 
 .underline {
   text-decoration: underline;
@@ -12,8 +12,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 5rem;
+
   .logo-header {
     height: 8rem;
+
+    @include responsive(phone) {
+      height: 5rem;
+    }
+
     &:hover {
       cursor: pointer;
     }

@@ -1,7 +1,7 @@
-@import "../../sass/variables";
+@import '../../sass/variables';
 
 .errorMessage {
-  height: calc(100vh - (#{$header-height} + #{$footer-height}));
+  height: calc(100% - (#{$footer-height} + #{$header-height}));
   display: flex;
   color: #f0f0f0;
   font-size: 170px;

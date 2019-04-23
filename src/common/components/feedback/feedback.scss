@@ -1,19 +1,36 @@
-@import "../../sass/variables";
-@import "../../sass/mixin";
+@import '../../sass/variables';
+@import '../../sass/mixin';
 
 .feedback-us-container {
   .feedback-form-container {
     margin-top: 2rem;
   }
+
   padding: 1rem;
+
   .comment-section {
     margin-top: 2rem;
+
+    .selectionType {
+      visibility: visible;
+      display: inline;
+      width: 20rem;
+      font-size: 1.5rem;
+      color: $color-blue;
+      background-color: #FAFAFA;
+
+      :focus {
+        border-color: red !important;
+      }
+    }
   }
+
   .thankyou-container {
     color: green;
     text-align: right;
   }
 }
+
 .feedback-us-btn {
   position: fixed;
   bottom: 20%;
@@ -23,28 +40,61 @@
   height: 2.5rem;
   font-size: 1.2rem;
   transform: rotate(-90deg) translateY(3rem);
-  -ms-transform: rotate(-90deg) translateY(3rem); /* IE 9 */
-  -webkit-transform: rotate(-90deg) translateY(3rem); /* Chrome, Safari, Opera */
+  -ms-transform: rotate(-90deg) translateY(3rem);
+  /* IE 9 */
+  -webkit-transform: rotate(-90deg) translateY(3rem);
+
+  /* Chrome, Safari, Opera */
   @include responsive(big-desktop) {
     width: 10rem;
     height: 3.5rem;
     font-size: 1.5rem;
     transform: rotate(-90deg) translateY(3.5rem);
-    -ms-transform: rotate(-90deg) translateY(3.5rem); /* IE 9 */
-    -webkit-transform: rotate(-90deg) translateY(3.5rem); /* Chrome, Safari, Opera */
+    -ms-transform: rotate(-90deg) translateY(3.5rem);
+    /* IE 9 */
+    -webkit-transform: rotate(-90deg) translateY(3.5rem);
+    /* Chrome, Safari, Opera */
   }
+
   letter-spacing: 1px;
   align-self: right;
   border-radius: 0.6rem 0.6rem 0 0;
   border: solid 4px #006699;
   background-color: #006699;
   color: white;
+
   &:focus {
     background-color: #006699;
   }
+
   &:hover {
     transform: rotate(-90deg) translateY(3rem) scale(1.2);
-    -ms-transform: rotate(-90deg) translateY(3rem) scale(1.2); /* IE 9 */
-    -webkit-transform: rotate(-90deg) translateY(3rem) scale(1.2); /* Chrome, Safari, Opera */
+    -ms-transform: rotate(-90deg) translateY(3rem) scale(1.2);
+    /* IE 9 */
+    -webkit-transform: rotate(-90deg) translateY(3rem) scale(1.2);
+    /* Chrome, Safari, Opera */
   }
+}
+
+.select-style {
+  border: 1px solid #ccc;
+  width: 120px;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #fafafa no-repeat 90% 50%;
+}
+
+.select-style select {
+  visibility: visible;
+  padding: 5px 8px;
+  width: 130%;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+}
+
+.select-style select:focus {
+  outline: none;
 }

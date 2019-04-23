@@ -1,8 +1,8 @@
-import React, { Component } from "react"
-import "./tshirt.scss"
-import ReactCardFlip from "react-card-flip"
-import { ReactComponent as TshirtBack } from "../../../../img/tshirt-back.svg"
-import { ReactComponent as TshirtFront } from "../../../../img/tshirt-front.svg"
+import React, { Component } from 'react'
+import './tshirt.scss'
+import ReactCardFlip from 'react-card-flip'
+import { ReactComponent as TshirtBack } from '../../../../img/tshirt-back.svg'
+import { ReactComponent as TshirtFront } from '../../../../img/tshirt-front.svg'
 
 class Tshirt extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Tshirt extends Component {
     const { isFlipped, vote, username } = this.props
     const { shake } = this.state
     return (
-      <div className={`tshirt-container ${shake ? "wobble-hor-bottom" : ""}`}>
+      <div className={`tshirt-container ${shake ? 'wobble-hor-bottom' : ''}`}>
         <ReactCardFlip isFlipped={isFlipped}>
           <div key="front">
             <TshirtFront />

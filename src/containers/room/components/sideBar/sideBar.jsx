@@ -1,8 +1,9 @@
 /* eslint-disable no-nested-ternary */
-import React from "react"
-import "./sideBar.scss"
-import { CSSTransition, TransitionGroup } from "react-transition-group"
-import ParticipantItem from "./participantItem"
+import React from 'react'
+import './sideBar.scss'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import ParticipantItem from './participantItem'
+import sortParticipants from './utils'
 
 const SideBar = props => {
   const {
@@ -14,32 +15,9 @@ const SideBar = props => {
     isFlipped
   } = props
 
-  const sortParticipants = pParticipants => {
-    if (ceremony === "pokerplanning") {
-      return pParticipants.concat().sort((a, b) => {
-        if (b.pokerplanning === "scissor" || a.pokerplanning === undefined)
-          return 1
-        if (a.pokerplanning === "scissor" || b.pokerplanning === undefined)
-          return -1
-        return b.pokerplanning - a.pokerplanning
-      })
-    }
-    const ordering = {
-      XS: 1,
-      S: 2,
-      M: 3,
-      L: 4,
-      XL: 5,
-      XXL: 6
-    }
-    return pParticipants.concat().sort((a, b) => {
-      return ordering[b.tshirt] - ordering[a.tshirt]
-    })
-  }
-
   let participantsToRender = participants
   if (!isFlipped) {
-    participantsToRender = sortParticipants(participants)
+    participantsToRender = sortParticipants(participants, ceremony)
   }
 
   return (

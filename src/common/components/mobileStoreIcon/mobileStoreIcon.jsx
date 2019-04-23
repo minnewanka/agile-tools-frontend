@@ -1,13 +1,13 @@
-import React from "react"
-import "./mobileStoreIcon.scss"
-import { ReactComponent as AppleBadgeEN } from "../../../img/apple-badge-en.svg"
-import { ReactComponent as AppleBadgeFR } from "../../../img/apple-badge-fr.svg"
+import React from 'react'
+import './mobileStoreIcon.scss'
+import { ReactComponent as AppleBadgeEN } from '../../../img/apple-badge-en.svg'
+import { ReactComponent as AppleBadgeFR } from '../../../img/apple-badge-fr.svg'
 
 const MobileStoreIcon = ({ locale }) => (
   <div className="badge-container">
     <div className="google-badge-container">
       <a
-        href="https://www.siicanada.com/fr/"
+        href="https://play.google.com/store/apps/details?id=ca.siicanada.agiletools"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -20,11 +20,11 @@ const MobileStoreIcon = ({ locale }) => (
     </div>
     <div className="apple-badge-container">
       <a
-        href="https://www.siicanada.com/fr/"
+        href="https://itunes.apple.com/us/app/urbanspoon/id1454388380"
         target="_blank"
         rel="noopener noreferrer"
       >
-        {locale === "fr" ? (
+        {locale === 'fr' ? (
           <AppleBadgeFR className="apple-badge" />
         ) : (
           <AppleBadgeEN className="apple-badge" />

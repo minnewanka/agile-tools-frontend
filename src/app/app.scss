@@ -20,14 +20,17 @@ html {
   @include responsive(tab-land) {
     font-size: 56.25%;
   }
+
   @include responsive(tab-port) {
     font-size: 50%;
   }
+
   @include responsive(desktop) {
     .row .col.l5ths {
       width: 20%;
     }
   }
+
   @include responsive(big-desktop) {
     font-size: 65%;
   }

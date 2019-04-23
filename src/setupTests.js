@@ -4,9 +4,9 @@
  * @link http://airbnb.io/enzyme/docs/installation/#working-with-react-16
  * @copyright 2017 Airbnb, Inc.
  */
-import "@babel/polyfill"
+import '@babel/polyfill'
 
-const enzyme = require("enzyme")
-const Adapter = require("enzyme-adapter-react-16")
+const enzyme = require('enzyme')
+const Adapter = require('enzyme-adapter-react-16')
 
 enzyme.configure({ adapter: new Adapter() })

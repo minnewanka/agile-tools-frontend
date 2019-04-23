@@ -26,10 +26,10 @@ pipeline {
 
     stage ('Zip application') {
       steps {
-        sh "zip ${env.APP_NAME}-${env.APP_VERSION}.zip dist/*"
+        sh "zip -r ${env.APP_NAME}-${env.APP_VERSION}.zip dist/*"
       }
     }
-    stage ('Save on Nexus') {
+    stage ('Save on Nexus') { 
       steps {
         deployToMavenRepo (
           extractInfos : 'package.json',

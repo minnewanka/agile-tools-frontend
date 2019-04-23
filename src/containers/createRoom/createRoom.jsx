@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './createRoom.scss'
 import { Input, Row } from 'react-materialize'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { createRoom } from '../../services/roomService'
 import ErrorMessage from '../../common/components/errorMessage'
 import Loader from '../../common/components/loader/loader'
@@ -113,9 +113,12 @@ class CreateRoom extends Component {
               </Row>
             </form>
             {this.redirect()}
-            <div className="right-align">
+
+            {/*
+            disable load room for v1
+             <div className="right-align">
               <Link to="/rooms">{translate('redirectLink')}</Link>{' '}
-            </div>
+            </div> */}
           </div>
           <div className="store-badge-text center-align">
             <h5>{translate('textMobile')}</h5>

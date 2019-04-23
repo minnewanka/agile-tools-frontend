@@ -1,6 +1,6 @@
-@import "../../../../common/sass/variables";
-@import "../../../../common/sass/mixin";
-@import "../../../../common/sass/animation";
+@import '../../../../common/sass/variables';
+@import '../../../../common/sass/mixin';
+@import '../../../../common/sass/animation';
 
 .poker-planning-container {
   height: 100%;
@@ -11,17 +11,16 @@
   scroll-snap-align: start;
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 .animation-card-enter {
-  -webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    both;
+  -webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .animation-card-exit {
-  -webkit-animation: slide-out-bottom 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
-    both;
+  -webkit-animation: slide-out-bottom 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
   animation: slide-out-bottom 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 

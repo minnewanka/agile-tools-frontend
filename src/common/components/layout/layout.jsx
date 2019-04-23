@@ -5,7 +5,16 @@ import Footer from '../footer'
 import Feedback from '../feedback'
 
 const Layout = ({ component: Page, roomHeader, ...rest }) => {
-  return <Route {...rest} render={() => [<Page />, <Feedback />, <Footer />]} />
+  return (
+    <Route
+      {...rest}
+      render={() => [
+        <Page key="page" />,
+        <Feedback key="feedback" />,
+        <Footer key="footer" />
+      ]}
+    />
+  )
 }
 
 export default Layout

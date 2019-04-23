@@ -1,6 +1,6 @@
-import React from "react"
-import LangToggle from "./langToggle"
-import { Consumer } from "../../../context"
+import React from 'react'
+import LangToggle from './langToggle'
+import { Consumer } from '../../../context'
 
 const LangToggleConsumer = props => (
   <Consumer>

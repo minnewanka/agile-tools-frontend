@@ -1,0 +1,72 @@
+@import '../../../../common/sass/variables';
+@import '../../../../common/sass/mixin';
+@import '../../../../common/sass/animation';
+
+
+.trafficlight-container {
+  margin: 0 1rem 3rem 1rem;
+  width: 20rem;
+  height: 20rem;
+
+  @include responsive(tab-land) {
+    margin: 0 1rem 8rem 2rem;
+    width: 13rem;
+    height: 13rem;
+  }
+
+  @include responsive(big-desktop) {
+    margin: 0 2rem 4.5rem 2rem;
+  }
+
+  width: 20em;
+  height: 20rem;
+  text-align: center;
+
+
+  .username {
+    display: block;
+    font-size: 1.4rem;
+    white-space: nowrap;
+
+    @include responsive(big-desktop) {
+      font-size: 1.7rem;
+    }
+
+    font-weight: 500;
+    text-align: center;
+    color: $color-blue;
+  }
+
+}
+
+.trafficlight {
+  height: 15rem;
+
+  @include responsive(big-desktop) {
+    height: 18rem;
+  }
+}
+
+.trafficlight-red {
+  #red-light .st3 {
+    fill: red;
+    -webkit-animation: blink-1 0.6s both;
+    animation: blink-1 0.6s both;
+  }
+}
+
+.trafficlight-orange {
+  #orange-light .st3 {
+    fill: orange;
+    -webkit-animation: blink-1 0.6s both;
+    animation: blink-1 0.6s both;
+  }
+}
+
+.trafficlight-green {
+  #green-light .st3 {
+    fill: green;
+    -webkit-animation: blink-1 0.6s both;
+    animation: blink-1 0.6s both;
+  }
+}

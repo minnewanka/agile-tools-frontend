@@ -1,4 +1,4 @@
-@import "../../../../common/sass/variables";
+@import '../../../../common/sass/variables';
 
 .participant-item {
   width: 100%;
@@ -7,11 +7,22 @@
 
   align-items: center;
   justify-content: space-around;
+
   &:hover {
-    background-color: red;
+    background-color: $color-blue;
     color: white;
+
     .deleteIcon {
       visibility: visible;
+      color: red;
+    }
+
+    .participant-vote {
+      color: white;
+    }
+
+    .trafficlight-icon {
+      color: white;
     }
   }
 
@@ -22,15 +33,33 @@
   .participant-item-text {
     min-width: 15rem;
   }
+
   .participant-vote {
     color: $color-blue;
     text-align: center;
     min-width: 4rem;
   }
+
   .scissor-icon {
     font-size: 1em;
-    color: $color-blue;
   }
+
+  .trafficlight-icon {
+    font-size: 1em;
+  }
+
+  .trafficlight-red {
+    color: red;
+  }
+
+  .trafficlight-orange {
+    color: orange;
+  }
+
+  .trafficlight-green {
+    color: green;
+  }
+
   .deleteIcon {
     display: block;
     visibility: hidden;

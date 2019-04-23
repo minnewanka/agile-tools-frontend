@@ -1,6 +1,8 @@
-import React from "react"
-import "./ceremonySelection.scss"
-import { Icon } from "react-materialize"
+import React from 'react'
+import './ceremonySelection.scss'
+import { ReactComponent as PokerPlanningIcon } from '../../../../img/poker-planning-icon.svg'
+import { ReactComponent as TshirtIcon } from '../../../../img/tshirt-icon.svg'
+import { ReactComponent as TrafficIcon } from '../../../../img/trafficlight-icon.svg'
 
 const CeremonySelection = props => {
   const { changeCeremony, ceremony } = props
@@ -10,26 +12,29 @@ const CeremonySelection = props => {
       <div
         role="button"
         className={`ceremony-icon ${
-          ceremony === "pokerplanning" ? "border-white" : ""
+          ceremony === 'pokerplanning' ? 'border-white' : ''
         }`}
-        onClick={() => changeCeremony("pokerplanning")}
+        onClick={() => changeCeremony('pokerplanning')}
       >
-        <div>poker planning</div>
-        <Icon middle className="ceremony-icon">
-          collections
-        </Icon>
+        <PokerPlanningIcon className="pokerplanning" />
       </div>
       <div
         role="button"
         className={`ceremony-icon ${
-          ceremony === "tshirt" ? "border-white" : ""
+          ceremony === 'tshirt' ? 'border-white' : ''
         }`}
-        onClick={() => changeCeremony("tshirt")}
+        onClick={() => changeCeremony('tshirt')}
       >
-        <div>tshirt</div>
-        <Icon middle className="ceremony-icon">
-          cloud
-        </Icon>
+        <TshirtIcon className="tshirt" />
+      </div>
+      <div
+        role="button"
+        className={`ceremony-icon ${
+          ceremony === 'trafficlight' ? 'border-white' : ''
+        }`}
+        onClick={() => changeCeremony('trafficlight')}
+      >
+        <TrafficIcon className="trafficlight" />
       </div>
     </div>
   )
