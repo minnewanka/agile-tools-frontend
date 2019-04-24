@@ -24,6 +24,6 @@
     "roomForm.get.buttonCreate": "Charger",
     "roomForm.get.redirectLink": "Créer une Room",
     "roomForm.get.inputPlaceholder": "Numéro de la room",
-    "roomForm.get.fieldEmptyRoom": "Code la room de room vide"
+    "roomForm.get.fieldEmptyRoom": "Code room vide"
   }
 }
