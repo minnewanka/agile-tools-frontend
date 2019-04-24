@@ -1,0 +1,10 @@
+{
+  "en": {
+    "home.textMobile": "Get mobile app",
+    "home.fieldEmptyRoom": "Empty room name field"
+  },
+  "fr": {
+    "home.textMobile": "Obtenir l'application mobile",
+    "home.fieldEmptyRoom": "Nom de room vide"
+  }
+}

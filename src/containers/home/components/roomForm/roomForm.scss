@@ -1,0 +1,71 @@
+@import '../../../../common/sass/variables';
+@import '../../../../common/sass/mixin';
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgba(88, 85, 85, 0.795);
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgba(88, 85, 85, 0.637);
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: rgba(88, 85, 85, 0.637);
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgba(88, 85, 85, 0.637);
+}
+
+
+@include responsive(big-desktop) {
+  width: 40rem;
+}
+
+/* Button create */
+.center-align {
+  margin-bottom: 1.5rem;
+
+  &.loading {
+    display: none;
+  }
+}
+
+.room-form {
+  width: 100%;
+}
+
+.room-card {
+  .title {
+    margin: 0;
+  }
+
+  border-radius: 3rem;
+  background-color: $color-blue-light;
+  padding: 1.5rem;
+  color: $color-blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .btn-create {
+    background-color: $color-blue;
+    color: white;
+  }
+}
+
+.store-badge-text {
+  margin-top: 2rem;
+  color: white;
+}
+
+.store-badge-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

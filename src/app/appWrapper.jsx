@@ -13,6 +13,7 @@ class AppWrapper extends Component {
     this.state = {
       locale: getDefaultLanguage(),
       messages: allMessages,
+      homePageFormType: 'create',
       rooms: [],
       currentRoom: {
         roomCode: '',
@@ -22,6 +23,7 @@ class AppWrapper extends Component {
         isFlipped: true,
         toggleFlipped: this.toggleFlipped.bind(this)
       },
+      toggleHomePageFormType: this.toggleHomePageFormType.bind(this),
       changeLang: this.changeLang.bind(this),
       formatMessage: this.formatMessage.bind(this),
       loadRooms: this.loadRooms.bind(this),
@@ -59,6 +61,13 @@ class AppWrapper extends Component {
     return messages[locale][`${prefix}.${key}`]
       ? messages[locale][`${prefix}.${key}`]
       : messages[locale][`global.${key}`]
+  }
+
+  toggleHomePageFormType() {
+    const { homePageFormType } = this.state
+    this.setState({
+      homePageFormType: homePageFormType === 'create' ? 'get' : 'create'
+    })
   }
 
   resetVote() {
