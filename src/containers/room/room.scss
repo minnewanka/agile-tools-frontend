@@ -6,6 +6,7 @@ $ceremony-actions-container-height: 10rem;
 $lang-container-height: 10rem;
 $btn-delete-container-height: 10rem;
 $ceremony-radio-container-height: 6rem;
+$ceremony-radio-container-height-small: 2.5rem;
 
 .room-container {
   height: calc(100% - #{$footer-height});
@@ -104,6 +105,10 @@ $ceremony-radio-container-height: 6rem;
 
     .ceremony-radio-container {
       height: $ceremony-radio-container-height;
+
+      @include responsive(tab-port) {
+        height: $ceremony-radio-container-height-small;
+      }
     }
 
     .sidebar-container {
@@ -111,8 +116,9 @@ $ceremony-radio-container-height: 6rem;
       max-height: calc(100% - (#{$lang-container-height} + #{$ceremony-radio-container-height} + #{$btn-delete-container-height}));
       padding: 1rem 2rem;
 
-      @include responsive(phone) {
-        padding: 1rem 0.5rem;
+      @include responsive(tab-port) {
+        max-height: calc(100% - (#{$lang-container-height} + #{$ceremony-radio-container-height-small} + #{$btn-delete-container-height}));
+        padding: 1rem 1rem;
       }
 
       @include responsive(mid-desktop) {
