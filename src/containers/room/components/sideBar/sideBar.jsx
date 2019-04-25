@@ -12,7 +12,8 @@ const SideBar = props => {
     roomName,
     translate,
     participants,
-    isFlipped
+    isFlipped,
+    readOnly
   } = props
 
   let participantsToRender = participants
@@ -37,6 +38,7 @@ const SideBar = props => {
             >
               <li>
                 <ParticipantItem
+                  readOnly={readOnly}
                   participant={participant}
                   isFlipped={isFlipped}
                   ceremony={ceremony}

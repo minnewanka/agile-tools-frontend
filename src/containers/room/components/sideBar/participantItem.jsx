@@ -5,7 +5,7 @@ import { deleteVote } from '../../../../services/voteService'
 import './participantItem.scss'
 
 const ParticipantItem = props => {
-  const { participant, isFlipped, ceremony, translate } = props
+  const { participant, isFlipped, ceremony, translate, readOnly } = props
 
   const Vote = type => {
     switch (type) {
@@ -41,13 +41,15 @@ const ParticipantItem = props => {
           ? translate('voted')
           : Vote(ceremony)}
       </div>
-      <span
-        role="button"
-        className="deleteIcon"
-        onClick={() => deleteVote(participant.username)}
-      >
-        &times;
-      </span>
+      {!readOnly && (
+        <span
+          role="button"
+          className="deleteIcon"
+          onClick={() => deleteVote(participant.username)}
+        >
+          &times;
+        </span>
+      )}
     </div>
   )
 }
