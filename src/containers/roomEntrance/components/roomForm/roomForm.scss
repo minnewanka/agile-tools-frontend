@@ -56,6 +56,16 @@
     background-color: $color-blue;
     color: white;
   }
+
+  .toggleForm {
+    &:active {
+      background-color: $color-blue-light;
+    }
+  }
+
+  .title {
+    margin: 0;
+  }
 }
 
 .store-badge-text {

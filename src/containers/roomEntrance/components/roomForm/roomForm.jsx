@@ -19,7 +19,11 @@ const RoomForm = props => {
 
   return (
     <Consumer>
-      {({ formatMessage, homePageFormType, toggleHomePageFormType }) => {
+      {({
+        formatMessage,
+        roomEntranceFormType,
+        toggleRoomEntranceFormType
+      }) => {
         const translate = formatMessage('roomForm')
         return (
           <>
@@ -60,10 +64,10 @@ const RoomForm = props => {
               </form>
               <button
                 type="button"
-                className="button-noStyle"
-                onClick={toggleHomePageFormType}
+                className="button-noStyle toggleForm"
+                onClick={toggleRoomEntranceFormType}
               >
-                {homePageFormType === 'create'
+                {roomEntranceFormType === 'create'
                   ? translate('create.redirectLink')
                   : translate('get.redirectLink')}
               </button>

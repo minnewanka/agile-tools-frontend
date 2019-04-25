@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom'
-import Home from '../../../containers/home'
+import RoomEntrance from '../../../containers/roomEntrance'
 // import RoomList from '../../../containers/roomList'
 import Room from '../../../containers/room'
 import Layout from '../layout/layout'
@@ -10,7 +10,7 @@ const Routes = () => {
   return (
     <Router>
       <Switch>
-        <Layout exact path="/" component={Home} />
+        <Layout exact path="/" component={RoomEntrance} />
         <Layout path="/room" component={Room} roomHeader />
         {/* disable feature for v1 
         <Layout path="/rooms" component={RoomList} /> */}

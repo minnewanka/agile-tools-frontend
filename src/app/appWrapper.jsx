@@ -13,7 +13,7 @@ class AppWrapper extends Component {
     this.state = {
       locale: getDefaultLanguage(),
       messages: allMessages,
-      homePageFormType: 'create',
+      roomEntranceFormType: 'create',
       rooms: [],
       currentRoom: {
         roomCode: '',
@@ -23,7 +23,7 @@ class AppWrapper extends Component {
         isFlipped: true,
         toggleFlipped: this.toggleFlipped.bind(this)
       },
-      toggleHomePageFormType: this.toggleHomePageFormType.bind(this),
+      toggleRoomEntranceFormType: this.toggleRoomEntranceFormType.bind(this),
       changeLang: this.changeLang.bind(this),
       formatMessage: this.formatMessage.bind(this),
       loadRooms: this.loadRooms.bind(this),
@@ -64,10 +64,10 @@ class AppWrapper extends Component {
       : messages[locale][`global.${key}`]
   }
 
-  toggleHomePageFormType() {
-    const { homePageFormType } = this.state
+  toggleRoomEntranceFormType() {
+    const { roomEntranceFormType } = this.state
     this.setState({
-      homePageFormType: homePageFormType === 'create' ? 'get' : 'create'
+      roomEntranceFormType: roomEntranceFormType === 'create' ? 'get' : 'create'
     })
   }
 

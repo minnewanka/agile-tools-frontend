@@ -1,18 +1,18 @@
 import React from 'react'
-import './home.scss'
+import './roomEntrance.scss'
 import DefaultHeader from '../../common/components/defaultHeader'
 import CreateRoomForm from './components/roomForm/createRoomForm'
 import LoadRoomForm from './components/roomForm/loadRoomForm'
 import MobileStoreIcon from '../../common/components/mobileStoreIcon'
 
-const Home = props => {
-  const { translate, homePageFormType } = props
+const RoomEntrance = props => {
+  const { translate, roomEntranceFormType } = props
 
   return (
     <div className="main-container">
       <DefaultHeader />
       <div className="card-container">
-        {homePageFormType === 'create' ? (
+        {roomEntranceFormType === 'create' ? (
           <CreateRoomForm translate={translate} />
         ) : (
           <LoadRoomForm translate={translate} />
@@ -27,4 +27,4 @@ const Home = props => {
     </div>
   )
 }
-export default Home
+export default RoomEntrance
