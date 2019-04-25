@@ -48,6 +48,7 @@ class AppWrapper extends Component {
             roomCode: room.get('code'),
             roomName: room.get('name'),
             ceremony: 'pokerplanning',
+            isFlipped: true,
             participants: results
           }
         })

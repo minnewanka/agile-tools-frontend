@@ -39,7 +39,7 @@ class LoadRoomForm extends Component {
         if (room) {
           history.push({
             pathname: '/room',
-            state: { roomCode }
+            state: { roomCode, readOnly: true }
           })
         } else {
           this.setState({ errorServer: 'backend.roomNotFound', loading: false })

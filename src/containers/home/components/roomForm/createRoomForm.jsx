@@ -40,7 +40,7 @@ class CreateRoomForm extends Component {
         const roomCode = room.get('code')
         history.push({
           pathname: '/room',
-          state: { roomCode }
+          state: { roomCode, readOnly: false }
         })
       },
       error => {
