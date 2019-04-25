@@ -13,6 +13,7 @@ class AppWrapper extends Component {
     this.state = {
       locale: getDefaultLanguage(),
       messages: allMessages,
+      roomEntranceFormType: 'create',
       rooms: [],
       currentRoom: {
         roomCode: '',
@@ -22,6 +23,7 @@ class AppWrapper extends Component {
         isFlipped: true,
         toggleFlipped: this.toggleFlipped.bind(this)
       },
+      toggleRoomEntranceFormType: this.toggleRoomEntranceFormType.bind(this),
       changeLang: this.changeLang.bind(this),
       formatMessage: this.formatMessage.bind(this),
       loadRooms: this.loadRooms.bind(this),
@@ -46,6 +48,7 @@ class AppWrapper extends Component {
             roomCode: room.get('code'),
             roomName: room.get('name'),
             ceremony: 'pokerplanning',
+            isFlipped: true,
             participants: results
           }
         })
@@ -59,6 +62,13 @@ class AppWrapper extends Component {
     return messages[locale][`${prefix}.${key}`]
       ? messages[locale][`${prefix}.${key}`]
       : messages[locale][`global.${key}`]
+  }
+
+  toggleRoomEntranceFormType() {
+    const { roomEntranceFormType } = this.state
+    this.setState({
+      roomEntranceFormType: roomEntranceFormType === 'create' ? 'get' : 'create'
+    })
   }
 
   resetVote() {

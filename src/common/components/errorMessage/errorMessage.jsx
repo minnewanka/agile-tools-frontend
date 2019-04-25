@@ -1,15 +1,15 @@
 import React from 'react'
 import './errorMessage.scss'
 
-const ErrorMessage = ({ error, translate }) => {
+const ErrorMessage = ({ message, translate }) => {
   const classNameMessageError = 'card-panel red lighten-1'
   return (
     <div
       className={
-        !error ? `${classNameMessageError} fade-in` : classNameMessageError
+        !message ? `${classNameMessageError} fade-in` : classNameMessageError
       }
     >
-      {translate('backend.connexion')}
+      {translate(message)}
     </div>
   )
 }

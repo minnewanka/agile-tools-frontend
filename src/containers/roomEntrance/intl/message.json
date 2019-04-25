@@ -1,0 +1,10 @@
+{
+  "en": {
+    "roomEntrance.textMobile": "Get mobile app",
+    "roomEntrance.fieldEmptyRoom": "Empty room name field"
+  },
+  "fr": {
+    "roomEntrance.textMobile": "Obtenir l'application mobile",
+    "roomEntrance.fieldEmptyRoom": "Nom de room vide"
+  }
+}

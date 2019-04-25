@@ -1,6 +1,8 @@
 import React from 'react'
 import './ceremonySelection.scss'
-import { Icon } from 'react-materialize'
+import { ReactComponent as PokerPlanningIcon } from '../../../../img/poker-planning-icon.svg'
+import { ReactComponent as TshirtIcon } from '../../../../img/tshirt-icon.svg'
+import { ReactComponent as TrafficIcon } from '../../../../img/trafficlight-icon.svg'
 
 const CeremonySelection = props => {
   const { changeCeremony, ceremony } = props
@@ -14,10 +16,7 @@ const CeremonySelection = props => {
         }`}
         onClick={() => changeCeremony('pokerplanning')}
       >
-        <div>poker planning</div>
-        <Icon middle className="ceremony-icon">
-          collections
-        </Icon>
+        <PokerPlanningIcon className="pokerplanning" />
       </div>
       <div
         role="button"
@@ -26,10 +25,7 @@ const CeremonySelection = props => {
         }`}
         onClick={() => changeCeremony('tshirt')}
       >
-        <div>tshirt</div>
-        <Icon middle className="ceremony-icon">
-          cloud
-        </Icon>
+        <TshirtIcon className="tshirt" />
       </div>
       <div
         role="button"
@@ -38,10 +34,7 @@ const CeremonySelection = props => {
         }`}
         onClick={() => changeCeremony('trafficlight')}
       >
-        <div>traffic light</div>
-        <Icon middle className="ceremony-icon">
-          cloud
-        </Icon>
+        <TrafficIcon className="trafficlight" />
       </div>
     </div>
   )

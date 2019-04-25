@@ -74,14 +74,16 @@ class Room extends Component {
             >
               {isFlipped ? translate('buttonReveal') : translate('buttonHide')}
             </button>
-            <button
-              type="button"
-              className="button-default-style btn-room-reset"
-              waves="light"
-              onClick={resetVote}
-            >
-              {translate('buttonReset')}
-            </button>
+            {!state.readOnly && (
+              <button
+                type="button"
+                className="button-default-style btn-room-reset"
+                waves="light"
+                onClick={resetVote}
+              >
+                {translate('buttonReset')}
+              </button>
+            )}
           </div>
         </div>
         <div className="right-container">
@@ -101,7 +103,7 @@ class Room extends Component {
           </div>
           <div className="sidebar-container" />
           <div className="btn-delete-container">
-            <DeleteRoomModal roomCode={roomCode} />
+            {!state.readOnly && <DeleteRoomModal roomCode={roomCode} />}
           </div>
         </div>
       </div>

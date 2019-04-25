@@ -1,0 +1,29 @@
+{
+  "en": {
+
+    "roomForm.create.title": "Create a Room",
+    "roomForm.create.buttonCreate": "Create",
+    "roomForm.create.redirectLink": "Join existing Room",
+    "roomForm.create.inputPlaceholder": "e.g. name of your project",
+    "roomForm.create.fieldEmptyRoom": "Empty room name field",
+
+    "roomForm.get.title": "Join a Room",
+    "roomForm.get.buttonCreate": "Join",
+    "roomForm.get.redirectLink": "Create new Room",
+    "roomForm.get.inputPlaceholder": "Room number",
+    "roomForm.get.fieldEmptyRoom": "Empty room code field"
+  },
+  "fr": {
+    "roomForm.create.title": "Créer une Room",
+    "roomForm.create.buttonCreate": "Créer",
+    "roomForm.create.redirectLink": "Joindre une room existante",
+    "roomForm.create.inputPlaceholder": "par ex. nom de votre projet",
+    "roomForm.create.fieldEmptyRoom": "Nom de room vide",
+
+    "roomForm.get.title": "Joindre une Room",
+    "roomForm.get.buttonCreate": "Joindre",
+    "roomForm.get.redirectLink": "Créer une nouvelle Room",
+    "roomForm.get.inputPlaceholder": "Numéro de la room",
+    "roomForm.get.fieldEmptyRoom": "Code room vide"
+  }
+}

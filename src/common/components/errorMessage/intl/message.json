@@ -1,8 +1,10 @@
 {
   "en": {
-    "errorMessage.backend.connexion": "An error occured during the creation of the room. Please try again :-)"
+    "errorMessage.backend.connexion": "An error occured during the creation of the room. Please try again :-)",
+    "errorMessage.backend.roomNotFound": "Cannot Load room, invalid code or room has been deleted."
   },
   "fr": {
-    "errorMessage.backend.connexion": "Une erreur est survenue lors de la création de la room . Veuillez réessayer :-)"
+    "errorMessage.backend.connexion": "Une erreur est survenue lors de la création de la room . Veuillez réessayer :-)",
+    "errorMessage.backend.roomNotFound": "Impossible de charger la room, code invalide ou la room à été supprimée."
   }
 }
