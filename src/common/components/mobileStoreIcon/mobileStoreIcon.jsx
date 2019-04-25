@@ -20,7 +20,7 @@ const MobileStoreIcon = ({ locale }) => (
     </div>
     <div className="apple-badge-container">
       <a
-        href="https://itunes.apple.com/us/app/urbanspoon/id1454388380"
+        href="https://itunes.apple.com/us/app/agile-tools/id1454388380"
         target="_blank"
         rel="noopener noreferrer"
       >
