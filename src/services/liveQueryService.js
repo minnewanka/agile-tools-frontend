@@ -1,8 +1,8 @@
 import Parse from 'parse'
 
-const initLiveQuery = (parseClass, pRoomCode) => {
+const initLiveQuery = (parseClass, field, value) => {
   const query = new Parse.Query(parseClass)
-  query.equalTo('roomCode', pRoomCode)
+  query.equalTo(field, value)
   return query.subscribe()
 }
 

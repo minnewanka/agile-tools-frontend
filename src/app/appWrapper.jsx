@@ -3,7 +3,12 @@ import Parse from 'parse'
 import App from './app'
 import allMessages from '../common/utils/IntlUtils'
 import { Provider } from '../context/index'
-import { getRoom, getRooms, deleteRoom } from '../services/roomService'
+import {
+  getRoom,
+  getRooms,
+  deleteRoom,
+  updateRoomField
+} from '../services/roomService'
 import {
   initLiveQuery,
   subscriptionOnCreate,
@@ -41,6 +46,16 @@ class AppWrapper extends Component {
     this.onVoteCreate = this.onVoteCreate.bind(this)
     this.onVoteUpdate = this.onVoteUpdate.bind(this)
     this.onVoteDelete = this.onVoteDelete.bind(this)
+
+    this.onRoomUpdate = this.onRoomUpdate.bind(this)
+  }
+
+  onRoomUpdate(object) {
+    const { currentRoom } = this.state
+    const ceremony = object.get('ceremony')
+    this.setState({
+      currentRoom: { ...currentRoom, ceremony }
+    })
   }
 
   onVoteCreate(object) {
@@ -101,16 +116,23 @@ class AppWrapper extends Component {
             ...currentRoom,
             roomCode: room.get('code'),
             roomName: room.get('name'),
-            ceremony: 'pokerplanning',
+            ceremony: room.get('ceremony'),
             isFlipped: true,
             participants: results
           }
         })
       })
-      const subscription = initLiveQuery('Vote', room.get('code'))
-      subscriptionOnCreate(subscription, this.onVoteCreate)
-      subscriptionOnUpdate(subscription, this.onVoteUpdate)
-      subscriptionOnDelete(subscription, this.onVoteDelete)
+      const subscriptionVote = initLiveQuery(
+        'Vote',
+        'roomCode',
+        room.get('code')
+      )
+      subscriptionOnCreate(subscriptionVote, this.onVoteCreate)
+      subscriptionOnUpdate(subscriptionVote, this.onVoteUpdate)
+      subscriptionOnDelete(subscriptionVote, this.onVoteDelete)
+
+      const subscriptionRoom = initLiveQuery('Room', 'code', room.get('code'))
+      subscriptionOnUpdate(subscriptionRoom, this.onRoomUpdate)
     })
   }
 
@@ -158,9 +180,7 @@ class AppWrapper extends Component {
 
   changeCeremony(ceremony) {
     const { currentRoom } = this.state
-    this.setState({
-      currentRoom: { ...currentRoom, ceremony, isFlipped: true }
-    })
+    updateRoomField(currentRoom.roomCode, 'ceremony', ceremony)
   }
 
   async loadRooms() {
