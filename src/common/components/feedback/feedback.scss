@@ -98,3 +98,15 @@
 .select-style select:focus {
   outline: none;
 }
+
+.actions-button-send {
+  background: $color-blue;
+
+  &:hover {
+    background: $color-blue-light;
+  }
+
+  &:focus {
+    background: $color-blue-light;
+  }
+}
