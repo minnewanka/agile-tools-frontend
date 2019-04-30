@@ -54,4 +54,8 @@ const ParticipantItem = props => {
   )
 }
 
+ParticipantItem.defaultProps = {
+  participant: {}
+}
+
 export default ParticipantItem

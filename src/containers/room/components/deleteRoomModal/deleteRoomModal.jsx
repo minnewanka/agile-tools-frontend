@@ -59,4 +59,8 @@ class DeleteRoomModal extends Component {
   }
 }
 
+DeleteRoomModal.defaultProps = {
+  translate: () => ''
+}
+
 export default DeleteRoomModal

@@ -53,4 +53,8 @@ const SideBar = props => {
   )
 }
 
+SideBar.defaultProps = {
+  participants: []
+}
+
 export default SideBar

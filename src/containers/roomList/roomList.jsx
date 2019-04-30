@@ -58,4 +58,8 @@ class RoomList extends Component {
     )
   }
 }
+
+RoomList.defaultProps = {
+  rooms: []
+}
 export default RoomList

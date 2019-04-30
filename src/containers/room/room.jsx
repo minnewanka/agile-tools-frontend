@@ -113,4 +113,11 @@ class Room extends Component {
   }
 }
 
+Room.defaultProps = {
+  participants: [],
+  location: {},
+  currentRoom: {},
+  translate: () => {}
+}
+
 export default Room
