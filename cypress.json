@@ -1,0 +1,10 @@
+{
+	"baseUrl": "https://sii-agile-tools.herokuapp.com/",
+	"env": {
+		"frontUrl": "https://sii-agile-tools-front.herokuapp.com/",
+		"requestHeaders": {
+			"X-Parse-Application-Id": "SIIAG",
+			"Content-Type": "application/json"
+		}
+	}
+}
