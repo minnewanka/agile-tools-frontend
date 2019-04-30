@@ -4,7 +4,7 @@ import Routes from '../routing'
 import RoomEntrance from '../../../../containers/roomEntrance'
 import Room from '../../../../containers/room'
 import Layout from '../../layout/layout'
-import Page404 from '../../../../common/components/404'
+import Page404 from '../../../../common/components/404/404'
 
 it('smoke test', () => {
   shallow(<Routes />)

@@ -6,8 +6,8 @@ it('smoke test', () => {
   shallow(<Feedback />)
 })
 
-it('should change subject to BUG', () => {
+it('should change subject to COMMENT', () => {
   const wrapper = mount(<Feedback />)
-  wrapper.find('select').simulate('change', { target: { value: 'BUG' } })
-  expect(wrapper.state('subject')).toEqual('BUG')
+  wrapper.find('select').simulate('change', { target: { value: 'COMMENT' } })
+  expect(wrapper.state('subject')).toEqual('COMMENT')
 })
