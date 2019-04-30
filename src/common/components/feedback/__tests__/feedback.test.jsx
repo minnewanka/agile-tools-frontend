@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
-import Feedback from '../Feedback'
+import Feedback from '../feedback'
 
 it('smoke test', () => {
   shallow(<Feedback />)
