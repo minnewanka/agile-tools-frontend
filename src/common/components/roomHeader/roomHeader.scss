@@ -12,8 +12,8 @@
   .roomHeader-logo {
     height: 8rem;
 
-    @include responsive(phone) {
-      height: 5rem;
+    @include responsive(tab-port) {
+      height: 6rem;
     }
 
     cursor: pointer;
@@ -23,6 +23,10 @@
     height: 100%;
     text-align: center;
     font-size: 4rem;
+
+    @include responsive(tab-port) {
+      font-size: 3rem;
+    }
 
     @include responsive(phone) {
       font-size: 2rem;

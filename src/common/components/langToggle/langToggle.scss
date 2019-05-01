@@ -18,4 +18,10 @@
   &:hover {
     transform: scale(1.4);
   }
+
+  @include responsive(tab-port) {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 5rem;
+  }
 }
