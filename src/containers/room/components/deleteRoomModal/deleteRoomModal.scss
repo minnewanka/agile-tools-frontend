@@ -21,6 +21,12 @@
   width: 25%;
   top: 35% !important;
   background-color: $color-blue;
+
+  @include responsive(phone) {
+    width: 60%;
+    top: 35% !important;
+  }
+
   color: white;
 }
 

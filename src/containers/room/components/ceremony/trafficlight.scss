@@ -8,18 +8,25 @@
   width: 20rem;
   height: 20rem;
 
+
   @include responsive(tab-land) {
     margin: 0 1rem 8rem 2rem;
     width: 13rem;
     height: 13rem;
   }
 
+  @include responsive(phone) {
+    margin: 0 2rem 12rem 2rem;
+    width: 7rem;
+    height: 7rem;
+
+  }
+
+
   @include responsive(big-desktop) {
     margin: 0 2rem 4.5rem 2rem;
   }
 
-  width: 20em;
-  height: 20rem;
   text-align: center;
 
 

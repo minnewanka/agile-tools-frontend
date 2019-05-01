@@ -12,6 +12,10 @@
     margin: 0 2rem 2rem 2rem;
   }
 
+  @include responsive(phone) {
+    width: 7rem;
+  }
+
   @include responsive(big-desktop) {
     margin: 0 7rem 15rem 7rem;
   }
@@ -28,6 +32,8 @@
       width: 8rem;
       height: 11.4rem;
     }
+
+
 
     @include responsive(big-desktop) {
       width: 15rem;
