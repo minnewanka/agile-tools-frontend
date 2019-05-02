@@ -131,7 +131,7 @@
 	* @param frontUrl: String - Homepage URL
 	*/
 	Cypress.Commands.add('deleteRoomFromUi', (frontUrl) => {
-		cy.contains('Delete Room').click()
+		cy.get('.btn-delete-container button').click()
 		cy.get('.delete-modal button')
 			.contains('Delete')
 			.click()
