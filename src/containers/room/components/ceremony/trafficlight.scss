@@ -2,12 +2,10 @@
 @import '../../../../common/sass/mixin';
 @import '../../../../common/sass/animation';
 
-
 .trafficlight-container {
   margin: 0 1rem 3rem 1rem;
   width: 20rem;
   height: 20rem;
-
 
   @include responsive(tab-land) {
     margin: 0 1rem 8rem 2rem;
@@ -17,18 +15,15 @@
 
   @include responsive(phone) {
     margin: 0 2rem 12rem 2rem;
-    width: 7rem;
-    height: 7rem;
-
+    width: 5rem;
+    height: 4rem;
   }
-
 
   @include responsive(big-desktop) {
     margin: 0 2rem 4.5rem 2rem;
   }
 
   text-align: center;
-
 
   .username {
     display: block;
@@ -43,12 +38,13 @@
     text-align: center;
     color: $color-blue;
   }
-
 }
 
 .trafficlight {
   height: 15rem;
-
+  @include responsive(phone) {
+    height: 10rem;
+  }
   @include responsive(big-desktop) {
     height: 18rem;
   }
