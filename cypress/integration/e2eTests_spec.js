@@ -12,7 +12,7 @@ describe('End-to-End tests', function () {
 		const roomName = "Cypress room"
 		const usernameStr = "Cypress User"
 		const voteValue = "3"
-		var userAndRoom = {}
+		var userAndRoom = { username: usernameStr, roomCode: "" }
 		var userId = { objectId: "" }
 		var roomId = { objectId: "" }
 		
