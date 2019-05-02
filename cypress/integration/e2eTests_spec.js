@@ -14,30 +14,12 @@ describe('End-to-End tests', function () {
 		const voteValue = "3"
 		var userAndRoom = {}
 		var userId = { objectId: "" }
+		var roomId = { objectId: "" }
 		
 		// Accesses web app
 		cy.visit(frontUrl)
 		
-		// Creates a new room
-		cy.get('.validate')
-			.type(roomName)
-		cy.get('button').contains('Create')
-			.click()
-			
-		// Gets the roomCode
-		cy.route({
-			method: 'POST', 
-			url: '/parse/classes/Room', 
-			onResponse: (response) => {
-				userAndRoom.username = usernameStr;
-				userAndRoom.roomCode = response.response.body.results[0].code;
-			},
-		}).as('getCreatedRoom')
-		cy.wait('@getCreatedRoom')
-		
-		// Checks redirection and if room name is displayed
-		cy.url().should('include', '/room')
-		cy.contains(roomName)
+		cy.createRoomFromHomepage(roomName, userAndRoom, roomId)
 		
 		// Joins the newly created room and vote
 		cy.joinRoom(userAndRoom, userId)
@@ -133,6 +115,7 @@ describe('End-to-End tests', function () {
 		cy.createRoom(roomName, userAndRoom, roomId)
 		cy.deleteRoom(roomId)
 
+		// Checks that joining the deleted room through HTTP request returns error
 		cy.joinRoom(userAndRoom, userId, false)
 		.then((resp) => {
 			expect(resp.status).to.eq(400)
