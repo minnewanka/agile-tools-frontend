@@ -43,7 +43,7 @@ class DeleteRoomModal extends Component {
             <Button
               modal="close"
               waves="light"
-              className="red actions-button-delete"
+              className="actions-button-delete"
               onClick={() => {
                 this.deleteRoomAndRedirect(roomCode)
               }}

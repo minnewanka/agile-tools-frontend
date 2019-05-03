@@ -4,24 +4,44 @@
   margin: 0.5rem;
   color: white;
   background-color: rgb(255, 0, 0);
+
   &:hover {
     background-color: white;
-    color: rgba(255, 0, 0, 0.726);
+    color: blue;
   }
+
   &:focus {
     background-color: rgb(255, 0, 0);
     color: #fff;
   }
+
+
 }
+
 .delete-modal {
   width: 25%;
   top: 35% !important;
   background-color: $color-blue;
   color: white;
 }
+
 .actions-buttons-container {
   display: flex;
   justify-content: flex-end;
+
+  .actions-button-delete {
+
+    background: $color-red;
+
+    &:hover {
+      background: $color-red-light;
+    }
+
+    &:focus {
+      background: $color-red-light;
+    }
+
+  }
 }
 
 .modal .modal-footer .btn,
