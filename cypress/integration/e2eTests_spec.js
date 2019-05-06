@@ -123,12 +123,15 @@ describe('End-to-End tests', function () {
 			expect(resp.body.error.code).to.eq('ERR-005')
 		})
 
+		/** 
+		 * Commented because WIP
 		// Accesses web app and tries to join the deleted room
 		cy.visit(frontUrl)
 		cy.joinExistingRoom(userAndRoom)
 
 		// Checks that error message is displayed
 		cy.get('.card-panel').contains('Cannot Load room, invalid code or room has been deleted.')
+		*/
 	})
 	
 	it('Changes language', () => {
@@ -224,7 +227,7 @@ describe('End-to-End tests', function () {
 		})
 	})
 	
-	it('Joins a existing room as read-only user', () => {
+	it.skip('Joins a existing room as read-only user', () => { // Test skipped because WIP
 		// Inits test data
 		const roomName = "Cypress room"
 		const usernameStr = "Cypress User"
