@@ -35,7 +35,7 @@ const filterTshirt = (pParticipants, operator) => {
       ]
 
     default:
-      return console.log('filterTshirt : filterPokerplanning')
+      return console.log('Default case')
   }
 }
 
