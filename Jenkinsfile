@@ -3,10 +3,7 @@ pipeline {
   agent any
   environment { 
         APP_NAME = 'agile-frontend'
-        APP_VERSION = """${sh(
-                returnStdout: true,
-                script: 'npm run get-version'
-            )}"""
+        APP_VERSION = '1.0.1-SNAPSHOT'
     }
 
   stages {
