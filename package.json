@@ -1,6 +1,6 @@
 {
   "name": "agile-tools-frontend",
-  "version": "1.0.1",
+  "version": "1.0.1-SNAPSHOT",
   "private": true,
   "dependencies": {
     "@babel/polyfill": "^7.4.0",

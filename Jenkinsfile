@@ -3,7 +3,10 @@ pipeline {
   agent any
   environment { 
         APP_NAME = 'agile-frontend'
-        APP_VERSION = '1.0.0-SNAPSHOT'
+        APP_VERSION = """${sh(
+                returnStdout: true,
+                script: 'npm run get-version'
+            )}"""
     }
 
   stages {
@@ -15,6 +18,17 @@ pipeline {
         withFolderProperties {
           buildInit()
         }
+      }
+    }
+  stage ('set local environnement variable') {
+     when {
+       not {
+           branch 'master'
+       }
+    }
+      steps {
+        // Create environmment variable for docker environnement
+       sh 'echo -e "REACT_APP_PARSE_SERVER=agile-tools-backend/parse\nREACT_APP_APP_ID=DOCKER_AGILE_TOOLS" > .env.production.local'
       }
     }
 
