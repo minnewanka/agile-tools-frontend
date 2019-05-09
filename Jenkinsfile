@@ -55,5 +55,15 @@ pipeline {
         )
       }
     }
+    stage ('run docker') {
+      steps {
+        script {
+                sh 'cd docker && \
+                docker-compose down -v && \
+                docker build -f Dockerfile . -t  agile-tools-frontend --network=host && \
+                docker-compose up -d --force-recreate'
+        }
+      }
+    }
   }
 }
