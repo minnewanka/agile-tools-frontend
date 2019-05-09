@@ -32,10 +32,10 @@ services:
       - forge_network
     environment:
       VIRTUAL_HOST: agile-tools.forge.labsii.loc
-  
 
 networks:
   forge_network:
     external: true
 
-volumes: mongodb:
+volumes:
+  mongodb:
