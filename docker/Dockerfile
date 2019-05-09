@@ -19,5 +19,5 @@ RUN /bin/bash /home/last_snapshot.sh ${GROUP_ID} ${ARTIFACT_ID} ${FOLDER} ${REPO
 RUN unzip '*agile-frontend-**.zip' -d /home
 
 WORKDIR /home
-EXPOSE 8088
-CMD pushstate-server -d ./dist -p 8088 -f index.html
+EXPOSE 8080
+CMD pushstate-server -d ./dist -p 8080 -f index.html
