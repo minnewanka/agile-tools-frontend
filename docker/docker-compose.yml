@@ -49,6 +49,7 @@ services:
       PARSE_DASHBOARD_USER_PASSWORD: 'agiletools'
 
 networks:
+  host:
   forge_network:
     external: true
 
