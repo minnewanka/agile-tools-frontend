@@ -47,7 +47,7 @@ services:
       PARSE_DASHBOARD_APP_ID: 'DOCKER_AGILE_TOOLS'
       PARSE_DASHBOARD_USER_ID: 'agiletools'
       PARSE_DASHBOARD_USER_PASSWORD: 'agiletools'
-      PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: true
+      PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: 'true'
 
 networks:
   host:
