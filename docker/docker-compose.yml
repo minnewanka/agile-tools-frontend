@@ -21,7 +21,7 @@ services:
     environment:
       VIRTUAL_HOST: agile-tools-api.forge.labsii.loc
       MONGODB_URI: mongodb://mongodb:27017/dev
-      APP_ID: mongodb://mongodb:27017/dev
+      APP_ID: DOCKER_AGILE_TOOLS
   agile-tools-frontend:
     image: agile-tools-frontend
     container_name: agile-tools-frontend
