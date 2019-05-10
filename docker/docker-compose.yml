@@ -13,7 +13,6 @@ services:
     image: agile-tools-backend
     container_name: agile-tools-backend
     ports:
-      - 8089:8080
       - 1337:1337
     networks:
       - forge_network

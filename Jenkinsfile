@@ -27,7 +27,7 @@ pipeline {
         // Create environmment variable for docker environnement
         script {
           sh 'rm -f .env.production'
-          sh 'echo -e "REACT_APP_PARSE_SERVER=agile-tools-backend/parse\nREACT_APP_APP_ID=DOCKER_AGILE_TOOLS" > .env.production.local'
+          sh 'echo -e "REACT_APP_PARSE_SERVER=http://agile-tools-api.forge.labsii.loc/parse\nREACT_APP_APP_ID=DOCKER_AGILE_TOOLS" > .env.production.local'
         }
       }
     }
