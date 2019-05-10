@@ -4,7 +4,7 @@ FROM node:latest
 ENV NEXUS_URL=http://nexus.forge.labsii.loc
 ENV GROUP_ID=com.siicanada.appagile
 ENV ARTIFACT_ID=agile-frontend
-ENV FOLDER=1.0.0-SNAPSHOT
+ENV FOLDER=1.0.1-SNAPSHOT
 ENV REPOSITORY=maven-snapshots
 ENV TYPE=zip
 
