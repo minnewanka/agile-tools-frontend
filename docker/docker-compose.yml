@@ -38,14 +38,16 @@ services:
     ports:
       - 4040:4040
     networks:
+      - host
       - forge_network
     environment:
-      VIRTUAL_HOST: agile-tools-parse.forge.labsii.loc
+      VIRTUAL_HOST: agile-tools-dashboard.forge.labsii.loc
       PARSE_DASHBOARD_SERVER_URL: 'http://agile-tools-api.forge.labsii.loc/parse'
       PARSE_DASHBOARD_MASTER_KEY: 'hfeF6VLfv4RyepD'
       PARSE_DASHBOARD_APP_ID: 'DOCKER_AGILE_TOOLS'
       PARSE_DASHBOARD_USER_ID: 'agiletools'
       PARSE_DASHBOARD_USER_PASSWORD: 'agiletools'
+
 networks:
   forge_network:
     external: true
