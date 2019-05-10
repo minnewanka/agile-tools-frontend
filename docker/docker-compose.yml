@@ -22,6 +22,7 @@ services:
       VIRTUAL_HOST: agile-tools-api.forge.labsii.loc
       MONGODB_URI: mongodb://mongodb:27017/dev
       APP_ID: DOCKER_AGILE_TOOLS
+      MASTER_KEY: hfeF6VLfv4RyepD
   agile-tools-frontend:
     image: agile-tools-frontend
     container_name: agile-tools-frontend
@@ -31,7 +32,20 @@ services:
       - forge_network
     environment:
       VIRTUAL_HOST: agile-tools.forge.labsii.loc
-
+  parse-dashboard:
+    image: parseplatform/parse-dashboard
+    container_name: parse-dashboard
+    ports:
+      - 4040:4040
+    networks:
+      - forge_network
+    environment:
+      VIRTUAL_HOST: agile-tools-parse.forge.labsii.loc
+      PARSE_DASHBOARD_SERVER_URL: 'http://agile-tools-api.forge.labsii.loc/parse'
+      PARSE_DASHBOARD_MASTER_KEY: 'hfeF6VLfv4RyepD'
+      PARSE_DASHBOARD_APP_ID: 'DOCKER_AGILE_TOOLS'
+      PARSE_DASHBOARD_USER_ID: 'agiletools'
+      PARSE_DASHBOARD_USER_PASSWORD: 'agiletools'
 networks:
   forge_network:
     external: true
