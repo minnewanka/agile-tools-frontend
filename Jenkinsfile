@@ -74,7 +74,7 @@ pipeline {
           passwordVariable: 'PASSWORD',
           usernameVariable: 'USER')]) {
            // try{
-              sh 'npx cypress run' 
+              sh 'npm run cypress:all' 
            // } catch(Exception e) {
            //   sh 'cypress_send.sh ${USER} ${PASSWORD} e2eTests_spec ${BUILD_NUMBER}'
            // }// fin de try catch
