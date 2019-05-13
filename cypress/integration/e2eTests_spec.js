@@ -12,32 +12,14 @@ describe('End-to-End tests', function () {
 		const roomName = "Cypress room"
 		const usernameStr = "Cypress User"
 		const voteValue = "3"
-		var userAndRoom = {}
+		var userAndRoom = { username: usernameStr, roomCode: "" }
 		var userId = { objectId: "" }
+		var roomId = { objectId: "" }
 		
 		// Accesses web app
 		cy.visit(frontUrl)
 		
-		// Creates a new room
-		cy.get('.validate')
-			.type(roomName)
-		cy.get('button').contains('Create')
-			.click()
-			
-		// Gets the roomCode
-		cy.route({
-			method: 'POST', 
-			url: '/parse/classes/Room', 
-			onResponse: (response) => {
-				userAndRoom.username = usernameStr;
-				userAndRoom.roomCode = response.response.body.results[0].code;
-			},
-		}).as('getCreatedRoom')
-		cy.wait('@getCreatedRoom')
-		
-		// Checks redirection and if room name is displayed
-		cy.url().should('include', '/room')
-		cy.contains(roomName)
+		cy.createRoomFromHomepage(roomName, userAndRoom, roomId)
 		
 		// Joins the newly created room and vote
 		cy.joinRoom(userAndRoom, userId)
@@ -84,11 +66,12 @@ describe('End-to-End tests', function () {
 		const newVoteValue = "2"
 		var userAndRoom = { username: usernameStr, roomCode: "" }
 		var userId = { objectId: "" }
+		var roomId = { objectId: "" }
 		
 		// Accesses web app
 		cy.visit(frontUrl)
 		
-		cy.createRoomFromHomepage(roomName, userAndRoom)
+		cy.createRoomFromHomepage(roomName, userAndRoom, roomId)
 		
 		// Joins the newly created room and vote
 		cy.joinRoom(userAndRoom, userId)
@@ -118,7 +101,7 @@ describe('End-to-End tests', function () {
 			.click()
 		cy.isUserVoteValueDisplayed(usernameStr, newVoteValue)
 		
-		cy.deleteRoomFromUi(frontUrl)
+		cy.deleteRoom(roomId)
 	})
 	
 	it('Tries to join a deleted room', () => {
@@ -127,20 +110,28 @@ describe('End-to-End tests', function () {
 		const usernameStr = "Cypress User"
 		var userAndRoom = { username: usernameStr, roomCode: "" }
 		var userId = { objectId: "" }
+		var roomId = { objectId: "" }
 		
-		// Accesses web app
-		cy.visit(frontUrl)
-		
-		cy.createRoomFromHomepage(roomName, userAndRoom)
-		
-		cy.deleteRoomFromUi(frontUrl)
-		
+		cy.createRoom(roomName, userAndRoom, roomId)
+		cy.deleteRoom(roomId)
+
+		// Checks that joining the deleted room through HTTP request returns error
 		cy.joinRoom(userAndRoom, userId, false)
-			.then((resp) => {
-				expect(resp.status).to.eq(400)
-				expect(resp.body.code).to.eq(141)
-				expect(resp.body.error.code).to.eq('ERR-005')
-			})
+		.then((resp) => {
+			expect(resp.status).to.eq(400)
+			expect(resp.body.code).to.eq(141)
+			expect(resp.body.error.code).to.eq('ERR-005')
+		})
+
+		/** 
+		 * Commented because WIP
+		// Accesses web app and tries to join the deleted room
+		cy.visit(frontUrl)
+		cy.joinExistingRoom(userAndRoom)
+
+		// Checks that error message is displayed
+		cy.get('.card-panel').contains('Cannot Load room, invalid code or room has been deleted.')
+		*/
 	})
 	
 	it('Changes language', () => {
@@ -148,6 +139,7 @@ describe('End-to-End tests', function () {
 		const roomName = "Cypress room"
 		const usernameStr = "Cypress User"
 		var userAndRoom = { username: usernameStr, roomCode: "" }
+		var roomId = { objectId: "" }
 		
 		// Accesses web app
 		cy.visit(frontUrl)
@@ -164,18 +156,15 @@ describe('End-to-End tests', function () {
 		// Switches back to English and creates a room
 		cy.get('button').contains(/EN/)
 			.click()
-		cy.createRoomFromHomepage(roomName, userAndRoom)
+		cy.createRoomFromHomepage(roomName, userAndRoom, roomId)
 		
 		// Switches to French and checks if french texts are displayed
 		cy.get('button').contains(/FR/)
 			.click()
 		cy.get('button').contains('Révéler')
 		cy.get('button').contains('Réinitialiser')
-		cy.get('button').contains('Supprimer Room')
 		
-		cy.get('button').contains(/EN/)
-			.click()
-		cy.deleteRoomFromUi(frontUrl)
+		cy.deleteRoom(roomId)
 	})
 
 	it('Checks apps links', () => {
@@ -238,7 +227,7 @@ describe('End-to-End tests', function () {
 		})
 	})
 	
-	it('Joins a existing room as read-only user', () => {
+	it.skip('Joins a existing room as read-only user', () => { // Test skipped because WIP
 		// Inits test data
 		const roomName = "Cypress room"
 		const usernameStr = "Cypress User"
@@ -258,13 +247,7 @@ describe('End-to-End tests', function () {
 		cy.visit(frontUrl)
 		
 		// Join the newly created room
-		cy.contains('Join existing Room')
-			.click()
-		cy.get('.validate').within(($field) => {
-			cy.root().type(userAndRoom.roomCode)
-		})
-		cy.get('button').contains('Join')
-			.click()
+		cy.joinExistingRoom(userAndRoom)
 
 		// Checks redirection and if room name is displayed
 		cy.url().should('include', '/room')

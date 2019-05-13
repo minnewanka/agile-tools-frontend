@@ -81,7 +81,7 @@
 	* @param roomName: String - name of the room
 	* @param userAndRoom: userAndRoom: JSON with 2 keys {username, roomCode} - roomCode value to be set
 	*/
-	Cypress.Commands.add('createRoomFromHomepage', (roomName, userAndRoom) => {
+	Cypress.Commands.add('createRoomFromHomepage', (roomName, userAndRoom, roomId) => {
 		// Creates a new room
 		cy.get('.validate')
 			.type(roomName)
@@ -93,7 +93,8 @@
 			method: 'POST', 
 			url: '/parse/classes/Room', 
 			onResponse: (response) => {
-				userAndRoom.roomCode = response.response.body.results[0].code;
+				userAndRoom.roomCode = response.response.body.results[0].code
+				roomId.objectId = response.response.body.results[0].objectId
 			},
 		}).as('getCreatedRoom')
 		cy.wait('@getCreatedRoom')
@@ -131,7 +132,9 @@
 	* @param frontUrl: String - Homepage URL
 	*/
 	Cypress.Commands.add('deleteRoomFromUi', (frontUrl) => {
-		cy.contains('Delete Room').click()
+		cy.get('.btn-delete-container')
+			.contains('Delete Room')
+			.click()
 		cy.get('.delete-modal button')
 			.contains('Delete')
 			.click()
@@ -151,6 +154,21 @@
 				url: createRoomUrl + roomId.objectId, 
 				headers: requestHeaders
 			})
+	})
+
+	/**
+	 * Joins an existing room
+	 * 
+	 * @param userAndRoom: userAndRoom: JSON with 2 keys {username, roomCode}
+	 */
+	Cypress.Commands.add('joinExistingRoom', (userAndRoom) => {
+		cy.contains('Join existing Room')
+			.click()
+		cy.get('.validate').within(($field) => {
+			cy.root().type(userAndRoom.roomCode)
+		})
+		cy.get('button').contains('Join')
+			.click()
 	})
 //
 // -- This is a child command --
