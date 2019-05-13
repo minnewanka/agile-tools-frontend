@@ -76,7 +76,7 @@ pipeline {
            // try{
               sh 'npm run cypress:all' 
            // } catch(Exception e) {
-           //   sh 'cypress_send.sh ${USER} ${PASSWORD} e2eTests_spec ${BUILD_NUMBER}'
+           //   sh 'zip -r e2eTests_spec_build_${BUILD_NUMBER}.zip screenshots/e2eTests_spec.js/* videos/e2eTests_spec.js.mp4 && curl -v -u ${USER}:${PASSWORD} --upload-file e2eTests_spec_build_${BUILD_NUMBER}.zip http://nexus.forge.labsii.loc/repository/cypress_result/e2eTests_spec_build_${BUILD_NUMBER}.zip'
            // }// fin de try catch
           }// fin de usernamePassword
         }

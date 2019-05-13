@@ -11,7 +11,7 @@ ENV TYPE=zip
 COPY ./scripts/last_snapshot.sh /home
 RUN apt-get update
 RUN npm install -g pushstate-server
-RUN apt-get install -y libxml2-utils libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 xvfb
+RUN apt-get install libxml2-utils
 
 RUN /bin/bash /home/last_snapshot.sh ${GROUP_ID} ${ARTIFACT_ID} ${FOLDER} ${REPOSITORY} ${TYPE} ${NEXUS_URL}
 
