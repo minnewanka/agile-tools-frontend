@@ -74,7 +74,7 @@ pipeline {
           passwordVariable: 'PASSWORD',
           usernameVariable: 'USER')]) {
            // try{
-              sh 'apt-get install -y libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 xvfb && npm run cypress:all' 
+              sh 'npm run cypress:all' 
            // } catch(Exception e) {
            //   sh 'cypress_send.sh ${USER} ${PASSWORD} e2eTests_spec ${BUILD_NUMBER}'
            // }// fin de try catch
