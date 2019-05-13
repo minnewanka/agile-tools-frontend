@@ -4,7 +4,7 @@ services:
     image: mongo:latest
     container_name: 'mongodb'
     ports:
-      - 27018:27018
+      - 27017:27017
     networks:
       - forge_network
     volumes:
@@ -20,7 +20,7 @@ services:
       - mongodb
     environment:
       VIRTUAL_HOST: agile-tools-api.forge.labsii.loc
-      MONGODB_URI: mongodb://mongodb:27018/dev
+      MONGODB_URI: mongodb://mongodb:27017/dev
       APP_ID: DOCKER_AGILE_TOOLS
       MASTER_KEY: hfeF6VLfv4RyepD
   agile-tools-frontend:
