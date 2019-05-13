@@ -65,5 +65,22 @@ pipeline {
         }
       }
     }
+    stage ('launch cypress') {
+      steps {
+        script {
+          withCredentials([
+          usernamePassword(
+          credentialsId: 'dev-siicanada',
+          passwordVariable: 'PASSWORD',
+          usernameVariable: 'USER')]) {
+           # try{
+              sh 'npx cypress run' 
+           # } catch(Exception e) {
+           #   sh 'cypress_send.sh ${USER} ${PASSWORD} e2eTests_spec ${BUILD_NUMBER}'
+           # }// fin de try catch
+          }// fin de usernamePassword
+        }
+      }
+    }
   }
 }
