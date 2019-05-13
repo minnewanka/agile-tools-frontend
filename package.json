@@ -1,6 +1,6 @@
 {
   "name": "agile-tools-frontend",
-  "version": "0.0.1",
+  "version": "1.0.1-SNAPSHOT",
   "private": true,
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
@@ -22,7 +22,8 @@
     "build": "react-scripts build  && mv build dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.js src/**/*.jsx --fix"
+    "lint": "eslint src/**/*.js src/**/*.jsx --fix",
+    "get-version": "awk -F'\"' '/\"version\": \".+\"/{ print $4; exit; }' package.json"
   },
   "browserslist": [
     ">0.2%",

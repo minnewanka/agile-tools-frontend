@@ -12,6 +12,11 @@
     margin: 0 2rem 2rem 2rem;
   }
 
+  @include responsive(phone) {
+    margin: 0 1rem;
+    width: 7rem;
+  }
+
   @include responsive(big-desktop) {
     margin: 0 7rem 15rem 7rem;
   }
@@ -27,6 +32,10 @@
     @include responsive(tab-land) {
       width: 8rem;
       height: 11.4rem;
+    }
+    @include responsive(phone) {
+      width: 6rem;
+      height: 8.5rem;
     }
 
     @include responsive(big-desktop) {

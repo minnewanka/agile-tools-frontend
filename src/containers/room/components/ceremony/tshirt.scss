@@ -10,6 +10,11 @@
     margin: 0 2rem 2rem 2rem;
   }
 
+  @include responsive(phone) {
+    margin: 0 0.5rem 3rem 0.5rem;
+    width: 8rem;
+  }
+
   @include responsive(big-desktop) {
     width: 20rem;
   }
@@ -25,6 +30,9 @@
     font-weight: bold;
     color: $color-blue;
 
+    @include responsive(phone) {
+      top: 3rem;
+    }
     @include responsive(big-desktop) {
       top: 8rem;
       font-size: 2.5rem;

@@ -3,7 +3,7 @@ pipeline {
   agent any
   environment { 
         APP_NAME = 'agile-frontend'
-        APP_VERSION = '1.0.0-SNAPSHOT'
+        APP_VERSION = '1.0.1-SNAPSHOT'
     }
 
   stages {
@@ -14,6 +14,20 @@ pipeline {
         // Such as the teams webhook url
         withFolderProperties {
           buildInit()
+        }
+      }
+    }
+  stage ('set local environnement variable') {
+     when {
+       not {
+           branch 'master'
+       }
+    }
+      steps {
+        // Create environmment variable for docker environnement
+        script {
+          sh 'rm -f .env.production'
+          sh 'echo -e "REACT_APP_PARSE_SERVER=http://agile-tools-api.forge.labsii.loc/parse\nREACT_APP_APP_ID=DOCKER_AGILE_TOOLS" > .env.production.local'
         }
       }
     }
@@ -39,6 +53,16 @@ pipeline {
           packageLocation : './',
           fileType : "zip"
         )
+      }
+    }
+    stage ('run docker') {
+      steps {
+        script {
+                sh 'cd docker && \
+                docker-compose down -v && \
+                docker build -f Dockerfile . -t  agile-tools-frontend --network=host && \
+                docker-compose up -d --force-recreate'
+        }
       }
     }
   }
