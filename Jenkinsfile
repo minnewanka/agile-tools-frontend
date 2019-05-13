@@ -1,6 +1,11 @@
 pipeline {
 
   agent any
+  options {
+    ansiColor('xterm')
+    timeout(time: 15, unit: 'MINUTES')
+    timestamps()
+  }
   environment { 
         APP_NAME = 'agile-frontend'
         APP_VERSION = '1.0.1-SNAPSHOT'
@@ -76,7 +81,7 @@ pipeline {
             try{
               sh 'npm run cypress:all' 
             } catch(Exception e) {
-              sh 'zip -r e2eTests_spec_build_${BUILD_NUMBER}.zip screenshots/e2eTests_spec.js/* videos/e2eTests_spec.js.mp4 && curl -v -u ${USER}:${PASSWORD} --upload-file e2eTests_spec_build_${BUILD_NUMBER}.zip http://nexus.forge.labsii.loc/repository/cypress_result/e2eTests_spec_build_${BUILD_NUMBER}.zip'
+              sh 'zip -r e2eTests_spec_build_${BUILD_NUMBER}.zip cypress/e2eTests_spec.js/* cypress/videos/e2eTests_spec.js.mp4 && curl -v -u ${USER}:${PASSWORD} --upload-file e2eTests_spec_build_${BUILD_NUMBER}.zip http://nexus.forge.labsii.loc/repository/cypress_result/e2eTests_spec_build_${BUILD_NUMBER}.zip'
            }// fin de try catch
           }// fin de usernamePassword
         }
