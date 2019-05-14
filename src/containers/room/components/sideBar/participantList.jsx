@@ -6,12 +6,13 @@ import sortParticipants from './utils'
 import ParticipantItem from './participantItem'
 
 const ParticipantsList = props => {
-  const { participants, isFlipped, ceremony, translate } = props
+  const { participants, isFlipped, ceremony, translate, readOnly } = props
 
   let participantsToRender = participants
   if (!isFlipped) {
     participantsToRender = sortParticipants(participants, ceremony)
   }
+
   return (
     <ul className="participants-list custom-scrollbar">
       <TransitionGroup>
@@ -23,6 +24,7 @@ const ParticipantsList = props => {
           >
             <li>
               <ParticipantItem
+                readOnly={readOnly}
                 participant={participant}
                 isFlipped={isFlipped}
                 ceremony={ceremony}

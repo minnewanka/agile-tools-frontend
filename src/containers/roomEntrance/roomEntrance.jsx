@@ -27,4 +27,9 @@ const RoomEntrance = props => {
     </div>
   )
 }
+
+RoomEntrance.defaultProps = {
+  translate: () => ''
+}
+
 export default RoomEntrance

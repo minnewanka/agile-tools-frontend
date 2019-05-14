@@ -5,6 +5,6 @@
   },
   "fr": {
     "errorMessage.backend.connexion": "Une erreur est survenue lors de la création de la room . Veuillez réessayer :-)",
-    "errorMessage.backend.roomNotFound": "Impossible de charger la room, code invalide ou la room à été supprimée."
+    "errorMessage.backend.roomNotFound": "Impossible de charger la room, code invalide ou la room a été supprimée."
   }
 }

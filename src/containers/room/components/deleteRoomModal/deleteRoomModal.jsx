@@ -23,12 +23,21 @@ class DeleteRoomModal extends Component {
         className="delete-modal"
         header={translate('headerDeleteComfirm') + roomCode}
         trigger={
-          <button
-            type="button"
-            className="button-default-style delete-modal-trigger"
-          >
-            {translate('buttonDelete')}
-          </button>
+          <div>
+            <button
+              type="button"
+              className="button-default-style delete-modal-trigger"
+            >
+              {translate('buttonDelete')}
+            </button>
+            <Button
+              floating
+              small
+              className="delete-modal-trigger-small red"
+              waves="light"
+              icon="delete"
+            />
+          </div>
         }
         actions={
           <div className="actions-buttons-container">
@@ -57,6 +66,10 @@ class DeleteRoomModal extends Component {
       </Modal>
     )
   }
+}
+
+DeleteRoomModal.defaultProps = {
+  translate: () => ''
 }
 
 export default DeleteRoomModal

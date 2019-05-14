@@ -62,4 +62,8 @@ const PokerPlanning = props => {
   )
 }
 
+PokerPlanning.defaultProps = {
+  participants: []
+}
+
 export default PokerPlanning

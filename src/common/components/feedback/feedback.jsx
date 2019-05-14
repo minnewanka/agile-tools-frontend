@@ -189,7 +189,11 @@ class Feedback extends Component {
         </Row>
         <Row>
           <div className="comment-section">
-            <select className="selectionType" onChange={this.handleInputChange}>
+            <select
+              name="subject"
+              className="selectionType"
+              onChange={this.handleInputChange}
+            >
               <option value="COMMENT">{translate('comment')}</option>
               <option value="BUG">{translate('bug')}</option>
             </select>
@@ -213,6 +217,10 @@ class Feedback extends Component {
       </Modal>
     )
   }
+}
+
+Feedback.defaultProps = {
+  translate: () => {}
 }
 
 export default Feedback

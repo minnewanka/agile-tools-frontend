@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Feedback from '..'
+import RoomForm from '../roomForm'
 
 it('smoke test', () => {
-  shallow(<Feedback />)
+  shallow(<RoomForm />)
 })

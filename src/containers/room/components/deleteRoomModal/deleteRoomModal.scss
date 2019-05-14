@@ -1,24 +1,45 @@
 @import '../../../../common/sass/variables';
+@import '../../../../common/sass/mixin';
 
 .delete-modal-trigger {
   margin: 0.5rem;
   color: white;
   background-color: rgb(255, 0, 0);
+
   &:hover {
     background-color: white;
     color: rgba(255, 0, 0, 0.726);
   }
+
   &:focus {
     background-color: rgb(255, 0, 0);
     color: #fff;
   }
+  @include responsive(tab-port) {
+    display: none;
+  }
 }
+.delete-modal-trigger-small {
+  margin: 0.5rem;
+  display: none;
+  @include responsive(tab-port) {
+    display: inline;
+  }
+}
+
 .delete-modal {
   width: 25%;
   top: 35% !important;
   background-color: $color-blue;
+
+  @include responsive(phone) {
+    width: 60%;
+    top: 35% !important;
+  }
+
   color: white;
 }
+
 .actions-buttons-container {
   display: flex;
   justify-content: flex-end;

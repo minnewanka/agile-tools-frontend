@@ -55,6 +55,8 @@ class Room extends Component {
           .length ||
         !isFlipped)
 
+    const readOnly = state ? state.readOnly : true
+
     return (
       <div className="room-container">
         <div className="left-container">
@@ -74,7 +76,7 @@ class Room extends Component {
             >
               {isFlipped ? translate('buttonReveal') : translate('buttonHide')}
             </button>
-            {!state.readOnly && (
+            {!readOnly && (
               <button
                 type="button"
                 className="button-default-style btn-room-reset"
@@ -95,6 +97,7 @@ class Room extends Component {
           </div>
           <div className="sidebar-container">
             <SideBar
+              readOnly={readOnly}
               ceremony={ceremony}
               handleTypeRoom={this.handleTypeRoom}
               participants={currentParticipants}
@@ -103,12 +106,19 @@ class Room extends Component {
           </div>
           <div className="sidebar-container" />
           <div className="btn-delete-container">
-            {!state.readOnly && <DeleteRoomModal roomCode={roomCode} />}
+            {!readOnly && <DeleteRoomModal roomCode={roomCode} />}
           </div>
         </div>
       </div>
     )
   }
+}
+
+Room.defaultProps = {
+  participants: [],
+  location: {},
+  currentRoom: {},
+  translate: () => {}
 }
 
 export default Room

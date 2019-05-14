@@ -11,6 +11,7 @@
 
   @include responsive(tab-port) {
     padding: 0 1rem;
+    flex-direction: column;
   }
 
   .ceremony-icon {

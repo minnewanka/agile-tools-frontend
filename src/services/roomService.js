@@ -14,6 +14,15 @@ const getRoom = code => {
   query.equalTo('code', code)
   return query.first()
 }
+const updateRoomField = async (code, field, value) => {
+  const Room = Parse.Object.extend('Room')
+  const query = new Parse.Query(Room)
+  query.equalTo('code', code)
+  const room = await query.first()
+  room.set(field, value)
+  return room.save()
+}
+
 const deleteRoom = async code => {
   const Room = Parse.Object.extend('Room')
   const query = new Parse.Query(Room)
@@ -34,4 +43,10 @@ const getRooms = async () => {
   return rooms
 }
 
-export { createRoom, getRoom, getRooms, deleteRoom }
+export {
+  createRoom,
+  getRoom,
+  getRooms,
+  deleteRoom,
+  updateRoomField
+}

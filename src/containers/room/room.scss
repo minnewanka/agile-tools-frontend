@@ -2,7 +2,9 @@
 @import '../../common/sass/mixin';
 
 $header-container-height: 10rem;
+$header-container-height-small: 8rem;
 $ceremony-actions-container-height: 10rem;
+$ceremony-actions-container-height-small: 6rem;
 $lang-container-height: 10rem;
 $btn-delete-container-height: 10rem;
 $ceremony-radio-container-height: 6rem;
@@ -15,8 +17,8 @@ $ceremony-radio-container-height-small: 2.5rem;
   .left-container {
     width: 75%;
 
-    @include responsive(phone) {
-      width: 50%;
+    @include responsive(tab-port) {
+      width: 85%;
     }
 
     display: flex;
@@ -24,11 +26,21 @@ $ceremony-radio-container-height-small: 2.5rem;
 
     .header-container {
       height: $header-container-height;
+
+      @include responsive(tab-port) {
+        height: $header-container-height-small;
+      }
     }
 
     .ceremony-container {
+
       flex: auto;
       max-height: calc(100% - (#{$header-container-height} + #{$ceremony-actions-container-height}));
+
+      @include responsive(tab-port) {
+        max-height: calc(100% - (#{$header-container-height-small} + #{$ceremony-actions-container-height-small}));
+      }
+
       padding: 1rem;
     }
 
@@ -38,11 +50,17 @@ $ceremony-radio-container-height-small: 2.5rem;
       justify-content: center;
       align-items: center;
 
+
+
+      @include responsive(tab-port) {
+        height: $ceremony-actions-container-height-small;
+      }
+
       .btn-room-reveal {
         margin: 0 10rem;
 
-        @include responsive(phone) {
-          margin: 0 0.5rem;
+        @include responsive(tab-port) {
+          margin: 0 2rem;
         }
 
         color: white;
@@ -81,11 +99,17 @@ $ceremony-radio-container-height-small: 2.5rem;
   .right-container {
     width: 25%;
 
-    @include responsive(phone) {
-      width: 50%;
+    @include responsive(tab-port) {
+      width: 15%;
     }
 
     background-image: url('../../img/page2.png');
+
+    @include responsive(tab-port) {
+      background-image: none;
+      background-color: $color-blue;
+    }
+
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -97,6 +121,11 @@ $ceremony-radio-container-height-small: 2.5rem;
       align-items: center;
       padding-right: 5rem;
 
+      @include responsive(tab-port) {
+        padding: 0;
+        justify-content: center;
+      }
+
       .lang-toggle {
         background-color: white;
         color: $color-blue;
@@ -107,7 +136,7 @@ $ceremony-radio-container-height-small: 2.5rem;
       height: $ceremony-radio-container-height;
 
       @include responsive(tab-port) {
-        height: $ceremony-radio-container-height-small;
+        flex: auto;
       }
     }
 
@@ -119,6 +148,7 @@ $ceremony-radio-container-height-small: 2.5rem;
       @include responsive(tab-port) {
         max-height: calc(100% - (#{$lang-container-height} + #{$ceremony-radio-container-height-small} + #{$btn-delete-container-height}));
         padding: 1rem 1rem;
+        display: none;
       }
 
       @include responsive(mid-desktop) {

@@ -14,7 +14,8 @@ const SideBar = props => {
     isFlipped,
     translate,
     showStats,
-    toggleStats
+    toggleStats,
+    readOnly
   } = props
 
   const bstatistics = isFlipped ? null : (
@@ -32,21 +33,24 @@ const SideBar = props => {
         </div>
 
         <h5 className="heading2">{roomName}</h5>
-        <div className="contents">
-          {!isFlipped && showStats ? (
-            <ProgressBar participants={participants} ceremony={ceremony} />
-          ) : (
-            <ParticipantsList
-              participants={participants}
-              isFlipped={isFlipped}
-              ceremony={ceremony}
-              translate={translate}
-            />
-          )}
-        </div>
       </div>
+      {!isFlipped && showStats ? (
+        <ProgressBar participants={participants} ceremony={ceremony} />
+      ) : (
+        <ParticipantsList
+          participants={participants}
+          isFlipped={isFlipped}
+          ceremony={ceremony}
+          translate={translate}
+          readOnly={readOnly}
+        />
+      )}
     </div>
   )
+}
+
+SideBar.defaultProps = {
+  participants: []
 }
 
 export default SideBar

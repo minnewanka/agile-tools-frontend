@@ -3,7 +3,18 @@ import Parse from 'parse'
 import App from './app'
 import allMessages from '../common/utils/IntlUtils'
 import { Provider } from '../context/index'
-import { getRoom, getRooms, deleteRoom } from '../services/roomService'
+import {
+  getRoom,
+  getRooms,
+  deleteRoom,
+  updateRoomField
+} from '../services/roomService'
+import {
+  initLiveQuery,
+  subscriptionOnCreate,
+  subscriptionOnUpdate,
+  subscriptionOnDelete
+} from '../services/liveQueryService'
 import { getVotes, resetAllVotes } from '../services/voteService'
 import { getDefaultLanguage, saveLanguage } from '../common/utils'
 
@@ -32,11 +43,68 @@ class AppWrapper extends Component {
       setCurrentRoom: this.setCurrentRoom.bind(this),
       changeCeremony: this.changeCeremony.bind(this),
       resetVote: this.resetVote.bind(this),
-      subscriptionOnCreate: this.subscriptionOnCreate.bind(this),
-      subscriptionOnUpdate: this.subscriptionOnUpdate.bind(this),
-      subscriptionOnDelete: this.subscriptionOnDelete.bind(this),
       toggleStats: this.toggleStats.bind(this)
     }
+    this.onVoteCreate = this.onVoteCreate.bind(this)
+    this.onVoteUpdate = this.onVoteUpdate.bind(this)
+    this.onVoteDelete = this.onVoteDelete.bind(this)
+    this.onRoomUpdate = this.onRoomUpdate.bind(this)
+  }
+
+  onRoomUpdate(object) {
+    const { currentRoom } = this.state
+    const ceremony = object.get('ceremony')
+    this.setState({
+      currentRoom: { ...currentRoom, ceremony }
+    })
+  }
+
+  onVoteCreate(object) {
+    const {
+      currentRoom,
+      currentRoom: { participants }
+    } = this.state
+    const username = object.get('username')
+    this.setState({
+      currentRoom: {
+        ...currentRoom,
+        participants: [...participants, { username }]
+      }
+    })
+  }
+
+  onVoteUpdate(object) {
+    const {
+      currentRoom,
+      currentRoom: { participants }
+    } = this.state
+    const participantToUpdate = {
+      username: object.get('username'),
+      pokerplanning: object.get('pokerplanning'),
+      tshirt: object.get('tshirt'),
+      trafficlight: object.get('trafficlight')
+    }
+    const foundIndex = participants.findIndex(
+      x => x.username === object.get('username')
+    )
+    participants[foundIndex] = participantToUpdate
+
+    this.setState({
+      currentRoom: { ...currentRoom, participants }
+    })
+  }
+
+  onVoteDelete(object) {
+    const {
+      currentRoom,
+      currentRoom: { participants }
+    } = this.state
+    const newParticipants = participants.filter(
+      participant => participant.username !== object.get('username')
+    )
+    this.setState({
+      currentRoom: { ...currentRoom, participants: newParticipants }
+    })
   }
 
   setCurrentRoom(roomCode) {
@@ -49,14 +117,24 @@ class AppWrapper extends Component {
             ...currentRoom,
             roomCode: room.get('code'),
             roomName: room.get('name'),
-            ceremony: 'pokerplanning',
+            ceremony: room.get('ceremony'),
             isFlipped: true,
             participants: results,
             showStats: false
           }
         })
       })
-      this.initLiveQuery(room.get('code'))
+      const subscriptionVote = initLiveQuery(
+        'Vote',
+        'roomCode',
+        room.get('code')
+      )
+      subscriptionOnCreate(subscriptionVote, this.onVoteCreate)
+      subscriptionOnUpdate(subscriptionVote, this.onVoteUpdate)
+      subscriptionOnDelete(subscriptionVote, this.onVoteDelete)
+
+      const subscriptionRoom = initLiveQuery('Room', 'code', room.get('code'))
+      subscriptionOnUpdate(subscriptionRoom, this.onRoomUpdate)
     })
   }
 
@@ -94,60 +172,6 @@ class AppWrapper extends Component {
     this.subscriptionOnDelete(subscription)
   }
 
-  subscriptionOnCreate(subscription) {
-    subscription.on('create', object => {
-      const {
-        currentRoom,
-        currentRoom: { participants }
-      } = this.state
-      const username = object.get('username')
-      this.setState({
-        currentRoom: {
-          ...currentRoom,
-          participants: [...participants, { username }]
-        }
-      })
-    })
-  }
-
-  subscriptionOnUpdate(subscription) {
-    subscription.on('update', object => {
-      const {
-        currentRoom,
-        currentRoom: { participants }
-      } = this.state
-      const participantToUpdate = {
-        username: object.get('username'),
-        pokerplanning: object.get('pokerplanning'),
-        tshirt: object.get('tshirt'),
-        trafficlight: object.get('trafficlight')
-      }
-      const foundIndex = participants.findIndex(
-        x => x.username === object.get('username')
-      )
-      participants[foundIndex] = participantToUpdate
-
-      this.setState({
-        currentRoom: { ...currentRoom, participants }
-      })
-    })
-  }
-
-  subscriptionOnDelete(subscription) {
-    subscription.on('delete', object => {
-      const {
-        currentRoom,
-        currentRoom: { participants }
-      } = this.state
-      const newParticipants = participants.filter(
-        participant => participant.username !== object.get('username')
-      )
-      this.setState({
-        currentRoom: { ...currentRoom, participants: newParticipants }
-      })
-    })
-  }
-
   changeLang() {
     this.setState(({ locale }) => {
       const newLocale = locale === 'fr' ? 'en' : 'fr'
@@ -166,6 +190,7 @@ class AppWrapper extends Component {
         showStats: false
       }
     })
+    updateRoomField(currentRoom.roomCode, 'ceremony', ceremony)
   }
 
   async loadRooms() {
