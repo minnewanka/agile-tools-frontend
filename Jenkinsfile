@@ -84,7 +84,7 @@ pipeline {
               sh 'npm run cypress:all' 
             } catch(Exception e) {
               currentBuild.result="FAILURE"
-              sh 'zip -r ${JOB_NAME}_build_${BUILD_NUMBER}.zip cypress/${TEST_NAME}.js/* cypress/videos/${TEST_NAME}.js.mp4 && curl -v -u ${USER}:${PASSWORD} --upload-file ${JOB_NAME}_build_${BUILD_NUMBER}.zip http://nexus.forge.labsii.loc/repository/cypress_result/${JOB_NAME}_build_${BUILD_NUMBER}.zip'
+              sh 'zip -r ${JOB_BASE_NAME}_build_${BUILD_NUMBER}.zip cypress/${env.TEST_NAME}.js/* cypress/videos/${env.TEST_NAME}.js.mp4 && curl -v -u ${USER}:${PASSWORD} --upload-file ${JOB_BASE_NAME}_build_${BUILD_NUMBER}.zip http://nexus.forge.labsii.loc/repository/cypress_result/${JOB_BASE_NAME}_build_${BUILD_NUMBER}.zip'
            }// fin de try catch
           }// fin de usernamePassword
         }
