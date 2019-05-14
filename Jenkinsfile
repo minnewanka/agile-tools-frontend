@@ -9,7 +9,8 @@ pipeline {
   environment { 
         APP_NAME = 'agile-frontend'
         APP_VERSION = '1.0.1-SNAPSHOT'
-    }
+        TEST_NAME = 'e2eTests_spec'
+  }
 
   stages {
 
@@ -79,13 +80,26 @@ pipeline {
           passwordVariable: 'PASSWORD',
           usernameVariable: 'USER')]) {
             try{
+              currentBuild.result="SUCCESS"
               sh 'npm run cypress:all' 
             } catch(Exception e) {
-              sh 'zip -r e2eTests_spec_build_${BUILD_NUMBER}.zip cypress/e2eTests_spec.js/* cypress/videos/e2eTests_spec.js.mp4 && curl -v -u ${USER}:${PASSWORD} --upload-file e2eTests_spec_build_${BUILD_NUMBER}.zip http://nexus.forge.labsii.loc/repository/cypress_result/e2eTests_spec_build_${BUILD_NUMBER}.zip'
+              currentBuild.result="FAILURE"
+              sh 'zip -r ${JOB_NAME}_build_${BUILD_NUMBER}.zip cypress/${TEST_NAME}.js/* cypress/videos/${TEST_NAME}.js.mp4 && curl -v -u ${USER}:${PASSWORD} --upload-file ${JOB_NAME}_build_${BUILD_NUMBER}.zip http://nexus.forge.labsii.loc/repository/cypress_result/${JOB_NAME}_build_${BUILD_NUMBER}.zip'
            }// fin de try catch
           }// fin de usernamePassword
         }
       }
     }
   }
+  post {
+    always {
+      script {
+        if (currentBuild.result != 'FAILURE') {
+          echo "Pipeline ${JOB_NAME} number ${BUILD_NUMBER} finished successfully"
+        }else{
+          error "Pipeline ${JOB_NAME} number ${BUILD_NUMBER} finished with failure"
+        }// fin de if
+      }// fin de script
+    }//fin de always
+  }//fin de post
 }
