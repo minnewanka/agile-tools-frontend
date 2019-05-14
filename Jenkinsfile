@@ -84,7 +84,7 @@ pipeline {
               sh 'npm run cypress:all' 
             } catch(Exception e) {
               currentBuild.result="FAILURE"
-              sh 'zip -r ${JOB_BASE_NAME}_build_${BUILD_NUMBER}.zip cypress/e2eTests_spec.js/* cypress/videos/e2eTests_spec.js.mp4 && curl -v -u ${USER}:${PASSWORD} --upload-file ${JOB_BASE_NAME}_build_${BUILD_NUMBER}.zip http://nexus.forge.labsii.loc/repository/cypress_result/${JOB_BASE_NAME}_build_${BUILD_NUMBER}.zip'
+              sh "zip -r ${JOB_BASE_NAME}_build_${BUILD_NUMBER}.zip cypress/screenshots/${env.TEST_NAME}.js/* cypress/videos/${env.TEST_NAME}.js.mp4 && curl -v -u ${USER}:${PASSWORD} --upload-file ${JOB_BASE_NAME}_build_${BUILD_NUMBER}.zip http://nexus.forge.labsii.loc/repository/cypress_result/${JOB_BASE_NAME}_build_${BUILD_NUMBER}.zip"
            }// fin de try catch
           }// fin de usernamePassword
         }
@@ -97,7 +97,7 @@ pipeline {
         if (currentBuild.result != 'FAILURE') {
           echo "Pipeline ${JOB_BASE_NAME} number ${BUILD_NUMBER} finished successfully"
         }else{
-          error "Pipeline ${JOB_BASE__NAME} number ${BUILD_NUMBER} finished with failure"
+          error "Pipeline ${JOB_BASE_NAME} number ${BUILD_NUMBER} finished with failure"
         }// fin de if
       }// fin de script
     }//fin de always
