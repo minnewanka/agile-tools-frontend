@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://agile-tools.forge.labsii.loc/",
+  "baseUrl": "http://agile-tools-api.forge.labsii.loc/",
   "env": {
     "frontUrl": "http://agile-tools.forge.labsii.loc/",
     "requestHeaders": {
