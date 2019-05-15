@@ -23,7 +23,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js src/**/*.jsx --fix",
-    "get-version": "awk -F'\"' '/\"version\": \".+\"/{ print $4; exit; }' package.json"
+    "get-version": "awk -F'\"' '/\"version\": \".+\"/{ print $4; exit; }' package.json",
+    "cypress:all": "cypress run"
   },
   "browserslist": [
     ">0.2%",
