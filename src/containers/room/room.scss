@@ -33,12 +33,19 @@ $ceremony-radio-container-height-small: 2.5rem;
     }
 
     .ceremony-container {
-
       flex: auto;
-      max-height: calc(100% - (#{$header-container-height} + #{$ceremony-actions-container-height}));
+      max-height: calc(
+        100% -
+          (#{$header-container-height} + #{$ceremony-actions-container-height})
+      );
 
       @include responsive(tab-port) {
-        max-height: calc(100% - (#{$header-container-height-small} + #{$ceremony-actions-container-height-small}));
+        max-height: calc(
+          100% -
+            (
+              #{$header-container-height-small} + #{$ceremony-actions-container-height-small}
+            )
+        );
       }
 
       padding: 1rem;
@@ -49,8 +56,6 @@ $ceremony-radio-container-height-small: 2.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
-
-
 
       @include responsive(tab-port) {
         height: $ceremony-actions-container-height-small;
@@ -141,22 +146,30 @@ $ceremony-radio-container-height-small: 2.5rem;
     }
 
     .sidebar-container {
+      display: flex;
       flex: auto;
-      max-height: calc(100% - (#{$lang-container-height} + #{$ceremony-radio-container-height} + #{$btn-delete-container-height}));
+      max-height: calc(
+        100% -
+          (
+            #{$lang-container-height} + #{$ceremony-radio-container-height} + #{$btn-delete-container-height}
+          )
+      );
       padding: 1rem 2rem;
 
       @include responsive(tab-port) {
-        max-height: calc(100% - (#{$lang-container-height} + #{$ceremony-radio-container-height-small} + #{$btn-delete-container-height}));
+        max-height: calc(
+          100% -
+            (
+              #{$lang-container-height} + #{$ceremony-radio-container-height-small} +
+                #{$btn-delete-container-height}
+            )
+        );
         padding: 1rem 1rem;
         display: none;
       }
 
       @include responsive(mid-desktop) {
         padding: 1rem 5rem;
-      }
-
-      .sidebar {
-        height: 100%;
       }
     }
 

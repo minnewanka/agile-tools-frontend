@@ -82,7 +82,7 @@ const ProgressBar = props => {
               <div className="tshirt-row fade-in-top">
                 <TshirtFront />
                 <div className="floatTL">
-                  <span>{maxTshirtValue}</span>
+                  <span className="span-tshirt-size">{maxTshirtValue}</span>
                 </div>
                 <span className="tshirt-username">Higher</span>
                 <div />

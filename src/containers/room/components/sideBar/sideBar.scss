@@ -3,12 +3,13 @@
 
 .sideBarContainer {
   background-color: $color-blue-light;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   flex-direction: column;
   border-radius: 1.5rem;
   padding: 1rem;
-  height: 100%;
-
   @include responsive(tab-port) {
     max-height: 100%;
   }
@@ -42,39 +43,31 @@
             filter: saturate(200%);
           }
         }
-
-        @include responsive(tab-port) {
-          padding: 0 0.5rem;
-          margin-bottom: 1rem;
-        }
-
-        .heading1 {
-          @include responsive(tab-port) {
-            font-size: 2rem;
-            display: none;
-          }
-
-          @include responsive(tab-land) {
-            font-size: 2rem;
-          }
-        }
-        .heading2 {
-          @include responsive(tab-port) {
-            font-size: 2rem;
-          }
-
-          @include responsive(tab-land) {
-            font-size: 1.5rem;
-          }
-        }
       }
 
-      .participants-list {
-        overflow: auto;
-        overflow-x: hidden;
-        border: none;
-        color: #606168;
-        font-size: 1.3rem;
+      @include responsive(tab-port) {
+        padding: 0 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .heading1 {
+        @include responsive(tab-port) {
+          font-size: 2rem;
+          display: none;
+        }
+
+        @include responsive(tab-land) {
+          font-size: 2rem;
+        }
+      }
+      .heading2 {
+        @include responsive(tab-port) {
+          font-size: 2rem;
+        }
+
+        @include responsive(tab-land) {
+          font-size: 1.5rem;
+        }
       }
     }
   }

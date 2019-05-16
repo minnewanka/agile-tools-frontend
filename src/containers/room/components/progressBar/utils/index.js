@@ -23,22 +23,12 @@ const filterPokerplanning = (pParticipants, operator) => {
 }
 
 const filterTshirt = (pParticipants, operator) => {
-  const tshirtMapSizeValues = countTshirt(pParticipants)
-  switch (operator) {
-    case 'max':
-      return Object.keys(tshirtMapSizeValues)[
-        Math.max(...Object.values(tshirtMapSizeValues))
-      ]
-    case 'min':
-      return Object.keys(tshirtMapSizeValues)[
-        Math.min(...Object.values(tshirtMapSizeValues))
-      ]
-
-    default:
-      return console.log('Default case')
-  }
+  const tshirtSize = countTshirt(pParticipants)
+  const tshirtSizeMapValue = [...Object.entries(tshirtSize)]
+  return getMinMaxTshirtValue(tshirtSizeMapValue, operator)
 }
 
+// Return an object : Object{ S:value, ...N:Value}
 const countTshirt = pParticipants => {
   const sizeList = ['S', 'M', 'L', 'XL', 'XXL']
   const tshirtMapSizeValues = {}
@@ -47,7 +37,29 @@ const countTshirt = pParticipants => {
       participant => participant.tshirt === sizeList[i]
     ).length
   }
-
   return tshirtMapSizeValues
 }
+
+// Return the letter value for the min max Tshirt Size
+const getMinMaxTshirtValue = (ptshirtSizeMapValue, operator) => {
+  let value
+  let size
+  ptshirtSizeMapValue.forEach(entry => {
+    const psize = entry[0]
+    const pvalue = entry[1]
+    if (operator === 'max') {
+      if (pvalue > value || value === undefined) {
+        value = pvalue
+        size = psize
+      }
+    } else if (operator === 'min') {
+      if (pvalue !== 0 && (pvalue < value || value === undefined)) {
+        value = pvalue
+        size = psize
+      }
+    }
+  })
+  return size
+}
+
 export { filterTrafficLight, filterPokerplanning, filterTshirt, countTshirt }
