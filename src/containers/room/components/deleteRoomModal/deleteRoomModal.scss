@@ -4,24 +4,26 @@
 .delete-modal-trigger {
   margin: 0.5rem;
   color: white;
-  background-color: rgb(255, 0, 0);
+  background-color: $color-red;
 
   &:hover {
-    background-color: white;
-    color: rgba(255, 0, 0, 0.726);
+    background-color: $color-red-light;
   }
 
   &:focus {
-    background-color: rgb(255, 0, 0);
+    background-color: $color-red-light;
     color: #fff;
   }
+
   @include responsive(tab-port) {
     display: none;
   }
 }
+
 .delete-modal-trigger-small {
   margin: 0.5rem;
   display: none;
+
   @include responsive(tab-port) {
     display: inline;
   }
@@ -43,6 +45,20 @@
 .actions-buttons-container {
   display: flex;
   justify-content: flex-end;
+
+  .actions-button-delete {
+    background: $color-red;
+
+    &:hover {
+      background: $color-red-light;
+      box-shadow: none;
+    }
+
+    &:focus {
+      background: $color-red-light;
+      box-shadow: none;
+    }
+  }
 }
 
 .modal .modal-footer .btn,

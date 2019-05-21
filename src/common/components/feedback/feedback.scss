@@ -104,9 +104,11 @@
 
   &:hover {
     background: $color-blue-light;
+    box-shadow: none;
   }
 
   &:focus {
     background: $color-blue-light;
+    box-shadow: none;
   }
 }
