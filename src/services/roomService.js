@@ -28,15 +28,6 @@ const deleteRoom = async code => {
   const query = new Parse.Query(Room)
   query.equalTo('code', code)
   const object = await query.first()
-  if (object) {
-    // Suppression des votes
-    const Vote = Parse.Object.extend('Vote')
-    const queryVote = new Parse.Query(Vote)
-    queryVote.equalTo('roomCode', code)
-    const results = await queryVote.find()
-    await Promise.all(results.map(result => result.destroy()))
-
-  }
   return object.destroy()
 }
 
