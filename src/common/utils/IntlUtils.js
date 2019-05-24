@@ -6,6 +6,7 @@ import sideBarMessages from '../../containers/room/components/sideBar/intl/messa
 import roomMessages from '../../containers/room/intl/message.json'
 import errorMessages from '../components/errorMessage/intl/message.json'
 import footerMessages from '../components/feedback/intl/message.json'
+import privacyPolicyMessages from '../components/privacyPolicy/intl/message.json'
 
 const allMessages = {}
 merge(
@@ -16,7 +17,8 @@ merge(
   roomMessages,
   errorMessages,
   footerMessages,
-  sideBarMessages
+  sideBarMessages,
+  privacyPolicyMessages
 )
 
 export const allLocales = Object.keys(allMessages)
