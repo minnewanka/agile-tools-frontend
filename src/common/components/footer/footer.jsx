@@ -27,4 +27,8 @@ const FooterApp = ({ locale, translate }) => {
   )
 }
 
+FooterApp.defaultProps = {
+  translate: () => {}
+}
+
 export default FooterApp
