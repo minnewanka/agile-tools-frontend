@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './defaultHeader.scss'
 
 import { ReactComponent as LogoBlanc } from '../../../img/logo-by-siicanada-blanc.svg'
-import { ReactComponent as LogoBleu } from '../../../img/logo-by-siicanada-bleu.svg'
 import LangToggle from '../langToggle'
 
 class DefaultHeader extends Component {
@@ -17,14 +16,10 @@ class DefaultHeader extends Component {
   }
 
   render() {
-    const { logoColor } = this.props
+    const { headerStyled } = this.props
     return (
-      <div className="app-header">
-        {logoColor === 'blue' ? (
-          <LogoBleu className="logo-header" onClick={this.redirect} />
-        ) : (
-          <LogoBlanc className="logo-header" onClick={this.redirect} />
-        )}
+      <div className={`${headerStyled ? 'styled-header' : ''} app-header`}>
+        <LogoBlanc className="logo-header" onClick={this.redirect} />
         <LangToggle className="default-header-toggle" />
       </div>
     )
