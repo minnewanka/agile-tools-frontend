@@ -1,0 +1,13 @@
+@import '../../sass/variables';
+
+.privacy-policy {
+  padding: 5rem 0;
+  /* this will center the page */
+  /*  use your width here */
+  min-height: calc(100% - (#{$footer-height} + #{$header-height}));
+  font-size: 1.5rem;
+
+  .title {
+    color: $color-blue;
+  }
+}

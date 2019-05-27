@@ -120,18 +120,12 @@ class Feedback extends Component {
         }
         actions={
           <div className="actions-buttons-container">
-            <Button
-              flat
-              modal="close"
-              waves="light"
-              className="actions-button-cancel"
-              onClick={this.reset}
-            >
+            <Button flat modal="close" waves="light" onClick={this.reset}>
               {translate('btn.cancel')}
             </Button>
             <Button
               waves="light"
-              className="btn-sii"
+              className="actions-button-send"
               onClick={this.handleSubmit}
             >
               {translate('btn.send')}

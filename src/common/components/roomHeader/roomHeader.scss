@@ -16,6 +16,10 @@
       height: 6rem;
     }
 
+    @include responsive(phone) {
+      height: 4rem;
+    }
+
     cursor: pointer;
   }
 

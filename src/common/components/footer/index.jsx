@@ -1,9 +1,14 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import Footer from './footer'
 import { Consumer } from '../../../context'
 
 const FooterConsumer = props => (
-  <Consumer>{({ locale }) => <Footer locale={locale} {...props} />}</Consumer>
+  <Consumer>
+    {({ locale, formatMessage }) => (
+      <Footer translate={formatMessage('privacy')} locale={locale} {...props} />
+    )}
+  </Consumer>
 )
 
-export default FooterConsumer
+export default withRouter(FooterConsumer)

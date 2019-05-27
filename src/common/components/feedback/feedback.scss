@@ -73,6 +73,7 @@
     /* IE 9 */
     -webkit-transform: rotate(-90deg) translateY(3rem) scale(1.2);
     /* Chrome, Safari, Opera */
+    letter-spacing: 2px;
   }
 }
 
@@ -97,4 +98,18 @@
 
 .select-style select:focus {
   outline: none;
+}
+
+.actions-button-send {
+  background: $color-blue;
+
+  &:hover {
+    background: $color-blue-light;
+    box-shadow: none;
+  }
+
+  &:focus {
+    background: $color-blue-light;
+    box-shadow: none;
+  }
 }

@@ -101,7 +101,6 @@ class Room extends Component {
               ceremony={ceremony}
               handleTypeRoom={this.handleTypeRoom}
               participants={currentParticipants}
-              className="sidebar"
             />
           </div>
           <div className="sidebar-container" />

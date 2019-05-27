@@ -55,7 +55,7 @@ class AppWrapper extends Component {
     const { currentRoom } = this.state
     const ceremony = object.get('ceremony')
     this.setState({
-      currentRoom: { ...currentRoom, ceremony }
+      currentRoom: { ...currentRoom, ceremony, isFlipped: true }
     })
   }
 

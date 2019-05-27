@@ -45,9 +45,9 @@ const RoomForm = props => {
                     placeholder={error ? '' : translate(inputData.placeHolder)}
                     error={error ? translate(inputData.errorMessage) : ''}
                     validate
-                    minLength={translate(inputData.minLength)}
-                    maxLength={translate(inputData.maxLength)}
-                    data-length={translate(inputData.maxLength)}
+                    minLength={inputData.minLength}
+                    maxLength={inputData.maxLength}
+                    data-length={inputData.maxLength}
                     onChange={handleInputChange}
                     onFocus={handleFocus}
                   />

@@ -1,10 +1,10 @@
 {
-	"baseUrl": "https://sii-agile-tools.herokuapp.com/",
-	"env": {
-		"frontUrl": "https://sii-agile-tools-front.herokuapp.com/",
-		"requestHeaders": {
-			"X-Parse-Application-Id": "SIIAG",
-			"Content-Type": "application/json"
-		}
-	}
+  "baseUrl": "http://agile-tools-api.forge.labsii.loc/",
+  "env": {
+    "frontUrl": "http://agile-tools.forge.labsii.loc/",
+    "requestHeaders": {
+      "X-Parse-Application-Id": "DOCKER_AGILE_TOOLS",
+      "Content-Type": "application/json"
+    }
+  }
 }
