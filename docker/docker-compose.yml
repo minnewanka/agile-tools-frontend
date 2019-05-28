@@ -14,6 +14,7 @@ services:
     container_name: agile-tools-backend
     ports:
       - 1337:1337
+      - 25:25
     networks:
       - forge_network
     depends_on:
