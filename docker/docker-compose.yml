@@ -48,6 +48,10 @@ services:
       PARSE_DASHBOARD_USER_ID: 'agiletools'
       PARSE_DASHBOARD_USER_PASSWORD: 'agiletools'
       PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: 'true'
+      SMTP_HOST: 'smtp.office365.com'
+      SMTP_PORT: 587
+      SMTP_USER: 'agile-tools@siicanada.com'
+      SMTP_PASSWORD: '@SIIcanada1'
 
 networks:
   host:
