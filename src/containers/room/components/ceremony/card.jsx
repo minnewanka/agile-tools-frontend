@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './card.scss'
 import ReactCardFlip from 'react-card-flip'
 import { ReactComponent as Logo } from '../../../../img/logo-blanc.svg'
-import { ReactComponent as Scissor } from '../../../../img/open-scissors.svg'
 
 class Card extends Component {
   constructor(props) {

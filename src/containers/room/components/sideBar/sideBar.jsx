@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import React, { Component } from 'react'
+import React from 'react'
 import './sideBar.scss'
 import ParticipantsList from './participantList'
 import StatsBar from '../statsBar'
