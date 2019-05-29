@@ -23,6 +23,10 @@ services:
       MONGODB_URI: mongodb://mongodb:27017/dev
       APP_ID: DOCKER_AGILE_TOOLS
       MASTER_KEY: hfeF6VLfv4RyepD
+      SMTP_HOST: 'smtp.office365.com'
+      SMTP_PORT: 587
+      SMTP_USER: 'agile-tools@siicanada.com'
+      SMTP_PASSWORD: '@SIIcanada1'
   agile-tools-frontend:
     image: agile-tools-frontend
     container_name: agile-tools-frontend
@@ -48,10 +52,6 @@ services:
       PARSE_DASHBOARD_USER_ID: 'agiletools'
       PARSE_DASHBOARD_USER_PASSWORD: 'agiletools'
       PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: 'true'
-      SMTP_HOST: 'smtp.office365.com'
-      SMTP_PORT: 587
-      SMTP_USER: 'agile-tools@siicanada.com'
-      SMTP_PASSWORD: '@SIIcanada1'
 
 networks:
   host:
