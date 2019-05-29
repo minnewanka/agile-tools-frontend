@@ -24,6 +24,7 @@ class Card extends Component {
   render() {
     const { isFlipped, vote, username } = this.props
     const { shake } = this.state
+    const voteToDisplay = vote === 'scissor' ? '\u2702' : vote
     return (
       <div
         className={`poker-card-container ${shake ? 'wobble-hor-bottom' : ''}`}
@@ -31,15 +32,9 @@ class Card extends Component {
       >
         <ReactCardFlip isFlipped={isFlipped}>
           <div key="front" className="poker-card card-front">
-            {vote !== 'scissor' ? (
-              <>
-                <span className="content">{vote}</span>
-                <span className="topright">{vote}</span>
-                <span className="bottomleft">{vote}</span>
-              </>
-            ) : (
-              <Scissor className="scissor" />
-            )}
+            <span className="content">{voteToDisplay}</span>
+            <span className="topright">{voteToDisplay}</span>
+            <span className="bottomleft">{voteToDisplay}</span>
           </div>
 
           <div key="back" className="poker-card card-back">

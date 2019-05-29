@@ -1,12 +1,12 @@
 import React from 'react'
 import { Consumer } from '../../../../context'
-import ProgressBar from './progressBar'
+import StatsBar from './statsBar'
 
-const ProgressBarConsumer = props => (
+const StatsBarConsumer = props => (
   <Consumer>
     {({ currentRoom: { roomName, participants, isFlipped } }) => {
       return (
-        <ProgressBar
+        <StatsBar
           roomName={roomName}
           participants={participants}
           isFlipped={isFlipped}
@@ -17,4 +17,4 @@ const ProgressBarConsumer = props => (
   </Consumer>
 )
 
-export default ProgressBarConsumer
+export default StatsBarConsumer

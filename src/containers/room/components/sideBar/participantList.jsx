@@ -2,7 +2,7 @@
 import React from 'react'
 import './participantList.scss'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import sortParticipants from './utils'
+import { sortParticipants } from '../../utils'
 import ParticipantItem from './participantItem'
 
 const ParticipantsList = props => {

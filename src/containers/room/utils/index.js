@@ -11,9 +11,12 @@ const sortParticipants = (pParticipants, ceremony) => {
 
 const sortPokerPlanning = pParticipants => {
   return pParticipants.concat().sort((a, b) => {
-    if (b.pokerplanning === 'scissor' || a.pokerplanning === undefined) return 1
+    if (b.pokerplanning === 'scissor' || a.pokerplanning === undefined) return -1
     if (a.pokerplanning === 'scissor' || b.pokerplanning === undefined)
-      return -1
+      return 1
+    if (b.pokerplanning === '?' || a.pokerplanning === undefined) return -1
+    if (a.pokerplanning === '?' || b.pokerplanning === undefined)
+      return 1
     return b.pokerplanning - a.pokerplanning
   })
 }
@@ -44,4 +47,16 @@ const sortTrafficLight = pParticipants => {
   })
 }
 
-export { sortParticipants as default }
+// Check if participants contains a value for a given ceremony
+const containsCeremonyValue = (pParticipants, ceremony, value) => {
+  if (pParticipants.filter(participant => participant[ceremony] === value).length > 0) {
+    return true
+  }
+  return false
+
+}
+
+export {
+  sortParticipants,
+  containsCeremonyValue
+}

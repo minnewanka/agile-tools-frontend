@@ -8,14 +8,14 @@ const filterPokerplanning = (pParticipants, operator) => {
     case 'max':
       return Math.max(
         ...pParticipants
-          .filter(participant => participant.pokerplanning)
-          .map(participant => Number(participant.pokerplanning))
+        .filter(participant => participant.pokerplanning)
+        .map(participant => Number(participant.pokerplanning))
       )
     case 'min':
       return Math.min(
         ...pParticipants
-          .filter(participant => participant.pokerplanning)
-          .map(participant => Number(participant.pokerplanning))
+        .filter(participant => participant.pokerplanning)
+        .map(participant => Number(participant.pokerplanning))
       )
     default:
       return console.log('Default Case : filterPokerplanning')
@@ -30,7 +30,7 @@ const filterTshirt = (pParticipants, operator) => {
 
 // Return an object : Object{ S:value, ...N:Value}
 const countTshirt = pParticipants => {
-  const sizeList = ['S', 'M', 'L', 'XL', 'XXL']
+  const sizeList = ['XS', 'S', 'M', 'L', 'XL', 'XXL', "?"]
   const tshirtMapSizeValues = {}
   for (let i = 0; i < sizeList.length; i++) {
     tshirtMapSizeValues[sizeList[i]] = pParticipants.filter(
@@ -38,6 +38,18 @@ const countTshirt = pParticipants => {
     ).length
   }
   return tshirtMapSizeValues
+}
+
+// Return an object : Object{ S:value, ...N:Value}
+const countCards = pParticipants => {
+  const sizeList = pParticipants.map(participant => participant.pokerplanning).sort()
+  const cardMapSizeValues = {}
+  for (let i = 0; i < sizeList.length; i++) {
+    cardMapSizeValues[sizeList[i]] = pParticipants.filter(
+      participant => participant.pokerplanning === sizeList[i]
+    ).length
+  }
+  return cardMapSizeValues
 }
 
 // Return the letter value for the min max Tshirt Size
@@ -62,4 +74,10 @@ const getMinMaxTshirtValue = (ptshirtSizeMapValue, operator) => {
   return size
 }
 
-export { filterTrafficLight, filterPokerplanning, filterTshirt, countTshirt }
+export {
+  filterTrafficLight,
+  filterPokerplanning,
+  filterTshirt,
+  countCards,
+  countTshirt
+}
