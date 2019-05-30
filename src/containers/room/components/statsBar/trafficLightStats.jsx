@@ -21,8 +21,32 @@ const TrafficLightStats = ({ participants }) => {
     ]
   }
   return (
-    <div className="fade-in">
-      <Doughnut className="fade-in-top" data={traficChartData} />
+    <div className="doughnut fade-in">
+      <Doughnut
+        className="fade-in-top"
+        data={traficChartData}
+        options={{
+          maintainAspectRatio: false,
+          tooltips: {
+            callbacks: {
+              label(tooltipItem, data) {
+                const dataset = data.datasets[tooltipItem.datasetIndex]
+                /* eslint no-underscore-dangle: 0 */
+                const meta = dataset._meta[Object.keys(dataset._meta)[0]]
+                const { total } = meta
+                const currentValue = dataset.data[tooltipItem.index]
+                const percentage = parseFloat(
+                  ((currentValue / total) * 100).toFixed(1)
+                )
+                return `${currentValue} (${percentage}%)`
+              },
+              title(tooltipItem, data) {
+                return data.labels[tooltipItem[0].index]
+              }
+            }
+          }
+        }}
+      />
     </div>
   )
 }

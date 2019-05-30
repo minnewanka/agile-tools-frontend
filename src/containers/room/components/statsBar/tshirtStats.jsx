@@ -12,9 +12,14 @@ const TshirtStats = ({ participants }) => {
     participants.filter(participant => participant.tshirt !== '?'),
     'tshirt'
   )
-  const maxTshirtValue = participantsSortedByTshirt[0].tshirt
-  const minTshirtValue =
-    participantsSortedByTshirt[participantsSortedByTshirt.length - 1].tshirt
+  let maxTshirtValue
+  let minTshirtValue
+
+  if (participantsSortedByTshirt.length > 0) {
+    maxTshirtValue = participantsSortedByTshirt[0].tshirt
+    minTshirtValue =
+      participantsSortedByTshirt[participantsSortedByTshirt.length - 1].tshirt
+  }
 
   const tshirtNote = countTshirt(participants)
   // remove size with 0 count

@@ -10,9 +10,15 @@ const CardStats = ({ participants }) => {
     participants.filter(participant => !isNaN(participant.pokerplanning)),
     'pokerplanning'
   )
-  const pokerMaxNote = participantsSortedByCard[0].pokerplanning
-  const pokerMinNote =
-    participantsSortedByCard[participantsSortedByCard.length - 1].pokerplanning
+  let pokerMaxNote
+  let pokerMinNote
+  if (participantsSortedByCard.length > 0) {
+    pokerMaxNote = participantsSortedByCard[0].pokerplanning
+    pokerMinNote =
+      participantsSortedByCard[participantsSortedByCard.length - 1]
+        .pokerplanning
+  }
+
   const cardNote = countCards(participants)
 
   // replace scissor string by unicode for labelling
