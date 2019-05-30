@@ -20,7 +20,7 @@ const countTshirt = pParticipants => {
 
 // Return an object : Object{ S:value, ...N:Value}
 const countCards = pParticipants => {
-  const sizeList = pParticipants.map(participant => participant.pokerplanning).sort()
+  const sizeList = pParticipants.filter(participant => participant.pokerplanning).map(participant => participant.pokerplanning).sort()
   const cardMapSizeValues = {}
   for (let i = 0; i < sizeList.length; i += 1) {
     cardMapSizeValues[sizeList[i]] = pParticipants.filter(
