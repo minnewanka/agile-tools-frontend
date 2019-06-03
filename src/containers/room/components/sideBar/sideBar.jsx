@@ -1,54 +1,55 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react'
 import './sideBar.scss'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import ParticipantItem from './participantItem'
-import sortParticipants from './utils'
+import ParticipantsList from './participantList'
+import StatsBar from '../statsBar'
+import { ReactComponent as LogoStats } from '../../../../img/logo-stats.svg'
+import { ReactComponent as LogoReturn } from '../../../../img/arrow-uturn.svg'
 
 const SideBar = props => {
   const {
     ceremony,
     roomCode,
     roomName,
-    translate,
     participants,
     isFlipped,
+    translate,
+    showStats,
+    toggleStats,
     readOnly
   } = props
 
-  let participantsToRender = participants
-  if (!isFlipped) {
-    participantsToRender = sortParticipants(participants, ceremony)
-  }
+  const bstatistics = isFlipped ? null : (
+    <button type="button" className="logo-icon-container" onClick={toggleStats}>
+      {showStats ? (
+        <LogoReturn className="logo-icon" />
+      ) : (
+        <LogoStats className="logo-icon" />
+      )}
+    </button>
+  )
 
   return (
-    <div className="sideBarContainer">
+    <div className="sideBarContainer custom-scrollbar">
       <div className="roomInfo">
-        <h3 className="heading1">Room# {roomCode}</h3>
-        <h5 className="heading2">{roomName}</h5>
-      </div>
+        <div className="firstline">
+          <h3 className="heading1">Room# {roomCode}</h3>
+          {bstatistics}
+        </div>
 
-      <ul className="participants-list custom-scrollbar">
-        <TransitionGroup>
-          {participantsToRender.map(participant => (
-            <CSSTransition
-              timeout={500}
-              classNames="fade"
-              key={`sideBarParticipant${participant.username}`}
-            >
-              <li>
-                <ParticipantItem
-                  readOnly={readOnly}
-                  participant={participant}
-                  isFlipped={isFlipped}
-                  ceremony={ceremony}
-                  translate={translate}
-                />
-              </li>
-            </CSSTransition>
-          ))}
-        </TransitionGroup>
-      </ul>
+        {!showStats && <h5 className="heading2">{roomName}</h5>}
+      </div>
+      {!isFlipped && showStats ? (
+        <StatsBar participants={participants} ceremony={ceremony} />
+      ) : (
+        <ParticipantsList
+          participants={participants}
+          isFlipped={isFlipped}
+          ceremony={ceremony}
+          translate={translate}
+          readOnly={readOnly}
+        />
+      )}
     </div>
   )
 }

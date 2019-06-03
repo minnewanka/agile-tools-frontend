@@ -32,7 +32,8 @@ class AppWrapper extends Component {
         ceremony: 'pokerplanning',
         participants: [],
         isFlipped: true,
-        toggleFlipped: this.toggleFlipped.bind(this)
+        toggleFlipped: this.toggleFlipped.bind(this),
+        showStats: false
       },
       toggleRoomEntranceFormType: this.toggleRoomEntranceFormType.bind(this),
       changeLang: this.changeLang.bind(this),
@@ -41,12 +42,12 @@ class AppWrapper extends Component {
       removeRoom: this.removeRoom.bind(this),
       setCurrentRoom: this.setCurrentRoom.bind(this),
       changeCeremony: this.changeCeremony.bind(this),
-      resetVote: this.resetVote.bind(this)
+      resetVote: this.resetVote.bind(this),
+      toggleStats: this.toggleStats.bind(this)
     }
     this.onVoteCreate = this.onVoteCreate.bind(this)
     this.onVoteUpdate = this.onVoteUpdate.bind(this)
     this.onVoteDelete = this.onVoteDelete.bind(this)
-
     this.onRoomUpdate = this.onRoomUpdate.bind(this)
   }
 
@@ -118,7 +119,8 @@ class AppWrapper extends Component {
             roomName: room.get('name'),
             ceremony: room.get('ceremony'),
             isFlipped: true,
-            participants: results
+            participants: results,
+            showStats: false
           }
         })
       })
@@ -157,7 +159,7 @@ class AppWrapper extends Component {
     } = this.state
     resetAllVotes(roomCode, ceremony)
     this.setState({
-      currentRoom: { ...currentRoom, isFlipped: true }
+      currentRoom: { ...currentRoom, isFlipped: true, showStats: false }
     })
   }
 
@@ -180,6 +182,14 @@ class AppWrapper extends Component {
 
   changeCeremony(ceremony) {
     const { currentRoom } = this.state
+    this.setState({
+      currentRoom: {
+        ...currentRoom,
+        ceremony,
+        isFlipped: true,
+        showStats: false
+      }
+    })
     updateRoomField(currentRoom.roomCode, 'ceremony', ceremony)
   }
 
@@ -209,6 +219,16 @@ class AppWrapper extends Component {
     } = this.state
     this.setState({
       currentRoom: { ...currentRoom, isFlipped: !isFlipped }
+    })
+  }
+
+  toggleStats() {
+    const {
+      currentRoom,
+      currentRoom: { showStats }
+    } = this.state
+    this.setState({
+      currentRoom: { ...currentRoom, showStats: !showStats }
     })
   }
 

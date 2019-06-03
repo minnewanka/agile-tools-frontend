@@ -103,6 +103,7 @@ class Room extends Component {
               participants={currentParticipants}
             />
           </div>
+          <div className="sidebar-container" />
           <div className="btn-delete-container">
             {!readOnly && <DeleteRoomModal roomCode={roomCode} />}
           </div>
