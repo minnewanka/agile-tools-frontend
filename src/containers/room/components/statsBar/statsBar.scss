@@ -92,12 +92,17 @@
     align-items: center;
 
     .card {
-      height: 90px;
-      width: 65px;
+      height: 80px;
+      width: 62px;
 
       @include responsive(tab-land) {
         height: 75px;
         width: 50px;
+      }
+
+      @include responsive(big-desktop) {
+        height: 90px;
+        width: 65px;
       }
 
       display: flex;
