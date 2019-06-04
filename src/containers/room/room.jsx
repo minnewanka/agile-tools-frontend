@@ -93,7 +93,7 @@ class Room extends Component {
             <LangToggle className="lang-toggle" />
           </div>
           <div className="ceremony-radio-container">
-            <CeremonySelection />
+            <CeremonySelection readOnly={readOnly} />
           </div>
           <div className="sidebar-container">
             <SideBar

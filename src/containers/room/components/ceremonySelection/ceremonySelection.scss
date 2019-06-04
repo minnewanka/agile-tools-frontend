@@ -41,7 +41,7 @@
       margin: 1rem;
     }
 
-    &:hover:not(.border-white) {
+    &:hover:not(.border-white):not(.readOnly) {
       cursor: pointer;
       transform: scale(1.4);
     }

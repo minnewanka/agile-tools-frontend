@@ -5,7 +5,7 @@ import { ReactComponent as TshirtIcon } from '../../../../img/tshirt-icon.svg'
 import { ReactComponent as TrafficIcon } from '../../../../img/trafficlight-icon.svg'
 
 const CeremonySelection = props => {
-  const { changeCeremony, ceremony } = props
+  const { changeCeremony, ceremony, readOnly } = props
 
   return (
     <div className="ceremonySelection">
@@ -13,8 +13,8 @@ const CeremonySelection = props => {
         role="button"
         className={`ceremony-icon ${
           ceremony === 'pokerplanning' ? 'border-white' : ''
-        }`}
-        onClick={() => changeCeremony('pokerplanning')}
+        } ${readOnly ? 'readOnly' : ''}`}
+        onClick={!readOnly ? () => changeCeremony('pokerplanning') : null}
       >
         <PokerPlanningIcon className="pokerplanning" />
       </div>
@@ -22,8 +22,8 @@ const CeremonySelection = props => {
         role="button"
         className={`ceremony-icon ${
           ceremony === 'tshirt' ? 'border-white' : ''
-        }`}
-        onClick={() => changeCeremony('tshirt')}
+        } ${readOnly ? 'readOnly' : ''}`}
+        onClick={!readOnly ? () => changeCeremony('tshirt') : null}
       >
         <TshirtIcon className="tshirt" />
       </div>
@@ -31,8 +31,8 @@ const CeremonySelection = props => {
         role="button"
         className={`ceremony-icon ${
           ceremony === 'trafficlight' ? 'border-white' : ''
-        }`}
-        onClick={() => changeCeremony('trafficlight')}
+        } ${readOnly ? 'readOnly' : ''}`}
+        onClick={!readOnly ? () => changeCeremony('trafficlight') : null}
       >
         <TrafficIcon className="trafficlight" />
       </div>
